@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Hexo</title>
+  <title>Blog</title>
   
   
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://yoursite.com/"/>
+  <link href="https://www.blankspace.cn/"/>
   <updated>2018-07-02T14:43:47.569Z</updated>
-  <id>http://yoursite.com/</id>
+  <id>https://www.blankspace.cn/</id>
   
   <author>
-    <name>John Doe</name>
+    <name>liuqidev</name>
     
   </author>
   
@@ -18,8 +18,8 @@
   
   <entry>
     <title>test</title>
-    <link href="http://yoursite.com/2018/07/02/test/"/>
-    <id>http://yoursite.com/2018/07/02/test/</id>
+    <link href="https://www.blankspace.cn/2018/07/02/test/"/>
+    <id>https://www.blankspace.cn/2018/07/02/test/</id>
     <published>2018-07-02T14:43:47.000Z</published>
     <updated>2018-07-02T14:43:47.569Z</updated>
     
@@ -32,8 +32,8 @@
   
   <entry>
     <title>My New Post</title>
-    <link href="http://yoursite.com/2018/07/02/My-New-Post/"/>
-    <id>http://yoursite.com/2018/07/02/My-New-Post/</id>
+    <link href="https://www.blankspace.cn/2018/07/02/My-New-Post/"/>
+    <id>https://www.blankspace.cn/2018/07/02/My-New-Post/</id>
     <published>2018-07-02T14:20:11.000Z</published>
     <updated>2018-07-02T14:20:11.592Z</updated>
     
@@ -46,8 +46,8 @@
   
   <entry>
     <title>Hello World</title>
-    <link href="http://yoursite.com/2018/07/02/hello-world/"/>
-    <id>http://yoursite.com/2018/07/02/hello-world/</id>
+    <link href="https://www.blankspace.cn/2018/07/02/hello-world/"/>
+    <id>https://www.blankspace.cn/2018/07/02/hello-world/</id>
     <published>2018-07-02T14:09:50.584Z</published>
     <updated>2018-07-02T13:54:16.958Z</updated>
     
