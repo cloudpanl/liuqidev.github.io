@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://www.blankspace.cn/2018/07/02/hello-world/</loc>
+    
+    <lastmod>2018-07-03T06:03:20.242Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://www.blankspace.cn/categories/index.html</loc>
     
     <lastmod>2018-07-03T04:39:17.684Z</lastmod>
@@ -12,13 +19,6 @@
     <loc>https://www.blankspace.cn/tags/index.html</loc>
     
     <lastmod>2018-07-03T01:04:00.709Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.blankspace.cn/2018/07/02/hello-world/</loc>
-    
-    <lastmod>2018-07-02T13:54:16.958Z</lastmod>
     
   </url>
   
