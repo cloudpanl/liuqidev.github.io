@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Blog</title>
+  <title>魔法师LQの魔法书</title>
   
-  
+  <subtitle>练习魔法，改变世界.</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.blankspace.cn/"/>
-  <updated>2018-07-02T14:43:47.569Z</updated>
+  <updated>2018-07-02T13:54:16.958Z</updated>
   <id>https://www.blankspace.cn/</id>
   
   <author>
@@ -15,34 +15,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>test</title>
-    <link href="https://www.blankspace.cn/2018/07/02/test/"/>
-    <id>https://www.blankspace.cn/2018/07/02/test/</id>
-    <published>2018-07-02T14:43:47.000Z</published>
-    <updated>2018-07-02T14:43:47.569Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>My New Post</title>
-    <link href="https://www.blankspace.cn/2018/07/02/My-New-Post/"/>
-    <id>https://www.blankspace.cn/2018/07/02/My-New-Post/</id>
-    <published>2018-07-02T14:20:11.000Z</published>
-    <updated>2018-07-02T14:20:11.592Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
-  </entry>
   
   <entry>
     <title>Hello World</title>
