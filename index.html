@@ -173,14 +173,14 @@ ga('send', 'pageview');
     <ul class="post-list">
     
         <li class="post-list-item fade">
-            <article id="post-test"
+            <article id="post-备忘"
   class="article-card article-type-post" itemprop="blogPost">
 
     <div class="post-meta">
         <time class="post-time" title="2018-07-03 16:27:26" datetime="2018-07-03T08:27:26.000Z"  itemprop="datePublished">2018-07-03</time>
 
         
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="categories/web/">web</a></li></ul>
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="categories/Web前端/">Web前端</a></li></ul>
 
 
 
@@ -191,7 +191,7 @@ ga('send', 'pageview');
 
   
     <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="2018/07/03/test/">test</a>
+      <a class="post-title-link" href="2018/07/03/备忘/">本博客基本操作备忘</a>
     </h3>
   
 
@@ -201,38 +201,18 @@ ga('send', 'pageview');
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        测试测试文字：
-幼小，可怜，又无助。
-
-123# i want to flyimport fly i.fly()
-测试图片：
-                
-                    
-                    
-                
-                
-            
-测试视频标签： 
-
-
-
-分享音乐：
-
-
-
-
-
-
+        文章归类和标记比较完整的文章设置：12345678910---layout: page/tags/categoriestitle: xxx                      # 必须，页面名称date: 2018-07-03 16:27:26tags: [Hexo, HTML]categories: [Web前端]description: 描述               # 页面二级标题，描述性文字comments: false/truereward: false/true             # 打赏---
+生成摘要在 Markdown 中加 &lt;!-- more --&gt;
     
 
-        <a href="2018/07/03/test/" class="post-more waves-effect waves-button">
+        <a href="2018/07/03/备忘/" class="post-more waves-effect waves-button">
             阅读全文…
         </a>
     </div>
     
     <div class="post-footer">
         
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="tags/测试/">测试</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="tags/HTML/">HTML</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="tags/Hexo/">Hexo</a></li></ul>
 
     </div>
     
@@ -393,10 +373,10 @@ MathJax.Hub.Queue(function() {
     var OriginTitile = document.title, titleTime;
     document.addEventListener('visibilitychange', function() {
         if (document.hidden) {
-            document.title = '崩溃了，糟糕~ ⌇●﹏●⌇';
+            document.title = '糟糕！崩溃了⌇●﹏●⌇';
             clearTimeout(titleTime);
         } else {
-            document.title = '咦!又好了!(o゜▽゜)o☆';
+            document.title = '咦!又好了(o゜▽゜)o☆';
             titleTime = setTimeout(function() {
                 document.title = OriginTitile;
             },2000);

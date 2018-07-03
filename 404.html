@@ -270,7 +270,7 @@ ga('send', 'pageview');
     <!-- Valine Comments script -->
     <script>
         var GUEST_INFO = ['nick','mail','link'];
-        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+        var guest_info = 'nick,mail'.split(',').filter(function(item){
           return GUEST_INFO.indexOf(item) > -1
         });
         new Valine({
@@ -280,7 +280,7 @@ ga('send', 'pageview');
             appId: "kBrTfD8l4RFzueSAt65hASek-gzGzoHsz",
             appKey: "AFsAfwfHqW6iEHkAc3TjYEzh",
             avatar: "mm",
-            placeholder: "Just go go",
+            placeholder: "我有话想说~",
             guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
             pageSize: "10"
         })
@@ -471,10 +471,10 @@ MathJax.Hub.Queue(function() {
     var OriginTitile = document.title, titleTime;
     document.addEventListener('visibilitychange', function() {
         if (document.hidden) {
-            document.title = '崩溃了，糟糕~ ⌇●﹏●⌇';
+            document.title = '糟糕！崩溃了⌇●﹏●⌇';
             clearTimeout(titleTime);
         } else {
-            document.title = '咦!又好了!(o゜▽゜)o☆';
+            document.title = '咦!又好了(o゜▽゜)o☆';
             titleTime = setTimeout(function() {
                 document.title = OriginTitile;
             },2000);
