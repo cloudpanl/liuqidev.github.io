@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+<!-- Google Analytics -->
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-86995833-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<!-- End Google Analytics -->
+
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>栈 | 魔法师LQ的魔法书 | 研习魔法，改变世界.</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    
+    <meta name="keywords" content="栈,解题报告">
+    <meta name="description" content="描述实现一个栈，完成以下功能：  入栈 出栈 询问栈中位置Y是谁  一开始栈为空。栈中的位置从1开始（即栈底位置为1）。 输入第一行一个整数n，表示操作个数。 接下来n行，每行第一个数字表示操作（见描述）：  若为数字1，则接下来有一串字符串X，表示将X压入栈中。 若为数字2，表示弹出栈顶（保证栈非空），并输出出栈的这个人。 若为数字3，则接下来有一个整数Y，表示询问栈中位置Y是谁（保证位置Y合法">
+<meta name="keywords" content="栈,解题报告">
+<meta property="og:type" content="article">
+<meta property="og:title" content="栈">
+<meta property="og:url" content="https://www.blankspace.cn/2018/07/04/stack/index.html">
+<meta property="og:site_name" content="魔法师LQ的魔法书">
+<meta property="og:description" content="描述实现一个栈，完成以下功能：  入栈 出栈 询问栈中位置Y是谁  一开始栈为空。栈中的位置从1开始（即栈底位置为1）。 输入第一行一个整数n，表示操作个数。 接下来n行，每行第一个数字表示操作（见描述）：  若为数字1，则接下来有一串字符串X，表示将X压入栈中。 若为数字2，表示弹出栈顶（保证栈非空），并输出出栈的这个人。 若为数字3，则接下来有一个整数Y，表示询问栈中位置Y是谁（保证位置Y合法">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://www.blankspace.cn/2018/07/04/stack/stack_m1.png">
+<meta property="og:image" content="https://www.blankspace.cn/2018/07/04/stack/stack_m2.png">
+<meta property="og:updated_time" content="2018-07-04T13:44:23.466Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="栈">
+<meta name="twitter:description" content="描述实现一个栈，完成以下功能：  入栈 出栈 询问栈中位置Y是谁  一开始栈为空。栈中的位置从1开始（即栈底位置为1）。 输入第一行一个整数n，表示操作个数。 接下来n行，每行第一个数字表示操作（见描述）：  若为数字1，则接下来有一串字符串X，表示将X压入栈中。 若为数字2，表示弹出栈顶（保证栈非空），并输出出栈的这个人。 若为数字3，则接下来有一个整数Y，表示询问栈中位置Y是谁（保证位置Y合法">
+<meta name="twitter:image" content="https://www.blankspace.cn/2018/07/04/stack/stack_m1.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="魔法师LQ的魔法书" href="../../../../atom.xml">
+    
+    <link rel="shortcut icon" href="../../../../favicon.ico">
+    <link rel="stylesheet" href="../../../../css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(../../../../img/brand.jpg)">
+      <div class="brand">
+        <a href="../../../../index.html" class="avatar waves-effect waves-circle waves-light">
+          <img src="../../../../img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">liuqidev</h5>
+          <a href="mailto:nihaoworld@outlook.com" title="nihaoworld@outlook.com" class="mail">nihaoworld@outlook.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="../../../../index.html"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="../../../../archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                时间线
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="../../../../tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                关键词
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="../../../../categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/liuqidev" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://weibo.com/liuqidev" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                微博
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="../../../../custom"  >
+                <i class="icon icon-lg icon-link"></i>
+                即将上线...
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">栈</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">栈</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-07-04T13:42:00.000Z" itemprop="datePublished" class="page-time">
+  2018-07-04
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="../../../../categories/数据结构/">数据结构</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#描述"><span class="post-toc-text">描述</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#输入"><span class="post-toc-text">输入</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#输出"><span class="post-toc-text">输出</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#输入样例"><span class="post-toc-text">输入样例</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#输出样例"><span class="post-toc-text">输出样例</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#限制"><span class="post-toc-text">限制</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#方法1-数组模拟"><span class="post-toc-text">方法1 数组模拟</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#代码"><span class="post-toc-text">代码</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#结果"><span class="post-toc-text">结果</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#方法2-动态方法"><span class="post-toc-text">方法2 动态方法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#代码-1"><span class="post-toc-text">代码</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#结果-1"><span class="post-toc-text">结果</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-stack"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">栈</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-07-04 21:42:00" datetime="2018-07-04T13:42:00.000Z"  itemprop="datePublished">2018-07-04</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="../../../../categories/数据结构/">数据结构</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h3 id="描述"><a href="#描述" class="headerlink" title="描述"></a><strong>描述</strong></h3><p>实现一个栈，完成以下功能：</p>
+<ol>
+<li>入栈</li>
+<li>出栈</li>
+<li>询问栈中位置Y是谁</li>
+</ol>
+<p>一开始栈为空。栈中的位置从1开始（即栈底位置为1）。</p>
+<h3 id="输入"><a href="#输入" class="headerlink" title="输入"></a><strong>输入</strong></h3><p>第一行一个整数n，表示操作个数。</p>
+<p>接下来n行，每行第一个数字表示操作（见描述）：</p>
+<ul>
+<li>若为数字1，则接下来有一串字符串X，表示将X压入栈中。</li>
+<li>若为数字2，表示弹出栈顶（保证栈非空），并输出出栈的这个人。</li>
+<li>若为数字3，则接下来有一个整数Y，表示询问栈中位置Y是谁（保证位置Y合法），并输出名字。</li>
+</ul>
+<h3 id="输出"><a href="#输出" class="headerlink" title="输出"></a><strong>输出</strong></h3><p>将所有操作2和操作3输出，一行一个。</p>
+<h3 id="输入样例"><a href="#输入样例" class="headerlink" title="输入样例"></a><strong>输入样例</strong></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">11</span><br><span class="line">1 a</span><br><span class="line">1 b</span><br><span class="line">1 c</span><br><span class="line">3 1</span><br><span class="line">3 2</span><br><span class="line">3 3</span><br><span class="line">2</span><br><span class="line">1 d</span><br><span class="line">3 1</span><br><span class="line">3 2</span><br><span class="line">3 3</span><br></pre></td></tr></table></figure>
+<h3 id="输出样例"><a href="#输出样例" class="headerlink" title="输出样例"></a><strong>输出样例</strong></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">a</span><br><span class="line">b</span><br><span class="line">c</span><br><span class="line">c</span><br><span class="line">a</span><br><span class="line">b</span><br><span class="line">d</span><br></pre></td></tr></table></figure>
+<h3 id="限制"><a href="#限制" class="headerlink" title="限制"></a><strong>限制</strong></h3><p>对于30%的数据，1 ≤ n ≤ 2000；</p>
+<p>对于另30%的数据，没有操作3；</p>
+<p>对于100%的数据，1 ≤ n ≤ 100000。</p>
+<p>数据中出现的字符串只包含26个小写字母（无空格等分隔符），且长度不超过15。</p>
+<p>字符串有可能重复。正如现实中可能有重名一样。</p>
+<p>时间：2 sec</p>
+<p>空间：256 MB</p>
+<h3 id="方法1-数组模拟"><a href="#方法1-数组模拟" class="headerlink" title="方法1 数组模拟"></a><strong>方法1 数组模拟</strong></h3><p>入栈和出栈都是操作着栈顶。</p>
+<p>开一个大小为n的数组，记录栈顶的位置，入栈出栈就是将这栈顶加一减一，栈中某个位置Y在数组相应的下标就是Y。<br>时间复杂度：O(1)。</p>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a><strong>代码</strong></h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// ================= 代码实现开始 =================</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* 请在这里定义你需要的全局变量 */</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">100005</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Stack: 栈</span></span><br><span class="line"><span class="comment">// top: 栈顶位置</span></span><br><span class="line"><span class="built_in">string</span> Stack[N];</span><br><span class="line"><span class="keyword">int</span> n, top;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 压入栈顶</span></span><br><span class="line"><span class="comment">// name：被压入的人的姓名</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">push</span><span class="params">(<span class="built_in">string</span> name)</span> </span>&#123;</span><br><span class="line">    Stack[++top] = name;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 弹出栈顶</span></span><br><span class="line"><span class="comment">// 返回值：被弹出人的姓名</span></span><br><span class="line"><span class="function"><span class="built_in">string</span> <span class="title">pop</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> Stack[top--];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 询问栈中某个位置上的人的姓名（栈底位置为1，向栈顶方向的位置依次递增）</span></span><br><span class="line"><span class="comment">// pos：询问的位置</span></span><br><span class="line"><span class="comment">// 返回值：pos位置上人的姓名</span></span><br><span class="line"><span class="function"><span class="built_in">string</span> <span class="title">query</span><span class="params">(<span class="keyword">int</span> pos)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> Stack[pos];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// ================= 代码实现结束 =================</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;n);</span><br><span class="line">    <span class="keyword">char</span> name[<span class="number">20</span>];</span><br><span class="line">    <span class="keyword">for</span> (; n--; ) &#123;</span><br><span class="line">        <span class="keyword">int</span> op;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;op);</span><br><span class="line">        <span class="keyword">if</span> (op == <span class="number">1</span>) &#123;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">"%s"</span>, name);</span><br><span class="line">            push(name);</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (op == <span class="number">2</span>) &#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"%s\n"</span>, pop().c_str());</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">int</span> pos;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;pos);</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"%s\n"</span>, query(pos).c_str());</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="结果"><a href="#结果" class="headerlink" title="结果"></a><strong>结果</strong></h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2018/07/04/stack/stack_m1.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h3 id="方法2-动态方法"><a href="#方法2-动态方法" class="headerlink" title="方法2 动态方法"></a><strong>方法2 动态方法</strong></h3><p>使用指针和new来动态开辟内存空间。push和pop和方法1类似，query则也遵守LIFO。<br>时间复杂度：O(n)。</p>
+<h3 id="代码-1"><a href="#代码-1" class="headerlink" title="代码"></a><strong>代码</strong></h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cassert&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyStack</span> &#123;</span></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">	<span class="keyword">int</span> _top; <span class="comment">// 栈顶位置</span></span><br><span class="line">	<span class="keyword">int</span> _size;  <span class="comment">// 栈大小</span></span><br><span class="line">	<span class="keyword">int</span> _capacity; <span class="comment">//最大容量</span></span><br><span class="line">	<span class="built_in">string</span> *elements; <span class="comment">// 数据的存储区</span></span><br><span class="line">	<span class="keyword">void</span> _overflow(); <span class="comment">// 防止溢出，扩容</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	MyStack(<span class="keyword">int</span> n);  <span class="comment">// 构造函数</span></span><br><span class="line">	~MyStack() &#123; <span class="keyword">delete</span>[] elements; &#125; <span class="comment">//析构函数</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">// 实现的接口</span></span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">push</span><span class="params">(<span class="built_in">string</span> s)</span></span>;</span><br><span class="line">	<span class="function"><span class="built_in">string</span> <span class="title">pop</span><span class="params">()</span></span>;</span><br><span class="line">	<span class="function"><span class="built_in">string</span> <span class="title">query</span><span class="params">(<span class="keyword">int</span> pos)</span></span>;</span><br><span class="line">	<span class="function"><span class="keyword">bool</span> <span class="title">is_empty</span><span class="params">()</span></span>;</span><br><span class="line">	<span class="function"><span class="keyword">bool</span> <span class="title">is_full</span><span class="params">()</span></span>;</span><br><span class="line">	<span class="function"><span class="keyword">int</span> <span class="title">size</span><span class="params">()</span></span>;</span><br><span class="line">	<span class="function"><span class="built_in">string</span> <span class="title">top</span><span class="params">()</span></span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> N = <span class="number">1005</span>;</span><br><span class="line">	MyStack st = MyStack(N);</span><br><span class="line">	<span class="keyword">int</span> num_ops;</span><br><span class="line">	<span class="built_in">cin</span> &gt;&gt; num_ops;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; num_ops; ++i) &#123;</span><br><span class="line">		<span class="keyword">int</span> op = <span class="number">0</span>;</span><br><span class="line">		<span class="built_in">string</span> s=<span class="string">""</span>;</span><br><span class="line">		<span class="built_in">cin</span> &gt;&gt; op;</span><br><span class="line">		<span class="keyword">if</span> (op == <span class="number">1</span>) &#123;</span><br><span class="line">			<span class="comment">//入栈</span></span><br><span class="line">			<span class="built_in">cin</span> &gt;&gt; s;</span><br><span class="line">			st.push(s);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">if</span> (op == <span class="number">2</span>) &#123;</span><br><span class="line">			<span class="comment">//出栈</span></span><br><span class="line">			<span class="built_in">string</span> r = st.pop();</span><br><span class="line">			<span class="built_in">cout</span> &lt;&lt; r &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">if</span> (op == <span class="number">3</span>) &#123;</span><br><span class="line">			<span class="comment">//查询</span></span><br><span class="line">			<span class="keyword">int</span> pos;</span><br><span class="line">			<span class="built_in">cin</span> &gt;&gt; pos;</span><br><span class="line">			<span class="built_in">cout</span>&lt;&lt;st.query(pos)&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> MyStack::_overflow()</span><br><span class="line">&#123;</span><br><span class="line">	<span class="built_in">string</span>* new_elements = <span class="keyword">new</span> <span class="built_in">string</span>[_capacity * <span class="number">2</span>];<span class="comment">//扩容成原来的两倍</span></span><br><span class="line">	<span class="comment">// 将原来的数据放到新的存储区来</span></span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= _top; ++i)</span><br><span class="line">	&#123;</span><br><span class="line">		new_elements[i] = elements[i];</span><br><span class="line">	&#125;</span><br><span class="line">	_capacity = _capacity * <span class="number">2</span>;</span><br><span class="line">	<span class="keyword">delete</span>[] elements; <span class="comment">//释放掉原来的存储空间</span></span><br><span class="line">	elements = new_elements;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">MyStack::MyStack(<span class="keyword">int</span> n)</span><br><span class="line">&#123;</span><br><span class="line">	elements = <span class="keyword">new</span> <span class="built_in">string</span>[n];</span><br><span class="line">	_top = <span class="number">0</span>;<span class="comment">// 栈顶从1开始,若从0开始则初始化为-1</span></span><br><span class="line">	_size = <span class="number">0</span>;</span><br><span class="line">	assert(elements != <span class="literal">NULL</span>);</span><br><span class="line">	elements[_top] = <span class="string">'#'</span>; <span class="comment">//特殊字符作为哨兵</span></span><br><span class="line">	<span class="comment">//cout &lt;&lt; "初始化成功!" &lt;&lt; endl;</span></span><br><span class="line">	<span class="comment">//cout &lt;&lt; "栈大小为:" &lt;&lt; size() &lt;&lt; endl;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 弹出栈顶</span></span><br><span class="line"><span class="comment">// 返回值：被弹出人的姓名</span></span><br><span class="line"><span class="built_in">string</span> MyStack::pop()</span><br><span class="line">&#123;</span><br><span class="line">	assert(_size &gt; <span class="number">0</span>);</span><br><span class="line">	<span class="comment">//cout &lt;&lt; "弹出栈顶元素:" &lt;&lt; top() &lt;&lt; endl;</span></span><br><span class="line">	_size--;</span><br><span class="line">	<span class="comment">//cout &lt;&lt; "弹出后栈大小为:" &lt;&lt; size() &lt;&lt; endl;</span></span><br><span class="line">	<span class="keyword">return</span> elements[_top--];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 压入栈顶</span></span><br><span class="line"><span class="comment">// s：被压入的人的姓名</span></span><br><span class="line"><span class="keyword">void</span> MyStack::push(<span class="built_in">string</span> s)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">if</span> (is_full())</span><br><span class="line">	&#123;</span><br><span class="line">		_overflow();</span><br><span class="line">	&#125;</span><br><span class="line">	elements[++_top] = s;</span><br><span class="line">	_size++;</span><br><span class="line">	<span class="comment">//cout &lt;&lt; "当前栈顶元素:" &lt;&lt; top() &lt;&lt; endl;</span></span><br><span class="line">	<span class="comment">//cout &lt;&lt; "栈大小为:" &lt;&lt; size() &lt;&lt; endl;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">bool</span> MyStack::is_empty()</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">return</span> _size==<span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">bool</span> MyStack::is_full()</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">return</span> (_top == _capacity - <span class="number">1</span>) ? <span class="literal">true</span> : <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> MyStack::size()</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">return</span> _size;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">string</span> MyStack::top()</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">return</span> elements[_top];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 询问栈中某个位置上的人的姓名（栈底位置为1，向栈顶方向的位置依次递增）</span></span><br><span class="line"><span class="comment">// pos：询问的位置</span></span><br><span class="line"><span class="comment">// 返回值：pos位置上人的姓名</span></span><br><span class="line"><span class="built_in">string</span> MyStack::query(<span class="keyword">int</span> pos)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="built_in">string</span> rst;</span><br><span class="line">	MyStack tmp(size());</span><br><span class="line">	<span class="comment">//将要查询位置之前的元素统统弹出</span></span><br><span class="line">	<span class="keyword">while</span> (pos &lt; _top)</span><br><span class="line">	&#123;</span><br><span class="line">		tmp.push(pop());</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//查询到后将弹出的元素再弹回</span></span><br><span class="line">	rst = pop();</span><br><span class="line">	push(rst); <span class="comment">//查询并不改变原有的数据结构</span></span><br><span class="line">	<span class="keyword">while</span>(!tmp.is_empty())</span><br><span class="line">	&#123;</span><br><span class="line">		push(tmp.pop());</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> rst;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="结果-1"><a href="#结果-1" class="headerlink" title="结果"></a><strong>结果</strong></h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2018/07/04/stack/stack_m2.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>方法2比方法1慢得多，原因主要在于动态分配存储和查询。</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-07-04T13:44:23.466Z" itemprop="dateUpdated">2018-07-04 21:44:23</time>
+</span><br>
+
+
+        
+        本文为作者原创，转载请注明出处：<a href="" target="_blank" rel="external">https://www.blankspace.cn/2018/07/04/stack/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="https://www.blankspace.cn">
+            <img src="../../../../img/avatar.jpg" alt="liuqidev">
+            liuqidev
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../tags/栈/">栈</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../tags/解题报告/">解题报告</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://www.blankspace.cn/2018/07/04/stack/&title=《栈》 — 魔法师LQ的魔法书&pic=https://www.blankspace.cn/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.blankspace.cn/2018/07/04/stack/&title=《栈》 — 魔法师LQ的魔法书&source=远不止魔法..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://www.blankspace.cn/2018/07/04/stack/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《栈》 — 魔法师LQ的魔法书&url=https://www.blankspace.cn/2018/07/04/stack/&via=https://www.blankspace.cn" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://www.blankspace.cn/2018/07/04/stack/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="../邓公谈清华数据结构新百年/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">坐而论道：邓公谈清华数据结构的新百年</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "kBrTfD8l4RFzueSAt65hASek-gzGzoHsz",
+            appKey: "AFsAfwfHqW6iEHkAc3TjYEzh",
+            avatar: "mm",
+            placeholder: "我有话想说~",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        小额打赏作者~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="../../../../img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="../../../../img/wechat.jpg" data-alipay="../../../../img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="../../../../atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>liuqidev &copy; 2018</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">苏ICP备18021678号</a><br>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://www.blankspace.cn/2018/07/04/stack/&title=《栈》 — 魔法师LQ的魔法书&pic=https://www.blankspace.cn/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.blankspace.cn/2018/07/04/stack/&title=《栈》 — 魔法师LQ的魔法书&source=远不止魔法..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://www.blankspace.cn/2018/07/04/stack/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《栈》 — 魔法师LQ的魔法书&url=https://www.blankspace.cn/2018/07/04/stack/&via=https://www.blankspace.cn" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://www.blankspace.cn/2018/07/04/stack/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACKklEQVR42u3aQW7DMAwEwPz/0+kDUrtL0ikgaXwqCsfW+LAQSb1e8fX+uHr/v3ry569e37gwMDCWZbxvr/t7kkV/3nn19nvYH58GAwPjAEYShdV77tl5BN/fg4GBgZFs4JIgrv4HAwMD46nAnRfAvWjGwMA4k5GUqUnx2Xta0oB7rBbHwMBYkJGH5v///ZX5BgYGxlKMd/G6HzRW76/G6+WqMDAwtmbkATdpqN0/LSpQkydgYGAcyXiqlM2XkhzXaHYNMTAwlmUky5oUmZNRZT5IwMDA2JvRC82nFpePFspNNwwMjI0Y1aZY0mir/rZa6P7ymTAwMA5gVBeXRGqv6K0G+ugbY2BgLM6Yv74aoL1G2x+Bi4GBsREjOaRVPTDRG3BWRxQYGBgnM/IuVi9w8wFn+ZgFBgbGdoxqp706Kpgst3oPBgbGroxeoy3f2OWl7+RjYWBg7M2otubzwxPJlRfDhX0uBgbG1oxJ1Pbidb6vw8DAwMjHir0X57FbOHKBgYFxJKN69CHfAvai+XI9GBgYxzDy+JtsEPOmf17WYmBgnMPoHRSrRvNkvnr5UTAwMDZlfK+V34vmXtGLgYGxN6MXc88WrpM9XhmGgYGxLCMJ2fyYRfWoRGFIWf3SGBgY2zGqra48CqtbzN5qMTAwMJLtYN5iS2K6zMbAwMAIXjA/YDEai2JgYBzASKJwfswiL1zLcYyBgbE1o1c6Tpp0vcL1gaEmBgbGeowf/dX6CElhuvEAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="../../../../js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="../../../../js/search.min.js?v=1.7.2" async></script>
+
+
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '糟糕！崩溃了⌇●﹏●⌇';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '咦!又好了(o゜▽゜)o☆';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
