@@ -38,7 +38,7 @@ ga('send', 'pageview');
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://www.blankspace.cn/2018/07/04/stack/stack_m1.png">
 <meta property="og:image" content="https://www.blankspace.cn/2018/07/04/stack/stack_m2.png">
-<meta property="og:updated_time" content="2018-07-04T13:44:23.466Z">
+<meta property="og:updated_time" content="2018-07-05T01:14:14.420Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="栈">
 <meta name="twitter:description" content="描述实现一个栈，完成以下功能：  入栈 出栈 询问栈中位置Y是谁  一开始栈为空。栈中的位置从1开始（即栈底位置为1）。 输入第一行一个整数n，表示操作个数。 接下来n行，每行第一个数字表示操作（见描述）：  若为数字1，则接下来有一串字符串X，表示将X压入栈中。 若为数字2，表示弹出栈顶（保证栈非空），并输出出栈的这个人。 若为数字3，则接下来有一个整数Y，表示询问栈中位置Y是谁（保证位置Y合法">
@@ -225,8 +225,12 @@ ga('send', 'pageview');
 <li>若为数字3，则接下来有一个整数Y，表示询问栈中位置Y是谁（保证位置Y合法），并输出名字。</li>
 </ul>
 <h3 id="输出"><a href="#输出" class="headerlink" title="输出"></a><strong>输出</strong></h3><p>将所有操作2和操作3输出，一行一个。</p>
-<h3 id="输入样例"><a href="#输入样例" class="headerlink" title="输入样例"></a><strong>输入样例</strong></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">11</span><br><span class="line">1 a</span><br><span class="line">1 b</span><br><span class="line">1 c</span><br><span class="line">3 1</span><br><span class="line">3 2</span><br><span class="line">3 3</span><br><span class="line">2</span><br><span class="line">1 d</span><br><span class="line">3 1</span><br><span class="line">3 2</span><br><span class="line">3 3</span><br></pre></td></tr></table></figure>
-<h3 id="输出样例"><a href="#输出样例" class="headerlink" title="输出样例"></a><strong>输出样例</strong></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">a</span><br><span class="line">b</span><br><span class="line">c</span><br><span class="line">c</span><br><span class="line">a</span><br><span class="line">b</span><br><span class="line">d</span><br></pre></td></tr></table></figure>
+<h3 id="输入样例"><a href="#输入样例" class="headerlink" title="输入样例"></a><strong>输入样例</strong></h3><blockquote>
+<p>11<br>1 a<br>1 b<br>1 c<br>3 1<br>3 2<br>3 3<br>2<br>1 d<br>3 1<br>3 2<br>3 3</p>
+</blockquote>
+<h3 id="输出样例"><a href="#输出样例" class="headerlink" title="输出样例"></a><strong>输出样例</strong></h3><blockquote>
+<p>a<br>b<br>c<br>c<br>a<br>b<br>d</p>
+</blockquote>
 <h3 id="限制"><a href="#限制" class="headerlink" title="限制"></a><strong>限制</strong></h3><p>对于30%的数据，1 ≤ n ≤ 2000；</p>
 <p>对于另30%的数据，没有操作3；</p>
 <p>对于100%的数据，1 ≤ n ≤ 100000。</p>
@@ -262,7 +266,7 @@ ga('send', 'pageview');
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2018-07-04T13:44:23.466Z" itemprop="dateUpdated">2018-07-04 21:44:23</time>
+    最后更新时间：<time datetime="2018-07-05T01:14:14.420Z" itemprop="dateUpdated">2018-07-05 09:14:14</time>
 </span><br>
 
 
@@ -343,7 +347,14 @@ ga('send', 'pageview');
     </div>
 
     
-<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="../../05/PATBL-A加B和C/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">PATBL A加B和C</h4>
+      </a>
+    </div>
   
 
   
