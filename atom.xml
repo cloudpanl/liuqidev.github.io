@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.blankspace.cn/"/>
-  <updated>2018-07-07T13:30:30.026Z</updated>
+  <updated>2018-07-08T09:17:41.811Z</updated>
   <id>https://www.blankspace.cn/</id>
   
   <author>
@@ -15,6 +15,90 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>PATBL 解题报告空模板</title>
+    <link href="https://www.blankspace.cn/2018/07/08/PATBL-%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A%E7%A9%BA%E6%A8%A1%E6%9D%BF/"/>
+    <id>https://www.blankspace.cn/2018/07/08/PATBL-解题报告空模板/</id>
+    <published>2018-07-08T09:14:44.000Z</published>
+    <updated>2018-07-08T09:17:41.811Z</updated>
+    
+    <content type="html"><![CDATA[<p>时间限制 0 ms 内存限制 0KB 代码长度限制0 KB </p><h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a><strong>题目描述</strong></h3><h3 id="输入描述"><a href="#输入描述" class="headerlink" title="输入描述:"></a><strong>输入描述:</strong></h3><h3 id="输出描述"><a href="#输出描述" class="headerlink" title="输出描述:"></a><strong>输出描述:</strong></h3><h3 id="输入例子"><a href="#输入例子" class="headerlink" title="输入例子:"></a><strong>输入例子:</strong></h3><blockquote></blockquote><h3 id="输出例子"><a href="#输出例子" class="headerlink" title="输出例子:"></a><strong>输出例子:</strong></h3><blockquote></blockquote><h3 id="方法"><a href="#方法" class="headerlink" title="方法"></a><strong>方法</strong></h3><h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a><strong>代码</strong></h3><h3 id="结果"><a href="#结果" class="headerlink" title="结果"></a><strong>结果</strong></h3>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;时间限制 0 ms 内存限制 0KB 代码长度限制0 KB &lt;/p&gt;
+&lt;h3 id=&quot;题目描述&quot;&gt;&lt;a href=&quot;#题目描述&quot; class=&quot;headerlink&quot; title=&quot;题目描述&quot;&gt;&lt;/a&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;/h3&gt;&lt;h3 id=&quot;输入
+      
+    
+    </summary>
+    
+      <category term="PAT认证" scheme="https://www.blankspace.cn/categories/PAT%E8%AE%A4%E8%AF%81/"/>
+    
+    
+      <category term="PAT认证（乙级）" scheme="https://www.blankspace.cn/tags/PAT%E8%AE%A4%E8%AF%81%EF%BC%88%E4%B9%99%E7%BA%A7%EF%BC%89/"/>
+    
+      <category term="空模板" scheme="https://www.blankspace.cn/tags/%E7%A9%BA%E6%A8%A1%E6%9D%BF/"/>
+    
+      <category term="解题报告" scheme="https://www.blankspace.cn/tags/%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>PATBL 个位数统计</title>
+    <link href="https://www.blankspace.cn/2018/07/08/PATBL-%E4%B8%AA%E4%BD%8D%E6%95%B0%E7%BB%9F%E8%AE%A1/"/>
+    <id>https://www.blankspace.cn/2018/07/08/PATBL-个位数统计/</id>
+    <published>2018-07-08T09:06:45.000Z</published>
+    <updated>2018-07-08T10:45:49.785Z</updated>
+    
+    <content type="html"><![CDATA[<p>时间限制 1000 ms 内存限制 32768 KB 代码长度限制 100 KB 判断程序 Standard (来自 <a href="https://www.nowcoder.com/profile/59" target="_blank" rel="noopener">小小</a>)</p><h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a><strong>题目描述</strong></h3><p>给定一个k位整数:$$N =d_{k-1}<em>10^{k-1}+ …+d_{1}</em>10^{1}+d_{0}\left(0&lt;=d_{i}&lt;=9, i=0,…,k-1, d_{k-1}&gt;0\right)$$请编写程序统计每种不同的个位数字出现的次数。例如：给定N = 100311，则有2个0，3个1，和1个3。</p><h3 id="输入描述"><a href="#输入描述" class="headerlink" title="输入描述:"></a><strong>输入描述:</strong></h3><p>每个输入包含1个测试用例，即一个不超过1000位的正整数N。</p><h3 id="输出描述"><a href="#输出描述" class="headerlink" title="输出描述:"></a><strong>输出描述:</strong></h3><p>对N中每一种不同的个位数字，以D:M的格式在一行中输出该位数字D及其在N中出现的次数M。要求按D的升序输出。</p><h3 id="输入例子"><a href="#输入例子" class="headerlink" title="输入例子:"></a><strong>输入例子:</strong></h3><blockquote><p>100311</p></blockquote><h3 id="输出例子"><a href="#输出例子" class="headerlink" title="输出例子:"></a><strong>输出例子:</strong></h3><blockquote><p>0:2<br>1:3<br>3:1</p></blockquote><h3 id="方法"><a href="#方法" class="headerlink" title="方法"></a><strong>方法</strong></h3><p>类似于计数排序。开大小为10的桶，遍历数串，对每位计数后，扫描一遍桶，依次输出。</p><h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a><strong>代码</strong></h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> c[<span class="number">10</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line"><span class="comment">//freopen("in.txt", "r", stdin);</span></span><br><span class="line"><span class="comment">//freopen("out.txt", "w", stdout);</span></span><br><span class="line"><span class="built_in">string</span> s;</span><br><span class="line"><span class="built_in">cin</span> &gt;&gt; s;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;i&lt;s.length();++i) &#123;</span><br><span class="line">c[s[i] - <span class="string">'0'</span>]++;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; ++i) &#123;</span><br><span class="line"><span class="keyword">if</span> (c[i]!=<span class="number">0</span>)</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"%d:%d\n"</span>, i, c[i]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="结果"><a href="#结果" class="headerlink" title="结果"></a><strong>结果</strong></h3><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/2018/07/08/PATBL-个位数统计/ac.png" alt="" title="">                </div>                <div class="image-caption"></div>            </figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;时间限制 1000 ms 内存限制 32768 KB 代码长度限制 100 KB 判断程序 Standard (来自 &lt;a href=&quot;https://www.nowcoder.com/profile/59&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;小
+      
+    
+    </summary>
+    
+      <category term="PAT认证" scheme="https://www.blankspace.cn/categories/PAT%E8%AE%A4%E8%AF%81/"/>
+    
+    
+      <category term="计数" scheme="https://www.blankspace.cn/tags/%E8%AE%A1%E6%95%B0/"/>
+    
+      <category term="PAT认证（乙级）" scheme="https://www.blankspace.cn/tags/PAT%E8%AE%A4%E8%AF%81%EF%BC%88%E4%B9%99%E7%BA%A7%EF%BC%89/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>PATBL A除以B</title>
+    <link href="https://www.blankspace.cn/2018/07/07/PATBL-A%E9%99%A4%E4%BB%A5B/"/>
+    <id>https://www.blankspace.cn/2018/07/07/PATBL-A除以B/</id>
+    <published>2018-07-07T13:33:56.000Z</published>
+    <updated>2018-07-08T09:27:14.020Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a><strong>题目描述</strong></h3><p>本题要求计算A/B，其中A是不超过1000位的正整数，B是1位正整数。你需要输出商数Q和余数R，使得A = B * Q + R成立。</p><h3 id="输入描述"><a href="#输入描述" class="headerlink" title="输入描述:"></a><strong>输入描述:</strong></h3><p>输入在1行中依次给出A和B，中间以1空格分隔。</p><h3 id="输出描述"><a href="#输出描述" class="headerlink" title="输出描述:"></a><strong>输出描述:</strong></h3><p>在1行中依次输出Q和R，中间以1空格分隔。</p><h3 id="输入例子"><a href="#输入例子" class="headerlink" title="输入例子:"></a><strong>输入例子:</strong></h3><blockquote><p>123456789050987654321 7</p></blockquote><h3 id="输出例子"><a href="#输出例子" class="headerlink" title="输出例子:"></a><strong>输出例子:</strong></h3><blockquote><p>17636684150141093474 3</p></blockquote><h3 id="方法"><a href="#方法" class="headerlink" title="方法"></a><strong>方法</strong></h3><p>用字符串存储大数。模拟手工运算。</p><h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a><strong>代码</strong></h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line"><span class="comment">//freopen("in.txt", "r", stdin);</span></span><br><span class="line"><span class="comment">//freopen("out.txt", "w", stdout);</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">string</span> A;</span><br><span class="line"><span class="keyword">int</span> B;</span><br><span class="line"><span class="built_in">cin</span> &gt;&gt; A &gt;&gt; B;</span><br><span class="line"></span><br><span class="line"><span class="built_in">string</span> Q;</span><br><span class="line"><span class="built_in">string</span> R;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> t = A[<span class="number">0</span>] - <span class="string">'0'</span>;</span><br><span class="line"><span class="keyword">int</span> q = t/B;</span><br><span class="line"><span class="keyword">int</span> r = t % B;</span><br><span class="line"></span><br><span class="line"><span class="comment">//= to_string(r);</span></span><br><span class="line">Q = to_string(q); </span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">1</span>; i &lt; A.length(); i++)</span><br><span class="line">&#123;</span><br><span class="line">t = A[i] - <span class="string">'0'</span>;</span><br><span class="line">t= r * <span class="number">10</span> + t;</span><br><span class="line">r = t % B;</span><br><span class="line">q = t / B;</span><br><span class="line">Q += to_string(q);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span> (Q[<span class="number">0</span>] == <span class="string">'0'</span>)</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; Q.length(); ++i) &#123;</span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; Q[i];</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; <span class="string">" "</span> &lt;&lt; r &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span> </span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; Q &lt;&lt;<span class="string">" "</span>&lt;&lt;r&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="结果"><a href="#结果" class="headerlink" title="结果"></a><strong>结果</strong></h3><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/2018/07/07/PATBL-A除以B/ac.png" alt="" title="">                </div>                <div class="image-caption"></div>            </figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;题目描述&quot;&gt;&lt;a href=&quot;#题目描述&quot; class=&quot;headerlink&quot; title=&quot;题目描述&quot;&gt;&lt;/a&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;/h3&gt;&lt;p&gt;本题要求计算A/B，其中A是不超过1000位的正整数，B是1位正整数。你需要输出商数Q和余
+      
+    
+    </summary>
+    
+      <category term="PAT认证" scheme="https://www.blankspace.cn/categories/PAT%E8%AE%A4%E8%AF%81/"/>
+    
+    
+      <category term="PAT认证（乙级）" scheme="https://www.blankspace.cn/tags/PAT%E8%AE%A4%E8%AF%81%EF%BC%88%E4%B9%99%E7%BA%A7%EF%BC%89/"/>
+    
+      <category term="大数" scheme="https://www.blankspace.cn/tags/%E5%A4%A7%E6%95%B0/"/>
+    
+  </entry>
   
   <entry>
     <title>PATBL 部分A加B</title>
@@ -37,9 +121,9 @@
       <category term="PAT认证" scheme="https://www.blankspace.cn/categories/PAT%E8%AE%A4%E8%AF%81/"/>
     
     
-      <category term="字符串" scheme="https://www.blankspace.cn/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/"/>
-    
       <category term="PAT认证（乙级）" scheme="https://www.blankspace.cn/tags/PAT%E8%AE%A4%E8%AF%81%EF%BC%88%E4%B9%99%E7%BA%A7%EF%BC%89/"/>
+    
+      <category term="字符串" scheme="https://www.blankspace.cn/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/"/>
     
   </entry>
   
@@ -125,9 +209,9 @@
       <category term="PAT认证" scheme="https://www.blankspace.cn/categories/PAT%E8%AE%A4%E8%AF%81/"/>
     
     
-      <category term="字符串" scheme="https://www.blankspace.cn/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/"/>
-    
       <category term="PAT认证（乙级）" scheme="https://www.blankspace.cn/tags/PAT%E8%AE%A4%E8%AF%81%EF%BC%88%E4%B9%99%E7%BA%A7%EF%BC%89/"/>
+    
+      <category term="字符串" scheme="https://www.blankspace.cn/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/"/>
     
   </entry>
   
@@ -237,9 +321,9 @@
       <category term="数据结构" scheme="https://www.blankspace.cn/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
     
     
-      <category term="栈" scheme="https://www.blankspace.cn/tags/%E6%A0%88/"/>
-    
       <category term="解题报告" scheme="https://www.blankspace.cn/tags/%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/"/>
+    
+      <category term="栈" scheme="https://www.blankspace.cn/tags/%E6%A0%88/"/>
     
   </entry>
   
