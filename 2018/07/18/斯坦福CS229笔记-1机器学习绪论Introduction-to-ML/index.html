@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+<!-- Google Analytics -->
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-86995833-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<!-- End Google Analytics -->
+
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>斯坦福CS229笔记 第1讲 机器学习绪论Introduction to ML | 魔法师LQ的魔法书 | 研习魔法，改变世界.</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    
+    <meta name="keywords" content="CS229,机器学习,吴恩达(Andrew Ng)">
+    <meta name="description" content="前言CS229是吴恩达(Andrew Ng)教授在斯坦福大学教授的一门先修课程，这里是学习其较早的版本所做的笔记，相较于之后的课程，这个版本容量较大，介绍了很多经典的机器学习方法和应用。缺点是有的地方可能已经过时，以及在有些方面介绍得不够全面。因此适合用于了解和学习机器学习的通用和经典方法。在作业和实现上使用的是Matlab和Octave，在学习到这相关方面时可以选择跳过，选择学习Coursera">
+<meta name="keywords" content="CS229,机器学习,吴恩达(Andrew Ng)">
+<meta property="og:type" content="article">
+<meta property="og:title" content="斯坦福CS229笔记 第1讲 机器学习绪论Introduction to ML">
+<meta property="og:url" content="https://www.blankspace.cn/2018/07/18/斯坦福CS229笔记-1机器学习绪论Introduction-to-ML/index.html">
+<meta property="og:site_name" content="魔法师LQ的魔法书">
+<meta property="og:description" content="前言CS229是吴恩达(Andrew Ng)教授在斯坦福大学教授的一门先修课程，这里是学习其较早的版本所做的笔记，相较于之后的课程，这个版本容量较大，介绍了很多经典的机器学习方法和应用。缺点是有的地方可能已经过时，以及在有些方面介绍得不够全面。因此适合用于了解和学习机器学习的通用和经典方法。在作业和实现上使用的是Matlab和Octave，在学习到这相关方面时可以选择跳过，选择学习Coursera">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-07-18T14:01:01.019Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="斯坦福CS229笔记 第1讲 机器学习绪论Introduction to ML">
+<meta name="twitter:description" content="前言CS229是吴恩达(Andrew Ng)教授在斯坦福大学教授的一门先修课程，这里是学习其较早的版本所做的笔记，相较于之后的课程，这个版本容量较大，介绍了很多经典的机器学习方法和应用。缺点是有的地方可能已经过时，以及在有些方面介绍得不够全面。因此适合用于了解和学习机器学习的通用和经典方法。在作业和实现上使用的是Matlab和Octave，在学习到这相关方面时可以选择跳过，选择学习Coursera">
+    
+        <link rel="alternate" type="application/atom+xml" title="魔法师LQ的魔法书" href="../../../../atom.xml">
+    
+    <link rel="shortcut icon" href="../../../../favicon.ico">
+    <link rel="stylesheet" href="../../../../css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(../../../../img/brand.jpg)">
+      <div class="brand">
+        <a href="../../../../index.html" class="avatar waves-effect waves-circle waves-light">
+          <img src="../../../../img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">liuqidev</h5>
+          <a href="mailto:nihaoworld@outlook.com" title="nihaoworld@outlook.com" class="mail">nihaoworld@outlook.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="../../../../index.html"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="../../../../archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                时间线
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="../../../../tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                关键词
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="../../../../categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/liuqidev" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://weibo.com/liuqidev" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                微博
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="../../../../custom"  >
+                <i class="icon icon-lg icon-link"></i>
+                即将上线...
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">斯坦福CS229笔记 第1讲 机器学习绪论Introduction to ML</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">斯坦福CS229笔记 第1讲 机器学习绪论Introduction to ML</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-07-18T08:55:22.000Z" itemprop="datePublished" class="page-time">
+  2018-07-18
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="../../../../categories/AI/">AI</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#前言"><span class="post-toc-text">前言</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#教学大纲"><span class="post-toc-text">教学大纲</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#第一讲笔记"><span class="post-toc-text">第一讲笔记</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-斯坦福CS229笔记-1机器学习绪论Introduction-to-ML"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">斯坦福CS229笔记 第1讲 机器学习绪论Introduction to ML</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-07-18 16:55:22" datetime="2018-07-18T08:55:22.000Z"  itemprop="datePublished">2018-07-18</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="../../../../categories/AI/">AI</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>CS229是吴恩达(Andrew Ng)教授在斯坦福大学教授的一门先修课程，这里是学习其<a href="http://study.163.com/plan/planMain.htm?id=67905" target="_blank" rel="noopener">较早的版本</a>所做的笔记，相较于之后的课程，这个版本容量较大，介绍了很多经典的机器学习方法和应用。缺点是有的地方可能已经过时，以及在有些方面介绍得不够全面。因此适合用于了解和学习机器学习的通用和经典方法。在作业和实现上使用的是Matlab和Octave，在学习到这相关方面时可以选择跳过，选择学习Coursera上其较新版本的课程或者微专业配套的作业作为补充。</p>
+<hr>
+<h3 id="教学大纲"><a href="#教学大纲" class="headerlink" title="教学大纲"></a>教学大纲</h3><table>
+<thead>
+<tr>
+<th>Event</th>
+<th>Date</th>
+<th>Description</th>
+<th>Materials and Assignments</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Introduction</strong> (1 class)</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Lecture 1</td>
+<td>9/25</td>
+<td>1. Basic concepts</td>
+<td><strong>Class Notes</strong>Supervised Learning, Discriminative Algorithms [<a href="http://cs229.stanford.edu/notes/cs229-notes1.ps" target="_blank" rel="noopener">ps</a>][<a href="http://cs229.stanford.edu/notes/cs229-notes1.pdf" target="_blank" rel="noopener">pdf</a>]</td>
+</tr>
+<tr>
+<td>A0</td>
+<td>9/25</td>
+<td><strong>Problem Set 0</strong> <a href="http://cs229.stanford.edu/materials/ps0.pdf" target="_blank" rel="noopener">[pdf]</a>. <a href="http://cs229.stanford.edu/gradescope.html" target="_blank" rel="noopener">Submission instructions</a>.</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Supervised learning</strong> (5 classes)</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Lecture 2</td>
+<td>9/27</td>
+<td>1. Supervised learning setup. LMS.</td>
+<td></td>
+</tr>
+<tr>
+<td>Section</td>
+<td>9/29</td>
+<td>Discussion Section: Linear Algebra</td>
+<td><strong>Discussion Section</strong>: Linear Algebra [<a href="http://cs229.stanford.edu/section/cs229-linalg.pdf" target="_blank" rel="noopener">Notes</a>]</td>
+</tr>
+<tr>
+<td>Lecture 3</td>
+<td>10/2</td>
+<td>2. Logistic regression. Perceptron. Exponential family.</td>
+<td></td>
+</tr>
+<tr>
+<td>Lecture 4</td>
+<td>10/4</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>A1</td>
+<td>10/4</td>
+<td><strong>Problem Set 1</strong> <a href="http://cs229.stanford.edu/ps/ps1/ps1.pdf" target="_blank" rel="noopener">[pdf]</a>. Out 10/4. Due 10/18. <a href="http://cs229.stanford.edu/gradescope.html" target="_blank" rel="noopener">Submission instructions</a>.</td>
+<td></td>
+</tr>
+<tr>
+<td>Section</td>
+<td>10/6</td>
+<td>Discussion Section: Probability</td>
+<td><strong>Discussion Section</strong>: Probability[<a href="http://cs229.stanford.edu/section/cs229-prob.pdf" target="_blank" rel="noopener">Notes</a>][<a href="http://cs229.stanford.edu/section/cs229-prob-slide.pdf" target="_blank" rel="noopener">Slides</a>]</td>
+</tr>
+<tr>
+<td>Lecture 5</td>
+<td>10/9</td>
+<td>3. Generative learning algorithms. Gaussian discriminant analysis. Naive Bayes.</td>
+<td><strong>Class Notes</strong>Generative Algorithms [<a href="http://cs229.stanford.edu/notes/cs229-notes2.ps" target="_blank" rel="noopener">ps</a>] [<a href="http://cs229.stanford.edu/notes/cs229-notes2.pdf" target="_blank" rel="noopener">pdf</a>]</td>
+</tr>
+<tr>
+<td>Lecture 6</td>
+<td>10/11</td>
+<td>4. Support vector machines.</td>
+<td><strong>Class Notes</strong>Support Vector Machines [<a href="http://cs229.stanford.edu/notes/cs229-notes3.ps" target="_blank" rel="noopener">ps</a>] [<a href="http://cs229.stanford.edu/notes/cs229-notes3.pdf" target="_blank" rel="noopener">pdf</a>]</td>
+</tr>
+<tr>
+<td>Section</td>
+<td>10/13</td>
+<td>Discussion Section: Vectorization</td>
+<td><strong>Discussion Section</strong>: Vectorization[<a href="http://cs229.stanford.edu/section/vec_demo/Vectorization_Section.pdf" target="_blank" rel="noopener">Slides</a>][<a href="http://cs229.stanford.edu/section/vec_demo/knn.py" target="_blank" rel="noopener">kNN</a>][<a href="http://cs229.stanford.edu/section/vec_demo/lr.ipynb" target="_blank" rel="noopener">Logistic Regression</a>][<a href="http://cs229.stanford.edu/section/vec_demo/sr.ipynb" target="_blank" rel="noopener">Softmax Regression</a>][<a href="http://cs229.stanford.edu/section/vec_demo/images.csv" target="_blank" rel="noopener">images</a>][<a href="http://cs229.stanford.edu/section/vec_demo/labels.csv" target="_blank" rel="noopener">labels</a>]</td>
+</tr>
+<tr>
+<td><strong>Practice ML advice</strong> (2 classes)</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Lecture 7</td>
+<td>10/16</td>
+<td>1. Bias/variance tradeoff 2. Model selection and feature selection</td>
+<td><strong>Class Notes</strong>Bias/variance tradeoff and error analysis[<a href="http://cs229.stanford.edu/section/error-analysis.pdf" target="_blank" rel="noopener">pdf</a>]Learning Theory [<a href="http://cs229.stanford.edu/notes/cs229-notes4.ps" target="_blank" rel="noopener">ps</a>] [<a href="http://cs229.stanford.edu/notes/cs229-notes4.pdf" target="_blank" rel="noopener">pdf</a>]Regularization and Model Selection [<a href="http://cs229.stanford.edu/notes/cs229-notes5.ps" target="_blank" rel="noopener">ps</a>] [<a href="http://cs229.stanford.edu/notes/cs229-notes5.pdf" target="_blank" rel="noopener">pdf</a>]Online Learning and the Perceptron Algorithm. (optional reading) [<a href="http://cs229.stanford.edu/notes/cs229-notes6.ps" target="_blank" rel="noopener">ps</a>] [<a href="http://cs229.stanford.edu/notes/cs229-notes6.pdf" target="_blank" rel="noopener">pdf</a>]Advice on applying machine learning[<a href="http://cs229.stanford.edu/materials/ML-advice.pdf" target="_blank" rel="noopener">pdf</a>]</td>
+</tr>
+<tr>
+<td>Lecture 8</td>
+<td>10/18</td>
+<td>3. Evaluating and debugging learning algorithms 4. Practical advice on structuring an ML project</td>
+<td></td>
+</tr>
+<tr>
+<td>A2</td>
+<td>10/18</td>
+<td><strong>Problem Set 2</strong> <a href="http://cs229.stanford.edu/ps/ps2/ps2.pdf" target="_blank" rel="noopener">[pdf]</a>. Out 10/18. Due 11/1. <a href="http://cs229.stanford.edu/gradescope.html" target="_blank" rel="noopener">Submission instructions</a>.</td>
+<td></td>
+</tr>
+<tr>
+<td>Section</td>
+<td>10/20</td>
+<td>Discussion Section: Convex Optimization</td>
+<td><strong>Discussion Section</strong>: Convex OptimizationConvex Optimization Overview, Part I [<a href="http://cs229.stanford.edu/section/cs229-cvxopt.ps" target="_blank" rel="noopener">ps</a>] [<a href="http://cs229.stanford.edu/section/cs229-cvxopt.pdf" target="_blank" rel="noopener">pdf</a>]Convex Optimization Overview, Part II [<a href="http://cs229.stanford.edu/section/cs229-cvxopt2.ps" target="_blank" rel="noopener">ps</a>] [<a href="http://cs229.stanford.edu/section/cs229-cvxopt2.pdf" target="_blank" rel="noopener">pdf</a>]</td>
+</tr>
+<tr>
+<td>Project</td>
+<td>10/20</td>
+<td>Project proposal due at <strong>11:59pm</strong>.</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Deep Learning</strong> (2 classes)</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Lecture 9</td>
+<td>10/23</td>
+<td>1. NN architecture 2. Forward/Back propagation</td>
+<td><strong>Class Notes</strong>Deep learning [<a href="http://cs229.stanford.edu/notes/cs229-notes-deep_learning.pdf" target="_blank" rel="noopener">pdf</a>]Backpropagation [<a href="http://cs229.stanford.edu/notes/cs229-notes-backprop.pdf" target="_blank" rel="noopener">pdf</a>]</td>
+</tr>
+<tr>
+<td>Lecture 10</td>
+<td>10/25</td>
+<td>3. Vectorization  4. Other optimization tricks.</td>
+<td></td>
+</tr>
+<tr>
+<td>Section</td>
+<td>10/27</td>
+<td>Discussion Section: Evaluation Metrics</td>
+<td><strong>Discussion Section</strong>: Evaluation Metrics [<a href="http://cs229.stanford.edu/section/evaluation_metrics.pdf" target="_blank" rel="noopener">Slides</a>]</td>
+</tr>
+<tr>
+<td><strong>Unsupervised learning</strong> (5 classes)</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Lecture 11</td>
+<td>10/30</td>
+<td>1. Clustering. K-means.  2. EM. Mixture of Gaussians.  3. Factor analysis.  4. PCA (Principal components analysis). 5. ICA (Independent components analysis).</td>
+<td><strong>Class Notes</strong>Unsupervised Learning, k-means clustering. [<a href="http://cs229.stanford.edu/notes/cs229-notes7a.ps" target="_blank" rel="noopener">ps</a>] [<a href="http://cs229.stanford.edu/notes/cs229-notes7a.pdf" target="_blank" rel="noopener">pdf</a>]Mixture of Gaussians [<a href="http://cs229.stanford.edu/notes/cs229-notes7b.ps" target="_blank" rel="noopener">ps</a>] [<a href="http://cs229.stanford.edu/notes/cs229-notes7b.pdf" target="_blank" rel="noopener">pdf</a>]The EM Algorithm [<a href="http://cs229.stanford.edu/notes/cs229-notes8.ps" target="_blank" rel="noopener">ps</a>] [<a href="http://cs229.stanford.edu/notes/cs229-notes8.pdf" target="_blank" rel="noopener">pdf</a>]Factor Analysis [<a href="http://cs229.stanford.edu/notes/cs229-notes9.ps" target="_blank" rel="noopener">ps</a>] [<a href="http://cs229.stanford.edu/notes/cs229-notes9.pdf" target="_blank" rel="noopener">pdf</a>]Principal Components Analysis [<a href="http://cs229.stanford.edu/notes/cs229-notes10.ps" target="_blank" rel="noopener">ps</a>] [<a href="http://cs229.stanford.edu/notes/cs229-notes10.pdf" target="_blank" rel="noopener">pdf</a>]Independent Components Analysis [<a href="http://cs229.stanford.edu/notes/cs229-notes11.ps" target="_blank" rel="noopener">ps</a>] [<a href="http://cs229.stanford.edu/notes/cs229-notes11.pdf" target="_blank" rel="noopener">pdf</a>]<strong>Problem Set 3</strong> Out 11/1. Due 11/15.</td>
+</tr>
+<tr>
+<td>Lecture 12</td>
+<td>11/1</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Lecture 13</td>
+<td>11/6</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Lecture 14</td>
+<td>11/8</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Lecture 15</td>
+<td>11/13</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Section</td>
+<td>11/3</td>
+<td>Discussion Section: Midterm-Review</td>
+<td><strong>Discussion Section</strong>: Midterm-Review</td>
+</tr>
+<tr>
+<td>A3</td>
+<td>11/1</td>
+<td><strong>Problem Set 3</strong> <a href="http://cs229.stanford.edu/ps/ps3/ps3.pdf" target="_blank" rel="noopener">[pdf]</a>. Out 11/1. Due 11/15. <a href="http://cs229.stanford.edu/gradescope.html" target="_blank" rel="noopener">Submission instructions</a>.</td>
+<td></td>
+</tr>
+<tr>
+<td>Midterm</td>
+<td>11/8</td>
+<td>The midterm is <strong>open-book/open-notes/open laptop (no internet)</strong>. It will take place on <strong>Wednesday, November 8, 2017 from 6-9 PM</strong>. The course staff will announce exam venue and material covered closer to the midterm date.</td>
+<td></td>
+</tr>
+<tr>
+<td>Section</td>
+<td>11/17</td>
+<td>Discussion Section: Deep Learning Methods</td>
+<td><strong>Discussion Section</strong>: Deep Learning Methods</td>
+</tr>
+<tr>
+<td>Project</td>
+<td>11/20</td>
+<td>Project milestones due 11/20 at <strong>11:59pm</strong>.</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Reinforcement learning and control</strong> (4 classes)</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Lecture 16</td>
+<td>11/15</td>
+<td>1. MDPs. Bellman equations.  2. Value iteration and policy iteration.  3. Linear quadratic regulation (LQR). LQG. 4. Q-learning. Value function approximation.</td>
+<td><strong>Class Notes</strong>Reinforcement Learning and Control [<a href="http://cs229.stanford.edu/notes/cs229-notes12.ps" target="_blank" rel="noopener">ps</a>] [<a href="http://cs229.stanford.edu/notes/cs229-notes12.pdf" target="_blank" rel="noopener">pdf</a>]LQR, DDP and LQG [<a href="http://cs229.stanford.edu/notes/cs229-notes13.pdf" target="_blank" rel="noopener">pdf</a>]<strong>Problem Set 4</strong> Out 11/15. Due 12/6.</td>
+</tr>
+<tr>
+<td>Lecture 17</td>
+<td>11/27</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Lecture 18</td>
+<td>11/29</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>A4</td>
+<td>11/15</td>
+<td><strong>Problem Set 4</strong> <a href="http://cs229.stanford.edu/ps/ps4/ps4.pdf" target="_blank" rel="noopener">[pdf]</a>. Out 11/15. Due 12/6. <a href="http://cs229.stanford.edu/gradescope.html" target="_blank" rel="noopener">Submission instructions</a>.</td>
+<td></td>
+</tr>
+<tr>
+<td>Section</td>
+<td>12/1</td>
+<td>Discussion Section: Deep Learning Platform</td>
+<td><strong>Discussion Section</strong>: Deep Learning Platform</td>
+</tr>
+<tr>
+<td>Lecture 19</td>
+<td>12/4</td>
+<td>Generative Adversarial Networks (GANs)</td>
+<td><strong>Class Notes</strong>Generative Adversarial Networks (GANs)[<a href="https://arxiv.org/abs/1406.2661" target="_blank" rel="noopener">pdf</a>]</td>
+</tr>
+<tr>
+<td>Lecture 20</td>
+<td>12/6</td>
+<td>Adversarial machine learning</td>
+<td><strong>Class Notes</strong>Adversarial examples in ML[<a href="https://arxiv.org/abs/1412.6572" target="_blank" rel="noopener">pdf</a>]</td>
+</tr>
+<tr>
+<td>Project</td>
+<td>12/11</td>
+<td><strong>Project poster PDF</strong> and project recording (some teams) due at 11:59 pm <a href="http://cs229.stanford.edu/gradescope.html" target="_blank" rel="noopener">Submission instructions</a>.</td>
+<td></td>
+</tr>
+<tr>
+<td>Project</td>
+<td>12/12</td>
+<td>Poster presentations from 8:30-11:30am. Venue and details to be announced.</td>
+<td></td>
+</tr>
+<tr>
+<td>Project</td>
+<td>12/15</td>
+<td>Final writeup due at <strong>11:59pm</strong> (no late days).</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Supplementary Notes</strong></p>
+<ol>
+<li>Binary classification with +/-1 labels [<a href="http://cs229.stanford.edu/extra-notes/loss-functions.pdf" target="_blank" rel="noopener">pdf</a>]</li>
+<li>Boosting algorithms and weak learning [<a href="http://cs229.stanford.edu/extra-notes/boosting.pdf" target="_blank" rel="noopener">pdf</a>]</li>
+<li>Functional after implementing stump_booster.m in PS2. [<a href="http://cs229.stanford.edu/extra-notes/boosting_example.m" target="_blank" rel="noopener">here</a>]</li>
+<li>The representer theorem [<a href="http://cs229.stanford.edu/extra-notes/representer-function.pdf" target="_blank" rel="noopener">pdf</a>]</li>
+<li>Hoeffding’s inequality [<a href="http://cs229.stanford.edu/extra-notes/hoeffding.pdf" target="_blank" rel="noopener">pdf</a>] </li>
+</ol>
+<p><strong>Section Notes</strong></p>
+<ol>
+<li>Linear Algebra Review and Reference [<a href="http://cs229.stanford.edu/section/cs229-linalg.pdf" target="_blank" rel="noopener">pdf</a>]</li>
+<li>Probability Theory Review [<a href="http://cs229.stanford.edu/section/cs229-prob.pdf" target="_blank" rel="noopener">pdf</a>]</li>
+<li>Files for the Matlab tutorial: [<a href="http://cs229.stanford.edu/materials/MATLAB_Session.pdf" target="_blank" rel="noopener">pdf</a>][<a href="http://cs229.stanford.edu/section/matlab/sigmoid.m" target="_blank" rel="noopener">sigmoid.m</a>] [<a href="http://cs229.stanford.edu/section/matlab/logistic_grad_ascent.m" target="_blank" rel="noopener">logistic_grad_ascent.m</a>][<a href="http://cs229.stanford.edu/materials/matlab_session.m" target="_blank" rel="noopener">matlab_session.m</a>]</li>
+<li>Convex Optimization Overview, Part I [<a href="http://cs229.stanford.edu/section/cs229-cvxopt.ps" target="_blank" rel="noopener">ps</a>] [<a href="http://cs229.stanford.edu/section/cs229-cvxopt.pdf" target="_blank" rel="noopener">pdf</a>]</li>
+<li>Convex Optimization Overview, Part II [<a href="http://cs229.stanford.edu/section/cs229-cvxopt2.ps" target="_blank" rel="noopener">ps</a>] [<a href="http://cs229.stanford.edu/section/cs229-cvxopt2.pdf" target="_blank" rel="noopener">pdf</a>]</li>
+<li>Hidden Markov Models [<a href="http://cs229.stanford.edu/section/cs229-hmm.ps" target="_blank" rel="noopener">ps</a>] [<a href="http://cs229.stanford.edu/section/cs229-hmm.pdf" target="_blank" rel="noopener">pdf</a>]</li>
+<li>The Multivariate Gaussian Distribution [<a href="http://cs229.stanford.edu/section/gaussians.pdf" target="_blank" rel="noopener">pdf</a>]</li>
+<li>More on Gaussian Distribution [<a href="http://cs229.stanford.edu/section/more_on_gaussians.pdf" target="_blank" rel="noopener">pdf</a>]</li>
+<li>Gaussian Processes [<a href="http://cs229.stanford.edu/section/cs229-gaussian_processes.pdf" target="_blank" rel="noopener">pdf</a>] </li>
+</ol>
+<p><strong>Other Resources</strong></p>
+<ol>
+<li>Advice on applying machine learning: Slides from Andrew’s lecture on getting machine learning algorithms to work in practice can be found <a href="http://cs229.stanford.edu/materials/ML-advice.pdf" target="_blank" rel="noopener">here</a>. </li>
+<li>Previous projects: A list of last year’s final projects can be found <a href="http://cs229.stanford.edu/projects2016.html" target="_blank" rel="noopener">here</a>. </li>
+<li>Matlab resources: Here are a couple of Matlab tutorials that you might find helpful: <a href="http://www.math.ucsd.edu/~bdriver/21d-s99/matlab-primer.html" target="_blank" rel="noopener">http://www.math.ucsd.edu/~bdriver/21d-s99/matlab-primer.html</a> and <a href="http://www.math.mtu.edu/~msgocken/intro/node1.html" target="_blank" rel="noopener">http://www.math.mtu.edu/~msgocken/intro/node1.html</a>. For emacs users only: If you plan to run Matlab in emacs, here are <a href="http://cs229.stanford.edu/materials/matlab.el" target="_blank" rel="noopener">matlab.el</a>, and a helpful <a href="http://cs229.stanford.edu/materials/emacs" target="_blank" rel="noopener">.emac’s</a> file. Octave resources: For a free alternative to Matlab, check out <a href="http://www.gnu.org/software/octave/" target="_blank" rel="noopener">GNU Octave</a>. The official documentation is available <a href="http://www.gnu.org/software/octave/doc/interpreter/" target="_blank" rel="noopener">here</a>. Some useful tutorials on Octave include <a href="http://en.wikibooks.org/wiki/Octave_Programming_Tutorial" target="_blank" rel="noopener">http://en.wikibooks.org/wiki/Octave_Programming_Tutorial</a> and <a href="http://www-mdp.eng.cam.ac.uk/web/CD/engapps/octave/octavetut.pdf" target="_blank" rel="noopener">http://www-mdp.eng.cam.ac.uk/web/CD/engapps/octave/octavetut.pdf</a> . </li>
+<li>Data: Here is the <a href="http://www.ics.uci.edu/~mlearn/MLRepository.html" target="_blank" rel="noopener">UCI Machine learning repository</a>, which contains a large collection of standard datasets for testing learning algorithms. If you want to see examples of recent work in machine learning, start by taking a look at the conferences <a href="http://www.nips.cc/" target="_blank" rel="noopener">NIPS</a>(all old NIPS papers are online) and ICML. Some other related conferences include UAI, AAAI, IJCAI. </li>
+<li>Viewing PostScript and PDF files: Depending on the computer you are using, you may be able to download a <a href="http://www.cs.wisc.edu/~ghost/" target="_blank" rel="noopener">PostScript</a> viewer or <a href="http://www.adobe.com/products/acrobat/readstep2_allversions.html" target="_blank" rel="noopener">PDF viewer</a> for it if you don’t already have one. </li>
+</ol>
+<hr>
+<h3 id="第一讲笔记"><a href="#第一讲笔记" class="headerlink" title="第一讲笔记"></a>第一讲笔记</h3><ul>
+<li><p>Machine Learning</p>
+<ul>
+<li>What is ML: <ul>
+<li>Field of study that gives computers the ability to learn without being explicitly programmed.  - Authur Samuel(1959)</li>
+<li>“A computer program is said to earn from experience E with respect to some task T and some performance measure P, if its performance on T, as measured P, improves with experience E.”  -Tom Mitchell(1998)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Supervised Learning</p>
+<ul>
+<li><p>Why do we call xxx(房价预测) supervised learning?:</p>
+<ul>
+<li><blockquote>
+<p>“We are supervising the algorithm, in other word, we give the algorithm  the quote, right answer, and the we want the algorithm to learn the association between the inputs and the outputs and give us more right answers.”</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>Regression Problem回归问题：</p>
+<ul>
+<li><blockquote>
+<p>the variable we’re trying to predict is  continuous.</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>Classification Problem分类问题</p>
+<ul>
+<li><blockquote>
+<p>the variable we’re trying to predict is  discreet离散的 rather than continuous.</p>
+</blockquote>
+<ul>
+<li>举例：经典例子，预测乳腺癌是否是恶性</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Learning Theory</p>
+<ul>
+<li>将学习算法应用到具体实际问题之中</li>
+</ul>
+</li>
+<li><p>Unsupervised Learning </p>
+<ul>
+<li>Clustering聚类问题：<ul>
+<li>2D图像聚类重建3D模型</li>
+<li>天文，市场分析，计算机集群聚类等</li>
+<li>Cocktail Party Problem: 从多个说话者的声音混合中提取出每个说话者的声音<ul>
+<li>ICA Algorithm: $$[W, s, v]=svd((repmat(sum(x.<em>x, 1), size(x, 1), 1).</em>x).*x’)$$</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Reinforcement Learning</p>
+<ul>
+<li>用于不需要进行一次决策的场合。对正确的决策进行奖励，错误的进行惩罚，以求获得奖励最大。</li>
+<li>应用：飞行器自主飞行，机器人训练和学习。</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-07-18T14:01:01.019Z" itemprop="dateUpdated">2018-07-18 22:01:01</time>
+</span><br>
+
+
+        
+        本文为作者原创，转载请注明出处：<a href="" target="_blank" rel="external">https://www.blankspace.cn/2018/07/18/斯坦福CS229笔记-1机器学习绪论Introduction-to-ML/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="https://www.blankspace.cn">
+            <img src="../../../../img/avatar.jpg" alt="liuqidev">
+            liuqidev
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../tags/CS229/">CS229</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../tags/吴恩达-Andrew-Ng/">吴恩达(Andrew Ng)</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../tags/机器学习/">机器学习</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://www.blankspace.cn/2018/07/18/斯坦福CS229笔记-1机器学习绪论Introduction-to-ML/&title=《斯坦福CS229笔记 第1讲 机器学习绪论Introduction to ML》 — 魔法师LQ的魔法书&pic=https://www.blankspace.cn/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.blankspace.cn/2018/07/18/斯坦福CS229笔记-1机器学习绪论Introduction-to-ML/&title=《斯坦福CS229笔记 第1讲 机器学习绪论Introduction to ML》 — 魔法师LQ的魔法书&source=远不止魔法..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://www.blankspace.cn/2018/07/18/斯坦福CS229笔记-1机器学习绪论Introduction-to-ML/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《斯坦福CS229笔记 第1讲 机器学习绪论Introduction to ML》 — 魔法师LQ的魔法书&url=https://www.blankspace.cn/2018/07/18/斯坦福CS229笔记-1机器学习绪论Introduction-to-ML/&via=https://www.blankspace.cn" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://www.blankspace.cn/2018/07/18/斯坦福CS229笔记-1机器学习绪论Introduction-to-ML/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="../DL-ML学习资源汇总和备忘/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">DL ML学习资源汇总和备忘</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "kBrTfD8l4RFzueSAt65hASek-gzGzoHsz",
+            appKey: "AFsAfwfHqW6iEHkAc3TjYEzh",
+            avatar: "mm",
+            placeholder: "我有话想说~",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        小额打赏作者~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="../../../../img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="../../../../img/wechat.jpg" data-alipay="../../../../img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="../../../../atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>liuqidev &copy; 2018</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">苏ICP备18021678号</a><br>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://www.blankspace.cn/2018/07/18/斯坦福CS229笔记-1机器学习绪论Introduction-to-ML/&title=《斯坦福CS229笔记 第1讲 机器学习绪论Introduction to ML》 — 魔法师LQ的魔法书&pic=https://www.blankspace.cn/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.blankspace.cn/2018/07/18/斯坦福CS229笔记-1机器学习绪论Introduction-to-ML/&title=《斯坦福CS229笔记 第1讲 机器学习绪论Introduction to ML》 — 魔法师LQ的魔法书&source=远不止魔法..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://www.blankspace.cn/2018/07/18/斯坦福CS229笔记-1机器学习绪论Introduction-to-ML/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《斯坦福CS229笔记 第1讲 机器学习绪论Introduction to ML》 — 魔法师LQ的魔法书&url=https://www.blankspace.cn/2018/07/18/斯坦福CS229笔记-1机器学习绪论Introduction-to-ML/&via=https://www.blankspace.cn" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://www.blankspace.cn/2018/07/18/斯坦福CS229笔记-1机器学习绪论Introduction-to-ML/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPYAAAD2CAAAAADAeSUUAAADI0lEQVR42u3a0WrjQAwF0Pz/T6evhZL6SrLBVo6fQtZ4fCawt5Lm9Yqv968r+ebv9fuev5//XzG583XFhY2Njf0Qdv66Vdgn6ifM5Gm5BRsbG3sr+/9g6GEm3ydBlWzTx++xsbGxv5idFBh5IVFdq/rzYGNjY2PnrzLfpl5Zgo2NjY3daxVNWvnVIid/wiW9NGxsbOzbs/Op6P0/XzLfxsbGxr4x+128qtFVPbgzHzZHCmxsbOxF7DwAei/Ue0JSeFQDDBsbG3srOw+S5OhMPppNSJPVD7YDGxsbex173qzpDX2rG50PFQ42ERsbG3sRu7dkHl3z2UXe2MpHxdjY2Nhb2eeSJgdx8rZR735sbGzsTeyzDsTM20/l36pY9ozOH2FjY2Pfnt07plPdlHzdXllSGDNgY2Njr2NXP8+/6RUzk8HAqBTBxsbGvjE7/3M/v6faeErCMo+3ZC1sbGzsfex5XCX/2mtmVVcslEzY2NjYX8OeBMkk2HrD5sLPgI2Njb2IPT86Mxke5LFUPSRaOO6JjY2N/Vh2r0FfDY+8bdQLvHzFg6kINjY29gPZOS+PjWpc5YB8hHzJS2BjY2Pfnl1tu+dHanrt/io130psbGzsTexeqdA7lFPdml6zKeogYWNjYy9iX9fETzZifvgmaWY1m0rY2NjYj2IXqpbWkLjX+p9s66jthY2Njf0odu+/+LPKksk2JaH18cnY2NjYi9iTkqNXQsxHwmcd/cHGxsbewa5GyLkvUS1seoPhaNCLjY2N/Vh28if7ZOHeeKBcQgSRiY2Njf1t7F5UVCOkF4r5PQeRiY2Njb2OPW8qVVtL+UbnK+bPx8bGxt7HnjSA8jFwXmD0SpF8zICNjY29g/0uXklpMTlkMyk/8hDFxsbG3sSuBkAScgcFwOBpeQFTbjBhY2NjP5w9efRZw+Bznx+FHzY2NvY6dq8MyIOnF5ZXtLqwsbGxsauNpF7xkLSlqm+LjY2NjZ20+6tj4Hzc24vVj3GIjY2NvY6dRE7eBsrbPfmLVr8/2CZsbGzsRexmUyaeIfdGAuc2rXrtLWxsbOzbs38AZ8s1ALUEsgkAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="../../../../js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="../../../../js/search.min.js?v=1.7.2" async></script>
+
+
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '糟糕！崩溃了⌇●﹏●⌇';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '咦!又好了(o゜▽゜)o☆';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
