@@ -5,7 +5,7 @@
 <!-- Google Analytics -->
 <script>
 window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-ga('create', 'UA-122657583-1', 'auto');
+ga('create', 'UA-122732118-1', 'auto');
 ga('send', 'pageview');
 </script>
 <script async src='https://www.google-analytics.com/analytics.js'></script>
@@ -20,7 +20,7 @@ ga('send', 'pageview');
 
     <meta charset="utf-8">
     
-    <meta name="google-site-verification" content="true">
+    <meta name="google-site-verification" content="UA-122732118-1">
     
     
     
@@ -30,18 +30,18 @@ ga('send', 'pageview');
     
     
     <meta name="keywords" content="CS229,机器学习,吴恩达(Andrew Ng)">
-    <meta name="description" content="前言CS229是吴恩达(Andrew Ng)教授在斯坦福大学教授的一门先修课程，这里是学习其较早的版本所做的笔记，相较于之后的课程，这个版本容量较大，介绍了很多经典的机器学习方法和应用。缺点是有的地方可能已经过时，以及在有些方面介绍得不够全面。因此适合用于了解和学习机器学习的通用和经典方法。在作业和实现上使用的是Matlab和Octave，在学习到这相关方面时可以选择跳过，选择学习Coursera">
+    <meta name="description" content="教学大纲和第一讲笔记。  前言CS229是吴恩达(Andrew Ng)教授在斯坦福大学教授的一门先修课程，这里是学习其较早的版本所做的笔记，相较于之后的课程，这个版本容量较大，介绍了很多经典的机器学习方法和应用。缺点是有的地方可能已经过时，以及在有些方面介绍得不够全面。因此适合用于了解和学习机器学习的通用和经典方法。在作业和实现上使用的是Matlab和Octave，在学习到这相关方面时可以选择跳">
 <meta name="keywords" content="CS229,机器学习,吴恩达(Andrew Ng)">
 <meta property="og:type" content="article">
 <meta property="og:title" content="斯坦福CS229笔记 第1讲 机器学习绪论">
 <meta property="og:url" content="https://www.blankspace.cn/2018/07/18/斯坦福CS229笔记-1机器学习绪论Introduction-to-ML/index.html">
 <meta property="og:site_name" content="魔法师LQ的魔法书">
-<meta property="og:description" content="前言CS229是吴恩达(Andrew Ng)教授在斯坦福大学教授的一门先修课程，这里是学习其较早的版本所做的笔记，相较于之后的课程，这个版本容量较大，介绍了很多经典的机器学习方法和应用。缺点是有的地方可能已经过时，以及在有些方面介绍得不够全面。因此适合用于了解和学习机器学习的通用和经典方法。在作业和实现上使用的是Matlab和Octave，在学习到这相关方面时可以选择跳过，选择学习Coursera">
+<meta property="og:description" content="教学大纲和第一讲笔记。  前言CS229是吴恩达(Andrew Ng)教授在斯坦福大学教授的一门先修课程，这里是学习其较早的版本所做的笔记，相较于之后的课程，这个版本容量较大，介绍了很多经典的机器学习方法和应用。缺点是有的地方可能已经过时，以及在有些方面介绍得不够全面。因此适合用于了解和学习机器学习的通用和经典方法。在作业和实现上使用的是Matlab和Octave，在学习到这相关方面时可以选择跳">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-07-22T02:50:16.330Z">
+<meta property="og:updated_time" content="2018-07-22T06:11:44.748Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="斯坦福CS229笔记 第1讲 机器学习绪论">
-<meta name="twitter:description" content="前言CS229是吴恩达(Andrew Ng)教授在斯坦福大学教授的一门先修课程，这里是学习其较早的版本所做的笔记，相较于之后的课程，这个版本容量较大，介绍了很多经典的机器学习方法和应用。缺点是有的地方可能已经过时，以及在有些方面介绍得不够全面。因此适合用于了解和学习机器学习的通用和经典方法。在作业和实现上使用的是Matlab和Octave，在学习到这相关方面时可以选择跳过，选择学习Coursera">
+<meta name="twitter:description" content="教学大纲和第一讲笔记。  前言CS229是吴恩达(Andrew Ng)教授在斯坦福大学教授的一门先修课程，这里是学习其较早的版本所做的笔记，相较于之后的课程，这个版本容量较大，介绍了很多经典的机器学习方法和应用。缺点是有的地方可能已经过时，以及在有些方面介绍得不够全面。因此适合用于了解和学习机器学习的通用和经典方法。在作业和实现上使用的是Matlab和Octave，在学习到这相关方面时可以选择跳">
     
         <link rel="alternate" type="application/atom+xml" title="魔法师LQ的魔法书" href="../../../../atom.xml">
     
@@ -209,7 +209,10 @@ ga('send', 'pageview');
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>CS229是吴恩达(Andrew Ng)教授在斯坦福大学教授的一门先修课程，这里是学习其<a href="http://study.163.com/plan/planMain.htm?id=67905" target="_blank" rel="noopener">较早的版本</a>所做的笔记，相较于之后的课程，这个版本容量较大，介绍了很多经典的机器学习方法和应用。缺点是有的地方可能已经过时，以及在有些方面介绍得不够全面。因此适合用于了解和学习机器学习的通用和经典方法。在作业和实现上使用的是Matlab和Octave，在学习到这相关方面时可以选择跳过，选择学习Coursera上其较新版本的课程或者微专业配套的作业作为补充。</p>
+            <blockquote>
+<p>教学大纲和第一讲笔记。</p>
+</blockquote>
+<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>CS229是吴恩达(Andrew Ng)教授在斯坦福大学教授的一门先修课程，这里是学习其<a href="http://study.163.com/plan/planMain.htm?id=67905" target="_blank" rel="noopener">较早的版本</a>所做的笔记，相较于之后的课程，这个版本容量较大，介绍了很多经典的机器学习方法和应用。缺点是有的地方可能已经过时，以及在有些方面介绍得不够全面。因此适合用于了解和学习机器学习的通用和经典方法。在作业和实现上使用的是Matlab和Octave，在学习到这相关方面时可以选择跳过，选择学习Coursera上其较新版本的课程或者微专业配套的作业作为补充。</p>
 <hr>
 <h3 id="教学大纲"><a href="#教学大纲" class="headerlink" title="教学大纲"></a>教学大纲</h3><table>
 <thead>
@@ -595,7 +598,7 @@ ga('send', 'pageview');
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2018-07-22T02:50:16.330Z" itemprop="dateUpdated">2018-07-22 10:50:16</time>
+    最后更新时间：<time datetime="2018-07-22T06:11:44.748Z" itemprop="dateUpdated">2018-07-22 14:11:44</time>
 </span><br>
 
 
@@ -690,7 +693,7 @@ ga('send', 'pageview');
     <div class="waves-block waves-effect next">
       <a href="../DL-ML学习资源汇总和备忘/" id="post-next" class="post-nav-link">
         <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">DL ML学习资源汇总和备忘</h4>
+        <h4 class="title">深度学习，机器学习学习资源、路径汇总和备忘</h4>
       </a>
     </div>
   
