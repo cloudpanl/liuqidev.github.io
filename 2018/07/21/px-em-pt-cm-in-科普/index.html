@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+<!-- Google Analytics -->
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-122657583-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<!-- End Google Analytics -->
+
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    <meta name="google-site-verification" content="true">
+    
+    
+    
+    
+    <title>关于英尺，磅，像素的争论 | 魔法师LQ的魔法书 | 魔法改变世界.</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="一行代码注释引起的关于英尺，磅，像素的争论。">
+<meta name="keywords" content="博客">
+<meta property="og:type" content="article">
+<meta property="og:title" content="关于英尺，磅，像素的争论">
+<meta property="og:url" content="https://www.blankspace.cn/2018/07/21/px-em-pt-cm-in-科普/index.html">
+<meta property="og:site_name" content="魔法师LQ的魔法书">
+<meta property="og:description" content="一行代码注释引起的关于英尺，磅，像素的争论。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://www.blankspace.cn/2018/07/21/px-em-pt-cm-in-科普/img-2.jpg">
+<meta property="og:image" content="https://www.blankspace.cn/2018/07/21/px-em-pt-cm-in-科普/img1.png">
+<meta property="og:updated_time" content="2018-07-22T04:14:24.493Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="关于英尺，磅，像素的争论">
+<meta name="twitter:description" content="一行代码注释引起的关于英尺，磅，像素的争论。">
+<meta name="twitter:image" content="https://www.blankspace.cn/2018/07/21/px-em-pt-cm-in-科普/img-2.jpg">
+    
+        <link rel="alternate" type="application/atom+xml" title="魔法师LQ的魔法书" href="../../../../atom.xml">
+    
+    <link rel="shortcut icon" href="../../../../favicon.ico">
+    <link rel="stylesheet" href="../../../../css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(../../../../img/brand.jpg)">
+      <div class="brand">
+        <a href="../../../../index.html" class="avatar waves-effect waves-circle waves-light">
+          <img src="../../../../img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">liuqidev</h5>
+          <a href="mailto:nihaoworld@outlook.com" title="nihaoworld@outlook.com" class="mail">nihaoworld@outlook.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="../../../../index.html"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="../../../../archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                时间线
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="../../../../tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                关键词
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="../../../../categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/liuqidev" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://weibo.com/liuqidev" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                微博
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="../../../../custom"  >
+                <i class="icon icon-lg icon-link"></i>
+                即将上线...
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">关于英尺，磅，像素的争论</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">关于英尺，磅，像素的争论</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-07-21T08:34:30.000Z" itemprop="datePublished" class="page-time">
+  2018-07-21
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#一行错误的注释"><span class="post-toc-text">一行错误的注释</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#求证point"><span class="post-toc-text">求证point</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#还有错误"><span class="post-toc-text">还有错误</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#官方解释"><span class="post-toc-text">官方解释</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-px-em-pt-cm-in-科普"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">关于英尺，磅，像素的争论</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-07-21 16:34:30" datetime="2018-07-21T08:34:30.000Z"  itemprop="datePublished">2018-07-21</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <blockquote>
+<p>一行代码注释引起的关于英尺，磅，像素的争论。</p>
+</blockquote>
+<a id="more"></a>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2018/07/21/px-em-pt-cm-in-科普/img-2.jpg" alt="图1. 带有错误注释的蟒蛇代码" title="">
+                </div>
+                <div class="image-caption">图1. 带有错误注释的蟒蛇代码</div>
+            </figure>
+<h2 id="一行错误的注释"><a href="#一行错误的注释" class="headerlink" title="一行错误的注释"></a>一行错误的注释</h2><p>事起<a href="http://www.labri.fr/perso/nrougier/teaching/matplotlib/matplotlib.html" target="_blank" rel="noopener">【此文】</a>一行 注释:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Create a new figure of size 8x6 points, using 100 dots per inch</span></span><br><span class="line">plt.figure(figsize=(<span class="number">8</span>,<span class="number">6</span>), dpi=<span class="number">80</span>)</span><br></pre></td></tr></table></figure>
+<p>很明显，代码中的参数<code>dpi</code>设置为80，而不是注释中的100，这一处应该为笔误。而前面一句<code>创建一幅新的绘图纸，大小8x6点（points），每英尺100个点（dots）？</code></p>
+<p>此文的<a href="https://liam0205.me/2014/09/11/matplotlib-tutorial-zh-cn/" target="_blank" rel="noopener">中译版本</a>，修正了这个笔误，但是这个<strong>point</strong>和<strong>dot</strong>都翻译成<code>“点”</code>这样真的好吗？</p>
+<h2 id="求证point"><a href="#求证point" class="headerlink" title="求证point"></a>求证point</h2><p>于是乎，上<a href="https://english.stackexchange.com/questions/177286/when-to-use-point-vs-dot" target="_blank" rel="noopener">换栈网</a>查询到了两者之间的区别。显示，dot多用于指代具体的点，而point范围则广的多，可以指代抽象的点，更具体的区别看<a href="https://wikidiff.com/point/dot" target="_blank" rel="noopener">维基比较</a>。</p>
+<p>而实际上这里的point并非是上面的意思，而是一个长度单位，往往翻译成<code>磅</code>。w3c的<a href="https://www.w3.org/People/Bos/" target="_blank" rel="noopener">Bert Bos</a> 在<a href="https://www.w3.org/Style/Examples/007/units.zh_HK.html" target="_blank" rel="noopener">此文</a>, 介绍了关于这种单位在的来龙去脉，以及<a href="http://www.w3school.com.cn/css/index.asp" target="_blank" rel="noopener">CSS</a>里面更多的单位之间的换算，并且<a href="http://www.runoob.com/w3cnote/px-pt-em-convert-table.html" target="_blank" rel="noopener">菜鸟教程</a>和<a href="https://www.cnblogs.com/913815ccmm/p/4858638.html" target="_blank" rel="noopener">这一篇</a>都有介绍。</p>
+<h2 id="还有错误"><a href="#还有错误" class="headerlink" title="还有错误"></a>还有错误</h2><p>就这样相信作者，命令中<code>figsize</code>参数单位为磅就完了吗？</p>
+<p>当然不能，保存代码绘制的图片，进行了以下求证。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2018/07/21/px-em-pt-cm-in-科普/img1.png" alt="图2. 计算和验证过程" title="">
+                </div>
+                <div class="image-caption">图2. 计算和验证过程</div>
+            </figure>
+<p>计算结果表明，<strong>参数中单位既不是所谓的点，也不是磅，而是英寸！！</strong></p>
+<h2 id="官方解释"><a href="#官方解释" class="headerlink" title="官方解释"></a>官方解释</h2><p>使用：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">help(plt.figure)</span><br></pre></td></tr></table></figure>
+<p>结果：</p>
+<figure class="highlight vbnet"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line">Help <span class="keyword">on</span> <span class="keyword">function</span> figure <span class="keyword">in</span> <span class="keyword">module</span> matplotlib.pyplot:</span><br><span class="line"></span><br><span class="line">figure(num=None, figsize=None, dpi=None, facecolor=None, edgecolor=None, frameon=<span class="literal">True</span>, FigureClass=&lt;<span class="keyword">class</span> <span class="comment">'matplotlib.figure.Figure'&gt;, clear=False, **kwargs)</span></span><br><span class="line">    Creates a <span class="keyword">new</span> figure.</span><br><span class="line">    </span><br><span class="line">    Parameters</span><br><span class="line">    ----------</span><br><span class="line">    </span><br><span class="line">    num : <span class="built_in">integer</span> <span class="keyword">or</span> <span class="built_in">string</span>, <span class="keyword">optional</span>, <span class="keyword">default</span>: none</span><br><span class="line">        <span class="keyword">If</span> <span class="keyword">not</span> provided, a <span class="keyword">new</span> figure will be created, <span class="keyword">and</span> the figure number</span><br><span class="line">        will be incremented. The figure objects holds this number <span class="keyword">in</span> a `number`</span><br><span class="line">        attribute.</span><br><span class="line">        <span class="keyword">If</span> num <span class="keyword">is</span> provided, <span class="keyword">and</span> a figure <span class="keyword">with</span> this id already exists, make</span><br><span class="line">        it active, <span class="keyword">and</span> returns a reference <span class="keyword">to</span> it. <span class="keyword">If</span> this figure does <span class="keyword">not</span></span><br><span class="line">        exists, create it <span class="keyword">and</span> returns it.</span><br><span class="line">        <span class="keyword">If</span> num <span class="keyword">is</span> a <span class="built_in">string</span>, the window title will be <span class="keyword">set</span> <span class="keyword">to</span> this figure<span class="comment">'s</span></span><br><span class="line">        `num`.</span><br><span class="line">    </span><br><span class="line">    figsize : tuple <span class="keyword">of</span> integers, <span class="keyword">optional</span>, <span class="keyword">default</span>: None</span><br><span class="line">        width, height <span class="keyword">in</span> inches. <span class="keyword">If</span> <span class="keyword">not</span> provided, defaults <span class="keyword">to</span> rc</span><br><span class="line">        figure.figsize.</span><br><span class="line">    </span><br><span class="line">    dpi : <span class="built_in">integer</span>, <span class="keyword">optional</span>, <span class="keyword">default</span>: None</span><br><span class="line">        resolution <span class="keyword">of</span> the figure. <span class="keyword">If</span> <span class="keyword">not</span> provided, defaults <span class="keyword">to</span> rc figure.dpi.</span><br><span class="line">    </span><br><span class="line">    facecolor :</span><br><span class="line">        the background color. <span class="keyword">If</span> <span class="keyword">not</span> provided, defaults <span class="keyword">to</span> rc figure.facecolor.</span><br><span class="line">    </span><br><span class="line">    edgecolor :</span><br><span class="line">        the border color. <span class="keyword">If</span> <span class="keyword">not</span> provided, defaults <span class="keyword">to</span> rc figure.edgecolor.</span><br><span class="line">    </span><br><span class="line">    frameon : bool, <span class="keyword">optional</span>, <span class="keyword">default</span>: <span class="literal">True</span></span><br><span class="line">        <span class="keyword">If</span> <span class="literal">False</span>, suppress drawing the figure frame.</span><br><span class="line">    </span><br><span class="line">    FigureClass : <span class="keyword">class</span> derived <span class="keyword">from</span> matplotlib.figure.Figure</span><br><span class="line">        Optionally use a <span class="keyword">custom</span> Figure instance.</span><br><span class="line">    </span><br><span class="line">    clear : bool, <span class="keyword">optional</span>, <span class="keyword">default</span>: <span class="literal">False</span></span><br><span class="line">        <span class="keyword">If</span> <span class="literal">True</span> <span class="keyword">and</span> the figure already exists, <span class="keyword">then</span> it <span class="keyword">is</span> cleared.</span><br><span class="line">    </span><br><span class="line">    Returns</span><br><span class="line">    -------</span><br><span class="line">    figure : Figure</span><br><span class="line">        The Figure instance returned will also be passed <span class="keyword">to</span> new_figure_manager</span><br><span class="line">        <span class="keyword">in</span> the backends, which allows <span class="keyword">to</span> hook <span class="keyword">custom</span> Figure classes <span class="keyword">into</span> the</span><br><span class="line">        pylab <span class="keyword">interface</span>. Additional kwargs will be passed <span class="keyword">to</span> the figure init</span><br><span class="line">        <span class="keyword">function</span>.</span><br><span class="line">    </span><br><span class="line">    Notes</span><br><span class="line">    -----</span><br><span class="line">    <span class="keyword">If</span> you are creating many figures, make sure you explicitly <span class="keyword">call</span> <span class="string">"close"</span></span><br><span class="line">    <span class="keyword">on</span> the figures you are <span class="keyword">not</span> <span class="keyword">using</span>, because this will enable pylab</span><br><span class="line">    <span class="keyword">to</span> properly clean up the memory.</span><br><span class="line">    </span><br><span class="line">    rcParams defines the <span class="keyword">default</span> values, which can be modified <span class="keyword">in</span> the</span><br><span class="line">    matplotlibrc file</span><br></pre></td></tr></table></figure>
+<p>其中<code>figsize : tuple of integers, optional, default: None    width, height in inches. If not provided, defaults to rc    figure.figsize.</code></p>
+<p>证明了我的观点，参数单位应该是英寸(inches)。</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-07-22T04:14:24.493Z" itemprop="dateUpdated">2018-07-22 12:14:24</time>
+</span><br>
+
+
+        
+        本文为作者原创，转载请注明出处：<a href="" target="_blank" rel="external">https://www.blankspace.cn/2018/07/21/px-em-pt-cm-in-科普/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="https://www.blankspace.cn">
+            <img src="../../../../img/avatar.jpg" alt="liuqidev">
+            liuqidev
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://www.blankspace.cn/2018/07/21/px-em-pt-cm-in-科普/&title=《关于英尺，磅，像素的争论》 — 魔法师LQ的魔法书&pic=https://www.blankspace.cn/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.blankspace.cn/2018/07/21/px-em-pt-cm-in-科普/&title=《关于英尺，磅，像素的争论》 — 魔法师LQ的魔法书&source=
+一行代码注释引起的关于英尺，磅，像素的争论。
+" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://www.blankspace.cn/2018/07/21/px-em-pt-cm-in-科普/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《关于英尺，磅，像素的争论》 — 魔法师LQ的魔法书&url=https://www.blankspace.cn/2018/07/21/px-em-pt-cm-in-科普/&via=https://www.blankspace.cn" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://www.blankspace.cn/2018/07/21/px-em-pt-cm-in-科普/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="../xxx-github-io连接已重置修改hosts解决/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">xxx.github.io连接已重置修改hosts解决</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "kBrTfD8l4RFzueSAt65hASek-gzGzoHsz",
+            appKey: "AFsAfwfHqW6iEHkAc3TjYEzh",
+            avatar: "mm",
+            placeholder: "我有话想说~",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "20"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        小额打赏魔法师~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="../../../../img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="../../../../img/wechat.jpg" data-alipay="../../../../img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="../../../../atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>liuqidev &copy; 2018</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">苏ICP备18021678号</a><br>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://www.blankspace.cn/2018/07/21/px-em-pt-cm-in-科普/&title=《关于英尺，磅，像素的争论》 — 魔法师LQ的魔法书&pic=https://www.blankspace.cn/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.blankspace.cn/2018/07/21/px-em-pt-cm-in-科普/&title=《关于英尺，磅，像素的争论》 — 魔法师LQ的魔法书&source=
+一行代码注释引起的关于英尺，磅，像素的争论。
+" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://www.blankspace.cn/2018/07/21/px-em-pt-cm-in-科普/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《关于英尺，磅，像素的争论》 — 魔法师LQ的魔法书&url=https://www.blankspace.cn/2018/07/21/px-em-pt-cm-in-科普/&via=https://www.blankspace.cn" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://www.blankspace.cn/2018/07/21/px-em-pt-cm-in-科普/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACIUlEQVR42u3aSW7DMAwF0N7/0um2RWHnk1QKWHpeGRlkPy0IDvr6iq/Xj+vv51f3V/+6X+H+96MLAwPjsYzX7VVlXL1E8m2yHZfrYGBgHMDIl14Vjq9WTp6LgYGBMQmCyStOVsDAwMBYEPji3yQJKAYGBka1iK32uCZNtw/W4hgYGA9k5F33/7//yHwDAwPjUYx5uKwOFe7L2uZbYWBgbM2oFqIJL08EJwEXAwPjNMak+ZW3/nvttvy5GBgYuzIKykHrPwnEvUL3V4aLgYFxDCNJ1Fa1+PMEdNkuYmBgPJZRHTFWwb3WW5ImXnYNMTAwNmIkr5uXoKuGl72DYhgYGHsz8lKzGoKT/C1PGd8EXAwMjE0Zk0dW08HmSDIJxBgYGAcz1jbUqmG9kJJiYGAcwJgEu8kYoBqOR4MBDAyMxzJ648P8+GmyBT1wdIAVAwNjO8YnWv+r2mrVohcDA2M/RvLnZLRZTRarbbs324GBgbE1oxci5wlfb+XoyAUGBsZ2jN6D8xBcHSpUP8HAwDiNUQ2medrXOxZWOLSBgYFxGKN3nGsejqszSgwMjBMYr+JVPRY2KWKb9TcGBsZ2jHm0/sTstDcixcDA2JtRDbLzfcrBhf3GwMA4gFENfJNDFXn6WNgCDAwMjGIu2Tv4VRhYYmBgYMSM6jCyV08nq2FgYJzAmByYyF80HxJUwzEGBsbejGrpOKFWm26Lh5oYGBjPY3wDWfwD8c6EjxwAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="../../../../js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="../../../../js/search.min.js?v=1.7.2" async></script>
+
+
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '崩溃了⌇●﹏●⌇';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '咦!又好了(o゜▽゜)o☆';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
