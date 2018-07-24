@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>魔法师LQ的魔法书</title>
   
-  <subtitle>魔法改变世界.</subtitle>
+  <subtitle>魔鬼藏于细节,魔法改变世界.</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.blankspace.cn/"/>
@@ -290,9 +290,9 @@
       <category term="PAT认证" scheme="https://www.blankspace.cn/categories/PAT%E8%AE%A4%E8%AF%81/"/>
     
     
-      <category term="PAT认证（乙级）" scheme="https://www.blankspace.cn/tags/PAT%E8%AE%A4%E8%AF%81%EF%BC%88%E4%B9%99%E7%BA%A7%EF%BC%89/"/>
-    
       <category term="大数" scheme="https://www.blankspace.cn/tags/%E5%A4%A7%E6%95%B0/"/>
+    
+      <category term="PAT认证（乙级）" scheme="https://www.blankspace.cn/tags/PAT%E8%AE%A4%E8%AF%81%EF%BC%88%E4%B9%99%E7%BA%A7%EF%BC%89/"/>
     
   </entry>
   
