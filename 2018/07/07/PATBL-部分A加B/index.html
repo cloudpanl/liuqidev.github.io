@@ -14,7 +14,7 @@
 <meta property="og:description" content="时间限制 1000 ms 内存限制 32768 KB 代码长度限制 100 KB 判断程序 Standard (来自 小小) 题目描述正整数A的“DA（为1位整数）部分”定义为由A中所有DA组成的新整数PA。例如：给定A = 3862767，DA = 6，则A的“6部分”PA是66，因为A中有2个6。现给定A、DA、B、DB，请编写程序计算PA + PB。 输入描述:输入在一行中依次给出A、DA、">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://www.blankspace.cn/2018/07/07/PATBL-部分A加B/ac.png">
-<meta property="og:updated_time" content="2018-08-03T02:56:59.729Z">
+<meta property="og:updated_time" content="2018-08-03T13:32:47.207Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PATBL 部分A加B">
 <meta name="twitter:description" content="时间限制 1000 ms 内存限制 32768 KB 代码长度限制 100 KB 判断程序 Standard (来自 小小) 题目描述正整数A的“DA（为1位整数）部分”定义为由A中所有DA组成的新整数PA。例如：给定A = 3862767，DA = 6，则A的“6部分”PA是66，因为A中有2个6。现给定A、DA、B、DB，请编写程序计算PA + PB。 输入描述:输入在一行中依次给出A、DA、">
@@ -60,6 +60,9 @@
           <li><a class=""
                  href="../../../../archives/">Archives</a></li>
         
+          <li><a class=""
+                 href="https://github.com/liuqidev">Github</a></li>
+        
       </ul>
 
       <!--
@@ -74,14 +77,108 @@
 </nav>
 
   <div class="container">
-    <div class="blog-header">
-  <h1 class="blog-title">魔法师LQ的魔法书</h1>
+<!--    <div class="blog-header">
+ <h1 class="blog-title">魔法师LQ的魔法书</h1>
   
     <p class="lead blog-description">魔鬼藏于细节,魔法改变世界.</p>
   
 </div>
+ -->
+	
+	<article id="post-PATBL-部分A加B" class="article article-type-post" itemscope itemprop="blogPost">
 
-    <div class="row">
+  <header class="article-header">
+    
+  
+    <h1 class="article-title" itemprop="name">
+      PATBL 部分A加B
+    </h1>
+  
+
+
+  </header>
+
+  <div class="article-meta">
+    <div class="article-datetime">
+  <a href="" class="article-date"><time datetime="2018-07-07T12:55:31.000Z" itemprop="datePublished">2018-07-07</time></a>
+</div>
+
+    
+    
+  <div class="article-category">
+    <a class="article-category-link" href="../../../../categories/Special-Topics/">Special Topics</a>
+  </div>
+
+
+  </div>
+  
+  <div class="article-inner">
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>时间限制 1000 ms 内存限制 32768 KB 代码长度限制 100 KB 判断程序 Standard (来自 <a href="https://www.nowcoder.com/profile/59" target="_blank" rel="noopener">小小</a>)</p>
+<h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a><strong>题目描述</strong></h3><p>正整数A的“DA（为1位整数）部分”定义为由A中所有DA组成的新整数PA。例如：给定A = 3862767，DA = 6，则A的“6部分”PA是66，因为A中有2个6。现给定A、DA、B、DB，请编写程序计算PA + PB。</p>
+<h3 id="输入描述"><a href="#输入描述" class="headerlink" title="输入描述:"></a><strong>输入描述:</strong></h3><p>输入在一行中依次给出A、DA、B、DB，中间以空格分隔，其中0 &lt; A, B &lt; 1010。</p>
+<h3 id="输出描述"><a href="#输出描述" class="headerlink" title="输出描述:"></a><strong>输出描述:</strong></h3><p>在一行中输出PA + PB的值。</p>
+<a id="more"></a>
+<h3 id="输入例子"><a href="#输入例子" class="headerlink" title="输入例子:"></a><strong>输入例子:</strong></h3><blockquote>
+<p>3862767 6 13530293 3</p>
+</blockquote>
+<h3 id="输出例子"><a href="#输出例子" class="headerlink" title="输出例子:"></a><strong>输出例子:</strong></h3><blockquote>
+<p>399</p>
+</blockquote>
+<h3 id="方法"><a href="#方法" class="headerlink" title="方法"></a><strong>方法</strong></h3><p>将输入视为字符串，将其中的PA，PB子串取出，转换成数后相加。</p>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a><strong>代码</strong></h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="comment">//freopen("in.txt", "r", stdin);</span></span><br><span class="line">	<span class="comment">//freopen("out.txt", "w", stdout);</span></span><br><span class="line">	<span class="built_in">string</span> sA, sB;</span><br><span class="line">	<span class="keyword">char</span> DA, DB;</span><br><span class="line">	<span class="built_in">cin</span> &gt;&gt; sA &gt;&gt; DA &gt;&gt; sB &gt;&gt; DB;</span><br><span class="line">	</span><br><span class="line">	<span class="built_in">string</span> a=<span class="string">""</span>, b=<span class="string">""</span>;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; sA.length(); i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span> (sA[i] == DA) &#123;</span><br><span class="line">			a += DA;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; sB.length(); i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span> (sB[i] == DB) &#123;</span><br><span class="line">			b += DB;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> (a == <span class="string">""</span>)</span><br><span class="line">		a = <span class="string">"0"</span>;</span><br><span class="line">	<span class="keyword">if</span> (b == <span class="string">""</span>)</span><br><span class="line">		b = <span class="string">"0"</span>;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; stoi(a) + stoi(b) &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="结果"><a href="#结果" class="headerlink" title="结果"></a><strong>结果</strong></h3><p><img src="/2018/07/07/PATBL-部分A加B/ac.png" alt=""></p>
+
+      
+    </div>
+
+    
+      
+
+    
+
+    <footer class="article-footer">
+      <a data-url="https://www.blankspace.cn/2018/07/07/PATBL-部分A加B/" data-id="cjke02lts000kisfiatciisdl" class="article-share-link">
+        <i class="fa fa-share"></i> Share
+      </a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../tags/PAT认证（乙级）/">PAT认证（乙级）</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../tags/字符串/">字符串</a></li></ul>
+
+
+    </footer>
+  </div>
+  
+    
+<ul id="article-nav" class="nav nav-pills nav-justified">
+  
+  <li role="presentation">
+    <a href="../../06/发生交通事故的错误示范和正确处理/" id="article-nav-older" class="article-nav-link-wrap">
+      <i class="fa fa-chevron-left pull-left"></i>
+      <span class="article-nav-link-title">发生交通事故的错误示范和正确处理</span>
+    </a>
+  </li>
+  
+  
+  <li role="presentation">
+    <a href="../PATBL-A除以B/" id="article-nav-newer" class="article-nav-link-wrap">
+      <span class="article-nav-link-title">PATBL A除以B</span>
+      <i class="fa fa-chevron-right pull-right"></i>
+    </a>
+  </li>
+  
+</ul>
+
+
+  
+</article>
+
+
+
+
+	
+<!--    <div class="row">
         <div class="col-sm-8 blog-main">
           <article id="post-PATBL-部分A加B" class="article article-type-post" itemscope itemprop="blogPost">
 
@@ -109,14 +206,15 @@
 
 
   </div>
+  
   <div class="article-inner">
-
     <div class="article-entry" itemprop="articleBody">
       
         <p>时间限制 1000 ms 内存限制 32768 KB 代码长度限制 100 KB 判断程序 Standard (来自 <a href="https://www.nowcoder.com/profile/59" target="_blank" rel="noopener">小小</a>)</p>
 <h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a><strong>题目描述</strong></h3><p>正整数A的“DA（为1位整数）部分”定义为由A中所有DA组成的新整数PA。例如：给定A = 3862767，DA = 6，则A的“6部分”PA是66，因为A中有2个6。现给定A、DA、B、DB，请编写程序计算PA + PB。</p>
 <h3 id="输入描述"><a href="#输入描述" class="headerlink" title="输入描述:"></a><strong>输入描述:</strong></h3><p>输入在一行中依次给出A、DA、B、DB，中间以空格分隔，其中0 &lt; A, B &lt; 1010。</p>
 <h3 id="输出描述"><a href="#输出描述" class="headerlink" title="输出描述:"></a><strong>输出描述:</strong></h3><p>在一行中输出PA + PB的值。</p>
+<a id="more"></a>
 <h3 id="输入例子"><a href="#输入例子" class="headerlink" title="输入例子:"></a><strong>输入例子:</strong></h3><blockquote>
 <p>3862767 6 13530293 3</p>
 </blockquote>
@@ -136,7 +234,7 @@
     
 
     <footer class="article-footer">
-      <a data-url="https://www.blankspace.cn/2018/07/07/PATBL-部分A加B/" data-id="cjkdsknw8000l4gfib86640sz" class="article-share-link">
+      <a data-url="https://www.blankspace.cn/2018/07/07/PATBL-部分A加B/" data-id="cjke02lts000kisfiatciisdl" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -175,11 +273,12 @@
 
 
         </div>
-        <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+
+      <div class="col-sm-2 col-sm-offset-1 blog-sidebar">
           
   <div class="sidebar-module sidebar-module-inset">
   <h4>About</h4>
-  <p>Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
+  <p>自动化研究生在读。相信<em><strong>“科技是普通人眼中的魔法”</strong></em>。若您在浏览 本博客的过程中，有任何问题意见或者建议，欢迎联系我个人邮箱：<strong>nihaoworld@outlook.com</strong>，我会尽量回复。</br> 一同为魔法事业添砖加瓦。 </p>
 
 </div>
 
@@ -223,7 +322,7 @@
     <ul class="sidebar-module-list">
       
         <li>
-          <a href="../../../08/03/1-1-latex-introduction/">测试啊</a>
+          <a href="../../../08/03/1-1-latex-introduction/">1-1 LatTex基础</a>
         </li>
       
         <li>
@@ -249,7 +348,8 @@
 
         </div>
     </div>
-  </div>
+  </div> -->
+  
   <footer class="blog-footer">
   <div class="container">
     <div id="footer-info" class="inner">
@@ -265,6 +365,9 @@
 
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 
+
+  <link rel="stylesheet" href="../../../../fancybox/jquery.fancybox.css">
+  <script src="../../../../fancybox/jquery.fancybox.pack.js"></script>
 
 
 <script src="../../../../js/script.js"></script>

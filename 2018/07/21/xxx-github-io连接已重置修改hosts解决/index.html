@@ -5,18 +5,18 @@
   
   <title>xxx.github.io连接已重置 | 魔法师LQ的魔法书</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="xxx.github.io连接已重置多在于没有使用https。">
+  <meta name="description" content="xxx.github.io连接已重置多在于没有使用https。  修改hosts文件（视窗操作系统一般在系统盘的C:\Windows\System32\drivers\etc路径下）， 添加如下解析主机： 1234567891011# Github Start192.30.253.118	gist.github.com192.30.253.112	github.com192.30.253.112">
 <meta name="keywords" content="hosts,计算机网络">
 <meta property="og:type" content="article">
 <meta property="og:title" content="xxx.github.io连接已重置">
 <meta property="og:url" content="https://www.blankspace.cn/2018/07/21/xxx-github-io连接已重置修改hosts解决/index.html">
 <meta property="og:site_name" content="魔法师LQ的魔法书">
-<meta property="og:description" content="xxx.github.io连接已重置多在于没有使用https。">
+<meta property="og:description" content="xxx.github.io连接已重置多在于没有使用https。  修改hosts文件（视窗操作系统一般在系统盘的C:\Windows\System32\drivers\etc路径下）， 添加如下解析主机： 1234567891011# Github Start192.30.253.118	gist.github.com192.30.253.112	github.com192.30.253.112">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-08-03T02:54:52.227Z">
+<meta property="og:updated_time" content="2018-08-03T13:32:23.865Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="xxx.github.io连接已重置">
-<meta name="twitter:description" content="xxx.github.io连接已重置多在于没有使用https。">
+<meta name="twitter:description" content="xxx.github.io连接已重置多在于没有使用https。  修改hosts文件（视窗操作系统一般在系统盘的C:\Windows\System32\drivers\etc路径下）， 添加如下解析主机： 1234567891011# Github Start192.30.253.118	gist.github.com192.30.253.112	github.com192.30.253.112">
   
     <link rel="alternate" href="../../../../atom.xml" title="魔法师LQ的魔法书" type="application/atom+xml">
   
@@ -58,6 +58,9 @@
           <li><a class=""
                  href="../../../../archives/">Archives</a></li>
         
+          <li><a class=""
+                 href="https://github.com/liuqidev">Github</a></li>
+        
       </ul>
 
       <!--
@@ -72,14 +75,113 @@
 </nav>
 
   <div class="container">
-    <div class="blog-header">
-  <h1 class="blog-title">魔法师LQ的魔法书</h1>
+<!--    <div class="blog-header">
+ <h1 class="blog-title">魔法师LQ的魔法书</h1>
   
     <p class="lead blog-description">魔鬼藏于细节,魔法改变世界.</p>
   
 </div>
+ -->
+	
+	<article id="post-xxx-github-io连接已重置修改hosts解决" class="article article-type-post" itemscope itemprop="blogPost">
 
-    <div class="row">
+  <header class="article-header">
+    
+  
+    <h1 class="article-title" itemprop="name">
+      xxx.github.io连接已重置
+    </h1>
+  
+
+
+  </header>
+
+  <div class="article-meta">
+    <div class="article-datetime">
+  <a href="" class="article-date"><time datetime="2018-07-21T02:55:57.000Z" itemprop="datePublished">2018-07-21</time></a>
+</div>
+
+    
+    
+  <div class="article-category">
+    <a class="article-category-link" href="../../../../categories/Engineering-Debug/">Engineering/Debug</a>
+  </div>
+
+
+  </div>
+  
+  <div class="article-inner">
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>xxx.github.io连接已重置多在于没有使用https。</p>
+</blockquote>
+<p>修改hosts文件（视窗操作系统一般在系统盘的C:\Windows\System32\drivers\etc路径下），</p>
+<p>添加如下解析主机：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"># Github Start</span><br><span class="line">192.30.253.118	gist.github.com</span><br><span class="line">192.30.253.112	github.com</span><br><span class="line">192.30.253.112	www.github.com</span><br><span class="line">207.97.227.239 github.com</span><br><span class="line">65.74.177.129 www.github.com   </span><br><span class="line">207.97.227.252 nodeload.github.com</span><br><span class="line">207.97.227.243 raw.github.com  </span><br><span class="line">204.232.175.78 documentcloud.github.com  </span><br><span class="line">204.232.175.78 pages.github.com </span><br><span class="line"># Github End</span><br></pre></td></tr></table></figure>
+<p>依然还是不行。</p>
+<p>查明原因是没有使用https网络协议所致。</p>
+<a id="more"></a>
+<p>使用谷歌浏览器（Chrome）内核，默认都是https。出现问题，可能就是hosts或者解析的事了，其余基于谷歌浏览器内核，对于某些网站，执行以下操作：</p>
+<ul>
+<li>在浏览器地址栏输入<code>chrome://net-internals/#hsts</code></li>
+<li>将要访问的网址添加到<em>Input a domain name to add it to the HSTS set:</em>下的域名（Domain）中</li>
+<li>点击添加（Add）</li>
+</ul>
+<p>之后就能使用https为开头访问了。</p>
+<hr>
+<p>补充阅读：<br><a href="https://jingyan.baidu.com/article/6181c3e0ab9f4e152ff15361.html" target="_blank" rel="noopener">百度经验: 怎么将http强制转https</a></p>
+<p><a href="https://github.com/racaljk/hosts/issues/648" target="_blank" rel="noopener">Github: 关于“访问angular.io提示连接已重置ERR_CONNECTION_RESET问题”的争论</a></p>
+
+      
+    </div>
+
+    
+      
+
+    
+
+    <footer class="article-footer">
+      <a data-url="https://www.blankspace.cn/2018/07/21/xxx-github-io连接已重置修改hosts解决/" data-id="cjke02lu20012isfiinfigk40" class="article-share-link">
+        <i class="fa fa-share"></i> Share
+      </a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../tags/hosts/">hosts</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../tags/计算机网络/">计算机网络</a></li></ul>
+
+
+    </footer>
+  </div>
+  
+    
+<ul id="article-nav" class="nav nav-pills nav-justified">
+  
+  <li role="presentation">
+    <a href="../../19/斯坦福CS229笔记-2-监督学习应用梯度下降/" id="article-nav-older" class="article-nav-link-wrap">
+      <i class="fa fa-chevron-left pull-left"></i>
+      <span class="article-nav-link-title">斯坦福CS229笔记 第2讲 监督学习应用梯度下降</span>
+    </a>
+  </li>
+  
+  
+  <li role="presentation">
+    <a href="../../22/关于英尺，磅，像素的争论/" id="article-nav-newer" class="article-nav-link-wrap">
+      <span class="article-nav-link-title">关于英尺，磅，像素的争论</span>
+      <i class="fa fa-chevron-right pull-right"></i>
+    </a>
+  </li>
+  
+</ul>
+
+
+  
+</article>
+
+
+
+
+	
+<!--    <div class="row">
         <div class="col-sm-8 blog-main">
           <article id="post-xxx-github-io连接已重置修改hosts解决" class="article article-type-post" itemscope itemprop="blogPost">
 
@@ -107,19 +209,19 @@
 
 
   </div>
+  
   <div class="article-inner">
-
     <div class="article-entry" itemprop="articleBody">
       
         <blockquote>
 <p>xxx.github.io连接已重置多在于没有使用https。</p>
 </blockquote>
-<a id="more"></a>
 <p>修改hosts文件（视窗操作系统一般在系统盘的C:\Windows\System32\drivers\etc路径下），</p>
 <p>添加如下解析主机：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"># Github Start</span><br><span class="line">192.30.253.118	gist.github.com</span><br><span class="line">192.30.253.112	github.com</span><br><span class="line">192.30.253.112	www.github.com</span><br><span class="line">207.97.227.239 github.com</span><br><span class="line">65.74.177.129 www.github.com   </span><br><span class="line">207.97.227.252 nodeload.github.com</span><br><span class="line">207.97.227.243 raw.github.com  </span><br><span class="line">204.232.175.78 documentcloud.github.com  </span><br><span class="line">204.232.175.78 pages.github.com </span><br><span class="line"># Github End</span><br></pre></td></tr></table></figure>
 <p>依然还是不行。</p>
 <p>查明原因是没有使用https网络协议所致。</p>
+<a id="more"></a>
 <p>使用谷歌浏览器（Chrome）内核，默认都是https。出现问题，可能就是hosts或者解析的事了，其余基于谷歌浏览器内核，对于某些网站，执行以下操作：</p>
 <ul>
 <li>在浏览器地址栏输入<code>chrome://net-internals/#hsts</code></li>
@@ -140,7 +242,7 @@
     
 
     <footer class="article-footer">
-      <a data-url="https://www.blankspace.cn/2018/07/21/xxx-github-io连接已重置修改hosts解决/" data-id="cjkdsknwh00124gfi0p2yy9rs" class="article-share-link">
+      <a data-url="https://www.blankspace.cn/2018/07/21/xxx-github-io连接已重置修改hosts解决/" data-id="cjke02lu20012isfiinfigk40" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -179,11 +281,12 @@
 
 
         </div>
-        <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+
+      <div class="col-sm-2 col-sm-offset-1 blog-sidebar">
           
   <div class="sidebar-module sidebar-module-inset">
   <h4>About</h4>
-  <p>Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
+  <p>自动化研究生在读。相信<em><strong>“科技是普通人眼中的魔法”</strong></em>。若您在浏览 本博客的过程中，有任何问题意见或者建议，欢迎联系我个人邮箱：<strong>nihaoworld@outlook.com</strong>，我会尽量回复。</br> 一同为魔法事业添砖加瓦。 </p>
 
 </div>
 
@@ -227,7 +330,7 @@
     <ul class="sidebar-module-list">
       
         <li>
-          <a href="../../../08/03/1-1-latex-introduction/">测试啊</a>
+          <a href="../../../08/03/1-1-latex-introduction/">1-1 LatTex基础</a>
         </li>
       
         <li>
@@ -253,7 +356,8 @@
 
         </div>
     </div>
-  </div>
+  </div> -->
+  
   <footer class="blog-footer">
   <div class="container">
     <div id="footer-info" class="inner">
@@ -269,6 +373,9 @@
 
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 
+
+  <link rel="stylesheet" href="../../../../fancybox/jquery.fancybox.css">
+  <script src="../../../../fancybox/jquery.fancybox.pack.js"></script>
 
 
 <script src="../../../../js/script.js"></script>

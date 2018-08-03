@@ -5,20 +5,20 @@
   
   <title>关于英尺，磅，像素的争论 | 魔法师LQ的魔法书</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一行代码错误注释引起的关于英尺，磅，像素的争论。">
+  <meta name="description" content="一行代码错误注释引起的关于英尺，磅，像素的争论。   一行错误的注释事起【此文】一行 注释: 12# Create a new figure of size 8x6 points, using 100 dots per inchplt.figure(figsize=(8,6), dpi=80) 很明显，代码中的参数dpi设置为80，而不是注释中的100，这一处应该为笔误。 此文的中译版本，修正了">
 <meta name="keywords" content="单位,matplotlib">
 <meta property="og:type" content="article">
 <meta property="og:title" content="关于英尺，磅，像素的争论">
 <meta property="og:url" content="https://www.blankspace.cn/2018/07/22/关于英尺，磅，像素的争论/index.html">
 <meta property="og:site_name" content="魔法师LQ的魔法书">
-<meta property="og:description" content="一行代码错误注释引起的关于英尺，磅，像素的争论。">
+<meta property="og:description" content="一行代码错误注释引起的关于英尺，磅，像素的争论。   一行错误的注释事起【此文】一行 注释: 12# Create a new figure of size 8x6 points, using 100 dots per inchplt.figure(figsize=(8,6), dpi=80) 很明显，代码中的参数dpi设置为80，而不是注释中的100，这一处应该为笔误。 此文的中译版本，修正了">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://www.blankspace.cn/2018/07/22/关于英尺，磅，像素的争论/img-2.jpg">
 <meta property="og:image" content="https://www.blankspace.cn/2018/07/22/关于英尺，磅，像素的争论/img1.png">
-<meta property="og:updated_time" content="2018-08-03T02:54:44.620Z">
+<meta property="og:updated_time" content="2018-08-03T13:35:59.198Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="关于英尺，磅，像素的争论">
-<meta name="twitter:description" content="一行代码错误注释引起的关于英尺，磅，像素的争论。">
+<meta name="twitter:description" content="一行代码错误注释引起的关于英尺，磅，像素的争论。   一行错误的注释事起【此文】一行 注释: 12# Create a new figure of size 8x6 points, using 100 dots per inchplt.figure(figsize=(8,6), dpi=80) 很明显，代码中的参数dpi设置为80，而不是注释中的100，这一处应该为笔误。 此文的中译版本，修正了">
 <meta name="twitter:image" content="https://www.blankspace.cn/2018/07/22/关于英尺，磅，像素的争论/img-2.jpg">
   
     <link rel="alternate" href="../../../../atom.xml" title="魔法师LQ的魔法书" type="application/atom+xml">
@@ -61,6 +61,9 @@
           <li><a class=""
                  href="../../../../archives/">Archives</a></li>
         
+          <li><a class=""
+                 href="https://github.com/liuqidev">Github</a></li>
+        
       </ul>
 
       <!--
@@ -75,14 +78,115 @@
 </nav>
 
   <div class="container">
-    <div class="blog-header">
-  <h1 class="blog-title">魔法师LQ的魔法书</h1>
+<!--    <div class="blog-header">
+ <h1 class="blog-title">魔法师LQ的魔法书</h1>
   
     <p class="lead blog-description">魔鬼藏于细节,魔法改变世界.</p>
   
 </div>
+ -->
+	
+	<article id="post-关于英尺，磅，像素的争论" class="article article-type-post" itemscope itemprop="blogPost">
 
-    <div class="row">
+  <header class="article-header">
+    
+  
+    <h1 class="article-title" itemprop="name">
+      关于英尺，磅，像素的争论
+    </h1>
+  
+
+
+  </header>
+
+  <div class="article-meta">
+    <div class="article-datetime">
+  <a href="" class="article-date"><time datetime="2018-07-22T06:05:42.000Z" itemprop="datePublished">2018-07-22</time></a>
+</div>
+
+    
+    
+  <div class="article-category">
+    <a class="article-category-link" href="../../../../categories/Engineering-Debug/">Engineering/Debug</a>
+  </div>
+
+
+  </div>
+  
+  <div class="article-inner">
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>一行代码错误注释引起的关于英尺，磅，像素的争论。</p>
+</blockquote>
+<p><img src="/2018/07/22/关于英尺，磅，像素的争论/img-2.jpg" alt="图1. 带有错误注释的蟒蛇代码"></p>
+<h2 id="一行错误的注释"><a href="#一行错误的注释" class="headerlink" title="一行错误的注释"></a>一行错误的注释</h2><p>事起<a href="http://www.labri.fr/perso/nrougier/teaching/matplotlib/matplotlib.html" target="_blank" rel="noopener">【此文】</a>一行 注释:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Create a new figure of size 8x6 points, using 100 dots per inch</span></span><br><span class="line">plt.figure(figsize=(<span class="number">8</span>,<span class="number">6</span>), dpi=<span class="number">80</span>)</span><br></pre></td></tr></table></figure>
+<p>很明显，代码中的参数<code>dpi</code>设置为80，而不是注释中的100，这一处应该为笔误。</p>
+<p>此文的<a href="https://liam0205.me/2014/09/11/matplotlib-tutorial-zh-cn/" target="_blank" rel="noopener">中译版本</a>，修正了这个笔误，但是这个<strong>point</strong>和<strong>dot</strong>都翻译成<code>“点”</code>这样真的好吗？</p>
+<a id="more"></a>
+<h2 id="求证point"><a href="#求证point" class="headerlink" title="求证point"></a>求证point</h2><p>于是乎，上<a href="https://english.stackexchange.com/questions/177286/when-to-use-point-vs-dot" target="_blank" rel="noopener">换栈网</a>查询到了两者之间的区别。显示，dot多用于指代具体的点，而point范围则广的多，可以指代抽象的点，更具体的区别看<a href="https://wikidiff.com/point/dot" target="_blank" rel="noopener">维基比较</a>。</p>
+<p>而实际上这里的point并非是上面的意思，而是一个长度单位，往往翻译成<code>磅</code>。w3c的<a href="https://www.w3.org/People/Bos/" target="_blank" rel="noopener">Bert Bos</a> 在<a href="https://www.w3.org/Style/Examples/007/units.zh_HK.html" target="_blank" rel="noopener">此文</a>, 介绍了关于这种单位在的来龙去脉，以及<a href="http://www.w3school.com.cn/css/index.asp" target="_blank" rel="noopener">CSS</a>里面更多的单位之间的换算，并且<a href="http://www.runoob.com/w3cnote/px-pt-em-convert-table.html" target="_blank" rel="noopener">菜鸟教程</a>和<a href="https://www.cnblogs.com/913815ccmm/p/4858638.html" target="_blank" rel="noopener">这一篇</a>都有介绍。</p>
+<h2 id="还有错误"><a href="#还有错误" class="headerlink" title="还有错误"></a>还有错误</h2><p>就这样相信作者，命令中<code>figsize</code>参数单位为磅就完了吗？</p>
+<p>当然不能，保存代码绘制的图片，进行了以下求证。</p>
+<p><img src="/2018/07/22/关于英尺，磅，像素的争论/img1.png" alt="图2. 计算和验证过程"></p>
+<p>计算结果表明，<strong>参数中单位既不是所谓的点，也不是磅，而是英寸！！</strong></p>
+<h2 id="官方解释"><a href="#官方解释" class="headerlink" title="官方解释"></a>官方解释</h2><p>使用：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">help(plt.figure)</span><br></pre></td></tr></table></figure>
+<p>结果：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">Help on function figure in module matplotlib.pyplot:</span><br><span class="line"></span><br><span class="line">figure(num=None, figsize=None, dpi=None, facecolor=None, edgecolor=None, frameon=True, FigureClass=&lt;class &apos;matplotlib.figure.Figure&apos;&gt;, clear=False, **kwargs)</span><br><span class="line">    Creates a new figure.</span><br><span class="line">    </span><br><span class="line">    Parameters</span><br><span class="line">    ----------</span><br><span class="line">    </span><br><span class="line">    num : ...</span><br><span class="line">    </span><br><span class="line">    figsize : tuple of integers, optional, default: None</span><br><span class="line">        width, height in inches. If not provided, defaults to rc</span><br><span class="line">        figure.figsize.</span><br><span class="line">    </span><br><span class="line">    dpi : integer, optional, default: None</span><br><span class="line">        resolution of the figure. If not provided, defaults to rc figure.dpi.</span><br><span class="line">  ...</span><br></pre></td></tr></table></figure>
+<p>其中<code>figsize : tuple of integers, optional, default: None    width, height in inches. If not provided, defaults to rc    figure.figsize.</code></p>
+<p>证明了我的观点，参数单位应该是英寸(inches)。</p>
+
+      
+    </div>
+
+    
+      
+
+    
+
+    <footer class="article-footer">
+      <a data-url="https://www.blankspace.cn/2018/07/22/关于英尺，磅，像素的争论/" data-id="cjke02lu30015isfie65sbps9" class="article-share-link">
+        <i class="fa fa-share"></i> Share
+      </a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../tags/matplotlib/">matplotlib</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../tags/单位/">单位</a></li></ul>
+
+
+    </footer>
+  </div>
+  
+    
+<ul id="article-nav" class="nav nav-pills nav-justified">
+  
+  <li role="presentation">
+    <a href="../../21/xxx-github-io连接已重置修改hosts解决/" id="article-nav-older" class="article-nav-link-wrap">
+      <i class="fa fa-chevron-left pull-left"></i>
+      <span class="article-nav-link-title">xxx.github.io连接已重置</span>
+    </a>
+  </li>
+  
+  
+  <li role="presentation">
+    <a href="../../../08/03/1-1-latex-introduction/" id="article-nav-newer" class="article-nav-link-wrap">
+      <span class="article-nav-link-title">1-1 LatTex基础</span>
+      <i class="fa fa-chevron-right pull-right"></i>
+    </a>
+  </li>
+  
+</ul>
+
+
+  
+</article>
+
+
+
+
+	
+<!--    <div class="row">
         <div class="col-sm-8 blog-main">
           <article id="post-关于英尺，磅，像素的争论" class="article article-type-post" itemscope itemprop="blogPost">
 
@@ -110,19 +214,19 @@
 
 
   </div>
+  
   <div class="article-inner">
-
     <div class="article-entry" itemprop="articleBody">
       
         <blockquote>
 <p>一行代码错误注释引起的关于英尺，磅，像素的争论。</p>
 </blockquote>
-<a id="more"></a>
 <p><img src="/2018/07/22/关于英尺，磅，像素的争论/img-2.jpg" alt="图1. 带有错误注释的蟒蛇代码"></p>
 <h2 id="一行错误的注释"><a href="#一行错误的注释" class="headerlink" title="一行错误的注释"></a>一行错误的注释</h2><p>事起<a href="http://www.labri.fr/perso/nrougier/teaching/matplotlib/matplotlib.html" target="_blank" rel="noopener">【此文】</a>一行 注释:</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Create a new figure of size 8x6 points, using 100 dots per inch</span></span><br><span class="line">plt.figure(figsize=(<span class="number">8</span>,<span class="number">6</span>), dpi=<span class="number">80</span>)</span><br></pre></td></tr></table></figure>
 <p>很明显，代码中的参数<code>dpi</code>设置为80，而不是注释中的100，这一处应该为笔误。</p>
 <p>此文的<a href="https://liam0205.me/2014/09/11/matplotlib-tutorial-zh-cn/" target="_blank" rel="noopener">中译版本</a>，修正了这个笔误，但是这个<strong>point</strong>和<strong>dot</strong>都翻译成<code>“点”</code>这样真的好吗？</p>
+<a id="more"></a>
 <h2 id="求证point"><a href="#求证point" class="headerlink" title="求证point"></a>求证point</h2><p>于是乎，上<a href="https://english.stackexchange.com/questions/177286/when-to-use-point-vs-dot" target="_blank" rel="noopener">换栈网</a>查询到了两者之间的区别。显示，dot多用于指代具体的点，而point范围则广的多，可以指代抽象的点，更具体的区别看<a href="https://wikidiff.com/point/dot" target="_blank" rel="noopener">维基比较</a>。</p>
 <p>而实际上这里的point并非是上面的意思，而是一个长度单位，往往翻译成<code>磅</code>。w3c的<a href="https://www.w3.org/People/Bos/" target="_blank" rel="noopener">Bert Bos</a> 在<a href="https://www.w3.org/Style/Examples/007/units.zh_HK.html" target="_blank" rel="noopener">此文</a>, 介绍了关于这种单位在的来龙去脉，以及<a href="http://www.w3school.com.cn/css/index.asp" target="_blank" rel="noopener">CSS</a>里面更多的单位之间的换算，并且<a href="http://www.runoob.com/w3cnote/px-pt-em-convert-table.html" target="_blank" rel="noopener">菜鸟教程</a>和<a href="https://www.cnblogs.com/913815ccmm/p/4858638.html" target="_blank" rel="noopener">这一篇</a>都有介绍。</p>
 <h2 id="还有错误"><a href="#还有错误" class="headerlink" title="还有错误"></a>还有错误</h2><p>就这样相信作者，命令中<code>figsize</code>参数单位为磅就完了吗？</p>
@@ -132,7 +236,7 @@
 <h2 id="官方解释"><a href="#官方解释" class="headerlink" title="官方解释"></a>官方解释</h2><p>使用：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">help(plt.figure)</span><br></pre></td></tr></table></figure>
 <p>结果：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line">Help on function figure in module matplotlib.pyplot:</span><br><span class="line"></span><br><span class="line">figure(num=None, figsize=None, dpi=None, facecolor=None, edgecolor=None, frameon=True, FigureClass=&lt;class &apos;matplotlib.figure.Figure&apos;&gt;, clear=False, **kwargs)</span><br><span class="line">    Creates a new figure.</span><br><span class="line">    </span><br><span class="line">    Parameters</span><br><span class="line">    ----------</span><br><span class="line">    </span><br><span class="line">    num : integer or string, optional, default: none</span><br><span class="line">        If not provided, a new figure will be created, and the figure number</span><br><span class="line">        will be incremented. The figure objects holds this number in a `number`</span><br><span class="line">        attribute.</span><br><span class="line">        If num is provided, and a figure with this id already exists, make</span><br><span class="line">        it active, and returns a reference to it. If this figure does not</span><br><span class="line">        exists, create it and returns it.</span><br><span class="line">        If num is a string, the window title will be set to this figure&apos;s</span><br><span class="line">        `num`.</span><br><span class="line">    </span><br><span class="line">    figsize : tuple of integers, optional, default: None</span><br><span class="line">        width, height in inches. If not provided, defaults to rc</span><br><span class="line">        figure.figsize.</span><br><span class="line">    </span><br><span class="line">    dpi : integer, optional, default: None</span><br><span class="line">        resolution of the figure. If not provided, defaults to rc figure.dpi.</span><br><span class="line">    </span><br><span class="line">    facecolor :</span><br><span class="line">        the background color. If not provided, defaults to rc figure.facecolor.</span><br><span class="line">    </span><br><span class="line">    edgecolor :</span><br><span class="line">        the border color. If not provided, defaults to rc figure.edgecolor.</span><br><span class="line">    </span><br><span class="line">    frameon : bool, optional, default: True</span><br><span class="line">        If False, suppress drawing the figure frame.</span><br><span class="line">    </span><br><span class="line">    FigureClass : class derived from matplotlib.figure.Figure</span><br><span class="line">        Optionally use a custom Figure instance.</span><br><span class="line">    </span><br><span class="line">    clear : bool, optional, default: False</span><br><span class="line">        If True and the figure already exists, then it is cleared.</span><br><span class="line">    </span><br><span class="line">    Returns</span><br><span class="line">    -------</span><br><span class="line">    figure : Figure</span><br><span class="line">        The Figure instance returned will also be passed to new_figure_manager</span><br><span class="line">        in the backends, which allows to hook custom Figure classes into the</span><br><span class="line">        pylab interface. Additional kwargs will be passed to the figure init</span><br><span class="line">        function.</span><br><span class="line">    </span><br><span class="line">    Notes</span><br><span class="line">    -----</span><br><span class="line">    If you are creating many figures, make sure you explicitly call &quot;close&quot;</span><br><span class="line">    on the figures you are not using, because this will enable pylab</span><br><span class="line">    to properly clean up the memory.</span><br><span class="line">    </span><br><span class="line">    rcParams defines the default values, which can be modified in the</span><br><span class="line">    matplotlibrc file</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">Help on function figure in module matplotlib.pyplot:</span><br><span class="line"></span><br><span class="line">figure(num=None, figsize=None, dpi=None, facecolor=None, edgecolor=None, frameon=True, FigureClass=&lt;class &apos;matplotlib.figure.Figure&apos;&gt;, clear=False, **kwargs)</span><br><span class="line">    Creates a new figure.</span><br><span class="line">    </span><br><span class="line">    Parameters</span><br><span class="line">    ----------</span><br><span class="line">    </span><br><span class="line">    num : ...</span><br><span class="line">    </span><br><span class="line">    figsize : tuple of integers, optional, default: None</span><br><span class="line">        width, height in inches. If not provided, defaults to rc</span><br><span class="line">        figure.figsize.</span><br><span class="line">    </span><br><span class="line">    dpi : integer, optional, default: None</span><br><span class="line">        resolution of the figure. If not provided, defaults to rc figure.dpi.</span><br><span class="line">  ...</span><br></pre></td></tr></table></figure>
 <p>其中<code>figsize : tuple of integers, optional, default: None    width, height in inches. If not provided, defaults to rc    figure.figsize.</code></p>
 <p>证明了我的观点，参数单位应该是英寸(inches)。</p>
 
@@ -145,7 +249,7 @@
     
 
     <footer class="article-footer">
-      <a data-url="https://www.blankspace.cn/2018/07/22/关于英尺，磅，像素的争论/" data-id="cjkdsknwj00154gfi19p8hvrt" class="article-share-link">
+      <a data-url="https://www.blankspace.cn/2018/07/22/关于英尺，磅，像素的争论/" data-id="cjke02lu30015isfie65sbps9" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -169,7 +273,7 @@
   
   <li role="presentation">
     <a href="../../../08/03/1-1-latex-introduction/" id="article-nav-newer" class="article-nav-link-wrap">
-      <span class="article-nav-link-title">测试啊</span>
+      <span class="article-nav-link-title">1-1 LatTex基础</span>
       <i class="fa fa-chevron-right pull-right"></i>
     </a>
   </li>
@@ -184,11 +288,12 @@
 
 
         </div>
-        <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+
+      <div class="col-sm-2 col-sm-offset-1 blog-sidebar">
           
   <div class="sidebar-module sidebar-module-inset">
   <h4>About</h4>
-  <p>Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
+  <p>自动化研究生在读。相信<em><strong>“科技是普通人眼中的魔法”</strong></em>。若您在浏览 本博客的过程中，有任何问题意见或者建议，欢迎联系我个人邮箱：<strong>nihaoworld@outlook.com</strong>，我会尽量回复。</br> 一同为魔法事业添砖加瓦。 </p>
 
 </div>
 
@@ -232,7 +337,7 @@
     <ul class="sidebar-module-list">
       
         <li>
-          <a href="../../../08/03/1-1-latex-introduction/">测试啊</a>
+          <a href="../../../08/03/1-1-latex-introduction/">1-1 LatTex基础</a>
         </li>
       
         <li>
@@ -258,7 +363,8 @@
 
         </div>
     </div>
-  </div>
+  </div> -->
+  
   <footer class="blog-footer">
   <div class="container">
     <div id="footer-info" class="inner">
@@ -274,6 +380,9 @@
 
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 
+
+  <link rel="stylesheet" href="../../../../fancybox/jquery.fancybox.css">
+  <script src="../../../../fancybox/jquery.fancybox.pack.js"></script>
 
 
 <script src="../../../../js/script.js"></script>
