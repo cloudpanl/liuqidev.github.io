@@ -2,7 +2,7 @@
 <html>
 <head>
     
-<!-- Google Analytics -->
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><!-- Google Analytics -->
 <script>
 window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
 ga('create', 'UA-122713769-1', 'auto');
@@ -30,19 +30,19 @@ ga('send', 'pageview');
     
     
     <meta name="keywords" content="CS229,机器学习,吴恩达(Andrew Ng)">
-    <meta name="description" content="0 Notation符号表达   符号 意义     $=$ 等于   $:=$ 赋值   $x$ “input” variable/features   $y$ “output” variable/“target” variable   $\left(x,y \right)$ training example   $ (x^{(i)},y^{(i)})$ $i_{th}$ training ex">
+    <meta name="description" content="0 Notation符号表达    符号 意义     $=$ 等于   $:=$ 赋值   $x$ “input” variable/features   $y$ “output” variable/“target” variable   $\left(x,y \right)$ training example   $ (x^{(i)},y^{(i)})$ $i_{th}$ training e">
 <meta name="keywords" content="CS229,机器学习,吴恩达(Andrew Ng)">
 <meta property="og:type" content="article">
 <meta property="og:title" content="斯坦福CS229笔记 第2讲 监督学习应用梯度下降">
 <meta property="og:url" content="https://www.blankspace.cn/2018/07/19/斯坦福CS229笔记-2-监督学习应用梯度下降/index.html">
 <meta property="og:site_name" content="魔法师LQ的魔法书">
-<meta property="og:description" content="0 Notation符号表达   符号 意义     $=$ 等于   $:=$ 赋值   $x$ “input” variable/features   $y$ “output” variable/“target” variable   $\left(x,y \right)$ training example   $ (x^{(i)},y^{(i)})$ $i_{th}$ training ex">
+<meta property="og:description" content="0 Notation符号表达    符号 意义     $=$ 等于   $:=$ 赋值   $x$ “input” variable/features   $y$ “output” variable/“target” variable   $\left(x,y \right)$ training example   $ (x^{(i)},y^{(i)})$ $i_{th}$ training e">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://www.blankspace.cn/2018/07/19/斯坦福CS229笔记-2-监督学习应用梯度下降/001.png">
-<meta property="og:updated_time" content="2018-07-19T13:13:35.768Z">
+<meta property="og:updated_time" content="2018-08-03T02:44:29.344Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="斯坦福CS229笔记 第2讲 监督学习应用梯度下降">
-<meta name="twitter:description" content="0 Notation符号表达   符号 意义     $=$ 等于   $:=$ 赋值   $x$ “input” variable/features   $y$ “output” variable/“target” variable   $\left(x,y \right)$ training example   $ (x^{(i)},y^{(i)})$ $i_{th}$ training ex">
+<meta name="twitter:description" content="0 Notation符号表达    符号 意义     $=$ 等于   $:=$ 赋值   $x$ “input” variable/features   $y$ “output” variable/“target” variable   $\left(x,y \right)$ training example   $ (x^{(i)},y^{(i)})$ $i_{th}$ training e">
 <meta name="twitter:image" content="https://www.blankspace.cn/2018/07/19/斯坦福CS229笔记-2-监督学习应用梯度下降/001.png">
     
         <link rel="alternate" type="application/atom+xml" title="魔法师LQ的魔法书" href="../../../../atom.xml">
@@ -62,13 +62,13 @@ ga('send', 'pageview');
 	  gtag('js', new Date());
 
 	  gtag('config', 'UA-122713769-1');
-	</script>
+	</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 
 </head>
 
 <body>
-    <div id="loading" class="active"></div>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="loading" class="active"></div>
 
     <aside id="menu" class="hide" >
   <div class="inner flex-row-vertical">
@@ -90,7 +90,7 @@ ga('send', 'pageview');
       <ul class="nav">
         
             <li class="waves-block waves-effect">
-              <a href="../../../../index.html"  >
+              <a href="../../../../categories"  >
                 <i class="icon icon-lg icon-home"></i>
                 主页
               </a>
@@ -111,9 +111,9 @@ ga('send', 'pageview');
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="../../../../categories"  >
+              <a href="../../../../index.html"  >
                 <i class="icon icon-lg icon-th-list"></i>
-                分类
+                全部
               </a>
             </li>
         
@@ -179,7 +179,7 @@ ga('send', 'pageview');
 </time>
 
 
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="../../../../categories/AI/">AI</a></li></ul>
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="../../../../categories/CS-Subjects/">CS Subjects</a></li></ul>
 
             
         </h5>
@@ -210,7 +210,7 @@ ga('send', 'pageview');
             <time class="post-time" title="2018-07-19 10:27:04" datetime="2018-07-19T02:27:04.000Z"  itemprop="datePublished">2018-07-19</time>
 
             
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="../../../../categories/AI/">AI</a></li></ul>
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="../../../../categories/CS-Subjects/">CS Subjects</a></li></ul>
 
 
 
@@ -222,7 +222,8 @@ ga('send', 'pageview');
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <h2 id="0-Notation符号表达"><a href="#0-Notation符号表达" class="headerlink" title="0 Notation符号表达"></a>0 Notation符号表达</h2><table>
+            <h2 id="0-Notation符号表达"><a href="#0-Notation符号表达" class="headerlink" title="0 Notation符号表达"></a>0 Notation符号表达</h2><div class="table-container">
+<table>
 <thead>
 <tr>
 <th>符号</th>
@@ -259,26 +260,33 @@ ga('send', 'pageview');
 </tr>
 </tbody>
 </table>
+</div>
 <p><em>注释</em></p>
 <p>上述表示在有的课程中可能有所不同，比如上下标，这里的右上标不是表示幂，而是指第<code>i</code>个。</p>
-<h3 id="例子：房价预测"><a href="#例子：房价预测" class="headerlink" title="例子：房价预测"></a>例子：房价预测</h3><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2018/07/19/斯坦福CS229笔记-2-监督学习应用梯度下降/001.png" alt="房价预测" title="">
-                </div>
-                <div class="image-caption">房价预测</div>
-            </figure> 
-<h2 id="1-Linear-regression-线性回归"><a href="#1-Linear-regression-线性回归" class="headerlink" title="1 Linear regression 线性回归"></a>1 Linear regression 线性回归</h2><p>将假设hypothesis表示为线性：<br>$$<br>h\left(x \right)=\theta_0+\theta_0 x<br>$$<br>通常输入特征不止一个，比如房价的影响因素不只是living area这一个，若增加一个特征——房屋居室的间数：$x_1=size;x_2=居室间数;$，假设可表示为：<br>$$<br>\begin{align}<br>h\left( x\right)&amp;=h_{\theta}(x) \<br>&amp;=\theta_0+\theta_0 x_1+\theta_2 x_2+…+\theta_nx_n \<br>&amp;= \sum_{i=0}^{n} \theta_i x_i \<br>&amp;= \theta^Tx<br>\end{align}<br>$$<br>其中$\theta_i$是参数，取值为实数；n是特征的维。</p>
+<h3 id="例子：房价预测"><a href="#例子：房价预测" class="headerlink" title="例子：房价预测"></a>例子：房价预测</h3><p><img src="/2018/07/19/斯坦福CS229笔记-2-监督学习应用梯度下降/001.png" alt="房价预测"> </p>
+<h2 id="1-Linear-regression-线性回归"><a href="#1-Linear-regression-线性回归" class="headerlink" title="1 Linear regression 线性回归"></a>1 Linear regression 线性回归</h2><p>将假设hypothesis表示为线性：</p>
+<script type="math/tex; mode=display">
+h\left(x \right)=\theta_0+\theta_0 x</script><p>通常输入特征不止一个，比如房价的影响因素不只是living area这一个，若增加一个特征——房屋居室的间数：$x_1=size;x_2=居室间数;$，假设可表示为：</p>
+<script type="math/tex; mode=display">
+\begin{align}
+h\left( x\right)&=h_{\theta}(x) \\
+&=\theta_0+\theta_0 x_1+\theta_2 x_2+...+\theta_nx_n \\
+&= \sum_{i=0}^{n} \theta_i x_i \\
+&= \theta^Tx
+\end{align}</script><p>其中$\theta_i$是参数，取值为实数；n是特征的维。</p>
 <ul>
 <li><strong>Q:如何选取参数？</strong><ul>
 <li><strong>Ans</strong>: </li>
 </ul>
 </li>
 </ul>
-<p>$$<br>\min_{\theta} \frac{1}{2} \sum_{i=1}^{m}(h^{(i)}-y^{(i)})^2<br>$$</p>
-<p>其中m为训练样本的个数；1/2使得（梯度下降）计算更加方便。</p>
-<p>定义：<br>$$<br>J(\theta)=\min_{\theta} \frac{1}{2} \sum_{i=1}^{m}(h^{(i)}-y^{(i)})^2<br>$$<br>于是，选取参数：<br>$$<br>\theta^*= arg\min_{\theta} J(\theta)<br>$$</p>
-<h2 id="2-Gradient-descent-梯度下降"><a href="#2-Gradient-descent-梯度下降" class="headerlink" title="2 Gradient descent 梯度下降"></a>2 Gradient descent 梯度下降</h2><ol>
+<script type="math/tex; mode=display">
+\min_{\theta} \frac{1}{2} \sum_{i=1}^{m}(h^{(i)}-y^{(i)})^2</script><p>其中m为训练样本的个数；1/2使得（梯度下降）计算更加方便。</p>
+<p>定义：</p>
+<script type="math/tex; mode=display">
+J(\theta)=\min_{\theta} \frac{1}{2} \sum_{i=1}^{m}(h^{(i)}-y^{(i)})^2</script><p>于是，选取参数：</p>
+<script type="math/tex; mode=display">
+\theta^*= arg\min_{\theta} J(\theta)</script><h2 id="2-Gradient-descent-梯度下降"><a href="#2-Gradient-descent-梯度下降" class="headerlink" title="2 Gradient descent 梯度下降"></a>2 Gradient descent 梯度下降</h2><ol>
 <li>Start with some $\theta $ (say $\theta = \vec{0}$)</li>
 <li>Keep changing $\theta$ to reduce $J(\theta)$</li>
 </ol>
@@ -290,7 +298,7 @@ ga('send', 'pageview');
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2018-07-19T13:13:35.768Z" itemprop="dateUpdated">2018-07-19 21:13:35</time>
+    最后更新时间：<time datetime="2018-08-03T02:44:29.344Z" itemprop="dateUpdated">2018-08-03 10:44:29</time>
 </span><br>
 
 
@@ -624,7 +632,24 @@ MathJax.Hub.Queue(function() {
         }
     });
 })();
+</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
 </script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
 
 
 

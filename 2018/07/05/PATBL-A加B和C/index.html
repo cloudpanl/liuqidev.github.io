@@ -2,7 +2,7 @@
 <html>
 <head>
     
-<!-- Google Analytics -->
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><!-- Google Analytics -->
 <script>
 window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
 ga('create', 'UA-122713769-1', 'auto');
@@ -39,7 +39,7 @@ ga('send', 'pageview');
 <meta property="og:description" content="时间限制 1000 ms 内存限制 32768 KB 代码长度限制 100 KB 判断程序 Standard (来自 小小) 题目描述给定区间[-2的31次方, 2的31次方]内的3个整数A、B和C，请判断A+B是否大于C。 输入描述:输入第1行给出正整数T(&amp;lt;=10)，是测试用例的个数。随后给出T组测试用例，每组占一行，顺序给出A、B和C。整数间以空格分隔。 输出描述:对每组测试用例，在一">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://www.blankspace.cn/2018/07/05/PATBL-A加B和C/result.png">
-<meta property="og:updated_time" content="2018-07-05T01:21:46.826Z">
+<meta property="og:updated_time" content="2018-08-03T03:26:33.021Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PATBL A加B和C">
 <meta name="twitter:description" content="时间限制 1000 ms 内存限制 32768 KB 代码长度限制 100 KB 判断程序 Standard (来自 小小) 题目描述给定区间[-2的31次方, 2的31次方]内的3个整数A、B和C，请判断A+B是否大于C。 输入描述:输入第1行给出正整数T(&amp;lt;=10)，是测试用例的个数。随后给出T组测试用例，每组占一行，顺序给出A、B和C。整数间以空格分隔。 输出描述:对每组测试用例，在一">
@@ -62,13 +62,13 @@ ga('send', 'pageview');
 	  gtag('js', new Date());
 
 	  gtag('config', 'UA-122713769-1');
-	</script>
+	</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 
 </head>
 
 <body>
-    <div id="loading" class="active"></div>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="loading" class="active"></div>
 
     <aside id="menu" class="hide" >
   <div class="inner flex-row-vertical">
@@ -90,7 +90,7 @@ ga('send', 'pageview');
       <ul class="nav">
         
             <li class="waves-block waves-effect">
-              <a href="../../../../index.html"  >
+              <a href="../../../../categories"  >
                 <i class="icon icon-lg icon-home"></i>
                 主页
               </a>
@@ -111,9 +111,9 @@ ga('send', 'pageview');
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="../../../../categories"  >
+              <a href="../../../../index.html"  >
                 <i class="icon icon-lg icon-th-list"></i>
-                分类
+                全部
               </a>
             </li>
         
@@ -179,7 +179,7 @@ ga('send', 'pageview');
 </time>
 
 
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="../../../../categories/PAT认证/">PAT认证</a></li></ul>
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="../../../../categories/Special-Topics/">Special Topics</a></li></ul>
 
             
         </h5>
@@ -210,7 +210,7 @@ ga('send', 'pageview');
             <time class="post-time" title="2018-07-05 08:22:48" datetime="2018-07-05T00:22:48.000Z"  itemprop="datePublished">2018-07-05</time>
 
             
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="../../../../categories/PAT认证/">PAT认证</a></li></ul>
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="../../../../categories/Special-Topics/">Special Topics</a></li></ul>
 
 
 
@@ -234,13 +234,8 @@ ga('send', 'pageview');
 </blockquote>
 <h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a><strong>分析</strong></h3><p>注意到A，B，C的范围，A+B可能会超过int的范围，所以使用long long来存储，防止溢出。</p>
 <h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a><strong>代码</strong></h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="comment">//freopen("in.txt", "r", stdin);</span></span><br><span class="line">	<span class="comment">//freopen("out.txt", "w", stdout);</span></span><br><span class="line"></span><br><span class="line">	<span class="keyword">int</span> T;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;T);</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= T; ++i)</span><br><span class="line">	&#123;</span><br><span class="line">		ll a, b, c;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%lld%lld%lld"</span>, &amp;a, &amp;b, &amp;c);</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"Case #%d: %s\n"</span>, i, (a+b)&gt;c?<span class="string">"true"</span>:<span class="string">"false"</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="结果"><a href="#结果" class="headerlink" title="结果"></a><strong>结果</strong></h3><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2018/07/05/PATBL-A加B和C/result.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
+<h3 id="结果"><a href="#结果" class="headerlink" title="结果"></a><strong>结果</strong></h3><p><img src="/2018/07/05/PATBL-A加B和C/result.png" alt=""></p>
+
         </div>
 
         <blockquote class="post-copyright">
@@ -248,7 +243,7 @@ ga('send', 'pageview');
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2018-07-05T01:21:46.826Z" itemprop="dateUpdated">2018-07-05 09:21:46</time>
+    最后更新时间：<time datetime="2018-08-03T03:26:33.021Z" itemprop="dateUpdated">2018-08-03 11:26:33</time>
 </span><br>
 
 
@@ -582,7 +577,24 @@ MathJax.Hub.Queue(function() {
         }
     });
 })();
+</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
 </script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
 
 
 

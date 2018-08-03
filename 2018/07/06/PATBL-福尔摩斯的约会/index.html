@@ -2,7 +2,7 @@
 <html>
 <head>
     
-<!-- Google Analytics -->
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><!-- Google Analytics -->
 <script>
 window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
 ga('create', 'UA-122713769-1', 'auto');
@@ -39,7 +39,7 @@ ga('send', 'pageview');
 <meta property="og:description" content="时间限制 1000 ms 内存限制 32768 KB 代码长度限制 100 KB 判断程序 Standard (来自 小小) 题目描述大侦探福尔摩斯接到一张奇怪的字条：“我们约会吧！ 3485djDkxh4hhGE 2984akDfkkkkggEdsb s&amp;amp;hgsfdk d&amp;amp;Hyscvnm”。大侦探很快就明白了，字条上奇怪的乱码实际上就是约会的时间“星期四 14:04”，因为前面两">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://www.blankspace.cn/2018/07/06/PATBL-福尔摩斯的约会/ac.png">
-<meta property="og:updated_time" content="2018-07-06T11:00:12.805Z">
+<meta property="og:updated_time" content="2018-08-03T03:24:40.139Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PATBL 福尔摩斯的约会">
 <meta name="twitter:description" content="时间限制 1000 ms 内存限制 32768 KB 代码长度限制 100 KB 判断程序 Standard (来自 小小) 题目描述大侦探福尔摩斯接到一张奇怪的字条：“我们约会吧！ 3485djDkxh4hhGE 2984akDfkkkkggEdsb s&amp;amp;hgsfdk d&amp;amp;Hyscvnm”。大侦探很快就明白了，字条上奇怪的乱码实际上就是约会的时间“星期四 14:04”，因为前面两">
@@ -62,13 +62,13 @@ ga('send', 'pageview');
 	  gtag('js', new Date());
 
 	  gtag('config', 'UA-122713769-1');
-	</script>
+	</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 
 </head>
 
 <body>
-    <div id="loading" class="active"></div>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="loading" class="active"></div>
 
     <aside id="menu" class="hide" >
   <div class="inner flex-row-vertical">
@@ -90,7 +90,7 @@ ga('send', 'pageview');
       <ul class="nav">
         
             <li class="waves-block waves-effect">
-              <a href="../../../../index.html"  >
+              <a href="../../../../categories"  >
                 <i class="icon icon-lg icon-home"></i>
                 主页
               </a>
@@ -111,9 +111,9 @@ ga('send', 'pageview');
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="../../../../categories"  >
+              <a href="../../../../index.html"  >
                 <i class="icon icon-lg icon-th-list"></i>
-                分类
+                全部
               </a>
             </li>
         
@@ -179,7 +179,7 @@ ga('send', 'pageview');
 </time>
 
 
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="../../../../categories/PAT认证/">PAT认证</a></li></ul>
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="../../../../categories/Special-Topics/">Special Topics</a></li></ul>
 
             
         </h5>
@@ -210,7 +210,7 @@ ga('send', 'pageview');
             <time class="post-time" title="2018-07-06 09:14:48" datetime="2018-07-06T01:14:48.000Z"  itemprop="datePublished">2018-07-06</time>
 
             
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="../../../../categories/PAT认证/">PAT认证</a></li></ul>
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="../../../../categories/Special-Topics/">Special Topics</a></li></ul>
 
 
 
@@ -238,13 +238,8 @@ ga('send', 'pageview');
 <p>上述都可以采用用数字来存储，星期采用字典，映射为字符串。</p>
 <p>T(n)=O(n)。</p>
 <h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a><strong>代码</strong></h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">map</span>&lt;<span class="keyword">int</span>, <span class="built_in">string</span>&gt; m;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	freopen(<span class="string">"in.txt"</span>, <span class="string">"r"</span>, <span class="built_in">stdin</span>);</span><br><span class="line">	<span class="comment">//freopen("out.txt", "w", stdout);</span></span><br><span class="line">	m[<span class="number">1</span>] = <span class="string">"MON"</span>; m[<span class="number">2</span>] = <span class="string">"TUE"</span>; m[<span class="number">3</span>] = <span class="string">"WED"</span>; m[<span class="number">4</span>] = <span class="string">"THU"</span>; m[<span class="number">5</span>] = <span class="string">"FRI"</span>; m[<span class="number">6</span>] = <span class="string">"SAT"</span>; m[<span class="number">7</span>] = <span class="string">"SUN"</span>;</span><br><span class="line">	</span><br><span class="line">	<span class="built_in">string</span> a1, b1, a2, b2;</span><br><span class="line">	<span class="built_in">cin</span> &gt;&gt; a1 &gt;&gt; b1 &gt;&gt; a2 &gt;&gt; b2;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">int</span> cnt = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">int</span> w = <span class="number">0</span>;<span class="comment">// 星期</span></span><br><span class="line">	<span class="keyword">int</span> h = <span class="number">-1</span>;<span class="comment">// 小时</span></span><br><span class="line">	<span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; min(a1.length(), b1.length()); ++i) &#123;</span><br><span class="line">		<span class="keyword">if</span> (<span class="built_in">isupper</span>(a1[i]) &amp;&amp; a1[i] == b1[i]) &#123;</span><br><span class="line">			cnt++;</span><br><span class="line">			<span class="keyword">if</span> (cnt == <span class="number">1</span>)</span><br><span class="line">				w = a1[i] - <span class="string">'A'</span> + <span class="number">1</span>;</span><br><span class="line">			cnt = <span class="number">0</span>;</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">int</span> t = i;</span><br><span class="line">	<span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; min(a1.length(), b1.length()); ++i) &#123;</span><br><span class="line">		<span class="keyword">if</span> (a1[i] == b1[i]&amp;&amp;(<span class="built_in">isdigit</span>(a1[i])||(a1[i]&gt;=<span class="string">'A'</span>&amp;&amp;(a1[i] &lt;= <span class="string">'N'</span>)))) &#123;</span><br><span class="line">			<span class="keyword">if</span> (i!=t)</span><br><span class="line">				cnt++;</span><br><span class="line">			<span class="keyword">if</span> (cnt == <span class="number">1</span>)</span><br><span class="line">				<span class="keyword">continue</span>;</span><br><span class="line">			<span class="keyword">else</span> <span class="keyword">if</span> (cnt == <span class="number">2</span>) &#123;</span><br><span class="line">				h = <span class="built_in">isdigit</span>(a1[i])? a1[i]-<span class="string">'0'</span>:(a1[i] - <span class="string">'A'</span> + <span class="number">10</span>);</span><br><span class="line">				<span class="keyword">break</span>;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; m[w] &lt;&lt; <span class="string">" "</span>;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%02d:"</span>, h);</span><br><span class="line">	cnt = <span class="number">0</span>;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; min(a2.length(), b2.length()); ++i) &#123;</span><br><span class="line">		<span class="keyword">if</span> (<span class="built_in">isalpha</span>(a2[i])&amp;&amp; a2[i] == b2[i]) &#123;</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%02d\n"</span>, i);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="解果"><a href="#解果" class="headerlink" title="解果"></a><strong>解果</strong></h3><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2018/07/06/PATBL-福尔摩斯的约会/ac.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
+<h3 id="解果"><a href="#解果" class="headerlink" title="解果"></a><strong>解果</strong></h3><p><img src="/2018/07/06/PATBL-福尔摩斯的约会/ac.png" alt=""></p>
+
         </div>
 
         <blockquote class="post-copyright">
@@ -252,7 +247,7 @@ ga('send', 'pageview');
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2018-07-06T11:00:12.805Z" itemprop="dateUpdated">2018-07-06 19:00:12</time>
+    最后更新时间：<time datetime="2018-08-03T03:24:40.139Z" itemprop="dateUpdated">2018-08-03 11:24:40</time>
 </span><br>
 
 
@@ -586,7 +581,24 @@ MathJax.Hub.Queue(function() {
         }
     });
 })();
+</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
 </script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
 
 
 

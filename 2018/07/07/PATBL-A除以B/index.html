@@ -2,7 +2,7 @@
 <html>
 <head>
     
-<!-- Google Analytics -->
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><!-- Google Analytics -->
 <script>
 window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
 ga('create', 'UA-122713769-1', 'auto');
@@ -39,7 +39,7 @@ ga('send', 'pageview');
 <meta property="og:description" content="题目描述本题要求计算A/B，其中A是不超过1000位的正整数，B是1位正整数。你需要输出商数Q和余数R，使得A = B * Q + R成立。 输入描述:输入在1行中依次给出A和B，中间以1空格分隔。 输出描述:在1行中依次输出Q和R，中间以1空格分隔。 输入例子: 123456789050987654321 7  输出例子: 17636684150141093474 3  方法用字符串存储大数。模">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://www.blankspace.cn/2018/07/07/PATBL-A除以B/ac.png">
-<meta property="og:updated_time" content="2018-07-08T09:27:14.020Z">
+<meta property="og:updated_time" content="2018-08-03T03:26:25.326Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PATBL A除以B">
 <meta name="twitter:description" content="题目描述本题要求计算A/B，其中A是不超过1000位的正整数，B是1位正整数。你需要输出商数Q和余数R，使得A = B * Q + R成立。 输入描述:输入在1行中依次给出A和B，中间以1空格分隔。 输出描述:在1行中依次输出Q和R，中间以1空格分隔。 输入例子: 123456789050987654321 7  输出例子: 17636684150141093474 3  方法用字符串存储大数。模">
@@ -62,13 +62,13 @@ ga('send', 'pageview');
 	  gtag('js', new Date());
 
 	  gtag('config', 'UA-122713769-1');
-	</script>
+	</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 
 </head>
 
 <body>
-    <div id="loading" class="active"></div>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="loading" class="active"></div>
 
     <aside id="menu" class="hide" >
   <div class="inner flex-row-vertical">
@@ -90,7 +90,7 @@ ga('send', 'pageview');
       <ul class="nav">
         
             <li class="waves-block waves-effect">
-              <a href="../../../../index.html"  >
+              <a href="../../../../categories"  >
                 <i class="icon icon-lg icon-home"></i>
                 主页
               </a>
@@ -111,9 +111,9 @@ ga('send', 'pageview');
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="../../../../categories"  >
+              <a href="../../../../index.html"  >
                 <i class="icon icon-lg icon-th-list"></i>
-                分类
+                全部
               </a>
             </li>
         
@@ -179,7 +179,7 @@ ga('send', 'pageview');
 </time>
 
 
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="../../../../categories/PAT认证/">PAT认证</a></li></ul>
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="../../../../categories/Special-Topics/">Special Topics</a></li></ul>
 
             
         </h5>
@@ -210,7 +210,7 @@ ga('send', 'pageview');
             <time class="post-time" title="2018-07-07 21:33:56" datetime="2018-07-07T13:33:56.000Z"  itemprop="datePublished">2018-07-07</time>
 
             
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="../../../../categories/PAT认证/">PAT认证</a></li></ul>
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="../../../../categories/Special-Topics/">Special Topics</a></li></ul>
 
 
 
@@ -233,13 +233,8 @@ ga('send', 'pageview');
 </blockquote>
 <h3 id="方法"><a href="#方法" class="headerlink" title="方法"></a><strong>方法</strong></h3><p>用字符串存储大数。模拟手工运算。</p>
 <h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a><strong>代码</strong></h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="comment">//freopen("in.txt", "r", stdin);</span></span><br><span class="line">	<span class="comment">//freopen("out.txt", "w", stdout);</span></span><br><span class="line"></span><br><span class="line">	<span class="built_in">string</span> A;</span><br><span class="line">	<span class="keyword">int</span> B;</span><br><span class="line">	<span class="built_in">cin</span> &gt;&gt; A &gt;&gt; B;</span><br><span class="line"></span><br><span class="line">	<span class="built_in">string</span> Q;</span><br><span class="line">	<span class="built_in">string</span> R;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">int</span> t = A[<span class="number">0</span>] - <span class="string">'0'</span>;</span><br><span class="line">	<span class="keyword">int</span> q = t/B;</span><br><span class="line">	<span class="keyword">int</span> r = t % B;</span><br><span class="line">		</span><br><span class="line">	<span class="comment">//= to_string(r);</span></span><br><span class="line">	Q = to_string(q); </span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">1</span>; i &lt; A.length(); i++)</span><br><span class="line">	&#123;</span><br><span class="line">		t = A[i] - <span class="string">'0'</span>;</span><br><span class="line">		t= r * <span class="number">10</span> + t;</span><br><span class="line">		r = t % B;</span><br><span class="line">		q = t / B;</span><br><span class="line">		Q += to_string(q);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span> (Q[<span class="number">0</span>] == <span class="string">'0'</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; Q.length(); ++i) &#123;</span><br><span class="line">			<span class="built_in">cout</span> &lt;&lt; Q[i];</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">" "</span> &lt;&lt; r &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span> </span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; Q &lt;&lt;<span class="string">" "</span>&lt;&lt;r&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="结果"><a href="#结果" class="headerlink" title="结果"></a><strong>结果</strong></h3><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2018/07/07/PATBL-A除以B/ac.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
+<h3 id="结果"><a href="#结果" class="headerlink" title="结果"></a><strong>结果</strong></h3><p><img src="/2018/07/07/PATBL-A除以B/ac.png" alt=""></p>
+
         </div>
 
         <blockquote class="post-copyright">
@@ -247,7 +242,7 @@ ga('send', 'pageview');
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2018-07-08T09:27:14.020Z" itemprop="dateUpdated">2018-07-08 17:27:14</time>
+    最后更新时间：<time datetime="2018-08-03T03:26:25.326Z" itemprop="dateUpdated">2018-08-03 11:26:25</time>
 </span><br>
 
 
@@ -581,7 +576,24 @@ MathJax.Hub.Queue(function() {
         }
     });
 })();
+</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
 </script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
 
 
 

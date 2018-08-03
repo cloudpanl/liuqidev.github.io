@@ -2,7 +2,7 @@
 <html>
 <head>
     
-<!-- Google Analytics -->
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><!-- Google Analytics -->
 <script>
 window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
 ga('create', 'UA-122713769-1', 'auto');
@@ -40,7 +40,7 @@ ga('send', 'pageview');
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://www.blankspace.cn/2018/07/22/关于英尺，磅，像素的争论/img-2.jpg">
 <meta property="og:image" content="https://www.blankspace.cn/2018/07/22/关于英尺，磅，像素的争论/img1.png">
-<meta property="og:updated_time" content="2018-07-22T06:22:29.605Z">
+<meta property="og:updated_time" content="2018-08-03T02:54:44.620Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="关于英尺，磅，像素的争论">
 <meta name="twitter:description" content="一行代码错误注释引起的关于英尺，磅，像素的争论。">
@@ -63,13 +63,13 @@ ga('send', 'pageview');
 	  gtag('js', new Date());
 
 	  gtag('config', 'UA-122713769-1');
-	</script>
+	</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 
 </head>
 
 <body>
-    <div id="loading" class="active"></div>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="loading" class="active"></div>
 
     <aside id="menu" class="hide" >
   <div class="inner flex-row-vertical">
@@ -91,7 +91,7 @@ ga('send', 'pageview');
       <ul class="nav">
         
             <li class="waves-block waves-effect">
-              <a href="../../../../index.html"  >
+              <a href="../../../../categories"  >
                 <i class="icon icon-lg icon-home"></i>
                 主页
               </a>
@@ -112,9 +112,9 @@ ga('send', 'pageview');
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="../../../../categories"  >
+              <a href="../../../../index.html"  >
                 <i class="icon icon-lg icon-th-list"></i>
-                分类
+                全部
               </a>
             </li>
         
@@ -180,7 +180,7 @@ ga('send', 'pageview');
 </time>
 
 
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="../../../../categories/填坑笔记/">填坑笔记</a></li></ul>
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="../../../../categories/Engineering-Debug/">Engineering/Debug</a></li></ul>
 
             
         </h5>
@@ -211,7 +211,7 @@ ga('send', 'pageview');
             <time class="post-time" title="2018-07-22 14:05:42" datetime="2018-07-22T06:05:42.000Z"  itemprop="datePublished">2018-07-22</time>
 
             
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="../../../../categories/填坑笔记/">填坑笔记</a></li></ul>
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="../../../../categories/Engineering-Debug/">Engineering/Debug</a></li></ul>
 
 
 
@@ -227,13 +227,7 @@ ga('send', 'pageview');
 <p>一行代码错误注释引起的关于英尺，磅，像素的争论。</p>
 </blockquote>
 <a id="more"></a>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2018/07/22/关于英尺，磅，像素的争论/img-2.jpg" alt="图1. 带有错误注释的蟒蛇代码" title="">
-                </div>
-                <div class="image-caption">图1. 带有错误注释的蟒蛇代码</div>
-            </figure>
+<p><img src="/2018/07/22/关于英尺，磅，像素的争论/img-2.jpg" alt="图1. 带有错误注释的蟒蛇代码"></p>
 <h2 id="一行错误的注释"><a href="#一行错误的注释" class="headerlink" title="一行错误的注释"></a>一行错误的注释</h2><p>事起<a href="http://www.labri.fr/perso/nrougier/teaching/matplotlib/matplotlib.html" target="_blank" rel="noopener">【此文】</a>一行 注释:</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Create a new figure of size 8x6 points, using 100 dots per inch</span></span><br><span class="line">plt.figure(figsize=(<span class="number">8</span>,<span class="number">6</span>), dpi=<span class="number">80</span>)</span><br></pre></td></tr></table></figure>
 <p>很明显，代码中的参数<code>dpi</code>设置为80，而不是注释中的100，这一处应该为笔误。</p>
@@ -242,13 +236,7 @@ ga('send', 'pageview');
 <p>而实际上这里的point并非是上面的意思，而是一个长度单位，往往翻译成<code>磅</code>。w3c的<a href="https://www.w3.org/People/Bos/" target="_blank" rel="noopener">Bert Bos</a> 在<a href="https://www.w3.org/Style/Examples/007/units.zh_HK.html" target="_blank" rel="noopener">此文</a>, 介绍了关于这种单位在的来龙去脉，以及<a href="http://www.w3school.com.cn/css/index.asp" target="_blank" rel="noopener">CSS</a>里面更多的单位之间的换算，并且<a href="http://www.runoob.com/w3cnote/px-pt-em-convert-table.html" target="_blank" rel="noopener">菜鸟教程</a>和<a href="https://www.cnblogs.com/913815ccmm/p/4858638.html" target="_blank" rel="noopener">这一篇</a>都有介绍。</p>
 <h2 id="还有错误"><a href="#还有错误" class="headerlink" title="还有错误"></a>还有错误</h2><p>就这样相信作者，命令中<code>figsize</code>参数单位为磅就完了吗？</p>
 <p>当然不能，保存代码绘制的图片，进行了以下求证。</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2018/07/22/关于英尺，磅，像素的争论/img1.png" alt="图2. 计算和验证过程" title="">
-                </div>
-                <div class="image-caption">图2. 计算和验证过程</div>
-            </figure>
+<p><img src="/2018/07/22/关于英尺，磅，像素的争论/img1.png" alt="图2. 计算和验证过程"></p>
 <p>计算结果表明，<strong>参数中单位既不是所谓的点，也不是磅，而是英寸！！</strong></p>
 <h2 id="官方解释"><a href="#官方解释" class="headerlink" title="官方解释"></a>官方解释</h2><p>使用：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">help(plt.figure)</span><br></pre></td></tr></table></figure>
@@ -264,7 +252,7 @@ ga('send', 'pageview');
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2018-07-22T06:22:29.605Z" itemprop="dateUpdated">2018-07-22 14:22:29</time>
+    最后更新时间：<time datetime="2018-08-03T02:54:44.620Z" itemprop="dateUpdated">2018-08-03 10:54:44</time>
 </span><br>
 
 
@@ -347,7 +335,14 @@ ga('send', 'pageview');
     </div>
 
     
-<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="../../../08/03/1-1-latex-introduction/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">测试啊</h4>
+      </a>
+    </div>
   
 
   
@@ -595,7 +590,24 @@ MathJax.Hub.Queue(function() {
         }
     });
 })();
+</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
 </script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
 
 
 
