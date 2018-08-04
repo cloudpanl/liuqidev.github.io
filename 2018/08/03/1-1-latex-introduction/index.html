@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  <meta charset="utf-8">
   
   <title>1-1 LatTex基础 | 魔法师LQ的魔法书</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -45,13 +45,13 @@ ga('create', 'UA-122713769-1', 'auto');
 ga('send', 'pageview');
 
 </script>
-<!-- End Google Analytics --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<!-- End Google Analytics -->
 
 
 </head>
 
 <body>
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><nav class="navbar navbar-inverse">
+  <nav class="navbar navbar-inverse">
   <div class="container">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -114,6 +114,10 @@ ga('send', 'pageview');
   <div class="article-meta">
     <div class="article-datetime">
   <a href="" class="article-date"><time datetime="2018-08-03T02:07:27.000Z" itemprop="datePublished">2018-08-03</time></a>
+</div>
+
+<div class="article-datetime">
+  
 </div>
 
     
@@ -217,7 +221,7 @@ ga('send', 'pageview');
 <figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[<span class="string">Google</span>][<span class="symbol"></span>]</span><br><span class="line">And then define the link:</span><br><span class="line"></span><br><span class="line">[<span class="symbol">Google</span>]: <span class="link">http://google.com/</span></span><br></pre></td></tr></table></figure>
 <p>In typora click link will expand it for editing, command+click will open the hyperlink in web browser.</p>
 <h3 id="URLs"><a href="#URLs" class="headerlink" title="URLs"></a>URLs</h3><p>Typora allows you to insert urls as links, wrapped by <code>&lt;</code>brackets<code>&gt;</code>.</p>
-<p><code>&lt;i@typora.io&gt;</code> becomes <a href="&#x6d;&#x61;&#105;&#108;&#116;&#111;&#58;&#x69;&#64;&#116;&#121;&#x70;&#111;&#x72;&#97;&#x2e;&#x69;&#111;">&#x69;&#64;&#116;&#121;&#x70;&#111;&#x72;&#97;&#x2e;&#x69;&#111;</a>.</p>
+<p><code>&lt;i@typora.io&gt;</code> becomes <a href="&#109;&#x61;&#105;&#108;&#x74;&#x6f;&#x3a;&#105;&#64;&#x74;&#x79;&#x70;&#x6f;&#114;&#x61;&#46;&#x69;&#111;">&#105;&#64;&#x74;&#x79;&#x70;&#x6f;&#114;&#x61;&#46;&#x69;&#111;</a>.</p>
 <p>Typora will aslo auto link standard URLs. e.g: www.google.com.</p>
 <h3 id="Images"><a href="#Images" class="headerlink" title="Images"></a>Images</h3><p>Image looks similar with links, but it requires an additional <code>!</code> char before the start of link. Image syntax looks like this:</p>
 <figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">![<span class="string">Alt text</span>](<span class="link">/path/to/img.jpg</span>)</span><br><span class="line"></span><br><span class="line">![<span class="string">Alt text</span>](<span class="link">/path/to/img.jpg "Optional title"</span>)</span><br></pre></td></tr></table></figure>
@@ -277,7 +281,7 @@ ga('send', 'pageview');
     
 
     <footer class="article-footer">
-      <a data-url="https://www.blankspace.cn/2018/08/03/1-1-latex-introduction/" data-id="cjkf0dyy80002rkfi8sidyokt" class="article-share-link">
+      <a data-url="https://www.blankspace.cn/2018/08/03/1-1-latex-introduction/" data-id="cjkf3pfvq0004cwfii32umxlu" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -298,6 +302,13 @@ ga('send', 'pageview');
     </a>
   </li>
   
+  
+  <li role="presentation">
+    <a href="../../04/blog-test/" id="article-nav-newer" class="article-nav-link-wrap">
+      <span class="article-nav-link-title">博客测试</span>
+      <i class="fa fa-chevron-right pull-right"></i>
+    </a>
+  </li>
   
 </ul>
 
@@ -361,6 +372,11 @@ gitment.render('container')
 
 <script src="../../../../js/script.js"></script>
 
+ 
+ 
+<!--Back to top-->
+<body id="top">
+<p id="back-to-top"><a href="#top"><span></span></a></p>
 <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
         tex2jax: {
@@ -376,6 +392,34 @@ gitment.render('container')
     });
 </script>
 <!--<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>-->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+</body>
+<script>
+$(document).ready(function() {
+    //首先将#back-to-top隐藏
+    $("#back-to-top").hide();
+ 
+    //当滚动条的位置处于距顶部250像素以下时，跳转链接出现，否则消失
+    $(function() {
+        $(window).scroll(function() {
+            if ($(window).scrollTop() > 3600) {
+                $("#back-to-top").fadeIn(1500);
+            }
+            else {
+                $("#back-to-top").fadeOut(1500);
+            }
+        });
+        //当点击跳转链接后，回到页面顶部位置
+        $("#back-to-top").click(function() {
+            $('body,html').animate({
+                scrollTop: 0
+            },
+            500);
+            return false;
+        });
+    });
+});
+</script>
+
 </body>
 </html>
