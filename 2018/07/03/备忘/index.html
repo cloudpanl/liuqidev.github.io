@@ -19,6 +19,7 @@
 <meta name="twitter:title" content="本博客基本操作备忘">
 <meta name="twitter:description" content="对本博客所有博文都适用的部分设置和一般操作。">
 <meta name="twitter:image" content="https://www.blankspace.cn/2018/07/03/备忘/无助.gif">
+<link rel="publisher" href="112373242775367340000">
   
     <link rel="alternate" href="../../../../atom.xml" title="魔法师LQ的魔法书" type="application/atom+xml">
   
@@ -31,8 +32,21 @@
 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" integrity="sha384-XdYbMnZ/QjLh6iI4ogqCTaIjrFk87ip+ekIjefZch0Y+PvJ8CDYtEs1ipDmPorQ+" crossorigin="anonymous">
 
-  <link rel="stylesheet" href="../../../../css/styles.css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <link rel="stylesheet" href="../../../../css/styles.css">
   
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-122713769-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
 
 </head>
 
@@ -77,14 +91,7 @@
 </nav>
 
   <div class="container">
-<!--    <div class="blog-header">
- <h1 class="blog-title">魔法师LQ的魔法书</h1>
-  
-    <p class="lead blog-description">魔鬼藏于细节,魔法改变世界.</p>
-  
-</div>
- -->
-	
+
 	<article id="post-备忘" class="article article-type-post" itemscope itemprop="blogPost">
 
   <header class="article-header">
@@ -106,7 +113,7 @@
     
     
   <div class="article-category">
-    <a class="article-category-link" href="../../../../categories/Misc/">Misc</a>
+    <a class="article-category-link" href="../../../../categories/Misc/">Misc<span class="article-category-count">3</span></a>
   </div>
 
 
@@ -165,7 +172,7 @@ C^{m}_{n}=\frac{n!}{m!\left( n-m\right)!}</script><h3 id="图标"><a href="#图�
     
 
     <footer class="article-footer">
-      <a data-url="https://www.blankspace.cn/2018/07/03/备忘/" data-id="cjke02lu6001cisfipqvihsit" class="article-share-link">
+      <a data-url="https://www.blankspace.cn/2018/07/03/备忘/" data-id="cjkeopz5w0016ycfiy93i8fuu" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -196,205 +203,43 @@ C^{m}_{n}=\frac{n!}{m!\left( n-m\right)!}</script><h3 id="图标"><a href="#图�
 
 
 
+
+<div id="container"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  id: '', // 可选。默认为 location.href
+  owner: 'liuqidev',
+  repo: 'liuqidev.github.io',
+  oauth: {
+    client_id: '9db4a7f39961fa7531cc',
+    client_secret: 'bd23ffc25530e831d3dc6efc731bb9de4d8c6fd0',
+  },
+})
+gitment.render('container')
+</script>
 	
-<!--    <div class="row">
-        <div class="col-sm-8 blog-main">
-          <article id="post-备忘" class="article article-type-post" itemscope itemprop="blogPost">
-
-  <header class="article-header">
-    
-  
-    <h1 class="article-title" itemprop="name">
-      本博客基本操作备忘
-    </h1>
-  
-
-
-  </header>
-
-  <div class="article-meta">
-    <div class="article-datetime">
-  <a href="" class="article-date"><time datetime="2018-07-03T08:27:26.000Z" itemprop="datePublished">2018-07-03</time></a>
-</div>
-
-    
-    
-  <div class="article-category">
-    <a class="article-category-link" href="../../../../categories/Misc/">Misc</a>
-  </div>
-
-
-  </div>
-  
-  <div class="article-inner">
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="文章归类和标记"><a href="#文章归类和标记" class="headerlink" title="文章归类和标记"></a>文章归类和标记</h2><p>比较完整的文章设置：<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">layout: page/tags/categories</span><br><span class="line">title: xxx                      # 必须，页面名称</span><br><span class="line">date: 2018-07-03 16:27:26</span><br><span class="line">tags: [Hexo, HTML]</span><br><span class="line">categories: [Web前端]</span><br><span class="line">description: 描述               # 页面二级标题，描述性文字</span><br><span class="line">comments: false/true</span><br><span class="line">reward: false/true             # 打赏</span><br><span class="line">---</span><br></pre></td></tr></table></figure></p>
-<h2 id="生成摘要"><a href="#生成摘要" class="headerlink" title="生成摘要"></a>生成摘要</h2><p>在 Markdown 中加 <code>&lt;!-- more --&gt;</code><br><a id="more"></a></p>
-<h2 id="文章中插入"><a href="#文章中插入" class="headerlink" title="文章中插入"></a>文章中插入</h2><h3 id="文字"><a href="#文字" class="headerlink" title="文字"></a>文字</h3><ul>
-<li>引用<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; 幼小，可怜，又无助。</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<blockquote>
-<p>幼小，可怜，又无助。</p>
-</blockquote>
-<ul>
-<li><p>代码</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># i want to fly</span></span><br><span class="line"><span class="keyword">from</span> fly <span class="keyword">import</span> fly </span><br><span class="line">i.fly()</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>公式</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$$</span><br><span class="line">C^&#123;m&#125;_&#123;n&#125;=\frac&#123;n!&#125;&#123;m!\left( n-m\right)!&#125;</span><br><span class="line">$$</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<script type="math/tex; mode=display">
-C^{m}_{n}=\frac{n!}{m!\left( n-m\right)!}</script><h3 id="图标"><a href="#图标" class="headerlink" title="图标"></a>图标</h3><p>先到<a href="http://fontawesome.io/icons/" target="_blank" rel="noopener">fontawesome</a>查找需要的图标，然后在文章中按照如下规则输入：</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"icon icon-book"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p><i class="icon icon-book"></i></p>
-<p>图标样式前缀均为 <code>icon</code>，此外还有 5 个图标大小调节类和 1 个间距类。</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 1.3倍大小 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"icon icon-book icon-lg"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 2倍大小 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"icon icon-book icon-2x"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 3倍大小 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"icon icon-book icon-3x"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 4倍大小 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"icon icon-book icon-4x"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 5倍大小 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"icon icon-book icon-5x"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 5px右边距 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"icon icon-book icon-pr"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 5px左边距 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"icon icon-book icon-pl"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h3 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h3><p><img src="/2018/07/03/备忘/无助.gif" alt=""></p>
-<h3 id="视频"><a href="#视频" class="headerlink" title="视频"></a>视频</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;iframe src=&quot;//player.bilibili.com/player.html?aid=25772366&amp;cid=44004290&amp;page=1&quot; scrolling=&quot;no&quot; border=&quot;0&quot; frameborder=&quot;no&quot; framespacing=&quot;0&quot; allowfullscreen=&quot;true&quot; width=&quot;100%&quot; height=&quot;600px&quot;&gt; &lt;/iframe&gt;</span><br></pre></td></tr></table></figure>
-<iframe src="//player.bilibili.com/player.html?aid=25772366&cid=44004290&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="100%" height="600px"> </iframe>
-
-
-<h3 id="音乐"><a href="#音乐" class="headerlink" title="音乐"></a>音乐</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">iframe</span> <span class="attr">frameborder</span>=<span class="string">"no"</span> <span class="attr">border</span>=<span class="string">"0"</span> <span class="attr">marginwidth</span>=<span class="string">"0"</span> <span class="attr">marginheight</span>=<span class="string">"0"</span> <span class="attr">width</span>=<span class="string">330</span> <span class="attr">height</span>=<span class="string">86</span> <span class="attr">src</span>=<span class="string">"//music.163.com/outchain/player?type=2&amp;id=2117009&amp;auto=1&amp;height=66"</span>&gt;</span><span class="tag">&lt;/<span class="name">iframe</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">iframe</span> <span class="attr">frameborder</span>=<span class="string">"no"</span> <span class="attr">border</span>=<span class="string">"0"</span> <span class="attr">marginwidth</span>=<span class="string">"0"</span> <span class="attr">marginheight</span>=<span class="string">"0"</span> <span class="attr">width</span>=<span class="string">"100%"</span> <span class="attr">height</span>=<span class="string">"650"</span> <span class="attr">src</span>=<span class="string">"http://music.163.com/outchain/player?type=0&amp;id=75791641&amp;auto=0&amp;height=430"</span>&gt;</span><span class="tag">&lt;/<span class="name">iframe</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=2117009&auto=1&height=66"></iframe>
-
-<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="100%" height="650" src="http://music.163.com/outchain/player?type=0&id=75791641&auto=0&height=430"></iframe>
-
-<h3 id="PDF"><a href="#PDF" class="headerlink" title="PDF"></a>PDF</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">embed</span> <span class="attr">src</span>=<span class="string">"matrixcookbook.pdf#toolbar=0&amp;navpanes=0&amp;scrollbar=0"</span> <span class="attr">width</span>=<span class="string">"100%"</span> <span class="attr">height</span>=<span class="string">"600px"</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<embed src="matrixcookbook.pdf#toolbar=0&navpanes=0&scrollbar=0" width="100%" height="600px">
-
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">iframe</span> <span class="attr">src</span>=<span class="string">"matrixcookbook.pdf"</span> <span class="attr">width</span>=<span class="string">"100%"</span> <span class="attr">height</span>=<span class="string">"600px"</span>&gt;</span><span class="tag">&lt;/<span class="name">iframe</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<iframe src="matrixcookbook.pdf" width="100%" height="600px"></iframe>
-
-
-
-      
-    </div>
-
-    
-      
-
-    
-
-    <footer class="article-footer">
-      <a data-url="https://www.blankspace.cn/2018/07/03/备忘/" data-id="cjke02lu6001cisfipqvihsit" class="article-share-link">
-        <i class="fa fa-share"></i> Share
-      </a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../tags/HTML/">HTML</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../tags/Hexo/">Hexo</a></li></ul>
-
-
-    </footer>
-  </div>
-  
-    
-<ul id="article-nav" class="nav nav-pills nav-justified">
-  
-  
-  <li role="presentation">
-    <a href="../../04/邓公谈清华数据结构新百年/" id="article-nav-newer" class="article-nav-link-wrap">
-      <span class="article-nav-link-title">坐而论道：邓公谈清华数据结构的新百年</span>
-      <i class="fa fa-chevron-right pull-right"></i>
-    </a>
-  </li>
-  
-</ul>
-
-
-  
-</article>
-
-
-
-
-        </div>
-
-      <div class="col-sm-2 col-sm-offset-1 blog-sidebar">
-          
-  <div class="sidebar-module sidebar-module-inset">
-  <h4>About</h4>
-  <p>自动化研究生在读。相信<em><strong>“科技是普通人眼中的魔法”</strong></em>。若您在浏览 本博客的过程中，有任何问题意见或者建议，欢迎联系我个人邮箱：<strong>nihaoworld@outlook.com</strong>，我会尽量回复。</br> 一同为魔法事业添砖加瓦。 </p>
-
-</div>
-
-
-  
-  <div class="sidebar-module">
-    <h4>Categories</h4>
-    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../categories/Academic/">Academic</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../categories/CS-Subjects/">CS Subjects</a><span class="sidebar-module-list-count">3</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../categories/CS-Subjects/CS229/">CS229</a><span class="sidebar-module-list-count">1</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../categories/CS-Subjects/CS229/notes/">notes</a><span class="sidebar-module-list-count">1</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../categories/CS-Subjects/CS229/notes/hhahaha/">hhahaha</a><span class="sidebar-module-list-count">1</span></li></ul></li></ul></li></ul></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../categories/Data-Structures/">Data Structures</a><span class="sidebar-module-list-count">1</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../categories/Data-Structures/Stack/">Stack</a><span class="sidebar-module-list-count">1</span></li></ul></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../categories/Engineering-Debug/">Engineering/Debug</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../categories/Misc/">Misc</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../categories/Special-Topics/">Special Topics</a><span class="sidebar-module-list-count">10</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../categories/Theories-Philosophy/">Theories/Philosophy</a><span class="sidebar-module-list-count">1</span></li></ul>
-  </div>
-
-
-
-  
-  <div class="sidebar-module">
-    <h4>Tags</h4>
-    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/AI/">AI</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/CS229/">CS229</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/HTML/">HTML</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/Hexo/">Hexo</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/Kaprekar常数/">Kaprekar常数</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/ML/">ML</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/PAT认证（乙级）/">PAT认证（乙级）</a><span class="sidebar-module-list-count">9</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/Tex-Latex/">Tex/Latex</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/a-b-problem/">a+b problem</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/hosts/">hosts</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/matplotlib/">matplotlib</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/mooc/">mooc</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/交通事故/">交通事故</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/单位/">单位</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/吴恩达-Andrew-Ng/">吴恩达(Andrew Ng)</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/备忘/">备忘</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/大数/">大数</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/字符串/">字符串</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/学习资源/">学习资源</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/报警/">报警</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/数字黑洞/">数字黑洞</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/数据结构/">数据结构</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/数组/">数组</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/新生活的开始/">新生活的开始</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/机器学习/">机器学习</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/栈/">栈</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/演讲/">演讲</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/研究生/">研究生</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/空模板/">空模板</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/素数/">素数</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/经验/">经验</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/解题报告/">解题报告</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/计数/">计数</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/计算机网络/">计算机网络</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../tags/邓俊辉/">邓俊辉</a><span class="sidebar-module-list-count">1</span></li></ul>
-  </div>
-
-
-
-  
-  <div class="sidebar-module">
-    <h4>Tag Cloud</h4>
-    <p class="tagcloud">
-      <a href="../../../../tags/AI/" style="font-size: 10px;">AI</a> <a href="../../../../tags/CS229/" style="font-size: 15px;">CS229</a> <a href="../../../../tags/HTML/" style="font-size: 10px;">HTML</a> <a href="../../../../tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="../../../../tags/Kaprekar常数/" style="font-size: 10px;">Kaprekar常数</a> <a href="../../../../tags/ML/" style="font-size: 10px;">ML</a> <a href="../../../../tags/PAT认证（乙级）/" style="font-size: 20px;">PAT认证（乙级）</a> <a href="../../../../tags/Tex-Latex/" style="font-size: 10px;">Tex/Latex</a> <a href="../../../../tags/a-b-problem/" style="font-size: 10px;">a+b problem</a> <a href="../../../../tags/hosts/" style="font-size: 10px;">hosts</a> <a href="../../../../tags/matplotlib/" style="font-size: 10px;">matplotlib</a> <a href="../../../../tags/mooc/" style="font-size: 10px;">mooc</a> <a href="../../../../tags/交通事故/" style="font-size: 10px;">交通事故</a> <a href="../../../../tags/单位/" style="font-size: 10px;">单位</a> <a href="../../../../tags/吴恩达-Andrew-Ng/" style="font-size: 15px;">吴恩达(Andrew Ng)</a> <a href="../../../../tags/备忘/" style="font-size: 10px;">备忘</a> <a href="../../../../tags/大数/" style="font-size: 10px;">大数</a> <a href="../../../../tags/字符串/" style="font-size: 15px;">字符串</a> <a href="../../../../tags/学习资源/" style="font-size: 10px;">学习资源</a> <a href="../../../../tags/报警/" style="font-size: 10px;">报警</a> <a href="../../../../tags/数字黑洞/" style="font-size: 10px;">数字黑洞</a> <a href="../../../../tags/数据结构/" style="font-size: 10px;">数据结构</a> <a href="../../../../tags/数组/" style="font-size: 10px;">数组</a> <a href="../../../../tags/新生活的开始/" style="font-size: 10px;">新生活的开始</a> <a href="../../../../tags/机器学习/" style="font-size: 15px;">机器学习</a> <a href="../../../../tags/栈/" style="font-size: 10px;">栈</a> <a href="../../../../tags/演讲/" style="font-size: 10px;">演讲</a> <a href="../../../../tags/研究生/" style="font-size: 10px;">研究生</a> <a href="../../../../tags/空模板/" style="font-size: 10px;">空模板</a> <a href="../../../../tags/素数/" style="font-size: 10px;">素数</a> <a href="../../../../tags/经验/" style="font-size: 10px;">经验</a> <a href="../../../../tags/解题报告/" style="font-size: 15px;">解题报告</a> <a href="../../../../tags/计数/" style="font-size: 10px;">计数</a> <a href="../../../../tags/计算机网络/" style="font-size: 10px;">计算机网络</a> <a href="../../../../tags/邓俊辉/" style="font-size: 10px;">邓俊辉</a>
-    </p>
-  </div>
-
-
-  
-  <div class="sidebar-module">
-    <h4>Archives</h4>
-    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../archives/2018/08/">八月 2018</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../../../archives/2018/07/">七月 2018</a><span class="sidebar-module-list-count">20</span></li></ul>
-  </div>
-
-
-
-  
-  <div class="sidebar-module">
-    <h4>Recents</h4>
-    <ul class="sidebar-module-list">
-      
-        <li>
-          <a href="../../../08/03/1-1-latex-introduction/">1-1 LatTex基础</a>
-        </li>
-      
-        <li>
-          <a href="../../22/关于英尺，磅，像素的争论/">关于英尺，磅，像素的争论</a>
-        </li>
-      
-        <li>
-          <a href="../../21/xxx-github-io连接已重置修改hosts解决/">xxx.github.io连接已重置</a>
-        </li>
-      
-        <li>
-          <a href="../../19/斯坦福CS229笔记-2-监督学习应用梯度下降/">斯坦福CS229笔记 第2讲 监督学习应用梯度下降</a>
-        </li>
-      
-        <li>
-          <a href="../../18/斯坦福CS229笔记-1机器学习绪论Introduction-to-ML/">斯坦福CS229笔记 第1讲 机器学习绪论</a>
-        </li>
-      
-    </ul>
-  </div>
-
-
-
-        </div>
-    </div>
-  </div> -->
-  
-  <footer class="blog-footer">
+  <footer class="blog-footer">  
   <div class="container">
     <div id="footer-info" class="inner">
-      &copy; 2018 liuqidev<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      &copy; 2018. <em>All Rights Reserved by <a href="https://github.com/liuqidev" target="_blank">liuqidev</a></em><br>	
     </div>
   </div>
+ 
+<p>
+	<span id="busuanzi_container_site_uv">
+	    <span id="busuanzi_value_site_uv"></span> visitors, 
+	</span>
+
+    <span id="busuanzi_container_site_pv">
+       <span id="busuanzi_value_site_pv"></span> visits
+    </span>
+</p>
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+<script type="text/javascript" id="clustrmaps" src="//cdn.clustrmaps.com/map_v2.js?d=XzXyQ1GOPdnOuiMHQmBZKolTWTBtRkFzmBoniAwXpMc&cl=ffffff&w=a"></script>
+<a href="https://clustrmaps.com/site/1ab27"  title="Visit tracker"><img src="//www.clustrmaps.com/map_v2.png?d=XzXyQ1GOPdnOuiMHQmBZKolTWTBtRkFzmBoniAwXpMc&cl=ffffff" /></a>
+
 </footer>
 
   
