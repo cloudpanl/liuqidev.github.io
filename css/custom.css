@@ -366,8 +366,8 @@ code {
 p#back-to-top 
 {
 		position: fixed;
-		bottom: 32px;
-		right: 64px;
+		bottom: 54px;
+		right: 12px;
 }
 
 p#back-to-top a {
