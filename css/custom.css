@@ -413,4 +413,22 @@ p#back-to-top a span {
   
 }
 
+/*
+* avatar-logo
+*/
+#avatar-logo{
+	width: 100%;
+	border:2px solid transparent;
+	margin-bottom:10px;
+}
+
+/*
+*	pin-to-top
+*/
+span.ping-to-top{
+	font-size: 24px;
+	color: #428BCA;
+	font-weight: 800;
+}
+
 

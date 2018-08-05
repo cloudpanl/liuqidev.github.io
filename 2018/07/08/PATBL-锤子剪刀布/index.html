@@ -3,24 +3,26 @@
 <head>
   <meta charset="utf-8">
   
-  <title>PATBL 锤子剪刀布 | 魔法师LQ的魔法书</title>
+  <title>魔法师LQ的魔法书</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="时间限制 1000 ms 内存限制 32768 KB 代码长度限制 100 KB 判断程序 Standard (来自 小小) 题目描述大家应该都会玩“锤子剪刀布”的游戏：现给出两人的交锋记录，请统计双方的胜、平、负次数，并且给出双方分别出什么手势的胜算最大。 输入描述:输入第1行给出正整数N（&amp;lt;=105），即双方交锋的次数。随后N行，每行给出一次交锋的信息，即甲、乙双方同时给出的的手势。C代">
+  <meta name="description" content="远不止魔法......">
 <meta name="keywords" content="博客">
 <meta property="og:type" content="article">
-<meta property="og:title" content="PATBL 锤子剪刀布">
+<meta property="og:title" content="魔法师LQ的魔法书">
 <meta property="og:url" content="https://www.blankspace.cn/2018/07/08/PATBL-锤子剪刀布/index.html">
 <meta property="og:site_name" content="魔法师LQ的魔法书">
-<meta property="og:description" content="时间限制 1000 ms 内存限制 32768 KB 代码长度限制 100 KB 判断程序 Standard (来自 小小) 题目描述大家应该都会玩“锤子剪刀布”的游戏：现给出两人的交锋记录，请统计双方的胜、平、负次数，并且给出双方分别出什么手势的胜算最大。 输入描述:输入第1行给出正整数N（&amp;lt;=105），即双方交锋的次数。随后N行，每行给出一次交锋的信息，即甲、乙双方同时给出的的手势。C代">
+<meta property="og:description" content="远不止魔法......">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-08-03T13:32:40.636Z">
+<meta property="og:updated_time" content="2018-08-05T11:56:45.951Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="PATBL 锤子剪刀布">
-<meta name="twitter:description" content="时间限制 1000 ms 内存限制 32768 KB 代码长度限制 100 KB 判断程序 Standard (来自 小小) 题目描述大家应该都会玩“锤子剪刀布”的游戏：现给出两人的交锋记录，请统计双方的胜、平、负次数，并且给出双方分别出什么手势的胜算最大。 输入描述:输入第1行给出正整数N（&amp;lt;=105），即双方交锋的次数。随后N行，每行给出一次交锋的信息，即甲、乙双方同时给出的的手势。C代">
+<meta name="twitter:title" content="魔法师LQ的魔法书">
+<meta name="twitter:description" content="远不止魔法......">
 <link rel="publisher" href="112373242775367340000">
   
     <link rel="alternate" href="../../../../atom.xml" title="魔法师LQ的魔法书" type="application/atom+xml">
   
+  
+    <link rel="icon" href="../../../../images/emojis/joy.png">
   
   
     <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
@@ -29,7 +31,8 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" integrity="sha384-XdYbMnZ/QjLh6iI4ogqCTaIjrFk87ip+ekIjefZch0Y+PvJ8CDYtEs1ipDmPorQ+" crossorigin="anonymous">
-
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js">
+  </script>
   <link rel="stylesheet" href="../../../../css/styles.css">
   
 <!-- Google Analytics -->
@@ -55,10 +58,24 @@ var _hmt = _hmt || [];
 })();
 </script>
   
+  
+  
+    <script>(function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/a2c8df52.js","daovoice")
+</script>
+
+<script>
+daovoice('init', {
+  app_id: "a2c8df52"
+});
+daovoice('update');
+</script>
+  
+  
 </head>
 
 
 <body>
+ 
   <nav class="navbar navbar-inverse">
   <div class="container">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -71,6 +88,7 @@ var _hmt = _hmt || [];
       </button>
       
     </div>
+	
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="main-menu-navbar">
@@ -78,9 +96,6 @@ var _hmt = _hmt || [];
         
           <li><a class=""
                  href="../../../../index.html">Home</a></li>
-        
-          <li><a class=""
-                 href="../../../../academic/">Academic</a></li>
         
           <li><a class=""
                  href="../../../../archives/">Archives</a></li>
@@ -91,8 +106,9 @@ var _hmt = _hmt || [];
           <li><a class=""
                  href="https://github.com/liuqidev">Github</a></li>
         
-      </ul>
 
+      </ul>
+		
       <!--
       <ul class="nav navbar-nav navbar-right">
         
@@ -102,17 +118,18 @@ var _hmt = _hmt || [];
       -->
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
+  
+
 </nav>
 
   <div class="container">
-
-  	<article id="post-PATBL-锤子剪刀布" class="article article-type-post" itemscope itemprop="blogPost">
+	<article id="post-PATBL-锤子剪刀布" class="article article-type-post" itemscope itemprop="blogPost">
 
   <header class="article-header">
     
   
     <h1 class="article-title" itemprop="name">
-      PATBL 锤子剪刀布
+      (no title)
     </h1>
   
 
@@ -120,8 +137,10 @@ var _hmt = _hmt || [];
   </header>
 
   <div class="article-meta">
+	
+  
     <div class="article-datetime">
-  <a href="" class="article-date"><time datetime="2018-07-08T12:57:36.000Z" itemprop="datePublished">2018-07-08</time></a>
+  <a href="" class="article-date"><time datetime="2018-07-08T12:57:36.513Z" itemprop="datePublished">2018-07-08</time></a>
 </div>
 
 
@@ -136,16 +155,12 @@ var _hmt = _hmt || [];
       <div class="post-meta">
             <span class="glyphicon glyphicon-pencil"></span>
             <span class="post-meta-item-text">&nbsp;Total&nbsp;</span>
-            <span class="post-count">306&nbsp;words</span>
+            <span class="post-count">0&nbsp;words</span>
       </div>
 
 
  
     
-  <div class="article-category">
-    <a class="article-category-link" href="../../../../categories/Special-Topics/">Special Topics<span class="article-category-count">10</span></a>
-  </div>
-
 
   </div>
   
@@ -155,13 +170,7 @@ var _hmt = _hmt || [];
 	  
         <!-- Table of Contents -->
 
-        <p>时间限制 1000 ms 内存限制 32768 KB 代码长度限制 100 KB 判断程序 Standard (来自 <a href="https://www.nowcoder.com/profile/59" target="_blank" rel="noopener">小小</a>)</p>
-<h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a><strong>题目描述</strong></h3><p>大家应该都会玩“锤子剪刀布”的游戏：<br>现给出两人的交锋记录，请统计双方的胜、平、负次数，并且给出双方分别出什么手势的胜算最大。</p>
-<h3 id="输入描述"><a href="#输入描述" class="headerlink" title="输入描述:"></a><strong>输入描述:</strong></h3><p>输入第1行给出正整数N（&lt;=105），即双方交锋的次数。随后N行，每行给出一次交锋的信息，即甲、乙双方同时给出的的手势。C代表“锤子”、J代表“剪刀”、B代表“布”，第1个字母代表甲方，第2个代表乙方，中间有1个空格。</p>
-<h3 id="输出描述"><a href="#输出描述" class="headerlink" title="输出描述:"></a><strong>输出描述:</strong></h3><p>输出第1、2行分别给出甲、乙的胜、平、负次数，数字间以1个空格分隔。第3行给出两个字母，分别代表甲、乙获胜次数最多的手势，中间有1个空格。如果解不唯一，则输出按字母序最小的解。</p>
-<a id="more"></a>
-<h3 id="输入例子"><a href="#输入例子" class="headerlink" title="输入例子:"></a><strong>输入例子:</strong></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">10</span><br><span class="line">C J</span><br><span class="line">J B</span><br><span class="line">C B</span><br><span class="line">B B</span><br><span class="line">B C</span><br><span class="line">C C</span><br><span class="line">C B</span><br><span class="line">J B</span><br><span class="line">B C</span><br><span class="line">J J</span><br></pre></td></tr></table></figure>
-<h3 id="输出例子"><a href="#输出例子" class="headerlink" title="输出例子:"></a><strong>输出例子:</strong></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">5 3 2</span><br><span class="line">2 3 5</span><br><span class="line">B B</span><br></pre></td></tr></table></figure>
+        
       
     </div>
 
@@ -171,7 +180,7 @@ var _hmt = _hmt || [];
     
 
     <footer class="article-footer">
-      <a data-url="https://www.blankspace.cn/2018/07/08/PATBL-锤子剪刀布/" data-id="cjkgfc9gh000tykfid00m4hby" class="article-share-link">
+      <a data-url="https://www.blankspace.cn/2018/07/08/PATBL-锤子剪刀布/" data-id="cjkghqspk0011uwfi0asy2art" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -207,7 +216,8 @@ var _hmt = _hmt || [];
 
 
 
-    <!--Gitment: https://imsun.net/posts/gitment-introduction/-->
+	
+	<!--Gitment: https://imsun.net/posts/gitment-introduction/-->
 <div id="container"></div>
 <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
 <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
@@ -223,7 +233,8 @@ var gitment = new Gitment({
 })
 gitment.render('container')
 </script>
-    <footer class="blog-footer">  
+	
+<footer class="blog-footer">  
   <div class="container">
     <div id="footer-info" class="inner">
       &copy; 2018. <em>All Rights Reserved by <a href="https://github.com/liuqidev" target="_blank">liuqidev</a></em><br>	
@@ -245,9 +256,108 @@ gitment.render('container')
   <script type="text/javascript" id="clustrmaps" src="//cdn.clustrmaps.com/map_v2.js?d=XzXyQ1GOPdnOuiMHQmBZKolTWTBtRkFzmBoniAwXpMc&cl=ffffff&w=a"></script>
   <a href="https://clustrmaps.com/site/1ab27"  title="Visit tracker"><img src="//www.clustrmaps.com/map_v2.png?d=XzXyQ1GOPdnOuiMHQmBZKolTWTBtRkFzmBoniAwXpMc&cl=ffffff" /></a>
 
+
+
+	
+	   <script type="text/javascript">     
+		  var searchFunc = function(path, search_id, content_id) {
+		'use strict'; //使用严格模式
+		$.ajax({
+			url: path,
+			dataType: "xml",
+			success: function( xmlResponse ) {
+				// 从xml中获取相应的标题等数据
+				var datas = $( "entry", xmlResponse ).map(function() {
+					return {
+						title: $( "title", this ).text(),
+						content: $("content",this).text(),
+						url: $( "url" , this).text()
+					};
+				}).get();
+				//ID选择器
+				var $input = document.getElementById(search_id);
+				var $resultContent = document.getElementById(content_id);
+				$input.addEventListener('input', function(){
+					var str='<ul class=\"search-result-list\">';                
+					var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+					$resultContent.innerHTML = "";
+					if (this.value.trim().length <= 0) {
+						return;
+					}
+					// 本地搜索主要部分
+					datas.forEach(function(data) {
+						var isMatch = true;
+						var content_index = [];
+						var data_title = data.title.trim().toLowerCase();
+						var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+						var data_url = data.url;
+						var index_title = -1;
+						var index_content = -1;
+						var first_occur = -1;
+						// 只匹配非空文章
+						if(data_title != '' && data_content != '') {
+							keywords.forEach(function(keyword, i) {
+								index_title = data_title.indexOf(keyword);
+								index_content = data_content.indexOf(keyword);
+								if( index_title < 0 && index_content < 0 ){
+									isMatch = false;
+								} else {
+									if (index_content < 0) {
+										index_content = 0;
+									}
+									if (i == 0) {
+										first_occur = index_content;
+									}
+								}
+							});
+						}
+						// 返回搜索结果
+						if (isMatch) {
+						//结果标签
+							str += "<li><a href='"+ data_url +"' class='search-result-title' target='_blank'>"+ "> " + data_title +"</a>";
+							var content = data.content.trim().replace(/<[^>]+>/g,"");
+							if (first_occur >= 0) {
+								// 拿出含有搜索字的部分
+								var start = first_occur - 6;
+								var end = first_occur + 6;
+								if(start < 0){
+									start = 0;
+								}
+								if(start == 0){
+									end = 10;
+								}
+								if(end > content.length){
+									end = content.length;
+								}
+								var match_content = content.substr(start, end); 
+								// 列出搜索关键字，定义class加高亮
+								keywords.forEach(function(keyword){
+									var regS = new RegExp(keyword, "gi");
+									match_content = match_content.replace(regS, "<em class=\"search-keyword\">"+keyword+"</em>");
+								})
+								str += "<p class=\"search-result\">" + match_content +"...</p>"
+							}
+						}
+					})
+					$resultContent.innerHTML = str;
+				})
+			}
+		})
+	};
+	var path = "../search.xml";
+	searchFunc(path, 'local-search-input', 'local-search-result');
+     var search_path = "search.xml";
+	 if (search_path.length == 0) {
+	 	search_path = "search.xml";
+	 }
+	 var path = "/" + search_path;
+     searchFunc(path, 'local-search-input', 'local-search-result');
+   </script>
+
+
 </footer>
 
-    
+	
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js" integrity="sha384-8gBf6Y4YYq7Jx97PIqmTwLPin4hxIzQw5aDmUg/DDhul9fFpbbLcLh3nTIIDJKhx" crossorigin="anonymous"></script>
 
@@ -260,7 +370,7 @@ gitment.render('container')
 
 <script src="../../../../js/script.js"></script>
 
-     
+	 
 <!--Back to top-->
 <body id="top">
 <p id="back-to-top"><a href="#top"><span></span></a></p>
@@ -292,8 +402,8 @@ $(document).ready(function() {
     });
 });
 </script>
-
   </div>
+  
 <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
         tex2jax: {
