@@ -871,8 +871,8 @@ code {
 p#back-to-top 
 {
 		position: fixed;
-		bottom: 32px;
-		right: 64px;
+		bottom: 54px;
+		right: 12px;
 }
 
 p#back-to-top a {
@@ -916,6 +916,24 @@ p#back-to-top a span {
 */
 .post-mata {
   
+}
+
+/*
+* avatar-logo
+*/
+#avatar-logo{
+	width: 100%;
+	border:2px solid transparent;
+	margin-bottom:10px;
+}
+
+/*
+*	pin-to-top
+*/
+span.ping-to-top{
+	font-size: 24px;
+	color: #428BCA;
+	font-weight: 800;
 }
 
 
