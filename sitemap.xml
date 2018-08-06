@@ -2,9 +2,44 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://www.blankspace.cn/about/index.html</loc>
+    
+    <lastmod>2018-08-06T12:22:23.492Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.blankspace.cn/categories/index.html</loc>
+    
+    <lastmod>2018-08-06T12:17:04.663Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.blankspace.cn/404/index.html</loc>
+    
+    <lastmod>2018-08-06T07:40:17.738Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.blankspace.cn/404.html</loc>
+    
+    <lastmod>2018-08-06T07:40:12.006Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.blankspace.cn/2018/08/03/1-1-latex-introduction/</loc>
+    
+    <lastmod>2018-08-06T06:25:34.401Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://www.blankspace.cn/2018/07/03/blog-test/</loc>
     
-    <lastmod>2018-08-06T03:02:37.535Z</lastmod>
+    <lastmod>2018-08-06T05:13:31.961Z</lastmod>
     
   </url>
   
@@ -37,37 +72,9 @@
   </url>
   
   <url>
-    <loc>https://www.blankspace.cn/404.html</loc>
-    
-    <lastmod>2018-08-04T06:07:05.468Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.blankspace.cn/academic/index.html</loc>
-    
-    <lastmod>2018-08-04T06:01:34.842Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.blankspace.cn/about/index.html</loc>
-    
-    <lastmod>2018-08-04T05:55:12.226Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://www.blankspace.cn/2018/07/05/PATBL-A%E5%8A%A0B%E5%92%8CC/</loc>
     
     <lastmod>2018-08-04T05:48:19.834Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.blankspace.cn/2018/08/03/1-1-latex-introduction/</loc>
-    
-    <lastmod>2018-08-04T04:49:24.062Z</lastmod>
     
   </url>
   
@@ -173,13 +180,6 @@
     <loc>https://www.blankspace.cn/xategories/index.html</loc>
     
     <lastmod>2018-07-22T01:25:41.818Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.blankspace.cn/categories/index.html</loc>
-    
-    <lastmod>2018-07-03T04:39:17.684Z</lastmod>
     
   </url>
   
