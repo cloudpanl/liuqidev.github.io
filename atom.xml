@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>✨魔法师の小茶馆</title>
+  <title>WizardLQ’s | 魔法师の小茶馆</title>
   
-  <subtitle>魔鬼藏于细节,魔法改变世界.</subtitle>
+  <subtitle>Keep moving, never give up. | 锲而不舍，金石可镂.</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.blankspace.cn/"/>
@@ -353,9 +353,9 @@
       <category term="Special Topics" scheme="https://www.blankspace.cn/categories/Special-Topics/"/>
     
     
-      <category term="PAT认证（乙级）" scheme="https://www.blankspace.cn/tags/PAT%E8%AE%A4%E8%AF%81%EF%BC%88%E4%B9%99%E7%BA%A7%EF%BC%89/"/>
-    
       <category term="计数" scheme="https://www.blankspace.cn/tags/%E8%AE%A1%E6%95%B0/"/>
+    
+      <category term="PAT认证（乙级）" scheme="https://www.blankspace.cn/tags/PAT%E8%AE%A4%E8%AF%81%EF%BC%88%E4%B9%99%E7%BA%A7%EF%BC%89/"/>
     
   </entry>
   
