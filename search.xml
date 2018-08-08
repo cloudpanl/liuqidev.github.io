@@ -207,9 +207,9 @@
             
             <tag> PAT认证（乙级） </tag>
             
-            <tag> 空模板 </tag>
-            
             <tag> 解题报告 </tag>
+            
+            <tag> 空模板 </tag>
             
         </tags>
       
@@ -230,9 +230,9 @@
       
         <tags>
             
-            <tag> 计数 </tag>
-            
             <tag> PAT认证（乙级） </tag>
+            
+            <tag> 计数 </tag>
             
         </tags>
       
@@ -441,9 +441,9 @@
       
         <tags>
             
-            <tag> 解题报告 </tag>
-            
             <tag> 栈 </tag>
+            
+            <tag> 解题报告 </tag>
             
         </tags>
       
