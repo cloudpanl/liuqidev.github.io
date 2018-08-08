@@ -181,7 +181,7 @@
 		
 
 		<footer class="article-footer">
-		  <a data-url="https://www.blankspace.cn/projects/index.html" data-id="cjkki6fi8002h8wfi58a7lz28" class="article-share-link">
+		  <a data-url="https://www.blankspace.cn/projects/index.html" data-id="cjkkjmthx0007akfivzdu6v59" class="article-share-link">
 			<i class="fa fa-share"></i> Share
 		  </a>
 		  
@@ -196,22 +196,23 @@
 	</article>
 	
 	
-	<!--Gitment: https://imsun.net/posts/gitment-introduction/-->
+	
 
+<!--Gitment:https://github.com/imsun/gitment or https://imsun.net/posts/gitment-introduction/-->
 <div id="container"></div>
 <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
 <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
 <script>
-	var gitment = new Gitment({
-		id: '', // not necessary, default: location.href
-		owner: 'liuqidev',
-		repo: 'liuqidev.github.io',
-		oauth: {
-			client_id: '9db4a7f39961fa7531cc',
-			client_secret: 'bd23ffc25530e831d3dc6efc731bb9de4d8c6fd0',
-		},
-	})
-	gitment.render('container')
+var gitment = new Gitment({
+  id: '', // 可选。默认为 location.href
+  owner: 'liuqidev',
+  repo: 'liuqidev.github.io',
+  oauth: {
+    client_id: 'c1c164832fe673817ca5',
+    client_secret: '79217fd932ecdb20bff723d42c94349558970f1c',
+  },
+})
+gitment.render('container')
 </script>
 
 
@@ -443,5 +444,21 @@ $(document).ready(function() {
 });
 </script>
   </div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<!--<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 </body>
 </html>
