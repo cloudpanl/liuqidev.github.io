@@ -2,9 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://www.blankspace.cn/2018/08/11/TensorFlow-tutorial-mnist-beginners/</loc>
+    
+    <lastmod>2018-08-11T12:28:20.182Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.blankspace.cn/2018/08/11/Numpy%E9%9A%8F%E6%9C%BA%E6%95%B0/</loc>
+    
+    <lastmod>2018-08-11T11:37:44.854Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://www.blankspace.cn/2018/08/08/hexo-theme-bootstrap-blog/</loc>
     
-    <lastmod>2018-08-11T06:05:48.558Z</lastmod>
+    <lastmod>2018-08-11T06:18:17.224Z</lastmod>
     
   </url>
   
@@ -26,13 +40,6 @@
     <loc>https://www.blankspace.cn/2018/08/11/code-hightlight/</loc>
     
     <lastmod>2018-08-11T06:04:04.219Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.blankspace.cn/2018/08/11/Numpy%E9%9A%8F%E6%9C%BA%E6%95%B0/</loc>
-    
-    <lastmod>2018-08-11T02:47:15.145Z</lastmod>
     
   </url>
   

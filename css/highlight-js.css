@@ -1,5 +1,9 @@
 /** Highlight.js Styles (Syntax Highlighting) */
 
+pre{
+	background-color:#d3d3d3;
+}
+
 .highlight {
   display: block;
   background: white;
@@ -42,13 +46,14 @@
 
 .highlight pre {
   margin: 0;
-  background-color: #000000;
-  color: #fcf8e3;
+  background-color: #1C1E1F;
+  color: #ffffffa8;
   font-size:16px;
+  border: none 1px #ccc;
 }
 
 .highlight .comment{
-	color:#da9934;
+	color:#DA9934;
 }
 .highlight .meta {
   color: #c68b30f0;

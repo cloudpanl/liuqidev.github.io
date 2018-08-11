@@ -6,14 +6,14 @@
   <title>Numpy随机数1 | WizardLQ’s | 魔法师の小茶馆</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="更多内容查看这里 Simple random data | 常用随机函数1import numpy as np 123# rand(d0, d1, …, dn)# random values in a given shapenp.random.rand(1) array([0.15771123]) 1np.random.rand(3, 4) array([[0.17303082, 0.135463">
-<meta name="keywords" content="Numpy随机数">
+<meta name="keywords" content="Numpy,random">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Numpy随机数1">
 <meta property="og:url" content="https://www.blankspace.cn/2018/08/11/Numpy随机数/index.html">
 <meta property="og:site_name" content="WizardLQ’s | 魔法师の小茶馆">
 <meta property="og:description" content="更多内容查看这里 Simple random data | 常用随机函数1import numpy as np 123# rand(d0, d1, …, dn)# random values in a given shapenp.random.rand(1) array([0.15771123]) 1np.random.rand(3, 4) array([[0.17303082, 0.135463">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-08-11T02:47:15.145Z">
+<meta property="og:updated_time" content="2018-08-11T11:37:44.854Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Numpy随机数1">
 <meta name="twitter:description" content="更多内容查看这里 Simple random data | 常用随机函数1import numpy as np 123# rand(d0, d1, …, dn)# random values in a given shapenp.random.rand(1) array([0.15771123]) 1np.random.rand(3, 4) array([[0.17303082, 0.135463">
@@ -119,7 +119,7 @@
       <div class="post-meta">
             <span class="glyphicon glyphicon-pencil"></span>
             <span class="post-meta-item-text">&nbsp;Total&nbsp;</span>
-            <span class="post-count">869&nbsp;words</span>
+            <span class="post-count">988&nbsp;words</span>
       </div>
 
 
@@ -147,30 +147,37 @@
 </code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">np.random.rand(<span class="number">3</span>, <span class="number">4</span>)</span><br></pre></td></tr></table></figure>
 <pre><code>array([[0.17303082, 0.13546342, 0.96790769, 0.54289967],
        [0.47752797, 0.3163813 , 0.33804729, 0.63760302],
-       [0.05586707, 0.89955988, 0.08206225, 0.73560813]])
+</code></pre><p>更多内容查看<a href="https://docs.scipy.org/doc/numpy/reference/routines.random.html" target="_blank" rel="noopener">这里</a></p>
+<h2 id="Simple-random-data-常用随机函数-1"><a href="#Simple-random-data-常用随机函数-1" class="headerlink" title="Simple random data | 常用随机函数"></a>Simple random data | 常用随机函数</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br></pre></td></tr></table></figure>
+<h3 id="rand-d0-d1-…-dn"><a href="#rand-d0-d1-…-dn" class="headerlink" title="rand(d0, d1, …, dn)"></a>rand(d0, d1, …, dn)</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># rand(d0, d1, …, dn)</span></span><br><span class="line"><span class="comment"># random values in a given shape</span></span><br><span class="line">np.random.rand(<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>array([0.97299322])
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">np.random.rand(<span class="number">3</span>, <span class="number">4</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>array([[0.81969546, 0.63076449, 0.70050141, 0.28701361],
+       [0.5909755 , 0.10265285, 0.03841936, 0.04747027],
+       [0.50586629, 0.33692611, 0.18006999, 0.37508064]])
 </code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">np.random.rand(<span class="number">5</span>)</span><br></pre></td></tr></table></figure>
-<pre><code>array([0.47370113, 0.96107932, 0.27405338, 0.68843055, 0.35100859])
-</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># randn(d0, d1, …, dn)</span></span><br><span class="line"><span class="comment"># return a sample or samples from standard norma sidtribution</span></span><br><span class="line">np.random.randn(<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
-<pre><code>array([-1.09180022])
+<pre><code>array([0.4027442 , 0.29275407, 0.15175853, 0.76296697, 0.84970737])
+</code></pre><h3 id="正态分布随机数-randn-d0-d1-…-dn"><a href="#正态分布随机数-randn-d0-d1-…-dn" class="headerlink" title="正态分布随机数 randn(d0, d1, …, dn)"></a>正态分布随机数 randn(d0, d1, …, dn)</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># randn(d0, d1, …, dn)</span></span><br><span class="line"><span class="comment"># return a sample or samples from standard norma sidtribution</span></span><br><span class="line">np.random.randn(<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>array([0.68010349])
 </code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">np.random.randn(<span class="number">4</span>)</span><br></pre></td></tr></table></figure>
-<pre><code>array([-0.516076  , -0.71515354, -0.54313724,  0.37814134])
+<pre><code>array([-0.22561174, -0.12611506,  1.42778485,  0.69267162])
 </code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">np.random.randn(<span class="number">2</span>, <span class="number">2</span>)</span><br></pre></td></tr></table></figure>
-<pre><code>array([[-0.15179863, -0.24232736],
-       [-0.61855535,  1.1012116 ]])
-</code></pre><a id="more"></a>
-<p><em>Note: We can use matplotlib to show the distrubution</em></p>
+<pre><code>array([[ 1.09486998, -0.12217683],
+       [-0.26184258,  0.70775913]])
+</code></pre><p><em>Note: We can use matplotlib to show the distrubution</em></p>
+<h3 id="随机整数"><a href="#随机整数" class="headerlink" title="随机整数"></a>随机整数</h3><p>randint(low[, high, size, dtype]) / np.random.random_integers(2)</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># randint(low[, high, size, dtype])</span></span><br><span class="line"><span class="comment"># return random integers from low(inclusive) to high(exclusive)</span></span><br><span class="line">np.random.randint(<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
 <pre><code>0
 </code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">np.random.randint(<span class="number">3</span>)</span><br></pre></td></tr></table></figure>
 <pre><code>2
 </code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">np.random.randint(<span class="number">100</span>, <span class="number">1000</span>)</span><br></pre></td></tr></table></figure>
-<pre><code>225
+<pre><code>945
 </code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">np.random.randint(<span class="number">0</span>, <span class="number">100</span>, <span class="number">5</span>)</span><br></pre></td></tr></table></figure>
-<pre><code>array([43,  4, 33, 12, 75])
+<pre><code>array([76, 86, 29, 40, 76])
 </code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">np.random.randint(<span class="number">0</span>, <span class="number">100</span>, (<span class="number">3</span>, <span class="number">3</span>))</span><br></pre></td></tr></table></figure>
-<pre><code>array([[ 4, 50, 63],
-       [ 3, 22, 77],
-       [77, 96, 19]])
+<pre><code>array([[88, 50, 90],
+       [64, 69, 57],
+       [ 2, 10, 95]])
 </code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># random_integers(low[, high, size])</span></span><br><span class="line"><span class="comment"># random integers of type np.int between low and high, inclusive</span></span><br><span class="line">np.random.random_integers(<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># This function is deprecated. Please call randint(l, r + 1) instead</span></span><br></pre></td></tr></table></figure>
 <pre><code>D:\Anaconda3\Anaconda3_py36\lib\site-packages\ipykernel_launcher.py:3: DeprecationWarning: This function is deprecated. Please call randint(1, 2 + 1) instead
   This is separate from the ipykernel package so we can avoid doing imports until
@@ -179,54 +186,67 @@
 
 
 
-2
-</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># random_sample([size])</span></span><br><span class="line"><span class="comment"># return random floats in the half-open interval[0.0, 1.0)</span></span><br><span class="line">np.random.random_sample(<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
-<pre><code>array([0.82867162])
+1
+</code></pre><h3 id="随机小数"><a href="#随机小数" class="headerlink" title="随机小数"></a>随机小数</h3><ul>
+<li>random_sample([size]) </li>
+<li>random([size])</li>
+<li>ranf([size])</li>
+<li>sample([size])</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># random_sample([size])</span></span><br><span class="line"><span class="comment"># return random floats in the half-open interval[0.0, 1.0)</span></span><br><span class="line">np.random.random_sample(<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>array([0.42922028])
 </code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">np.random.random_sample((<span class="number">3</span>,<span class="number">3</span>))</span><br></pre></td></tr></table></figure>
-<pre><code>array([[0.94422096, 0.77038274, 0.1455196 ],
-       [0.45386412, 0.30672385, 0.94245004],
-       [0.71666755, 0.97338173, 0.49059556]])
+<pre><code>array([[0.13911191, 0.29153576, 0.38330187],
+       [0.39095818, 0.37114282, 0.69224038],
+       [0.3664121 , 0.02533538, 0.76235701]])
 </code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># random([size])</span></span><br><span class="line"><span class="comment"># return random floats in the half-open interval[0.0, 1.0)</span></span><br><span class="line">np.random.random(<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
-<pre><code>array([0.96328219])
+<pre><code>array([0.57758511])
 </code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">np.random.random((<span class="number">2</span>, <span class="number">2</span>))</span><br></pre></td></tr></table></figure>
-<pre><code>array([[0.35242057, 0.7299205 ],
-       [0.36865454, 0.55778298]])
+<pre><code>array([[0.89365816, 0.10505705],
+       [0.76704421, 0.27889437]])
 </code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ranf([size])</span></span><br><span class="line"><span class="comment"># return random floats int the half-open interval [0.0, 1.0)</span></span><br><span class="line">np.random.ranf(<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
-<pre><code>array([0.38632903])
+<pre><code>array([0.64518204])
 </code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">np.random.ranf((<span class="number">3</span>,<span class="number">4</span>))</span><br></pre></td></tr></table></figure>
-<pre><code>array([[0.67280325, 0.59821927, 0.19034942, 0.73487117],
-       [0.50798702, 0.52834235, 0.69548579, 0.03299373],
-       [0.64237803, 0.50367102, 0.61999811, 0.96902848]])
+<pre><code>array([[0.10753966, 0.70902024, 0.63834775, 0.65623879],
+       [0.71709776, 0.34437971, 0.42639926, 0.70715686],
+       [0.12977266, 0.20338805, 0.94316098, 0.3082274 ]])
 </code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># sample([size])</span></span><br><span class="line"><span class="comment"># return random floats int the half-open interval [0.0, 1.0)</span></span><br><span class="line">np.random.sample(<span class="number">2</span>)</span><br></pre></td></tr></table></figure>
-<pre><code>array([0.41428558, 0.38747661])
+<pre><code>array([0.95896772, 0.64870791])
 </code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">np.random.sample((<span class="number">2</span>, <span class="number">2</span>))</span><br></pre></td></tr></table></figure>
-<pre><code>array([[0.35022796, 0.93725874],
-       [0.22905886, 0.67434983]])
-</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># choice(a[, size, replace, p])</span></span><br><span class="line"><span class="comment"># generate a random sample from a given 1-D array</span></span><br><span class="line">np.random.choice([<span class="number">3</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">0</span>],<span class="number">3</span>)</span><br></pre></td></tr></table></figure>
-<pre><code>array([1, 0, 1])
+<pre><code>array([[0.91634732, 0.95899658],
+       [0.59189998, 0.53045256]])
+</code></pre><h3 id="自定义随机"><a href="#自定义随机" class="headerlink" title="自定义随机"></a>自定义随机</h3><ul>
+<li>choice(a[, size, replace, p])</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># choice(a[, size, replace, p])</span></span><br><span class="line"><span class="comment"># generate a random sample from a given 1-D array</span></span><br><span class="line">np.random.choice([<span class="number">3</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">0</span>],<span class="number">3</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>array([3, 1, 3])
 </code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">np.random.choice([<span class="number">3</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">0</span>],<span class="number">3</span>, replace=<span class="keyword">False</span>)</span><br></pre></td></tr></table></figure>
-<pre><code>array([3, 1, 0])
+<pre><code>array([1, 2, 3])
 </code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">np.random.choice([<span class="string">"cat"</span>, <span class="string">"dog"</span>, <span class="string">"fish"</span>, <span class="string">"mouse"</span>, <span class="string">"bird"</span>],(<span class="number">2</span>, <span class="number">2</span>), replace=<span class="keyword">True</span>)</span><br></pre></td></tr></table></figure>
-<pre><code>array([[&#39;fish&#39;, &#39;mouse&#39;],
-       [&#39;cat&#39;, &#39;cat&#39;]], dtype=&#39;&lt;U5&#39;)
+<pre><code>array([[&#39;cat&#39;, &#39;dog&#39;],
+       [&#39;bird&#39;, &#39;dog&#39;]], dtype=&#39;&lt;U5&#39;)
 </code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># p represents properties of the elements of the 1-D array</span></span><br><span class="line"><span class="comment"># sum of p must be 1.0</span></span><br><span class="line">np.random.choice([<span class="string">"cat"</span>, <span class="string">"dog"</span>, <span class="string">"fish"</span>, <span class="string">"mouse"</span>, <span class="string">"bird"</span>],(<span class="number">2</span>, <span class="number">2</span>), replace=<span class="keyword">True</span>,</span><br><span class="line">                p=[<span class="number">0.1</span>, <span class="number">0.5</span>, <span class="number">0.3</span>, <span class="number">0.05</span>, <span class="number">0.05</span>])</span><br></pre></td></tr></table></figure>
-<pre><code>array([[&#39;dog&#39;, &#39;dog&#39;],
-       [&#39;dog&#39;, &#39;cat&#39;]], dtype=&#39;&lt;U5&#39;)
+<pre><code>array([[&#39;fish&#39;, &#39;dog&#39;],
+       [&#39;dog&#39;, &#39;fish&#39;]], dtype=&#39;&lt;U5&#39;)
 </code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># bytes(length)</span></span><br><span class="line"><span class="comment"># return random bytes</span></span><br><span class="line">np.random.bytes(<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
-<pre><code>b&#39;z&#39;
-</code></pre><h2 id="Permutations-排列"><a href="#Permutations-排列" class="headerlink" title="Permutations | 排列"></a>Permutations | 排列</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># shuffle(x)</span></span><br><span class="line"><span class="comment"># modify a sequence in-place by shuffling its contents</span></span><br><span class="line"><span class="comment"># 将序列在原地打乱</span></span><br><span class="line">x = np.arange(<span class="number">11</span>)</span><br><span class="line">print(<span class="string">'----befor shuffle x----'</span>)</span><br><span class="line">print(x)</span><br><span class="line">print(<span class="string">'----after shuffle x----'</span>)</span><br><span class="line">np.random.shuffle(x)</span><br><span class="line">print(x)</span><br></pre></td></tr></table></figure>
+<pre><code>b&#39;\x8c&#39;
+</code></pre><h2 id="Permutations-排列"><a href="#Permutations-排列" class="headerlink" title="Permutations | 排列"></a>Permutations | 排列</h2><ul>
+<li>shuffle(x)</li>
+<li>permutation(x)</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># shuffle(x)</span></span><br><span class="line"><span class="comment"># modify a sequence in-place by shuffling its contents</span></span><br><span class="line"><span class="comment"># 将序列在原地打乱</span></span><br><span class="line">x = np.arange(<span class="number">11</span>)</span><br><span class="line">print(<span class="string">'----befor shuffle x----'</span>)</span><br><span class="line">print(x)</span><br><span class="line">print(<span class="string">'----after shuffle x----'</span>)</span><br><span class="line">np.random.shuffle(x)</span><br><span class="line">print(x)</span><br></pre></td></tr></table></figure>
 <pre><code>----befor shuffle x----
 [ 0  1  2  3  4  5  6  7  8  9 10]
 ----after shuffle x----
-[ 7  4  9  6  0  2  3  8  1 10  5]
+[ 8  1  5  4  0  2  3  9  7  6 10]
 </code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># permutation(x)</span></span><br><span class="line"><span class="comment"># randomly permute a sequence, or return a permuted range</span></span><br><span class="line">x = np.arange(<span class="number">11</span>)</span><br><span class="line">print(<span class="string">"---permutation----"</span>)</span><br><span class="line">print(np.random.permutation(x))</span><br><span class="line">print(<span class="string">"---x----"</span>)</span><br><span class="line">print(x)</span><br></pre></td></tr></table></figure>
 <pre><code>---permutation----
-[ 1  2  6 10  4  0  7  9  5  3  8]
+[ 9  4  6  0  5 10  8  3  7  2  1]
 ---x----
 [ 0  1  2  3  4  5  6  7  8  9 10]
 </code></pre><h2 id="Random-generator-随机数生成器"><a href="#Random-generator-随机数生成器" class="headerlink" title="Random generator | 随机数生成器"></a>Random generator | 随机数生成器</h2><p>如果设置了seed，每次重新运行时生成的随机数都是确定和上次相同的。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># RandomState([seed])</span></span><br><span class="line"><span class="comment"># container for the Mersenne Twister pseudo-random number generator</span></span><br><span class="line">np.random.RandomState(<span class="number">1</span>)</span><br><span class="line">np.random.random(<span class="number">5</span>)</span><br></pre></td></tr></table></figure>
-<pre><code>array([0.64589411, 0.43758721, 0.891773  , 0.96366276, 0.38344152])
+<pre><code>array([0.58048047, 0.57948883, 0.82388234, 0.77501925, 0.70183176])
 </code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># seed([seed])</span></span><br><span class="line"><span class="comment"># seed the generator</span></span><br><span class="line">np.random.seed(<span class="number">0</span>)</span><br><span class="line">np.random.random(<span class="number">5</span>)</span><br></pre></td></tr></table></figure>
 <pre><code>array([0.5488135 , 0.71518937, 0.60276338, 0.54488318, 0.4236548 ])
 </code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># get_state()</span></span><br><span class="line"><span class="comment"># return a tuple representing the internal state of the generator </span></span><br><span class="line"><span class="comment"># np.random.get_state()</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># set_state(state)</span></span><br><span class="line"><span class="comment"># set the interna state of the generator from a tuple</span></span><br></pre></td></tr></table></figure>
@@ -240,12 +260,12 @@
 		
 
 		<footer class="article-footer">
-		  <a data-url="https://www.blankspace.cn/2018/08/11/Numpy随机数/" data-id="cjkp0obin0003m0ficacwtjil" class="article-share-link">
+		  <a data-url="https://www.blankspace.cn/2018/08/11/Numpy随机数/" data-id="cjkp7u9rs000310fi3kry5p9m" class="article-share-link">
 			<i class="fa fa-share"></i> Share
 		  </a>
 		  
 		  
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../tags/Numpy随机数/">Numpy随机数</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../tags/Numpy/">Numpy</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../tags/random/">random</a></li></ul>
 
 
 		</footer>
