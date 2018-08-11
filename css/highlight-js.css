@@ -18,6 +18,15 @@
   width: 100%;
 }
 
+.highlight .code .line .string{
+	color: #F5E600;
+}
+.highlight .code .line .class .keyword{
+	color: #cf06be;
+}
+
+
+
 .highlight figcaption {
   font-size: .8em;
   color: #999;
@@ -33,12 +42,16 @@
 
 .highlight pre {
   margin: 0;
-  background-color: #eeeeee;
+  background-color: #000000;
+  color: #fcf8e3;
+  font-size:16px;
 }
 
-.highlight .comment,
+.highlight .comment{
+	color:#da9934;
+}
 .highlight .meta {
-  color: #969896;
+  color: #c68b30f0;
 }
 
 .highlight .string,
@@ -58,7 +71,7 @@
 .highlight .selector-tag,
 .highlight .type,
 .highlight.javascript .function {
-  color: #a71d5d;
+  color: #BC5CFF;
 }
 
 .highlight .number,
@@ -85,7 +98,7 @@
 .highlight.perl .sub,
 .highlight.javascript .title,
 .highlight.coffeescript .title {
-  color: #63a35c;
+  color: #0070ff;
 }
 
 .highlight .tag,
@@ -125,4 +138,8 @@
 
 .highlight .link {
   text-decoration: underline;
+}
+
+.highlight .gutter pre .line{
+	color:#808080;
 }

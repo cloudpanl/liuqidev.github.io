@@ -394,6 +394,15 @@
   width: 100%;
 }
 
+.highlight .code .line .string{
+	color: #F5E600;
+}
+.highlight .code .line .class .keyword{
+	color: #cf06be;
+}
+
+
+
 .highlight figcaption {
   font-size: .8em;
   color: #999;
@@ -409,12 +418,16 @@
 
 .highlight pre {
   margin: 0;
-  background-color: #eeeeee;
+  background-color: #000000;
+  color: #fcf8e3;
+  font-size:16px;
 }
 
-.highlight .comment,
+.highlight .comment{
+	color:#da9934;
+}
 .highlight .meta {
-  color: #969896;
+  color: #c68b30f0;
 }
 
 .highlight .string,
@@ -434,7 +447,7 @@
 .highlight .selector-tag,
 .highlight .type,
 .highlight.javascript .function {
-  color: #a71d5d;
+  color: #BC5CFF;
 }
 
 .highlight .number,
@@ -461,7 +474,7 @@
 .highlight.perl .sub,
 .highlight.javascript .title,
 .highlight.coffeescript .title {
-  color: #63a35c;
+  color: #0070ff;
 }
 
 .highlight .tag,
@@ -503,6 +516,10 @@
   text-decoration: underline;
 }
 
+.highlight .gutter pre .line{
+	color:#808080;
+}
+
 /**
  * Custom Bootstrap and Theme Overrides
  *
@@ -518,6 +535,9 @@
 body {
   font-family: Georgia, "Times New Roman", Times, serif;
   color: #555;
+  font-size: 15px;
+  font-weight: blod;
+  background-color: #cecbcb0a;
 }
 
 h1, .h1,
@@ -529,7 +549,7 @@ h6, .h6 {
   margin-top: 1em;
   margin-bottom: 15px;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-weight: normal;
+  font-weight: bold;
   color: #333;
 }
 
@@ -710,10 +730,14 @@ code {
 .article {
   margin-bottom: 60px;
 }
+.article-header {
+	text-align: center;
+}
 
 .article-header h1 {
-  margin-top: 0;
-  margin-bottom: 5px;
+  font-size: 42px;
+  margin-top: 10px;
+  margin-bottom: 30px;
 }
 .article-header h1 a {
   color: #333;
