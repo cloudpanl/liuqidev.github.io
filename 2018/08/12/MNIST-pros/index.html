@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>MNIST pros | WizardLQ’s | 魔法师の小茶馆</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="运行TensorFlow的InteractiveSession/交互式会话sess = tf.InteractiveSession()用来创建交互式的会话，其余使用同Session 12import numpy as npimport tensorflow as tf D:\Anaconda3\Anaconda3_py36\lib\site-packages\h5py\__init__.py:36">
+<meta name="keywords" content="mnist,TensorFlow">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MNIST pros">
+<meta property="og:url" content="https://www.blankspace.cn/2018/08/12/MNIST-pros/index.html">
+<meta property="og:site_name" content="WizardLQ’s | 魔法师の小茶馆">
+<meta property="og:description" content="运行TensorFlow的InteractiveSession/交互式会话sess = tf.InteractiveSession()用来创建交互式的会话，其余使用同Session 12import numpy as npimport tensorflow as tf D:\Anaconda3\Anaconda3_py36\lib\site-packages\h5py\__init__.py:36">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-08-12T02:16:34.195Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="MNIST pros">
+<meta name="twitter:description" content="运行TensorFlow的InteractiveSession/交互式会话sess = tf.InteractiveSession()用来创建交互式的会话，其余使用同Session 12import numpy as npimport tensorflow as tf D:\Anaconda3\Anaconda3_py36\lib\site-packages\h5py\__init__.py:36">
+<link rel="publisher" href="112373242775367340000">
+  
+    <link rel="alternate" href="../../../../atom.xml" title="WizardLQ’s | 魔法师の小茶馆" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="../../../../images/icon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" integrity="sha384-XdYbMnZ/QjLh6iI4ogqCTaIjrFk87ip+ekIjefZch0Y+PvJ8CDYtEs1ipDmPorQ+" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js">
+  </script>
+  <link rel="stylesheet" href="../../../../css/styles.css">
+  
+<!-- Google Analytics -->
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id='UA-122713769-1'"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-122713769-1');
+</script>
+
+
+
+
+
+</head>
+
+<body>
+	<div class="bg bg-blur"></div>
+	<!-- Fixed navbar -->
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container">
+	<div class="navbar-header">
+	  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+		<span class="sr-only">Toggle navigation</span>
+		<span class="icon-bar"></span>
+		<span class="icon-bar"></span>
+		<span class="icon-bar"></span>
+	  </button>
+	  
+	</div>
+	<div id="navbar" class="navbar-collapse collapse">
+	  <ul class="nav navbar-nav">
+		  
+			<li><a class="" href="../../../../index.html">Home</a></li>
+          
+			<li><a class="" href="../../../../archives/">Archives</a></li>
+          
+			<li><a class="" href="../../../../categories/">Categories</a></li>
+          
+			<li><a class="" href="../../../../about/">About</a></li>
+          
+	  </ul>
+	  
+	</div><!--/.nav-collapse -->
+  </div>
+</nav>
+	<div class="container">
+<article id="post-MNIST-pros" class="article article-type-post" itemscope itemprop="blogPost">
+	
+
+
+	    <header class="article-header">
+		
+  
+    <h1 class="article-title" itemprop="name">
+      MNIST pros
+    </h1>
+  
+
+
+			
+		
+		<div class="article-meta"> 
+			
+	  
+		   <div class="article-datetime">
+  <a href="" class="article-date"><time datetime="2018-08-12T02:11:47.000Z" itemprop="datePublished">2018-08-12</time></a>
+</div>
+
+
+
+			
+			
+			  <div class="post-meta">
+<span class="glyphicon glyphicon-eye-open"></span>&nbsp;View <span id="busuanzi_value_page_pv"></span>&nbsp;times
+</div> 
+			  
+			
+      <div class="post-meta">
+            <span class="glyphicon glyphicon-pencil"></span>
+            <span class="post-meta-item-text">&nbsp;Total&nbsp;</span>
+            <span class="post-count">2,554&nbsp;words</span>
+      </div>
+
+
+ 
+			
+  <div class="article-category">
+    <a class="article-category-link" href="../../../../categories/Machine-Learning/">Machine Learning</a> / <a class="article-category-link" href="../../../../categories/Machine-Learning/TensorFlow/">TensorFlow</a>
+  </div>
+
+
+	    </div>
+	    </header>
+	    
+	  
+	  <div class="article-inner">
+		<div class="article-entry" itemprop="articleBody">
+		  
+		  
+			<!-- Table of Contents -->
+
+			<h3 id="运行TensorFlow的InteractiveSession-交互式会话"><a href="#运行TensorFlow的InteractiveSession-交互式会话" class="headerlink" title="运行TensorFlow的InteractiveSession/交互式会话"></a>运行TensorFlow的InteractiveSession/交互式会话</h3><p><code>sess = tf.InteractiveSession()</code>用来创建交互式的会话，其余使用同Session</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br></pre></td></tr></table></figure>
+<pre><code>D:\Anaconda3\Anaconda3_py36\lib\site-packages\h5py\__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
+  from ._conv import register_converters as _register_converters
+</code></pre><h3 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h3><p>和上一节类似</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># http://yann.lecun.com/exdb/mnist/  to download mnist dataset</span></span><br><span class="line"><span class="comment"># https://github.com/tensorflow/tensorflow/blob/master/tensorflow/examples/tutorials/mnist/input_data.py</span></span><br><span class="line"><span class="comment"># to read dataset</span></span><br><span class="line"><span class="keyword">from</span> load_mnist <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">import</span> tensorflow.examples.tutorials.mnist.input_data <span class="keyword">as</span> input_data</span><br><span class="line">minst_dir = <span class="string">"MNIST_data/"</span></span><br><span class="line">mnist = input_data.read_data_sets(minst_dir, one_hot=<span class="keyword">True</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">x = tf.placeholder(<span class="string">"float"</span>, shape=[<span class="keyword">None</span>, <span class="number">784</span>]) </span><br><span class="line">y_ = tf.placeholder(<span class="string">"float"</span>, shape=[<span class="keyword">None</span>, <span class="number">10</span>]) <span class="comment"># true label</span></span><br></pre></td></tr></table></figure>
+<h2 id="构建一个多层卷积网络"><a href="#构建一个多层卷积网络" class="headerlink" title="构建一个多层卷积网络"></a>构建一个多层卷积网络</h2><h3 id="权重初始化"><a href="#权重初始化" class="headerlink" title="权重初始化"></a>权重初始化</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">weight_variable</span><span class="params">(shape)</span>:</span></span><br><span class="line">    initial = tf.truncated_normal(shape, stddev=<span class="number">0.1</span>) <span class="comment">#  The generated values follow a normal distribution with specified mean and</span></span><br><span class="line">    <span class="comment"># standard deviation.从截断的正态分布中输出随机值，中如果x的取值在区间（μ-2σ，μ+2σ）之外则重新进行选择</span></span><br><span class="line">    <span class="keyword">return</span> tf.Variable(initial)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">bias_variable</span><span class="params">(shape)</span>:</span></span><br><span class="line">    initial = tf.constant(<span class="number">0.1</span>, shape=shape) <span class="comment"># Constant 2-D tensor populated with scalar value 0.1. 初始值为0.1，广播到shape形状的二维数组</span></span><br><span class="line">    <span class="keyword">return</span> tf.Variable(initial)</span><br></pre></td></tr></table></figure>
+<h3 id="卷积和汇聚（池化）"><a href="#卷积和汇聚（池化）" class="headerlink" title="卷积和汇聚（池化）"></a>卷积和汇聚（<del>池化</del>）</h3><p><em>由于Pooling翻译成池化让人不明所以，个人习惯依据其作用，而称之为汇聚。</em></p>
+<p>简单起见，卷积使用1步长（stride size），0边距（padding size）的模板，保证输出和输入是同一个大小。我们的池化用简单传统的2x2大小的模板做max pooling.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">conv2d</span><span class="params">(x, W)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> tf.nn.conv2d(x, W, strides=[<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>], padding=<span class="string">'SAME'</span>)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">max_pool_2x2</span><span class="params">(x)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> tf.nn.max_pool(x, ksize=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">2</span>,<span class="number">1</span>], strides=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">2</span>,<span class="number">1</span>], padding=<span class="string">'SAME'</span>)</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h3 id="第一层卷积"><a href="#第一层卷积" class="headerlink" title="第一层卷积"></a>第一层卷积</h3><p>它由一个卷积接一个max pooling完成。卷积在每个5x5的patch中算出32个特征。卷积的权重张量形状是[5, 5, 1, 32]，前两个维度是patch的大小，接着是输入的通道数目，最后是输出的通道数目。 而对于每一个输出通道都有一个对应的偏置量。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">W_conv1 = weight_variable([<span class="number">5</span>, <span class="number">5</span>, <span class="number">1</span>, <span class="number">32</span>])</span><br><span class="line">b_conv1 = bias_variable([<span class="number">32</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment"># convert x to 4d vector</span></span><br><span class="line">x_image = tf.reshape(x, [<span class="number">-1</span>, <span class="number">28</span>,<span class="number">28</span>, <span class="number">1</span>])<span class="comment"># num x height x width x channel</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># We then convolve x_image with the weight tensor, add the bias, apply the ReLU function, and finally max pool. </span></span><br><span class="line"><span class="comment"># 我们把x_image和权值向量进行卷积，加上偏置项，然后应用ReLU激活函数，最后进行max pooling。</span></span><br><span class="line">h_conv1 = tf.nn.relu(conv2d(x_image, W_conv1)+b_conv1)</span><br><span class="line">h_pool1 = max_pool_2x2(h_conv1)</span><br></pre></td></tr></table></figure>
+<h3 id="第二层卷积"><a href="#第二层卷积" class="headerlink" title="第二层卷积"></a>第二层卷积</h3><p>为了构建一个更深的网络，我们会把几个类似的层堆叠起来。第二层中，每个5x5的patch会得到64个特征。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">W_conv2 = weight_variable([<span class="number">5</span>, <span class="number">5</span>, <span class="number">32</span>, <span class="number">64</span>])</span><br><span class="line">b_conv2 = bias_variable([<span class="number">64</span>])</span><br><span class="line"></span><br><span class="line">h_conv2 = tf.nn.relu(conv2d(h_pool1, W_conv2)+b_conv2)</span><br><span class="line">h_pool2 = max_pool_2x2(h_conv2)</span><br></pre></td></tr></table></figure>
+<h3 id="密集连接（全连接）层"><a href="#密集连接（全连接）层" class="headerlink" title="密集连接（全连接）层"></a>密集连接（全连接）层</h3><p>经过两层卷积（激活）汇聚组合拳，原本的28x28的图像，特征图的尺寸减小到7x7（主要得益于汇聚）。<br>并且一张图片有64个特征图（得益于卷积）。<br>引入一个有1024个神经元的全连接层，来处理整个图片。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">W_fc1 = weight_variable([<span class="number">7</span>*<span class="number">7</span>*<span class="number">64</span>, <span class="number">1024</span>])</span><br><span class="line">b_fc1 = bias_variable([<span class="number">1024</span>])</span><br><span class="line"></span><br><span class="line">h_pool2_flat = tf.reshape(h_pool2, [<span class="number">-1</span>, <span class="number">7</span>*<span class="number">7</span>*<span class="number">64</span>])</span><br><span class="line">h_fc1 = tf.nn.relu(tf.matmul(h_pool2_flat, W_fc1)+b_fc1)</span><br></pre></td></tr></table></figure>
+<h3 id="Dropout"><a href="#Dropout" class="headerlink" title="Dropout"></a>Dropout</h3><p><em>好像还没有官方中文翻译，那就叫它断电吧。使用TensorFlow构建计算图和使用vhdl构建电路有很多相似之处</em></p>
+<p>减少过拟合。用一个placeholder来代表一个神经元的输出在dropout中保持不变的概率。这样我们可以在训练过程中启用dropout，在测试过程中关闭dropout。 TensorFlow的tf.nn.dropout操作除了可以屏蔽神经元的输出外，还会自动处理神经元输出值的scale。所以用dropout的时候可以不用考虑scale。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">keep_prob = tf.placeholder(<span class="string">"float"</span>)</span><br><span class="line">h_fc1_drop = tf.nn.dropout(h_fc1, keep_prob)</span><br></pre></td></tr></table></figure>
+<h3 id="输出层"><a href="#输出层" class="headerlink" title="输出层"></a>输出层</h3><p>最后添加一个softmax层，如同前一节的softmax回归一样。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">W_fc2 = weight_variable([<span class="number">1024</span>, <span class="number">10</span>])</span><br><span class="line">b_fc2 = bias_variable([<span class="number">10</span>])</span><br><span class="line"></span><br><span class="line">y_conv = tf.nn.softmax(tf.matmul(h_fc1_drop, W_fc2)+b_fc2) <span class="comment"># 输出层不需要激活函数</span></span><br></pre></td></tr></table></figure>
+<h3 id="训练和评估"><a href="#训练和评估" class="headerlink" title="训练和评估"></a>训练和评估</h3><p>我们会用更加复杂的ADAM优化器来做梯度最速下降，在feed_dict中加入额外的参数keep_prob来控制dropout比例。然后每100次迭代输出一次日志。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> time</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">cross_entropy = -tf.reduce_sum(y_*tf.log(y_conv))</span><br><span class="line">train_step = tf.train.AdamOptimizer(<span class="number">1e-4</span>).minimize(cross_entropy) <span class="comment"># 优化器只是按照规则（参数更新算法）来更新参数的</span></span><br><span class="line">correct_prediction = tf.equal(tf.argmax(y_conv, <span class="number">1</span>), tf.argmax(y_, <span class="number">1</span>))</span><br><span class="line">accuracy = tf.reduce_mean(tf.cast(correct_prediction, <span class="string">"float"</span>)) <span class="comment"># acc rate</span></span><br><span class="line"></span><br><span class="line">sess = tf.InteractiveSession()</span><br><span class="line">sess.run(tf.global_variables_initializer())</span><br><span class="line"></span><br><span class="line">print(<span class="string">'Training...'</span>)</span><br><span class="line">start_t = time.clock()</span><br><span class="line"><span class="keyword">for</span> step <span class="keyword">in</span> range(<span class="number">20001</span>):</span><br><span class="line">    batch = mnist.train.next_batch(<span class="number">50</span>)</span><br><span class="line">    <span class="keyword">if</span> step%<span class="number">100</span>==<span class="number">0</span>:</span><br><span class="line">        train_accuracy = accuracy.eval(feed_dict=&#123;x:batch[<span class="number">0</span>], y_:batch[<span class="number">1</span>], keep_prob:<span class="number">1.0</span>&#125;)</span><br><span class="line">        print(<span class="string">"Step %d, training accuracy %f"</span>%(step, train_accuracy))</span><br><span class="line">    train_step.run(feed_dict=&#123;x:batch[<span class="number">0</span>], y_:batch[<span class="number">1</span>], keep_prob:<span class="number">0.5</span>&#125;)</span><br><span class="line">end_t = time.clock()</span><br><span class="line">print(<span class="string">"Train Time Cost: "</span>, end_t-start_t)</span><br><span class="line"></span><br><span class="line">print(<span class="string">'Testing...'</span>)</span><br><span class="line">print(<span class="string">"Test accuracy %f"</span>%accuracy.eval(feed_dict=&#123;x:mnist.test.images,</span><br><span class="line">                                                 y_:mnist.test.labels,</span><br><span class="line">                                                 keep_prob:<span class="number">1.0</span>&#125;))</span><br><span class="line"></span><br><span class="line">sess.close()</span><br></pre></td></tr></table></figure>
+<pre><code>Training...
+Step 0, training accuracy 0.120000
+Step 100, training accuracy 0.780000
+Step 200, training accuracy 0.860000
+Step 300, training accuracy 0.860000
+Step 400, training accuracy 0.980000
+Step 500, training accuracy 0.860000
+Step 600, training accuracy 0.940000
+Step 700, training accuracy 0.940000
+Step 800, training accuracy 0.960000
+Step 900, training accuracy 0.940000
+Step 1000, training accuracy 0.960000
+Step 1100, training accuracy 1.000000
+Step 1200, training accuracy 0.960000
+Step 1300, training accuracy 0.980000
+Step 1400, training accuracy 1.000000
+Step 1500, training accuracy 0.960000
+Step 1600, training accuracy 0.940000
+Step 1700, training accuracy 0.940000
+Step 1800, training accuracy 0.940000
+Step 1900, training accuracy 0.980000
+Step 2000, training accuracy 0.980000
+Step 2100, training accuracy 0.960000
+Step 2200, training accuracy 0.940000
+Step 2300, training accuracy 0.980000
+Step 2400, training accuracy 0.980000
+Step 2500, training accuracy 0.960000
+Step 2600, training accuracy 1.000000
+Step 2700, training accuracy 1.000000
+Step 2800, training accuracy 0.980000
+Step 2900, training accuracy 1.000000
+Step 3000, training accuracy 0.980000
+Step 3100, training accuracy 1.000000
+Step 3200, training accuracy 0.980000
+Step 3300, training accuracy 1.000000
+Step 3400, training accuracy 1.000000
+Step 3500, training accuracy 0.960000
+Step 3600, training accuracy 1.000000
+Step 3700, training accuracy 0.980000
+Step 3800, training accuracy 1.000000
+Step 3900, training accuracy 0.980000
+Step 4000, training accuracy 0.980000
+Step 4100, training accuracy 1.000000
+Step 4200, training accuracy 0.980000
+Step 4300, training accuracy 0.960000
+Step 4400, training accuracy 1.000000
+Step 4500, training accuracy 1.000000
+Step 4600, training accuracy 1.000000
+Step 4700, training accuracy 1.000000
+Step 4800, training accuracy 1.000000
+Step 4900, training accuracy 0.980000
+Step 5000, training accuracy 0.980000
+Step 5100, training accuracy 0.980000
+Step 5200, training accuracy 1.000000
+Step 5300, training accuracy 1.000000
+Step 5400, training accuracy 1.000000
+Step 5500, training accuracy 1.000000
+Step 5600, training accuracy 1.000000
+Step 5700, training accuracy 0.980000
+Step 5800, training accuracy 1.000000
+Step 5900, training accuracy 0.980000
+Step 6000, training accuracy 0.980000
+Step 6100, training accuracy 0.980000
+Step 6200, training accuracy 1.000000
+Step 6300, training accuracy 0.980000
+Step 6400, training accuracy 0.980000
+Step 6500, training accuracy 1.000000
+Step 6600, training accuracy 0.980000
+Step 6700, training accuracy 1.000000
+Step 6800, training accuracy 1.000000
+Step 6900, training accuracy 1.000000
+Step 7000, training accuracy 1.000000
+Step 7100, training accuracy 0.980000
+Step 7200, training accuracy 1.000000
+Step 7300, training accuracy 1.000000
+Step 7400, training accuracy 0.980000
+Step 7500, training accuracy 1.000000
+Step 7600, training accuracy 0.980000
+Step 7700, training accuracy 0.980000
+Step 7800, training accuracy 1.000000
+Step 7900, training accuracy 0.980000
+Step 8000, training accuracy 1.000000
+Step 8100, training accuracy 1.000000
+Step 8200, training accuracy 0.980000
+Step 8300, training accuracy 0.980000
+Step 8400, training accuracy 1.000000
+Step 8500, training accuracy 0.980000
+Step 8600, training accuracy 1.000000
+Step 8700, training accuracy 0.980000
+Step 8800, training accuracy 0.980000
+Step 8900, training accuracy 1.000000
+Step 9000, training accuracy 1.000000
+Step 9100, training accuracy 1.000000
+Step 9200, training accuracy 1.000000
+Step 9300, training accuracy 0.980000
+Step 9400, training accuracy 1.000000
+Step 9500, training accuracy 0.960000
+Step 9600, training accuracy 0.980000
+Step 9700, training accuracy 1.000000
+Step 9800, training accuracy 1.000000
+Step 9900, training accuracy 1.000000
+Step 10000, training accuracy 1.000000
+Step 10100, training accuracy 1.000000
+Step 10200, training accuracy 1.000000
+Step 10300, training accuracy 1.000000
+Step 10400, training accuracy 1.000000
+Step 10500, training accuracy 1.000000
+Step 10600, training accuracy 1.000000
+Step 10700, training accuracy 1.000000
+Step 10800, training accuracy 0.980000
+Step 10900, training accuracy 1.000000
+Step 11000, training accuracy 1.000000
+Step 11100, training accuracy 1.000000
+Step 11200, training accuracy 0.980000
+Step 11300, training accuracy 1.000000
+Step 11400, training accuracy 1.000000
+Step 11500, training accuracy 0.980000
+Step 11600, training accuracy 0.980000
+Step 11700, training accuracy 0.960000
+Step 11800, training accuracy 1.000000
+Step 11900, training accuracy 1.000000
+Step 12000, training accuracy 0.980000
+Step 12100, training accuracy 1.000000
+Step 12200, training accuracy 0.980000
+Step 12300, training accuracy 1.000000
+Step 12400, training accuracy 1.000000
+Step 12500, training accuracy 1.000000
+Step 12600, training accuracy 1.000000
+Step 12700, training accuracy 1.000000
+Step 12800, training accuracy 1.000000
+Step 12900, training accuracy 1.000000
+Step 13000, training accuracy 1.000000
+Step 13100, training accuracy 1.000000
+Step 13200, training accuracy 1.000000
+Step 13300, training accuracy 1.000000
+Step 13400, training accuracy 1.000000
+Step 13500, training accuracy 1.000000
+Step 13600, training accuracy 1.000000
+Step 13700, training accuracy 1.000000
+Step 13800, training accuracy 1.000000
+Step 13900, training accuracy 1.000000
+Step 14000, training accuracy 1.000000
+Step 14100, training accuracy 1.000000
+Step 14200, training accuracy 1.000000
+Step 14300, training accuracy 1.000000
+Step 14400, training accuracy 1.000000
+Step 14500, training accuracy 1.000000
+Step 14600, training accuracy 0.980000
+Step 14700, training accuracy 1.000000
+Step 14800, training accuracy 1.000000
+Step 14900, training accuracy 1.000000
+Step 15000, training accuracy 0.980000
+Step 15100, training accuracy 1.000000
+Step 15200, training accuracy 1.000000
+Step 15300, training accuracy 1.000000
+Step 15400, training accuracy 1.000000
+Step 15500, training accuracy 1.000000
+Step 15600, training accuracy 1.000000
+Step 15700, training accuracy 1.000000
+Step 15800, training accuracy 1.000000
+Step 15900, training accuracy 1.000000
+Step 16000, training accuracy 1.000000
+Step 16100, training accuracy 1.000000
+Step 16200, training accuracy 1.000000
+Step 16300, training accuracy 1.000000
+Step 16400, training accuracy 1.000000
+Step 16500, training accuracy 1.000000
+Step 16600, training accuracy 1.000000
+Step 16700, training accuracy 0.960000
+Step 16800, training accuracy 1.000000
+Step 16900, training accuracy 1.000000
+Step 17000, training accuracy 1.000000
+Step 17100, training accuracy 1.000000
+Step 17200, training accuracy 0.980000
+Step 17300, training accuracy 1.000000
+Step 17400, training accuracy 1.000000
+Step 17500, training accuracy 1.000000
+Step 17600, training accuracy 1.000000
+Step 17700, training accuracy 1.000000
+Step 17800, training accuracy 1.000000
+Step 17900, training accuracy 1.000000
+Step 18000, training accuracy 1.000000
+Step 18100, training accuracy 1.000000
+Step 18200, training accuracy 1.000000
+Step 18300, training accuracy 1.000000
+Step 18400, training accuracy 1.000000
+Step 18500, training accuracy 1.000000
+Step 18600, training accuracy 1.000000
+Step 18700, training accuracy 1.000000
+Step 18800, training accuracy 1.000000
+Step 18900, training accuracy 1.000000
+Step 19000, training accuracy 1.000000
+Step 19100, training accuracy 1.000000
+Step 19200, training accuracy 1.000000
+Step 19300, training accuracy 1.000000
+Step 19400, training accuracy 1.000000
+Step 19500, training accuracy 1.000000
+Step 19600, training accuracy 1.000000
+Step 19700, training accuracy 1.000000
+Step 19800, training accuracy 1.000000
+Step 19900, training accuracy 0.980000
+Step 20000, training accuracy 1.000000
+Train Time Cost:  205.04848637568546
+Testing...
+Test accuracy 0.992300
+</code></pre><h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>本节对mnist数据集，使用TensorFlow构建了卷积池化API，并构建了两层卷积池化层，一层全连接层的神经网络，使用dropout来减少过拟合，最后输出到softmax回归层，从而构建了完整的卷积神经网络模型。优化器使用Adam，经过2万次迭代的训练，在测试集上精确度达到了(99%).</p>
+
+		  
+		</div>
+
+		
+		  
+
+		
+
+		<footer class="article-footer">
+		  <a data-url="https://www.blankspace.cn/2018/08/12/MNIST-pros/" data-id="cjkq7xo3h000bcgfi0z8wdjaf" class="article-share-link">
+			<i class="fa fa-share"></i> Share
+		  </a>
+		  
+		  
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../tags/TensorFlow/">TensorFlow</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../tags/mnist/">mnist</a></li></ul>
+
+
+		</footer>
+	  </div>
+	  
+		
+<ul id="article-nav" class="nav nav-pills nav-justified">
+  
+  <li role="presentation">
+    <a href="../../11/TensorFlow-tutorial-mnist-beginners/" id="article-nav-older" class="article-nav-link-wrap">
+      <i class="fa fa-chevron-left pull-left"></i>
+      <span class="article-nav-link-title">TensorFlow tutorial mnist beginners</span>
+    </a>
+  </li>
+  
+  
+</ul>
+
+
+	  
+	</article>
+
+	
+	
+		
+			
+	
+		
+		
+			<!--Gitment:https://github.com/imsun/gitment or https://imsun.net/posts/gitment-introduction/-->
+			<div id="container"></div>
+			<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+			<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+			<script>
+			var gitment = new Gitment({
+			  id: 'MNIST pros', // 可选。默认为 location.href
+			  owner: 'liuqidev',
+			  repo: 'liuqidev.github.io',
+			  oauth: {
+				client_id: '9db4a7f39961fa7531cc',  
+				client_secret: 'bd23ffc25530e831d3dc6efc731bb9de4d8c6fd0'
+			  },
+			})
+			gitment.render('container')
+			</script>
+		
+	
+
+
+
+	
+			
+
+		
+	
+
+
+
+
+		
+
+
+</div>
+
+
+
+	
+<footer class="blog-footer">  
+  <div class="container">
+		<div >
+	 <ul id="links" class="nav navbar-nav" style="display: inline-block;float: none;">
+		<li><a href="https://weibo.com/liuqidev" title="Find me on Weibo" target="_blank"><i class="iconfont">&#xe655;</i></a></li>
+		<li><a href="https://www.zhihu.com/people/wizardlq/" title="Find me on Zhihu" target="_blank"><i class="iconfont">&#xe61b;</i></a></li>
+		<li><a href="https://blog.csdn.net/icurious" title="Find me on CSDN" target="_blank"><i class="iconfont">&#xe64f;</i></a></li>
+		<li><a href="https://www.douban.com/people/icurious/" title="My Douban" target="_blank"><i class="iconfont">&#xe601;</i></a></li>
+		<li><a href="https://space.bilibili.com/20204877/#/" title="Find me on Bilibili" target="_blank"><i class="iconfont">&#xe6e1;</i></a></li>
+		<li><a href="https://github.com/liuqidev" title="My Linkedin" target="_blank"><i class="fab fa-linkedin-square"></i></a></li>
+		<li><a href="https://github.com/liuqidev" title="My Projects on Github" target="_blank"><i class="fab fa-github"></i></a></li>
+		<li><a href="https://stackoverflow.com/users/9121113/qi-liu" title="My StackoverFlow" target="_blank"><i class="fab fa-stack-overflow"></i></a></li>
+		
+		
+		  <li><a href="/atom.xml" title="RSS Feed"><i class="fa fa-rss" target="_blank"></i></a></li>
+		
+	  </ul>
+	 </div>
+    <div id="footer-info" class="text-center">
+        &copy; 2018. <em>All Rights Reserved by <a href="https://github.com/liuqidev" target="_blank">liuqidev</a></em><br>	
+	</div>
+	<div > 
+
+	  </links>
+  </div>
+
+  <p>
+  	<span id="busuanzi_container_site_uv">
+  	    <span id="busuanzi_value_site_uv"></span> visitors  |  
+  	</span>
+
+      <span id="busuanzi_container_site_pv">
+         <span id="busuanzi_value_site_pv"></span> visits
+      </span>
+	  
+  </p>
+  
+
+  
+  <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+  <script type="text/javascript" id="clustrmaps" src="//cdn.clustrmaps.com/map_v2.js?d=XzXyQ1GOPdnOuiMHQmBZKolTWTBtRkFzmBoniAwXpMc&cl=ffffff&w=a"></script>
+  <!--mini map-->
+  <div id="minimap">
+  <!--<script type="text/javascript" src="//ra.revolvermaps.com/0/0/8.js?i=0107o8m66de&amp;m=7&amp;c=eeeeee&amp;cr1=fff600&amp;f=arial&amp;l=0&amp;v0=30&amp;z=13&amp;rx=30&amp;lx=380&amp;ly=200&amp;hc=0a65c2&amp;rs=40" async="async"></script>-->
+  <script type="text/javascript" src="//ra.revolvermaps.com/0/0/7.js?i=04xsrcfj1ee&amp;m=0c&amp;c=c7bdbd&amp;cr1=fff600&amp;lo=25&amp;oo=15&amp;sx=44&amp;ds=30&amp;cw=f9f9f9&amp;cb=000000" async="async"></script>  </div>
+  
+
+  
+   
+	   <script type="text/javascript">     
+		  var searchFunc = function(path, search_id, content_id) {
+		'use strict'; //使用严格模式
+		$.ajax({
+			url: path,
+			dataType: "xml",
+			success: function( xmlResponse ) {
+				// 从xml中获取相应的标题等数据
+				var datas = $( "entry", xmlResponse ).map(function() {
+					return {
+						title: $( "title", this ).text(),
+						content: $("content",this).text(),
+						url: $( "url" , this).text()
+					};
+				}).get();
+				//ID选择器
+				var $input = document.getElementById(search_id);
+				var $resultContent = document.getElementById(content_id);
+				$input.addEventListener('input', function(){
+					var str='<ul class=\"search-result-list\">';                
+					var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+					$resultContent.innerHTML = "";
+					if (this.value.trim().length <= 0) {
+						return;
+					}
+					// 本地搜索主要部分
+					datas.forEach(function(data) {
+						var isMatch = true;
+						var content_index = [];
+						var data_title = data.title.trim().toLowerCase();
+						var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+						var data_url = data.url;
+						var index_title = -1;
+						var index_content = -1;
+						var first_occur = -1;
+						// 只匹配非空文章
+						if(data_title != '' && data_content != '') {
+							keywords.forEach(function(keyword, i) {
+								index_title = data_title.indexOf(keyword);
+								index_content = data_content.indexOf(keyword);
+								if( index_title < 0 && index_content < 0 ){
+									isMatch = false;
+								} else {
+									if (index_content < 0) {
+										index_content = 0;
+									}
+									if (i == 0) {
+										first_occur = index_content;
+									}
+								}
+							});
+						}
+						// 返回搜索结果
+						if (isMatch) {
+						//结果标签
+							str += "<li><a href='"+ data_url +"' class='search-result-title' target='_blank'>"+ "> " + data_title +"</a>";
+							var content = data.content.trim().replace(/<[^>]+>/g,"");
+							if (first_occur >= 0) {
+								// 拿出含有搜索字的部分
+								var start = first_occur - 6;
+								var end = first_occur + 6;
+								if(start < 0){
+									start = 0;
+								}
+								if(start == 0){
+									end = 10;
+								}
+								if(end > content.length){
+									end = content.length;
+								}
+								var match_content = content.substr(start, end); 
+								// 列出搜索关键字，定义class加高亮
+								keywords.forEach(function(keyword){
+									var regS = new RegExp(keyword, "gi");
+									match_content = match_content.replace(regS, "<em class=\"search-keyword\">"+keyword+"</em>");
+								})
+								str += "<p class=\"search-result\">" + match_content +"...</p>"
+							}
+						}
+					})
+					$resultContent.innerHTML = str;
+				})
+			}
+		})
+	};
+	var path = "../search.xml";
+	searchFunc(path, 'local-search-input', 'local-search-result');
+     var search_path = "search.xml";
+	 if (search_path.length == 0) {
+	 	search_path = "search.xml";
+	 }
+	 var path = "/" + search_path;
+     searchFunc(path, 'local-search-input', 'local-search-result');
+   </script>
+
+
+</footer>
+
+
+	
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js" integrity="sha384-8gBf6Y4YYq7Jx97PIqmTwLPin4hxIzQw5aDmUg/DDhul9fFpbbLcLh3nTIIDJKhx" crossorigin="anonymous"></script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+
+  <link rel="stylesheet" href="../../../../fancybox/jquery.fancybox.css">
+  <script src="../../../../fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="../../../../js/script.js"></script>
+
+
+
+
+	
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?70a761ba668ab8571ac79968adcf6078";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+
+
+
+
+
+	
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = 'Opps...●﹏●';
+            clearTimeout(titleTime);
+        } else {
+            document.title = 'o(∩_∩)o Welcome!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+	 <!--Back to top-->
+<body id="top">
+<p id="back-to-top"><a href="#top"><span></span></a></p>
+</body>
+
+<script>
+$(document).ready(function() {
+    //首先将#back-to-top隐藏
+    $("#back-to-top").hide();
+ 
+    //当滚动条的位置处于距顶部3600像素以下时，跳转链接出现，否则消失
+    $(function() {
+        $(window).scroll(function() {
+            if ($(window).scrollTop() > 3600) {
+                $("#back-to-top").fadeIn(1500);
+            }
+            else {
+                $("#back-to-top").fadeOut(1500);
+            }
+        });
+        //当点击跳转链接后，回到页面顶部位置
+        $("#back-to-top").click(function() {
+            $('body,html').animate({
+                scrollTop: 0
+            },
+            500);
+			
+            return false;
+        });
+    });
+});
+</script>
+
+</body>
+</html>
