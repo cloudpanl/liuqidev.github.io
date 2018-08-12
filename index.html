@@ -247,7 +247,7 @@ day 9 len:  0.0009765625
 b&#39;Hello, world!&#39;
 b&#39;Hello, world!&#39;
 </code></pre><h3 id="矩阵乘法"><a href="#矩阵乘法" class="headerlink" title="矩阵乘法"></a>矩阵乘法</h3><p>理解Session会话，并使用TensorFlow来解决买菜问题（矩阵乘法）。素材来自<a href="https://mp.weixin.qq.com/s?__biz=MjM5MDE3OTk2Ng==&amp;mid=2657440935&amp;idx=1&amp;sn=5b968c80fb07df3005039ca1466cb0c5&amp;chksm=bdd943b68aaecaa0420e1f3f9a576b1b0256ac7165a2fcf9b0c84080a5b0b53250418be594c8&amp;mpshare=1&amp;scene=1&amp;srcid=0812pRYblN0eJVNurGxLbC4F#rd" target="_blank" rel="noopener">《如何让11岁表妹知道矩阵乘法的本质是什么？》</a>.</p>
-<p>假设买肉和菜，农贸市场一斤肉25元，一斤菜3元。<br>第一天我去农贸买了1斤肉，3斤菜，问计算用了多少钱：答：$25<em>1+3</em>3=34$。表示成向量乘法：</p>
+<p>假设买肉和菜，农贸市场一斤肉25元，一斤菜3元。<br>第一天我去农贸买了1斤肉，3斤菜，问计算用了多少钱：答：$25\times1+3\times3=34$。表示成向量乘法：</p>
 <script type="math/tex; mode=display">
 \begin{bmatrix}
  25&3 \\
@@ -1543,5 +1543,21 @@ $(document).ready(function() {
 });
 </script>
 
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<!--<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 </body>
 </html>
