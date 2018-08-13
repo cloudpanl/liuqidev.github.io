@@ -3,20 +3,20 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Emoji | WizardLQ’s | 魔法师の小茶馆</title>
+  <title>Placeholder | WizardLQ’s | 魔法师の小茶馆</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Input emoji with syntax :smile:.  Sad, it is failed. 😂😁 Use inputs(eg. MS default input) which can input emoji directly, this is the easiest way. Here to know more.">
-<meta name="keywords" content="Hexo,Emoji">
+  <meta name="description" content="解释A placeholder is simply a variable that we will assign data to at a later date. It allows us to create our operations and build our computation graph, without needing the data. 顾名思义，占位符，没有数据先占位。是一种变">
+<meta name="keywords" content="TensorFlow,placeholder">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Emoji">
-<meta property="og:url" content="https://www.blankspace.cn/2018/08/10/emoji-text/index.html">
+<meta property="og:title" content="Placeholder">
+<meta property="og:url" content="https://www.blankspace.cn/2018/08/13/placeholder/index.html">
 <meta property="og:site_name" content="WizardLQ’s | 魔法师の小茶馆">
-<meta property="og:description" content="Input emoji with syntax :smile:.  Sad, it is failed. 😂😁 Use inputs(eg. MS default input) which can input emoji directly, this is the easiest way. Here to know more.">
+<meta property="og:description" content="解释A placeholder is simply a variable that we will assign data to at a later date. It allows us to create our operations and build our computation graph, without needing the data. 顾名思义，占位符，没有数据先占位。是一种变">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-08-11T06:04:25.620Z">
+<meta property="og:updated_time" content="2018-08-13T07:09:46.215Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Emoji">
-<meta name="twitter:description" content="Input emoji with syntax :smile:.  Sad, it is failed. 😂😁 Use inputs(eg. MS default input) which can input emoji directly, this is the easiest way. Here to know more.">
+<meta name="twitter:title" content="Placeholder">
+<meta name="twitter:description" content="解释A placeholder is simply a variable that we will assign data to at a later date. It allows us to create our operations and build our computation graph, without needing the data. 顾名思义，占位符，没有数据先占位。是一种变">
 <link rel="publisher" href="112373242775367340000">
   
     <link rel="alternate" href="../../../../atom.xml" title="WizardLQ’s | 魔法师の小茶馆" type="application/atom+xml">
@@ -85,7 +85,7 @@
   </div>
 </nav>
 	<div class="container">
-<article id="post-emoji-text" class="article article-type-post" itemscope itemprop="blogPost">
+<article id="post-placeholder" class="article article-type-post" itemscope itemprop="blogPost">
 	
 
 
@@ -93,7 +93,7 @@
 		
   
     <h1 class="article-title" itemprop="name">
-      Emoji
+      Placeholder
     </h1>
   
 
@@ -104,7 +104,7 @@
 			
 	  
 		   <div class="article-datetime">
-  <a href="" class="article-date"><time datetime="2018-08-10T12:20:02.000Z" itemprop="datePublished">2018-08-10</time></a>
+  <a href="" class="article-date"><time datetime="2018-08-13T07:05:47.000Z" itemprop="datePublished">2018-08-13</time></a>
 </div>
 
 
@@ -119,14 +119,14 @@
       <div class="post-meta">
             <span class="glyphicon glyphicon-pencil"></span>
             <span class="post-meta-item-text">&nbsp;Total&nbsp;</span>
-            <span class="post-count">29&nbsp;words</span>
+            <span class="post-count">147&nbsp;words</span>
       </div>
 
 
  
 			
   <div class="article-category">
-    <a class="article-category-link" href="../../../../categories/Projects/">Projects</a> / <a class="article-category-link" href="../../../../categories/Projects/hexo-theme-bootstrap-blog/">hexo-theme-bootstrap-blog</a> / <a class="article-category-link" href="../../../../categories/Projects/hexo-theme-bootstrap-blog/Tutorial/">Tutorial</a>
+    <a class="article-category-link" href="../../../../categories/Machine-Learning/">Machine Learning</a> / <a class="article-category-link" href="../../../../categories/Machine-Learning/TensorFlow/">TensorFlow</a>
   </div>
 
 
@@ -140,10 +140,11 @@
 		  
 			<!-- Table of Contents -->
 
-			<p>Input emoji with syntax <code>:smile:</code>.  Sad, it is failed.</p>
-<p>😂😁</p>
-<p>Use inputs(eg. MS default input) which can input emoji directly, this is the easiest way.</p>
-<p><a href="https://www.webfx.com/tools/emoji-cheat-sheet/" target="_blank" rel="noopener">Here</a> to know more.</p>
+			<h3 id="解释"><a href="#解释" class="headerlink" title="解释"></a>解释</h3><p><strong>A placeholder is simply a variable that we will assign data to at a later date. It allows us to create our operations and build our computation graph, without needing the data.</strong></p>
+<p>顾名思义，占位符，没有数据先占位。是一种变量。之后按照<code>sess.run(***, feed_dict={input: **})</code>形式传输数据。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> tf.Graph().as_default(), tf.Session() <span class="keyword">as</span> sess:</span><br><span class="line">    x = tf.placeholder(tf.float32)</span><br><span class="line">    y = x**<span class="number">3</span></span><br><span class="line">    feed_dict = &#123;x:[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>]&#125;</span><br><span class="line">    print(sess.run(y, feed_dict=feed_dict))</span><br></pre></td></tr></table></figure>
+<pre><code>[ 1.  8. 27. 64.]
+</code></pre><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p><code>placeholder</code> 与 <code>feed_dict={}</code> 总是一起出现的。placeholder允许没有数据先占位创建计算图，运行时通过<code>feed_dict</code>传入数据。</p>
 
 		  
 		</div>
@@ -154,12 +155,12 @@
 		
 
 		<footer class="article-footer">
-		  <a data-url="https://www.blankspace.cn/2018/08/10/emoji-text/" data-id="cjkrybpm3000kj8fibzpshr6e" class="article-share-link">
+		  <a data-url="https://www.blankspace.cn/2018/08/13/placeholder/" data-id="cjkrybpmr001nj8fib8ya5049" class="article-share-link">
 			<i class="fa fa-share"></i> Share
 		  </a>
 		  
 		  
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../tags/Emoji/">Emoji</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../tags/Hexo/">Hexo</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../tags/TensorFlow/">TensorFlow</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../tags/placeholder/">placeholder</a></li></ul>
 
 
 		</footer>
@@ -169,19 +170,12 @@
 <ul id="article-nav" class="nav nav-pills nav-justified">
   
   <li role="presentation">
-    <a href="../mathjax-test/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="../Tensor-Control/" id="article-nav-older" class="article-nav-link-wrap">
       <i class="fa fa-chevron-left pull-left"></i>
-      <span class="article-nav-link-title">Mathjax</span>
+      <span class="article-nav-link-title">Tensor Control</span>
     </a>
   </li>
   
-  
-  <li role="presentation">
-    <a href="../../11/Numpy随机数/" id="article-nav-newer" class="article-nav-link-wrap">
-      <span class="article-nav-link-title">Numpy随机数1</span>
-      <i class="fa fa-chevron-right pull-right"></i>
-    </a>
-  </li>
   
 </ul>
 
@@ -202,7 +196,7 @@
 			<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
 			<script>
 			var gitment = new Gitment({
-			  id: 'Emoji', // 可选。默认为 location.href
+			  id: 'Placeholder', // 可选。默认为 location.href
 			  owner: 'liuqidev',
 			  repo: 'liuqidev.github.io',
 			  oauth: {

@@ -44,6 +44,9 @@ code {
   background-color: #eeeeee;
   font-size: 80%;
 }
+.table-container .table-responsive{
+	background-color:#bee1ba;
+}
 
 .table-responsive{
 	border-radius:4px;

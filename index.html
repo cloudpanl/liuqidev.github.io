@@ -99,6 +99,399 @@
 	
 	
 	  
+		<article id="post-placeholder" class="article article-type-post" itemscope itemprop="blogPost">
+	
+
+
+	    <header class="article-header">
+		
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="2018/08/13/placeholder/">Placeholder</a>
+    </h1>
+  
+
+
+			
+		
+		<div class="article-meta"> 
+			
+	  
+		   <div class="article-datetime">
+  <a href="2018/08/13/placeholder/" class="article-date"><time datetime="2018-08-13T07:05:47.000Z" itemprop="datePublished">2018-08-13</time></a>
+</div>
+
+
+
+			
+			  
+			
+
+ 
+			
+  <div class="article-category">
+    <a class="article-category-link" href="categories/Machine-Learning/">Machine Learning</a> / <a class="article-category-link" href="categories/Machine-Learning/TensorFlow/">TensorFlow</a>
+  </div>
+
+
+	    </div>
+	    </header>
+	    
+	  
+	  <div class="article-inner">
+		<div class="article-entry" itemprop="articleBody">
+		  
+		  
+			<!-- Table of Contents -->
+
+			<h3 id="解释"><a href="#解释" class="headerlink" title="解释"></a>解释</h3><p><strong>A placeholder is simply a variable that we will assign data to at a later date. It allows us to create our operations and build our computation graph, without needing the data.</strong></p>
+<p>顾名思义，占位符，没有数据先占位。是一种变量。之后按照<code>sess.run(***, feed_dict={input: **})</code>形式传输数据。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> tf.Graph().as_default(), tf.Session() <span class="keyword">as</span> sess:</span><br><span class="line">    x = tf.placeholder(tf.float32)</span><br><span class="line">    y = x**<span class="number">3</span></span><br><span class="line">    feed_dict = &#123;x:[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>]&#125;</span><br><span class="line">    print(sess.run(y, feed_dict=feed_dict))</span><br></pre></td></tr></table></figure>
+<pre><code>[ 1.  8. 27. 64.]
+</code></pre><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p><code>placeholder</code> 与 <code>feed_dict={}</code> 总是一起出现的。placeholder允许没有数据先占位创建计算图，运行时通过<code>feed_dict</code>传入数据。</p>
+
+		  
+		</div>
+
+		
+		  
+
+		
+
+		<footer class="article-footer">
+		  <a data-url="https://www.blankspace.cn/2018/08/13/placeholder/" data-id="cjkrybpmr001nj8fib8ya5049" class="article-share-link">
+			<i class="fa fa-share"></i> Share
+		  </a>
+		  
+		  
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="tags/TensorFlow/">TensorFlow</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="tags/placeholder/">placeholder</a></li></ul>
+
+
+		</footer>
+	  </div>
+	  
+	</article>
+
+	
+
+
+
+		
+
+
+	  
+		<article id="post-Tensor-Control" class="article article-type-post" itemscope itemprop="blogPost">
+	
+
+
+	    <header class="article-header">
+		
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="2018/08/13/Tensor-Control/">Tensor Control</a>
+    </h1>
+  
+
+
+			
+		
+		<div class="article-meta"> 
+			
+	  
+		   <div class="article-datetime">
+  <a href="2018/08/13/Tensor-Control/" class="article-date"><time datetime="2018-08-13T02:06:14.000Z" itemprop="datePublished">2018-08-13</time></a>
+</div>
+
+
+
+			
+			  
+			
+
+ 
+			
+  <div class="article-category">
+    <a class="article-category-link" href="categories/Machine-Learning/">Machine Learning</a> / <a class="article-category-link" href="categories/Machine-Learning/TensorFlow/">TensorFlow</a>
+  </div>
+
+
+	    </div>
+	    </header>
+	    
+	  
+	  <div class="article-inner">
+		<div class="article-entry" itemprop="articleBody">
+		  
+		  
+			<!-- Table of Contents -->
+
+			<h2 id="张量形状"><a href="#张量形状" class="headerlink" title="张量形状"></a>张量形状</h2><p>形状shape，用来描述张量的大小和数量。张量的形状表示为列表的形式，其中第i个元素表示维度i的大小，列表的长度标书张量的阶（维数）。</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>阶</th>
+<th>形状</th>
+<th>维数</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>[]</td>
+<td>0-D</td>
+<td>0 维张量。标量。</td>
+</tr>
+<tr>
+<td>1</td>
+<td>[D0]</td>
+<td>1-D</td>
+<td>形状为 [6] 的 1 维张量。</td>
+</tr>
+<tr>
+<td>2</td>
+<td>[D0, D1]</td>
+<td>2-D</td>
+<td>形状为 [4, 3] 的 2 维张量。</td>
+</tr>
+<tr>
+<td>3</td>
+<td>[D0, D1, D2]</td>
+<td>3-D</td>
+<td>形状为 [1, 2, 3] 的 3 维张量。</td>
+</tr>
+<tr>
+<td>n</td>
+<td>[D0, D1, … Dn-1]</td>
+<td>n 维</td>
+<td>形状为 [D0, D1, … Dn-1] 的张量。</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><a href="https://www.tensorflow.org/programmers_guide/tensors#shape" target="_blank" rel="noopener">文档</a>中介绍得更详细。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># show the shape of tensor</span></span><br><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"></span><br><span class="line">g = tf.Graph()</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> g.as_default():</span><br><span class="line">    scalar = tf.ones([]) <span class="comment"># a scalar / 0-D tensor :1</span></span><br><span class="line">    vector = tf.ones([<span class="number">6</span>]) <span class="comment"># a vector with 6 elements: [1,1,1 ,1,1,1]</span></span><br><span class="line">    matrix = tf.ones([<span class="number">2</span>, <span class="number">3</span>]) <span class="comment"># a matrix with 2 rows and 3 columns</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">with</span> tf.Session() <span class="keyword">as</span> sess:</span><br><span class="line">        <span class="comment"># use tf.get_shape() </span></span><br><span class="line">        print(<span class="string">"Scalar shape: "</span>,scalar.get_shape(), <span class="string">" value: "</span>, sess.run(scalar))</span><br><span class="line">        print(<span class="string">"Vector shape: "</span>,vector.get_shape(), <span class="string">" value: "</span>, sess.run(vector))</span><br><span class="line">        print(<span class="string">"Matrix shape: "</span>,matrix.get_shape(), <span class="string">" value: "</span>, sess.run(matrix))</span><br></pre></td></tr></table></figure>
+<pre><code>D:\Anaconda3\Anaconda3_py36\lib\site-packages\h5py\__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
+  from ._conv import register_converters as _register_converters
+
+
+Scalar shape:  ()  value:  1.0
+Vector shape:  (6,)  value:  [1. 1. 1. 1. 1. 1.]
+Matrix shape:  (2, 3)  value:  [[1. 1. 1.]
+ [1. 1. 1.]]
+</code></pre><h3 id="获取张量形状"><a href="#获取张量形状" class="headerlink" title="获取张量形状"></a>获取张量形状</h3><p>可以通过查看张量对象的<code>shape</code>属性来获取。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vector.shape</span><br></pre></td></tr></table></figure>
+<pre><code>TensorShape([Dimension(6)])
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">matrix.shape[<span class="number">1</span>]</span><br></pre></td></tr></table></figure>
+<pre><code>Dimension(3)
+</code></pre><h3 id="获取张量的数据类型"><a href="#获取张量的数据类型" class="headerlink" title="获取张量的数据类型"></a>获取张量的数据类型</h3><p>查看张量对象的<code>dtype</code>属性。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">matrix.dtype</span><br></pre></td></tr></table></figure>
+<pre><code>tf.float32
+</code></pre><h3 id="改变张量数据类型"><a href="#改变张量数据类型" class="headerlink" title="改变张量数据类型"></a>改变张量数据类型</h3><p><code>tf.cast</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">c = tf.constant([<span class="number">1</span>,<span class="number">9</span>,<span class="number">8</span>,<span class="number">3</span>])</span><br><span class="line">print(c.dtype)</span><br><span class="line">f = tf.cast(c, dtype=tf.float32)</span><br><span class="line">print(f.dtype)</span><br></pre></td></tr></table></figure>
+<pre><code>&lt;dtype: &#39;int32&#39;&gt;
+&lt;dtype: &#39;float32&#39;&gt;
+</code></pre><h3 id="获取张量的阶"><a href="#获取张量的阶" class="headerlink" title="获取张量的阶"></a>获取张量的阶</h3><p><code>tf.rank()</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tf.rank(scalar)</span><br></pre></td></tr></table></figure>
+<pre><code>&lt;tf.Tensor &#39;Rank:0&#39; shape=() dtype=int32&gt;
+</code></pre><h3 id="张量切片"><a href="#张量切片" class="headerlink" title="张量切片"></a>张量切片</h3><p>对于n阶张量，要访问其中某一元素，需要制定n个索引。</p>
+<p><code>:</code>是Python切片语法，也意味着<strong>不要变更该维度</strong>。可以帮助访问张量的子向量，子矩阵和子张量。</p>
+<h2 id="Broadcasting-广播"><a href="#Broadcasting-广播" class="headerlink" title="Broadcasting | 广播"></a>Broadcasting | 广播</h2><p>tensorflow支持广播，借鉴了Numpy中的做法，<a href="https://docs.scipy.org/doc/numpy-1.10.1/user/basics.broadcasting.html" target="_blank" rel="noopener">Numpy Broadcasting</a>.</p>
+<p>数学中，相同形状的张量才能进行元素级的运算，例如相加和等于。由于广播，使得不同形状的张量运算可以像对标量进行运算一样。</p>
+<p>当张量被广播时，相当于对张量进行复制，实际上并不复制，广播专门为实现性能优化而设计。</p>
+<p>举例，假设你和四个小伙伴，年龄分别为[18, 17, 20, 22, 21],每年年龄+1,模拟这个过程</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 向量加法</span></span><br><span class="line"><span class="keyword">with</span> tf.Graph().as_default():</span><br><span class="line">    <span class="comment"># method 1</span></span><br><span class="line">    ages = tf.constant([<span class="number">18</span>, <span class="number">17</span>, <span class="number">20</span>, <span class="number">22</span>, <span class="number">21</span>])</span><br><span class="line">    one = tf.constant([<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>])</span><br><span class="line">    new_ages = tf.add(ages, one)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">with</span> tf.Session() <span class="keyword">as</span> sess:</span><br><span class="line">        print(new_ages.eval())</span><br><span class="line">        </span><br><span class="line">    <span class="comment"># method 2</span></span><br><span class="line">    one_ = tf.constant(<span class="number">1</span>)</span><br><span class="line">    new_ages_ = tf.add(ages, one_)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">with</span> tf.Session() <span class="keyword">as</span> sess:</span><br><span class="line">        print(new_ages_.eval())</span><br></pre></td></tr></table></figure>
+<pre><code>[19 18 21 23 22]
+[19 18 21 23 22]
+</code></pre><h3 id="张量变形"><a href="#张量变形" class="headerlink" title="张量变形"></a>张量变形</h3><p>可以使用<code>tf.reshape()</code>来改变张量的形状。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np </span><br><span class="line"></span><br><span class="line">arr = np.arange(<span class="number">1</span>, <span class="number">13</span>).reshape(<span class="number">3</span>, <span class="number">4</span>)</span><br><span class="line">np.random.shuffle(arr)</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> tf.Graph().as_default():</span><br><span class="line">    x = tf.constant(arr, dtype=tf.int32) <span class="comment"># create a 3x4 matrix/ 2-D tensor</span></span><br><span class="line">    reshaped_4x3_x = tf.reshape(x, [<span class="number">4</span>, <span class="number">3</span>])</span><br><span class="line">    reshaped_2x6_x = tf.reshape(x, [<span class="number">2</span>, <span class="number">6</span>])</span><br><span class="line">    reshaped_3x2x2_x = tf.reshape(x, [<span class="number">3</span>, <span class="number">2</span>, <span class="number">2</span>]) <span class="comment"># reshape the rank </span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">with</span> tf.Session() <span class="keyword">as</span> sess:</span><br><span class="line">        print(<span class="string">"Original matrix (3x4):"</span>)</span><br><span class="line">        print(x.eval())</span><br><span class="line">        </span><br><span class="line">        print(<span class="string">"Reshaped matrix (4x3)"</span>)</span><br><span class="line">        print(reshaped_4x3_x.eval())</span><br><span class="line">        </span><br><span class="line">        print(<span class="string">"Reshaped matrix (2x6)"</span>)</span><br><span class="line">        print(reshaped_2x6_x.eval())</span><br><span class="line">        </span><br><span class="line">        print(<span class="string">"Reshaped matrix (3x2x2)"</span>)</span><br><span class="line">        print(reshaped_3x2x2_x.eval())</span><br></pre></td></tr></table></figure>
+<pre><code>Original matrix (3x4):
+[[ 9 10 11 12]
+ [ 1  2  3  4]
+ [ 5  6  7  8]]
+Reshaped matrix (4x3)
+[[ 9 10 11]
+ [12  1  2]
+ [ 3  4  5]
+ [ 6  7  8]]
+Reshaped matrix (2x6)
+[[ 9 10 11 12  1  2]
+ [ 3  4  5  6  7  8]]
+Reshaped matrix (3x2x2)
+[[[ 9 10]
+  [11 12]]
+
+ [[ 1  2]
+  [ 3  4]]
+
+ [[ 5  6]
+  [ 7  8]]]
+</code></pre><h2 id="变量、初始化和赋值"><a href="#变量、初始化和赋值" class="headerlink" title="变量、初始化和赋值"></a>变量、初始化和赋值</h2><p>TensorFlow变量初始化不是自动进行的，调用<code>tf.global_variables_initializer()</code>。不初始化就会报错。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> tf.Graph().as_default():</span><br><span class="line">    v = tf.Variable([<span class="number">3</span>])</span><br><span class="line">    <span class="keyword">with</span> tf.Session() <span class="keyword">as</span> sess:</span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            sess.run(v)</span><br><span class="line">        <span class="keyword">except</span> tf.errors.FailedPreconditionError <span class="keyword">as</span> e:</span><br><span class="line">            print(<span class="string">"Caught excepted error: "</span>, e)</span><br></pre></td></tr></table></figure>
+<pre><code>Caught excepted error:  Attempting to use uninitialized value Variable
+     [[Node: _retval_Variable_0_0 = _Retval[T=DT_INT32, index=0, _device=&quot;/job:localhost/replica:0/task:0/device:CPU:0&quot;](Variable)]]
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> tf.Graph().as_default():</span><br><span class="line">    v = tf.Variable([<span class="number">3</span>])</span><br><span class="line">    <span class="keyword">with</span> tf.Session() <span class="keyword">as</span> sess:</span><br><span class="line">        init = tf.global_variables_initializer()</span><br><span class="line">        sess.run(init)</span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            print(sess.run(v))</span><br><span class="line">        <span class="keyword">except</span> tf.errors.FailedPreconditionError <span class="keyword">as</span> e:</span><br><span class="line">            print(<span class="string">"Caught excepted error: "</span>, e)</span><br></pre></td></tr></table></figure>
+<pre><code>[3]
+</code></pre><h3 id="assign"><a href="#assign" class="headerlink" title="assign"></a>assign</h3><p>要变更变量的值，使用<code>tf.assign()</code>指令，仅仅创建assign指令也不能起作用。和初始化一样，也需要运行赋值指令才能变更变量值。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> tf.Graph().as_default():</span><br><span class="line">    v = tf.Variable([<span class="number">3</span>])</span><br><span class="line">    <span class="keyword">with</span> tf.Session() <span class="keyword">as</span> sess:</span><br><span class="line">        init = tf.global_variables_initializer()</span><br><span class="line">        sess.run(init)</span><br><span class="line">        assignment = tf.assign(v, [<span class="number">9</span>])</span><br><span class="line">        print(v.eval()) <span class="comment"># the variable has not been changed yet.</span></span><br><span class="line">        sess.run(assignment)</span><br><span class="line">        print(v.eval()) <span class="comment"># now the variable is updated</span></span><br></pre></td></tr></table></figure>
+<pre><code>[3]
+[9]
+</code></pre><h3 id="评估张量"><a href="#评估张量" class="headerlink" title="评估张量"></a>评估张量</h3><p><code>eval()</code>。<br>方法仅在默认 tf.Session 处于活动状态时才起作用。<code>Tensor.eval()</code>会返回一个和张量内容相同的Numpy数组。</p>
+<p>仅仅只有占位符的情况下无法进行评估。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> tf.Graph().as_default():</span><br><span class="line">    p = tf.placeholder(tf.float32)</span><br><span class="line">    t = p+<span class="number">1.0</span></span><br><span class="line">    <span class="keyword">with</span> tf.Session() <span class="keyword">as</span> sess:</span><br><span class="line">        <span class="comment"># t.eval() # this will fail, since the placeholder did not give a value</span></span><br><span class="line">        print(t.eval(feed_dict=&#123;p:<span class="number">23.3</span>&#125;) )<span class="comment"># this will success, because a value is fed to the placeholder</span></span><br></pre></td></tr></table></figure>
+<pre><code>24.3
+</code></pre><h2 id="举例：模拟投掷两个骰子10次"><a href="#举例：模拟投掷两个骰子10次" class="headerlink" title="举例：模拟投掷两个骰子10次"></a>举例：模拟投掷两个骰子10次</h2><p>素材来自<a href="https://colab.research.google.com/notebooks/mlcc/creating_and_manipulating_tensors.ipynb?hl=zh-cn#scrollTo=iFIOcnfz_Oqw" target="_blank" rel="noopener">这里</a>.</p>
+<p>模拟<a href="https://book.douban.com/subject/1082154/" target="_blank" rel="noopener">《活着》</a>中富贵儿赌钱投骰子（6个面，点数从1到6）的过程，在模拟中生成一个 <code>10x4</code> 二维张量，其中：</p>
+<ul>
+<li>列 <code>1</code> 和 <code>2</code> 均存储一个骰子的一次投掷值。</li>
+<li>列 <code>3</code> 存储同一行中列 <code>1</code> 和 <code>2</code> 的值的总和。</li>
+<li>列 <code>4</code> 表示开大开小，若列 <code>3</code> 点数大于7，开大（如用1表示）；小于等于7开小（如用0表示）。</li>
+</ul>
+<p>例如，第一行中可能会包含以下值：</p>
+<ul>
+<li>列 <code>1</code> 存储 <code>4</code></li>
+<li>列 <code>2</code> 存储 <code>3</code></li>
+<li>列 <code>3</code> 存储 <code>7</code></li>
+<li>列 <code>4</code> 存储 <code>0</code></li>
+</ul>
+<p>要完成此任务，可能需要浏览 <a href="https://www.tensorflow.org/api_guides/python/array_ops" target="_blank" rel="noopener">TensorFlow 文档</a>。</p>
+<p><strong>问题</strong>：<br><em>如何随机并分配值给变量？（TensorFlow不支持动态计算图）</em><br><em>如何赋值十次，循环？最后张量结果如何表示？</em></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># import numpy as np</span></span><br><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"></span><br><span class="line">g = tf.Graph()</span><br><span class="line"><span class="keyword">with</span> g.as_default():</span><br><span class="line">    <span class="comment"># 使用随机均匀分布 tf.random_uniform 来模拟投掷 n 次, 不需要循环。</span></span><br><span class="line">    dice1 = tf.Variable(tf.random_uniform([<span class="number">10</span>, <span class="number">1</span>],</span><br><span class="line">                                         minval=<span class="number">1</span>,</span><br><span class="line">                                         maxval=<span class="number">7</span>,</span><br><span class="line">                                         dtype=tf.int32))</span><br><span class="line">    </span><br><span class="line">    dice2 = tf.Variable(tf.random_uniform([<span class="number">10</span>, <span class="number">1</span>],</span><br><span class="line">                                         minval=<span class="number">1</span>, </span><br><span class="line">                                         maxval=<span class="number">7</span>, </span><br><span class="line">                                         dtype=tf.int32))</span><br><span class="line">    </span><br><span class="line">    dice_sum = tf.add(dice1, dice2)</span><br><span class="line">    </span><br><span class="line">    seven = tf.constant(<span class="number">7</span>)</span><br><span class="line">    <span class="comment"># 关于TensorFlow条件控制</span></span><br><span class="line">    <span class="comment"># https://www.tensorflow.org/versions/r1.8/api_guides/python/control_flow_ops#Control_Flow_Operations</span></span><br><span class="line">    comp = tf.cast(tf.greater(dice_sum, seven), tf.int32)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 使用 tf.concat 连接向量，axis=1 水平方向连接</span></span><br><span class="line">    result = tf.concat(values=[dice1, dice2, dice_sum, comp], axis=<span class="number">1</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">with</span> tf.Session() <span class="keyword">as</span> sess:</span><br><span class="line">        sess.run(tf.global_variables_initializer())</span><br><span class="line">        </span><br><span class="line">        print(result.eval())</span><br></pre></td></tr></table></figure>
+<pre><code>[[ 4  4  8  1]
+ [ 6  1  7  0]
+ [ 5  6 11  1]
+ [ 4  2  6  0]
+ [ 4  1  5  0]
+ [ 5  3  8  1]
+ [ 6  2  8  1]
+ [ 4  2  6  0]
+ [ 4  6 10  1]
+ [ 1  3  4  0]]
+</code></pre>
+		  
+		</div>
+
+		
+		  
+
+		
+
+		<footer class="article-footer">
+		  <a data-url="https://www.blankspace.cn/2018/08/13/Tensor-Control/" data-id="cjkrybplt000aj8fij42hgeid" class="article-share-link">
+			<i class="fa fa-share"></i> Share
+		  </a>
+		  
+		  
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="tags/Tensor/">Tensor</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="tags/TensorFlow/">TensorFlow</a></li></ul>
+
+
+		</footer>
+	  </div>
+	  
+	</article>
+
+	
+
+
+
+		
+
+
+	  
+		<article id="post-Tensor" class="article article-type-post" itemscope itemprop="blogPost">
+	
+
+
+	    <header class="article-header">
+		
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="2018/08/13/Tensor/">Tensor</a>
+    </h1>
+  
+
+
+			
+		
+		<div class="article-meta"> 
+			
+	  
+		   <div class="article-datetime">
+  <a href="2018/08/13/Tensor/" class="article-date"><time datetime="2018-08-13T02:05:48.000Z" itemprop="datePublished">2018-08-13</time></a>
+</div>
+
+
+
+			
+			  
+			
+
+ 
+			
+  <div class="article-category">
+    <a class="article-category-link" href="categories/Machine-Learning/">Machine Learning</a> / <a class="article-category-link" href="categories/Machine-Learning/TensorFlow/">TensorFlow</a>
+  </div>
+
+
+	    </div>
+	    </header>
+	    
+	  
+	  <div class="article-inner">
+		<div class="article-entry" itemprop="articleBody">
+		  
+			<h2 id="Tensor"><a href="#Tensor" class="headerlink" title="Tensor"></a>Tensor</h2><p>TensorFlow中的Tensor就是张量，张量是任意维的数组。常用的张量有：</p>
+<ul>
+<li><strong>constant（标量/常量）</strong>：零维数组，零阶张量。例如，0或一个字符串常量。</li>
+<li><strong>vector（向量/矢量）</strong>：一维数组，一阶张量。例如，[0]或[0, 1, 1, 2, 3, 5].</li>
+<li><strong>matrix（矩阵）</strong>:二维数组，二阶张量。例如，[[4, 9, 2], [3, 5, 7], [8, 1, 6]]</li>
+</ul>
+<p>在TensorFlow中，张量的创建、销毁和控制由<strong>指令</strong>完成。典型的TensorFlow代码大多数都是指令。</p>
+<h2 id="Graph"><a href="#Graph" class="headerlink" title="Graph"></a>Graph</h2><p>TensorFlow中的图，也叫作计算图或数据流图（<del>数据库原理和软件工程中的数据流图看似百无一用</del>），是一种<a href="https://baike.baidu.com/item/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/1450" target="_blank" rel="noopener">数据结构</a>。</p>
+<p>TensorFlow程序可以选择创建一张或者多张图。</p>
+<p><strong><em>图的节点是指令；图的边是张量。</em></strong>（张量就像是在图中的流动，所以称为Tensor Flow）.</p>
+<p>张量流经图，在每个节点由一个指令控制。<strong>一个指令的输出张量通常会变成后续指令的输入张量</strong>。</p>
+<p>TensorFlow实现<strong>延迟执行模型</strong>，系统仅会根据相关节点的需求在需要时计算节点。</p>
+<p><strong><em>常量和张量都是图中的一种指令</em></strong>，<strong>常量是始终会返回同一张量值的指令</strong>，<strong>变量是会返回分配给它的任何张量的指令</strong>。</p>
+<p><strong><em>图必须要在TensorFlow会话Session中运行，会话存储了被会话运行的图的状态</em></strong>.</p>
+<p>会话可以将图发布到多台设备上（假如程序在某个分布式计算框架上运行）。官方提供的<a href="https://www.tensorflow.org/deploy/distributed" target="_blank" rel="noopener">分布式TensorFlow文档</a>.</p>
+<p> TensorFlow 提供了一个<strong>默认图</strong>。不过，我们建议您明确创建自己的 <code>Graph</code>，以便跟踪状态（例如，您可能希望在每个单元格中使用一个不同的 <code>Graph</code>）。</p>
+<h3 id="举例，“海伦-秦九韶公式”三斜求积"><a href="#举例，“海伦-秦九韶公式”三斜求积" class="headerlink" title="举例，“海伦-秦九韶公式”三斜求积"></a>举例，“海伦-秦九韶公式”三斜求积</h3><script type="math/tex; mode=display">
+S = \sqrt{p\left( p-a\right)\left( p-b\right)\left( p-c\right)}</script><script type="math/tex; mode=display">
+p=\frac{a+b+c}{2}</script><p>相关<a href="https://www.tensorflow.org/api_docs/python/tf" target="_blank" rel="noopener">API</a>.</p>
+			
+			  <p class="article-more-link">
+				<a class="btn btn-primary" href="2018/08/13/Tensor/#more">Read more...</a>
+			  </p>
+			
+		  
+		</div>
+
+		
+
+		<footer class="article-footer">
+		  <a data-url="https://www.blankspace.cn/2018/08/13/Tensor/" data-id="cjkrybpls0007j8fi1mxqrdhs" class="article-share-link">
+			<i class="fa fa-share"></i> Share
+		  </a>
+		  
+		  
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="tags/Tensor/">Tensor</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="tags/TensorFlow/">TensorFlow</a></li></ul>
+
+
+		</footer>
+	  </div>
+	  
+	</article>
+
+	
+
+
+
+		
+
+
+	  
 		<article id="post-Variable" class="article article-type-post" itemscope itemprop="blogPost">
 	
 
@@ -172,7 +565,7 @@ day 9 len:  0.0009765625
 		
 
 		<footer class="article-footer">
-		  <a data-url="https://www.blankspace.cn/2018/08/12/Variable/" data-id="cjkqygdj0000g34figsbwxven" class="article-share-link">
+		  <a data-url="https://www.blankspace.cn/2018/08/12/Variable/" data-id="cjkrybplq0006j8fi8d0oomdq" class="article-share-link">
 			<i class="fa fa-share"></i> Share
 		  </a>
 		  
@@ -301,7 +694,7 @@ b&#39;Hello, world!&#39;
 		
 
 		<footer class="article-footer">
-		  <a data-url="https://www.blankspace.cn/2018/08/12/Session/" data-id="cjkqygdiv000d34fim9sl8odl" class="article-share-link">
+		  <a data-url="https://www.blankspace.cn/2018/08/12/Session/" data-id="cjkrybplp0005j8fi3vv2t7ck" class="article-share-link">
 			<i class="fa fa-share"></i> Share
 		  </a>
 		  
@@ -386,7 +779,7 @@ b&#39;Hello, world!&#39;
 		
 
 		<footer class="article-footer">
-		  <a data-url="https://www.blankspace.cn/2018/08/12/MNIST-pros/" data-id="cjkqygdio000834fi5x9yq0vn" class="article-share-link">
+		  <a data-url="https://www.blankspace.cn/2018/08/12/MNIST-pros/" data-id="cjkrybplf0001j8fikzufd5ak" class="article-share-link">
 			<i class="fa fa-share"></i> Share
 		  </a>
 		  
@@ -525,7 +918,7 @@ Please use alternatives such as official/mnist/dataset.py from tensorflow/models
 		
 
 		<footer class="article-footer">
-		  <a data-url="https://www.blankspace.cn/2018/08/11/TensorFlow-tutorial-mnist-beginners/" data-id="cjkqygdiy000e34fijtg5w3kt" class="article-share-link">
+		  <a data-url="https://www.blankspace.cn/2018/08/11/TensorFlow-tutorial-mnist-beginners/" data-id="cjkrybpm5000lj8fid3gj9s52" class="article-share-link">
 			<i class="fa fa-share"></i> Share
 		  </a>
 		  
@@ -601,7 +994,7 @@ Please use alternatives such as official/mnist/dataset.py from tensorflow/models
 		
 
 		<footer class="article-footer">
-		  <a data-url="https://www.blankspace.cn/2018/08/11/code-hightlight/" data-id="cjkqygdj5000l34fixhsvb1d1" class="article-share-link">
+		  <a data-url="https://www.blankspace.cn/2018/08/11/code-hightlight/" data-id="cjkrybplu000bj8fikony24o0" class="article-share-link">
 			<i class="fa fa-share"></i> Share
 		  </a>
 		  
@@ -787,7 +1180,7 @@ Please use alternatives such as official/mnist/dataset.py from tensorflow/models
 		
 
 		<footer class="article-footer">
-		  <a data-url="https://www.blankspace.cn/2018/08/11/Numpy随机数/" data-id="cjkqygdp0005834fiqu9ym4up" class="article-share-link">
+		  <a data-url="https://www.blankspace.cn/2018/08/11/Numpy随机数/" data-id="cjkrybplj0002j8fijmdiujbc" class="article-share-link">
 			<i class="fa fa-share"></i> Share
 		  </a>
 		  
@@ -867,319 +1260,12 @@ Please use alternatives such as official/mnist/dataset.py from tensorflow/models
 		
 
 		<footer class="article-footer">
-		  <a data-url="https://www.blankspace.cn/2018/08/10/emoji-text/" data-id="cjkqygdja000r34fiewk2huwq" class="article-share-link">
+		  <a data-url="https://www.blankspace.cn/2018/08/10/emoji-text/" data-id="cjkrybpm3000kj8fibzpshr6e" class="article-share-link">
 			<i class="fa fa-share"></i> Share
 		  </a>
 		  
 		  
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="tags/Emoji/">Emoji</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="tags/Hexo/">Hexo</a></li></ul>
-
-
-		</footer>
-	  </div>
-	  
-	</article>
-
-	
-
-
-
-		
-
-
-	  
-		<article id="post-mathjax-test" class="article article-type-post" itemscope itemprop="blogPost">
-	
-
-
-	    <header class="article-header">
-		
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="2018/08/10/mathjax-test/">Mathjax</a>
-    </h1>
-  
-
-
-			
-		
-		<div class="article-meta"> 
-			
-	  
-		   <div class="article-datetime">
-  <a href="2018/08/10/mathjax-test/" class="article-date"><time datetime="2018-08-10T11:53:22.000Z" itemprop="datePublished">2018-08-10</time></a>
-</div>
-
-
-
-			
-			  
-			
-
- 
-			
-  <div class="article-category">
-    <a class="article-category-link" href="categories/Projects/">Projects</a> / <a class="article-category-link" href="categories/Projects/hexo-theme-bootstrap-blog/">hexo-theme-bootstrap-blog</a> / <a class="article-category-link" href="categories/Projects/hexo-theme-bootstrap-blog/Tutorial/">Tutorial</a>
-  </div>
-
-
-	    </div>
-	    </header>
-	    
-	  
-	  <div class="article-inner">
-		<div class="article-entry" itemprop="articleBody">
-		  
-		  
-			<!-- Table of Contents -->
-
-			<p>This post is used for testing mathjax(latex) support.</p>
-<h2 id="Inline-math"><a href="#Inline-math" class="headerlink" title="Inline math"></a>Inline math</h2><p><strong>Use <code>$...$</code></strong>, example:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$\lim_&#123;x \to \infty&#125; \exp(-x) = 0$</span><br></pre></td></tr></table></figure>
-<p>Writing LaTex like: <script type="math/tex">\lim_{x \to \infty} \exp(-x) = 0</script></p>
-<h2 id="Displayed-formulas"><a href="#Displayed-formulas" class="headerlink" title="Displayed formulas"></a><strong>Displayed formulas</strong></h2><p><strong>Use <code>$$...$$</code></strong> , example:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$$\sum_&#123;i=0&#125;^n i^2 = \frac&#123;(n^2+n)(2n+1)&#125;&#123;6&#125;$$</span><br></pre></td></tr></table></figure>
-<script type="math/tex; mode=display">\sum_{i=0}^n i^2 = \frac{(n^2+n)(2n+1)}{6}</script><figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$$</span><br><span class="line">    \begin&#123;matrix&#125;</span><br><span class="line">    <span class="number">1</span> &amp; x &amp; x^<span class="number">2</span> \\</span><br><span class="line">    <span class="number">1</span> &amp; y &amp; y^<span class="number">2</span> \\</span><br><span class="line">    <span class="number">1</span> &amp; z &amp; z^<span class="number">2</span> \\</span><br><span class="line">    \end&#123;matrix&#125;</span><br><span class="line">$$</span><br></pre></td></tr></table></figure>
-<script type="math/tex; mode=display">
-\begin{matrix}
-    1 & x & x^2 \\
-    1 & y & y^2 \\
-    1 & z & z^2 \\
-    \end{matrix}</script><figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">\begin&#123;align&#125;</span><br><span class="line">\sqrt&#123;37&#125; &amp; = \sqrt&#123;\frac&#123;73^2-1&#125;&#123;12^2&#125;&#125; \\</span><br><span class="line"> &amp; = \sqrt&#123;\frac&#123;73^2&#125;&#123;12^2&#125;\cdot\frac&#123;73^2-1&#125;&#123;73^2&#125;&#125; \\ </span><br><span class="line"> &amp; = \sqrt&#123;\frac&#123;73^2&#125;&#123;12^2&#125;&#125;\sqrt&#123;\frac&#123;73^2-1&#125;&#123;73^2&#125;&#125; \\</span><br><span class="line"> &amp; = \frac&#123;73&#125;&#123;12&#125;\sqrt&#123;1 - \frac&#123;1&#125;&#123;73^2&#125;&#125; \\ </span><br><span class="line"> &amp; \approx \frac&#123;73&#125;&#123;12&#125;\left(<span class="number">1</span> - \frac&#123;1&#125;&#123;2\cdot73^2&#125;\right)</span><br><span class="line">\end&#123;align&#125;</span><br></pre></td></tr></table></figure>
-<script type="math/tex; mode=display">
-\begin{align}
-\sqrt{37} & = \sqrt{\frac{73^2-1}{12^2}} \\
- & = \sqrt{\frac{73^2}{12^2}\cdot\frac{73^2-1}{73^2}} \\ 
- & = \sqrt{\frac{73^2}{12^2}}\sqrt{\frac{73^2-1}{73^2}} \\
- & = \frac{73}{12}\sqrt{1 - \frac{1}{73^2}} \\ 
- & \approx \frac{73}{12}\left(1 - \frac{1}{2\cdot73^2}\right)
-\end{align}</script><figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">\begin&#123;array&#125;&#123;c|lcr&#125;</span><br><span class="line">n &amp; \text&#123;Left&#125; &amp; \text&#123;Center&#125; &amp; \text&#123;Right&#125; \\</span><br><span class="line">\hline</span><br><span class="line"><span class="number">1</span> &amp; <span class="number">0.24</span> &amp; <span class="number">1</span> &amp; <span class="number">125</span> \\</span><br><span class="line"><span class="number">2</span> &amp; <span class="number">-1</span> &amp; <span class="number">189</span> &amp; <span class="number">-8</span> \\</span><br><span class="line"><span class="number">3</span> &amp; <span class="number">-20</span> &amp; <span class="number">2000</span> &amp; <span class="number">1</span>+<span class="number">10</span>i</span><br><span class="line">\end&#123;array&#125;</span><br></pre></td></tr></table></figure>
-<script type="math/tex; mode=display">
-\begin{array}{c|lcr}
-n & \text{Left} & \text{Center} & \text{Right} \\
-\hline
-1 & 0.24 & 1 & 125 \\
-2 & -1 & 189 & -8 \\
-3 & -20 & 2000 & 1+10i
-\end{array}</script><p>More information can be found <a href="https://math.meta.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference" target="_blank" rel="noopener">Here</a>.</p>
-<p>To know how to let hexo support Matjax, you can read <a href="https://ranmaosong.github.io/2017/11/29/hexo-support-mathjax/" target="_blank" rel="noopener">this</a>.</p>
-
-		  
-		</div>
-
-		
-		  
-
-		
-
-		<footer class="article-footer">
-		  <a data-url="https://www.blankspace.cn/2018/08/10/mathjax-test/" data-id="cjkqygdl3002134fifrvbshei" class="article-share-link">
-			<i class="fa fa-share"></i> Share
-		  </a>
-		  
-		  
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="tags/Hexo/">Hexo</a></li></ul>
-
-
-		</footer>
-	  </div>
-	  
-	</article>
-
-	
-
-
-
-		
-
-
-	  
-		<article id="post-categories" class="article article-type-post" itemscope itemprop="blogPost">
-	
-
-
-	    <header class="article-header">
-		
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="2018/08/08/categories/">Categories</a>
-    </h1>
-  
-
-
-			
-		
-		<div class="article-meta"> 
-			
-	  
-		   <div class="article-datetime">
-  <a href="2018/08/08/categories/" class="article-date"><time datetime="2018-08-07T16:01:04.000Z" itemprop="datePublished">2018-08-08</time></a>
-</div>
-
-
-
-			
-			  
-			
-
- 
-			
-  <div class="article-category">
-    <a class="article-category-link" href="categories/Projects/">Projects</a> / <a class="article-category-link" href="categories/Projects/hexo-theme-bootstrap-blog/">hexo-theme-bootstrap-blog</a> / <a class="article-category-link" href="categories/Projects/hexo-theme-bootstrap-blog/Tutorial/">Tutorial</a>
-  </div>
-
-
-	    </div>
-	    </header>
-	    
-	  
-	  <div class="article-inner">
-		<div class="article-entry" itemprop="articleBody">
-		  
-		  
-			<!-- Table of Contents -->
-
-			<p>This post contains 3 categories. Make sure the theme can display all of the categories.</p>
-
-		  
-		</div>
-
-		
-		  
-
-		
-
-		<footer class="article-footer">
-		  <a data-url="https://www.blankspace.cn/2018/08/08/categories/" data-id="cjkqygdj8000o34firs8brjna" class="article-share-link">
-			<i class="fa fa-share"></i> Share
-		  </a>
-		  
-		  
-
-		</footer>
-	  </div>
-	  
-	</article>
-
-	
-
-
-
-		
-
-
-	  
-		<article id="post-elements" class="article article-type-post" itemscope itemprop="blogPost">
-	
-
-
-	    <header class="article-header">
-		
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="2018/08/08/elements/">Elements</a>
-    </h1>
-  
-
-
-			
-		
-		<div class="article-meta"> 
-			
-	  
-		   <div class="article-datetime">
-  <a href="2018/08/08/elements/" class="article-date"><time datetime="2018-08-07T16:01:03.000Z" itemprop="datePublished">2018-08-08</time></a>
-</div>
-
-
-
-			
-			  
-			
-
- 
-			
-  <div class="article-category">
-    <a class="article-category-link" href="categories/Projects/">Projects</a> / <a class="article-category-link" href="categories/Projects/hexo-theme-bootstrap-blog/">hexo-theme-bootstrap-blog</a> / <a class="article-category-link" href="categories/Projects/hexo-theme-bootstrap-blog/Tutorial/">Tutorial</a>
-  </div>
-
-
-	    </div>
-	    </header>
-	    
-	  
-	  <div class="article-inner">
-		<div class="article-entry" itemprop="articleBody">
-		  
-		  
-			<!-- Table of Contents -->
-
-			<p>The purpose of this post is to make sure all HTML elements can display properly.</p>
-<hr>
-<h1 id="Heading-1"><a href="#Heading-1" class="headerlink" title="Heading 1"></a>Heading 1</h1><h2 id="Heading-2"><a href="#Heading-2" class="headerlink" title="Heading 2"></a>Heading 2</h2><h3 id="Heading-3"><a href="#Heading-3" class="headerlink" title="Heading 3"></a>Heading 3</h3><h4 id="Heading-4"><a href="#Heading-4" class="headerlink" title="Heading 4"></a>Heading 4</h4><h5 id="Heading-5"><a href="#Heading-5" class="headerlink" title="Heading 5"></a>Heading 5</h5><h6 id="Heading-6"><a href="#Heading-6" class="headerlink" title="Heading 6"></a>Heading 6</h6><hr>
-<h2 id="Paragraph"><a href="#Paragraph" class="headerlink" title="Paragraph"></a>Paragraph</h2><p>Lorem ipsum dolor sit amet, <a href="">test link</a> consectetur adipiscing elit. <strong>Strong text</strong> pellentesque ligula commodo viverra vehicula. <em>Italic text</em> at ullamcorper enim. Morbi a euismod nibh. <u>Underline text</u> non elit nisl. <del>Deleted text</del> tristique, sem id condimentum tempus, metus lectus venenatis mauris, sit amet semper lorem felis a eros. Fusce egestas nibh at sagittis auctor. Sed ultricies ac arcu quis molestie. Donec dapibus nunc in nibh egestas, vitae volutpat sem iaculis. Curabitur sem tellus, elementum nec quam id, fermentum laoreet mi. Ut mollis ullamcorper turpis, vitae facilisis velit ultricies sit amet. Etiam laoreet dui odio, id tempus justo tincidunt id. Phasellus scelerisque nunc sed nunc ultricies accumsan.</p>
-<p>Interdum et malesuada fames ac ante ipsum primis in faucibus. <code>Sed erat diam</code>, blandit eget felis aliquam, rhoncus varius urna. Donec tellus sapien, sodales eget ante vitae, feugiat ullamcorper urna. Praesent auctor dui vitae dapibus eleifend. Proin viverra mollis neque, ut ullamcorper elit posuere eget.</p>
-<blockquote>
-<p>Praesent diam elit, interdum ut pulvinar placerat, imperdiet at magna.</p>
-</blockquote>
-<p>Maecenas ornare arcu at mi suscipit, non molestie tortor ultrices. Aenean convallis, diam et congue ultricies, erat magna tincidunt orci, pulvinar posuere mi sapien ac magna. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Praesent vitae placerat mauris. Nullam laoreet ante posuere tortor blandit auctor. Sed id ligula volutpat leo consequat placerat. Mauris fermentum dolor sed augue malesuada sollicitudin. Vivamus ultrices nunc felis, quis viverra orci eleifend ut. Donec et quam id urna cursus posuere. Donec elementum scelerisque laoreet.</p>
-<h2 id="List-Types"><a href="#List-Types" class="headerlink" title="List Types"></a>List Types</h2><h3 id="Definition-List-dl"><a href="#Definition-List-dl" class="headerlink" title="Definition List (dl)"></a>Definition List (dl)</h3><dl><dt>Definition List Title</dt><dd>This is a definition list division.</dd></dl>
-
-<h3 id="Ordered-List-ol"><a href="#Ordered-List-ol" class="headerlink" title="Ordered List (ol)"></a>Ordered List (ol)</h3><ol>
-<li>List Item 1</li>
-<li>List Item 2</li>
-<li>List Item 3</li>
-</ol>
-<h3 id="Unordered-List-ul"><a href="#Unordered-List-ul" class="headerlink" title="Unordered List (ul)"></a>Unordered List (ul)</h3><ul>
-<li>List Item 1</li>
-<li>List Item 2</li>
-<li>List Item 3</li>
-</ul>
-<h2 id="Table"><a href="#Table" class="headerlink" title="Table"></a>Table</h2><div class="table-container">
-<table>
-<thead>
-<tr>
-<th>Table Header 1</th>
-<th>Table Header 2</th>
-<th>Table Header 3</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Division 1</td>
-<td>Division 2</td>
-<td>Division 3</td>
-</tr>
-<tr>
-<td>Division 1</td>
-<td>Division 2</td>
-<td>Division 3</td>
-</tr>
-<tr>
-<td>Division 1</td>
-<td>Division 2</td>
-<td>Division 3</td>
-</tr>
-</tbody>
-</table>
-</div>
-<h2 id="Misc-Stuff-abbr-acronym-sub-sup-etc"><a href="#Misc-Stuff-abbr-acronym-sub-sup-etc" class="headerlink" title="Misc Stuff - abbr, acronym, sub, sup, etc."></a>Misc Stuff - abbr, acronym, sub, sup, etc.</h2><p>Lorem <sup>superscript</sup> dolor <sub>subscript</sub> amet, consectetuer adipiscing elit. Nullam dignissim convallis est. Quisque aliquam. <cite>cite</cite>. Nunc iaculis suscipit dui. Nam sit amet sem. Aliquam libero nisi, imperdiet at, tincidunt nec, gravida vehicula, nisl. Praesent mattis, massa quis luctus fermentum, turpis mi volutpat justo, eu volutpat enim diam eget metus. Maecenas ornare tortor. Donec sed tellus eget sapien fringilla nonummy. <acronym title="National Basketball Association">NBA</acronym> Mauris a ante. Suspendisse quam sem, consequat at, commodo vitae, feugiat in, nunc. Morbi imperdiet augue quis tellus.  <abbr title="Avenue">AVE</abbr></p>
-
-		  
-		</div>
-
-		
-		  
-
-		
-
-		<footer class="article-footer">
-		  <a data-url="https://www.blankspace.cn/2018/08/08/elements/" data-id="cjkqygdj2000i34fi5b4dzi02" class="article-share-link">
-			<i class="fa fa-share"></i> Share
-		  </a>
-		  
-		  
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="tags/Elements/">Elements</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="tags/Hexo/">Hexo</a></li></ul>
 
 
 		</footer>
@@ -1221,23 +1307,23 @@ function googleTranslateElementInit() {
     <ul class="sidebar-module-list">
       
         <li>
+          <a href="2018/08/13/placeholder/">Placeholder</a>
+        </li>
+      
+        <li>
+          <a href="2018/08/13/Tensor-Control/">Tensor Control</a>
+        </li>
+      
+        <li>
+          <a href="2018/08/13/Tensor/">Tensor</a>
+        </li>
+      
+        <li>
           <a href="2018/08/12/Variable/">Variable</a>
         </li>
       
         <li>
           <a href="2018/08/12/Session/">Session</a>
-        </li>
-      
-        <li>
-          <a href="2018/08/12/MNIST-pros/">MNIST pros</a>
-        </li>
-      
-        <li>
-          <a href="2018/08/11/TensorFlow-tutorial-mnist-beginners/">TensorFlow tutorial mnist beginners</a>
-        </li>
-      
-        <li>
-          <a href="2018/08/11/code-hightlight/">Code Highlight</a>
         </li>
       
     </ul>
@@ -1256,7 +1342,7 @@ function googleTranslateElementInit() {
   
   <div class="sidebar-module">
     <h4>Categories</h4>
-    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="categories/Languages/">Languages</a><span class="sidebar-module-list-count">1</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="categories/Languages/Python/">Python</a><span class="sidebar-module-list-count">1</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="categories/Languages/Python/Numpy/">Numpy</a><span class="sidebar-module-list-count">1</span></li></ul></li></ul></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="categories/Machine-Learning/">Machine Learning</a><span class="sidebar-module-list-count">4</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="categories/Machine-Learning/TensorFlow/">TensorFlow</a><span class="sidebar-module-list-count">4</span></li></ul></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="categories/Projects/">Projects</a><span class="sidebar-module-list-count">18</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="categories/Projects/hexo-theme-bootstrap-blog/">hexo-theme-bootstrap-blog</a><span class="sidebar-module-list-count">18</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="categories/Projects/hexo-theme-bootstrap-blog/Tutorial/">Tutorial</a><span class="sidebar-module-list-count">18</span></li></ul></li></ul></li></ul>
+    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="categories/Languages/">Languages</a><span class="sidebar-module-list-count">1</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="categories/Languages/Python/">Python</a><span class="sidebar-module-list-count">1</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="categories/Languages/Python/Numpy/">Numpy</a><span class="sidebar-module-list-count">1</span></li></ul></li></ul></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="categories/Machine-Learning/">Machine Learning</a><span class="sidebar-module-list-count">7</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="categories/Machine-Learning/TensorFlow/">TensorFlow</a><span class="sidebar-module-list-count">7</span></li></ul></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="categories/Projects/">Projects</a><span class="sidebar-module-list-count">18</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="categories/Projects/hexo-theme-bootstrap-blog/">hexo-theme-bootstrap-blog</a><span class="sidebar-module-list-count">18</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="categories/Projects/hexo-theme-bootstrap-blog/Tutorial/">Tutorial</a><span class="sidebar-module-list-count">18</span></li></ul></li></ul></li></ul>
   </div>
 
 
@@ -1264,7 +1350,7 @@ function googleTranslateElementInit() {
   
   <div class="sidebar-module">
     <h4>Archives</h4>
-    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="archives/2018/08/">八月 2018</a><span class="sidebar-module-list-count">22</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="archives/2013/12/">十二月 2013</a><span class="sidebar-module-list-count">1</span></li></ul>
+    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="archives/2018/08/">八月 2018</a><span class="sidebar-module-list-count">25</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="archives/2013/12/">十二月 2013</a><span class="sidebar-module-list-count">1</span></li></ul>
   </div>
 
 
