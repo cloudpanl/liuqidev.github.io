@@ -6,7 +6,7 @@
   <title>TensorFlow tutorial mnist beginners | WizardLQ’s | 魔法师の小茶馆</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="从示例开始导入12import tensorflow as tfimport numpy as np # 和tf配合使用 D:\Anaconda3\Anaconda3_py36\lib\site-packages\h5py\__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `flo">
-<meta name="keywords" content="mnist,TensorFlow">
+<meta name="keywords" content="TensorFlow,mnist">
 <meta property="og:type" content="article">
 <meta property="og:title" content="TensorFlow tutorial mnist beginners">
 <meta property="og:url" content="https://www.blankspace.cn/2018/08/11/TensorFlow-tutorial-mnist-beginners/index.html">
@@ -45,17 +45,6 @@
   </script>
   <link rel="stylesheet" href="../../../../css/styles.css">
   
-<!-- Google Analytics -->
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id='UA-122713769-1'"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-122713769-1');
-</script>
-
 
 
 
@@ -148,6 +137,8 @@
 		  
 			<!-- Table of Contents -->
 
+			
+			
 			<h1 id="从示例开始"><a href="#从示例开始" class="headerlink" title="从示例开始"></a>从示例开始</h1><h3 id="导入"><a href="#导入" class="headerlink" title="导入"></a>导入</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np <span class="comment"># 和tf配合使用</span></span><br></pre></td></tr></table></figure>
 <pre><code>D:\Anaconda3\Anaconda3_py36\lib\site-packages\h5py\__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
   from ._conv import register_converters as _register_converters
@@ -212,6 +203,7 @@ Please use alternatives such as official/mnist/dataset.py from tensorflow/models
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>本文首先通过一个完整的线性回归的例子，展示了TensorFlow的基本使用，首先构造计算图graph，其中包含诸如<code>Variable</code>、<code>placeholder</code>等节点，以及节点之间的数学运算如矩阵乘法；接着对计算图初始化，<code>tf.global_variables_initializer()</code>，其中TensorFlow中很重要的就是回话session机制，通过会话来运行计算图；随后，通过会话进行训练，拟合并德大检测结果。</p>
 <p>其次，使用TensorFlow完成了基于MNIST数据集，进行手写体识别的任务，并在测试集上实现了91%的正确率。<br>其完整过程，首先是准备数据，下载的数据被分为训练数据和测试数据。每种数据的基本单元都包含两部分，一部分是手写体图片，统一规格28x28，另一部分是对应的标记，来指出对应的数字，将原始图片展开向量表示，标记采用one-hot表示；<br>接着，构建softmax回归模型。使用梯度下降算法进行反向传播，最小化交叉熵损失进行训练。<br>最后，在测试机上测试，得到实验正确率指标，可以达到91%以上。</p>
 
+			
 		  
 		</div>
 
@@ -221,7 +213,7 @@ Please use alternatives such as official/mnist/dataset.py from tensorflow/models
 		
 
 		<footer class="article-footer">
-		  <a data-url="https://www.blankspace.cn/2018/08/11/TensorFlow-tutorial-mnist-beginners/" data-id="cjkrybpm5000lj8fid3gj9s52" class="article-share-link">
+		  <a data-url="https://www.blankspace.cn/2018/08/11/TensorFlow-tutorial-mnist-beginners/" data-id="cjksbev6k000628fikyhba51w" class="article-share-link">
 			<i class="fa fa-share"></i> Share
 		  </a>
 		  

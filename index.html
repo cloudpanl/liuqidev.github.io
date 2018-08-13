@@ -36,17 +36,6 @@
   </script>
   <link rel="stylesheet" href="css/styles.css">
   
-<!-- Google Analytics -->
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id='UA-122713769-1'"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-122713769-1');
-</script>
-
 
 
 
@@ -99,6 +88,104 @@
 	
 	
 	  
+		<article id="post-activation-function" class="article article-type-post" itemscope itemprop="blogPost">
+	
+
+
+	    <header class="article-header">
+		
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="2018/08/13/activation-function/">Activation function</a>
+    </h1>
+  
+
+
+			
+		
+		<div class="article-meta"> 
+			
+	  
+		   <div class="article-datetime">
+  <a href="2018/08/13/activation-function/" class="article-date"><time datetime="2018-08-13T13:24:57.000Z" itemprop="datePublished">2018-08-13</time></a>
+</div>
+
+
+
+			
+			  
+			
+
+ 
+			
+  <div class="article-category">
+    <a class="article-category-link" href="categories/Machine-Learning/">Machine Learning</a> / <a class="article-category-link" href="categories/Machine-Learning/TensorFlow/">TensorFlow</a>
+  </div>
+
+
+	    </div>
+	    </header>
+	    
+	  
+	  <div class="article-inner">
+		<div class="article-entry" itemprop="articleBody">
+		  
+			<p>Activation function（激活函数），是一类非线性函数，与之对应的就是线性函数。线性函数就是一条直线，形式化表示就是：</p>
+<script type="math/tex; mode=display">
+y=mx+b</script><p>$m$是直线的斜率，$y$通常是预测的值，$x$是输入的特征值，$b$是$y$轴的截距。</p>
+<p>由于现实世界的复杂性，输入特征和预测之间的关系通常不是简单的线性关系，换言之就是非线性关系。然后就发现和一些非线性函数，满足一定得性质（这个得看人家的论文），通过非线性函数多层的组合，可以来拟合非常复杂的非线性函数。</p>
+<p>更过关于激活函数的介绍，<a href="https://en.wikipedia.org/wiki/Activation_function" target="_blank" rel="noopener">这里</a>.</p>
+<p>TensorFlow中更多激活函数，<a href="https://www.tensorflow.org/api_guides/python/nn#Activation_Functions" target="_blank" rel="noopener">Activation Function</a></p>
+<h3 id="Binary-step"><a href="#Binary-step" class="headerlink" title="Binary step"></a>Binary step</h3><script type="math/tex; mode=display">
+f(x) =
+\begin{cases}
+0,  & \text{for x $\lt$ 0} \\
+1, & \text{for x $\geq$ 0}
+\end{cases}</script><p>阶跃函数是理想的激活函数，但是不可导。</p>
+<p>下面对几种常见的激活函数进行可视化。</p>
+<h3 id="ReLu-rectified-linear-unit-ReLu"><a href="#ReLu-rectified-linear-unit-ReLu" class="headerlink" title="ReLu(rectified linear unit, ReLu)"></a>ReLu(rectified linear unit, ReLu)</h3><script type="math/tex; mode=display">
+f(x) =
+\begin{cases}
+0,  & \text{for x $\lt$ 0} \\
+x, & \text{for x $\geq$ 0}
+\end{cases}</script><h3 id="Logistic-Sigmoid-or-Soft-step"><a href="#Logistic-Sigmoid-or-Soft-step" class="headerlink" title="Logistic(Sigmoid or Soft step)"></a>Logistic(Sigmoid or Soft step)</h3><script type="math/tex; mode=display">
+f(x)=\sigma{(x)} = \frac{1}{1+e^{-x}}</script><h3 id="TanH"><a href="#TanH" class="headerlink" title="TanH"></a>TanH</h3><script type="math/tex; mode=display">
+f(x)= \tanh{(x)}= \frac{e^{x}-e^{-x}}{e^{x}+e^{-x}}</script><h3 id="Softplus"><a href="#Softplus" class="headerlink" title="Softplus"></a>Softplus</h3><script type="math/tex; mode=display">
+f(x)= \ln{(1+e^x)}</script><h3 id="Softmax"><a href="#Softmax" class="headerlink" title="Softmax"></a>Softmax</h3><script type="math/tex; mode=display">
+f_{i}(x)= \frac{e^x_{i}}{\sum_{j=1}^{J}e^{e^i}}</script><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf <span class="comment"># machine learning framwork</span></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np <span class="comment"># scientific computation</span></span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt <span class="comment"># data visualization</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> tf.Graph().as_default(), tf.Session() <span class="keyword">as</span> sess:</span><br><span class="line">    x_data = np.linspace(<span class="number">-6</span>, <span class="number">6</span>, <span class="number">256</span>)</span><br><span class="line"></span><br><span class="line">    y_relu = tf.nn.relu(x_data)</span><br><span class="line">    y_sigmoid = tf.nn.sigmoid(x_data)</span><br><span class="line">    y_tanh = tf.nn.tanh(x_data)</span><br><span class="line">    y_softplus = tf.nn.softplus(x_data)</span><br><span class="line">    y_softmax = tf.nn.softmax(x_data) <span class="comment"># softmax is a special kind of activation function, it is about probablity</span></span><br><span class="line"></span><br><span class="line">    y_relu, y_sigmoid, y_tanh, y_softplus, y_softmax = sess.run([y_relu, y_sigmoid, y_tanh, y_softplus, y_softmax])</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># plot</span></span><br><span class="line">    fig = plt.figure(<span class="number">1</span>, figsize=(<span class="number">8</span>, <span class="number">6</span>))</span><br><span class="line">    plt.subplot(<span class="number">221</span>)</span><br><span class="line">    plt.plot(x_data, y_relu, c=<span class="string">'red'</span>, label=<span class="string">'relu'</span>)</span><br><span class="line">    plt.ylim(<span class="number">-1</span>, <span class="number">6</span>)</span><br><span class="line">    plt.legend(loc=<span class="string">'best'</span>)</span><br><span class="line">    </span><br><span class="line">    plt.subplot(<span class="number">222</span>)</span><br><span class="line">    plt.plot(x_data, y_sigmoid, c=<span class="string">'green'</span>, label=<span class="string">'sigmoid'</span>)</span><br><span class="line">    plt.ylim(<span class="number">-0.3</span>, <span class="number">1.5</span>)</span><br><span class="line">    plt.legend(loc=<span class="string">'best'</span>)</span><br><span class="line">    </span><br><span class="line">    plt.subplot(<span class="number">223</span>)</span><br><span class="line">    plt.plot(x_data, y_tanh, c=<span class="string">'blue'</span>, label=<span class="string">'tanh'</span>)</span><br><span class="line">    plt.ylim(<span class="number">-1.2</span>, <span class="number">1.2</span>)</span><br><span class="line">    plt.legend(loc=<span class="string">'best'</span>)</span><br><span class="line">    </span><br><span class="line">    plt.subplot(<span class="number">224</span>)</span><br><span class="line">    plt.plot(x_data, y_softplus, c=<span class="string">'yellow'</span>, label=<span class="string">'softplus'</span>)</span><br><span class="line">    plt.ylim(<span class="number">-0.3</span>, <span class="number">6</span>)</span><br><span class="line">    plt.legend(loc=<span class="string">'best'</span>)</span><br><span class="line">    </span><br><span class="line">    plt.show()</span><br></pre></td></tr></table></figure>
+<p><img src="/2018/08/13/activation-function/output_1_0.png" alt="png"></p>
+			
+			  <p class="article-more-link">
+				<a class="btn btn-primary" href="2018/08/13/activation-function/#more">Read more...</a>
+			  </p>
+			
+		  
+		</div>
+
+		
+
+		<footer class="article-footer">
+		  <a data-url="https://www.blankspace.cn/2018/08/13/activation-function/" data-id="cjksbev80000b28fiymxap882" class="article-share-link">
+			<i class="fa fa-share"></i> Share
+		  </a>
+		  
+		  
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="tags/Activation/">Activation</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="tags/TensorFlow/">TensorFlow</a></li></ul>
+
+
+		</footer>
+	  </div>
+	  
+	</article>
+
+	
+
+
+
+		
+
+
+	  
 		<article id="post-placeholder" class="article article-type-post" itemscope itemprop="blogPost">
 	
 
@@ -144,12 +231,15 @@
 		  
 			<!-- Table of Contents -->
 
+			
+			
 			<h3 id="解释"><a href="#解释" class="headerlink" title="解释"></a>解释</h3><p><strong>A placeholder is simply a variable that we will assign data to at a later date. It allows us to create our operations and build our computation graph, without needing the data.</strong></p>
 <p>顾名思义，占位符，没有数据先占位。是一种变量。之后按照<code>sess.run(***, feed_dict={input: **})</code>形式传输数据。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> tf.Graph().as_default(), tf.Session() <span class="keyword">as</span> sess:</span><br><span class="line">    x = tf.placeholder(tf.float32)</span><br><span class="line">    y = x**<span class="number">3</span></span><br><span class="line">    feed_dict = &#123;x:[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>]&#125;</span><br><span class="line">    print(sess.run(y, feed_dict=feed_dict))</span><br></pre></td></tr></table></figure>
 <pre><code>[ 1.  8. 27. 64.]
 </code></pre><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p><code>placeholder</code> 与 <code>feed_dict={}</code> 总是一起出现的。placeholder允许没有数据先占位创建计算图，运行时通过<code>feed_dict</code>传入数据。</p>
 
+			
 		  
 		</div>
 
@@ -159,7 +249,7 @@
 		
 
 		<footer class="article-footer">
-		  <a data-url="https://www.blankspace.cn/2018/08/13/placeholder/" data-id="cjkrybpmr001nj8fib8ya5049" class="article-share-link">
+		  <a data-url="https://www.blankspace.cn/2018/08/13/placeholder/" data-id="cjksbev8r001e28fisx3fdz11" class="article-share-link">
 			<i class="fa fa-share"></i> Share
 		  </a>
 		  
@@ -225,6 +315,8 @@
 		  
 			<!-- Table of Contents -->
 
+			
+			
 			<h2 id="张量形状"><a href="#张量形状" class="headerlink" title="张量形状"></a>张量形状</h2><p>形状shape，用来描述张量的大小和数量。张量的形状表示为列表的形式，其中第i个元素表示维度i的大小，列表的长度标书张量的阶（维数）。</p>
 <div class="table-container">
 <table>
@@ -369,6 +461,7 @@ Reshaped matrix (3x2x2)
  [ 4  6 10  1]
  [ 1  3  4  0]]
 </code></pre>
+			
 		  
 		</div>
 
@@ -378,7 +471,7 @@ Reshaped matrix (3x2x2)
 		
 
 		<footer class="article-footer">
-		  <a data-url="https://www.blankspace.cn/2018/08/13/Tensor-Control/" data-id="cjkrybplt000aj8fij42hgeid" class="article-share-link">
+		  <a data-url="https://www.blankspace.cn/2018/08/13/Tensor-Control/" data-id="cjksbev6e000228fij96hfuff" class="article-share-link">
 			<i class="fa fa-share"></i> Share
 		  </a>
 		  
@@ -471,7 +564,7 @@ p=\frac{a+b+c}{2}</script><p>相关<a href="https://www.tensorflow.org/api_docs/
 		
 
 		<footer class="article-footer">
-		  <a data-url="https://www.blankspace.cn/2018/08/13/Tensor/" data-id="cjkrybpls0007j8fi1mxqrdhs" class="article-share-link">
+		  <a data-url="https://www.blankspace.cn/2018/08/13/Tensor/" data-id="cjksbev6j000528fiq3pb7n34" class="article-share-link">
 			<i class="fa fa-share"></i> Share
 		  </a>
 		  
@@ -537,6 +630,8 @@ p=\frac{a+b+c}{2}</script><p>相关<a href="https://www.tensorflow.org/api_docs/
 		  
 			<!-- Table of Contents -->
 
+			
+			
 			<p><a href="https://www.gushiwen.org/GuShiWen_dd05a84e30.aspx" target="_blank" rel="noopener">《庄子·天下》</a>中说“一尺之棰，日取其半，万世不竭。”使用TensorFlow来模拟这个过程。</p>
 <h3 id="Variable"><a href="#Variable" class="headerlink" title="Variable"></a>Variable</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 定义变量</span></span><br><span class="line">bar = tf.Variable(<span class="number">1.0</span>, name=<span class="string">"bar"</span>)</span><br><span class="line"></span><br><span class="line">two = tf.constant(<span class="number">2.0</span>) </span><br><span class="line">divided = tf.divide(bar, <span class="number">2.0</span>) <span class="comment"># 定义取半操作，这一步并没有直接计算</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 将bar更新为新的长度</span></span><br><span class="line">update = tf.assign(bar, divided)</span><br></pre></td></tr></table></figure>
 <h3 id="初始化变量"><a href="#初始化变量" class="headerlink" title="初始化变量"></a>初始化变量</h3><p><code>global_variables_initializer()</code></p>
@@ -556,6 +651,7 @@ day 9 len:  0.0009765625
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 高斯的故事之高斯求和TensorFlow实现</span></span><br><span class="line">s = tf.Variable(<span class="number">0</span>, name=<span class="string">"sum"</span>)</span><br><span class="line">number = tf.Variable(<span class="number">0</span>, name=<span class="string">"number"</span>)</span><br><span class="line">one = tf.constant(<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">new_number = tf.assign(number, tf.add(number, one))</span><br><span class="line">update = tf.assign(s, tf.add(s, new_number))</span><br><span class="line"></span><br><span class="line">init = tf.global_variables_initializer()</span><br><span class="line"></span><br><span class="line">sess = tf.Session()</span><br><span class="line">sess.run(init)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>, <span class="number">101</span>):</span><br><span class="line">    sess.run(update)</span><br><span class="line">print(sess.run(s))</span><br><span class="line"></span><br><span class="line">sess.close()</span><br></pre></td></tr></table></figure>
 <pre><code>5050
 </code></pre>
+			
 		  
 		</div>
 
@@ -565,7 +661,7 @@ day 9 len:  0.0009765625
 		
 
 		<footer class="article-footer">
-		  <a data-url="https://www.blankspace.cn/2018/08/12/Variable/" data-id="cjkrybplq0006j8fi8d0oomdq" class="article-share-link">
+		  <a data-url="https://www.blankspace.cn/2018/08/12/Variable/" data-id="cjksbev8o001928ficg00qtdx" class="article-share-link">
 			<i class="fa fa-share"></i> Share
 		  </a>
 		  
@@ -631,6 +727,8 @@ day 9 len:  0.0009765625
 		  
 			<!-- Table of Contents -->
 
+			
+			
 			<p>举两个例子。</p>
 <h3 id="Hello-World"><a href="#Hello-World" class="headerlink" title="Hello World"></a>Hello World</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"></span><br><span class="line">node = tf.constant(<span class="string">"Hello, world!"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># method 1</span></span><br><span class="line">sess = tf.Session()</span><br><span class="line">print(sess.run(node))</span><br><span class="line">sess.close</span><br><span class="line"></span><br><span class="line"><span class="comment"># method 2</span></span><br><span class="line"><span class="keyword">with</span> tf.Session() <span class="keyword">as</span> tf:</span><br><span class="line">    print(sess.run(node))</span><br></pre></td></tr></table></figure>
 <pre><code>D:\Anaconda3\Anaconda3_py36\lib\site-packages\h5py\__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
@@ -685,6 +783,7 @@ b&#39;Hello, world!&#39;
 [[34 53]
  [26 42]]
 </code></pre>
+			
 		  
 		</div>
 
@@ -694,7 +793,7 @@ b&#39;Hello, world!&#39;
 		
 
 		<footer class="article-footer">
-		  <a data-url="https://www.blankspace.cn/2018/08/12/Session/" data-id="cjkrybplp0005j8fi3vv2t7ck" class="article-share-link">
+		  <a data-url="https://www.blankspace.cn/2018/08/12/Session/" data-id="cjksbev69000128fi9eb8hqfp" class="article-share-link">
 			<i class="fa fa-share"></i> Share
 		  </a>
 		  
@@ -779,7 +878,7 @@ b&#39;Hello, world!&#39;
 		
 
 		<footer class="article-footer">
-		  <a data-url="https://www.blankspace.cn/2018/08/12/MNIST-pros/" data-id="cjkrybplf0001j8fikzufd5ak" class="article-share-link">
+		  <a data-url="https://www.blankspace.cn/2018/08/12/MNIST-pros/" data-id="cjksbev86000g28fic81qjpfm" class="article-share-link">
 			<i class="fa fa-share"></i> Share
 		  </a>
 		  
@@ -845,6 +944,8 @@ b&#39;Hello, world!&#39;
 		  
 			<!-- Table of Contents -->
 
+			
+			
 			<h1 id="从示例开始"><a href="#从示例开始" class="headerlink" title="从示例开始"></a>从示例开始</h1><h3 id="导入"><a href="#导入" class="headerlink" title="导入"></a>导入</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np <span class="comment"># 和tf配合使用</span></span><br></pre></td></tr></table></figure>
 <pre><code>D:\Anaconda3\Anaconda3_py36\lib\site-packages\h5py\__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
   from ._conv import register_converters as _register_converters
@@ -909,6 +1010,7 @@ Please use alternatives such as official/mnist/dataset.py from tensorflow/models
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>本文首先通过一个完整的线性回归的例子，展示了TensorFlow的基本使用，首先构造计算图graph，其中包含诸如<code>Variable</code>、<code>placeholder</code>等节点，以及节点之间的数学运算如矩阵乘法；接着对计算图初始化，<code>tf.global_variables_initializer()</code>，其中TensorFlow中很重要的就是回话session机制，通过会话来运行计算图；随后，通过会话进行训练，拟合并德大检测结果。</p>
 <p>其次，使用TensorFlow完成了基于MNIST数据集，进行手写体识别的任务，并在测试集上实现了91%的正确率。<br>其完整过程，首先是准备数据，下载的数据被分为训练数据和测试数据。每种数据的基本单元都包含两部分，一部分是手写体图片，统一规格28x28，另一部分是对应的标记，来指出对应的数字，将原始图片展开向量表示，标记采用one-hot表示；<br>接着，构建softmax回归模型。使用梯度下降算法进行反向传播，最小化交叉熵损失进行训练。<br>最后，在测试机上测试，得到实验正确率指标，可以达到91%以上。</p>
 
+			
 		  
 		</div>
 
@@ -918,7 +1020,7 @@ Please use alternatives such as official/mnist/dataset.py from tensorflow/models
 		
 
 		<footer class="article-footer">
-		  <a data-url="https://www.blankspace.cn/2018/08/11/TensorFlow-tutorial-mnist-beginners/" data-id="cjkrybpm5000lj8fid3gj9s52" class="article-share-link">
+		  <a data-url="https://www.blankspace.cn/2018/08/11/TensorFlow-tutorial-mnist-beginners/" data-id="cjksbev6k000628fikyhba51w" class="article-share-link">
 			<i class="fa fa-share"></i> Share
 		  </a>
 		  
@@ -984,7 +1086,10 @@ Please use alternatives such as official/mnist/dataset.py from tensorflow/models
 		  
 			<!-- Table of Contents -->
 
+			
+			
 			<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * This is some sample code to illustrate how things look!</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">import</span> Musician <span class="keyword">from</span> <span class="string">'./liverpool'</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Paul</span> <span class="keyword">extends</span> <span class="title">Musician</span> </span>&#123;</span><br><span class="line">    <span class="keyword">constructor</span>(bass) &#123;</span><br><span class="line">        <span class="keyword">super</span>(bass);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    get fullName() &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">'Paul McCartney'</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    perform() &#123;</span><br><span class="line">        <span class="keyword">this</span>.play(<span class="keyword">this</span>.instrument);</span><br><span class="line">        <span class="keyword">this</span>.sing();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> Paul;</span><br></pre></td></tr></table></figure>
+			
 		  
 		</div>
 
@@ -994,7 +1099,7 @@ Please use alternatives such as official/mnist/dataset.py from tensorflow/models
 		
 
 		<footer class="article-footer">
-		  <a data-url="https://www.blankspace.cn/2018/08/11/code-hightlight/" data-id="cjkrybplu000bj8fikony24o0" class="article-share-link">
+		  <a data-url="https://www.blankspace.cn/2018/08/11/code-hightlight/" data-id="cjksbev85000f28filp9t1hlv" class="article-share-link">
 			<i class="fa fa-share"></i> Share
 		  </a>
 		  
@@ -1060,6 +1165,8 @@ Please use alternatives such as official/mnist/dataset.py from tensorflow/models
 		  
 			<!-- Table of Contents -->
 
+			
+			
 			<p>更多内容查看<a href="https://docs.scipy.org/doc/numpy/reference/routines.random.html" target="_blank" rel="noopener">这里</a></p>
 <h2 id="Simple-random-data-常用随机函数"><a href="#Simple-random-data-常用随机函数" class="headerlink" title="Simple random data | 常用随机函数"></a>Simple random data | 常用随机函数</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br></pre></td></tr></table></figure>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># rand(d0, d1, …, dn)</span></span><br><span class="line"><span class="comment"># random values in a given shape</span></span><br><span class="line">np.random.rand(<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
@@ -1171,6 +1278,7 @@ Please use alternatives such as official/mnist/dataset.py from tensorflow/models
 <pre><code>array([0.5488135 , 0.71518937, 0.60276338, 0.54488318, 0.4236548 ])
 </code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># get_state()</span></span><br><span class="line"><span class="comment"># return a tuple representing the internal state of the generator </span></span><br><span class="line"><span class="comment"># np.random.get_state()</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># set_state(state)</span></span><br><span class="line"><span class="comment"># set the interna state of the generator from a tuple</span></span><br></pre></td></tr></table></figure>
 
+			
 		  
 		</div>
 
@@ -1180,92 +1288,12 @@ Please use alternatives such as official/mnist/dataset.py from tensorflow/models
 		
 
 		<footer class="article-footer">
-		  <a data-url="https://www.blankspace.cn/2018/08/11/Numpy随机数/" data-id="cjkrybplj0002j8fijmdiujbc" class="article-share-link">
+		  <a data-url="https://www.blankspace.cn/2018/08/11/Numpy随机数/" data-id="cjksbev6l000728firsuhizio" class="article-share-link">
 			<i class="fa fa-share"></i> Share
 		  </a>
 		  
 		  
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="tags/Numpy/">Numpy</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="tags/random/">random</a></li></ul>
-
-
-		</footer>
-	  </div>
-	  
-	</article>
-
-	
-
-
-
-		
-
-
-	  
-		<article id="post-emoji-text" class="article article-type-post" itemscope itemprop="blogPost">
-	
-
-
-	    <header class="article-header">
-		
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="2018/08/10/emoji-text/">Emoji</a>
-    </h1>
-  
-
-
-			
-		
-		<div class="article-meta"> 
-			
-	  
-		   <div class="article-datetime">
-  <a href="2018/08/10/emoji-text/" class="article-date"><time datetime="2018-08-10T12:20:02.000Z" itemprop="datePublished">2018-08-10</time></a>
-</div>
-
-
-
-			
-			  
-			
-
- 
-			
-  <div class="article-category">
-    <a class="article-category-link" href="categories/Projects/">Projects</a> / <a class="article-category-link" href="categories/Projects/hexo-theme-bootstrap-blog/">hexo-theme-bootstrap-blog</a> / <a class="article-category-link" href="categories/Projects/hexo-theme-bootstrap-blog/Tutorial/">Tutorial</a>
-  </div>
-
-
-	    </div>
-	    </header>
-	    
-	  
-	  <div class="article-inner">
-		<div class="article-entry" itemprop="articleBody">
-		  
-		  
-			<!-- Table of Contents -->
-
-			<p>Input emoji with syntax <code>:smile:</code>.  Sad, it is failed.</p>
-<p>😂😁</p>
-<p>Use inputs(eg. MS default input) which can input emoji directly, this is the easiest way.</p>
-<p><a href="https://www.webfx.com/tools/emoji-cheat-sheet/" target="_blank" rel="noopener">Here</a> to know more.</p>
-
-		  
-		</div>
-
-		
-		  
-
-		
-
-		<footer class="article-footer">
-		  <a data-url="https://www.blankspace.cn/2018/08/10/emoji-text/" data-id="cjkrybpm3000kj8fibzpshr6e" class="article-share-link">
-			<i class="fa fa-share"></i> Share
-		  </a>
-		  
-		  
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="tags/Emoji/">Emoji</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="tags/Hexo/">Hexo</a></li></ul>
 
 
 		</footer>
@@ -1307,6 +1335,10 @@ function googleTranslateElementInit() {
     <ul class="sidebar-module-list">
       
         <li>
+          <a href="2018/08/13/activation-function/">Activation function</a>
+        </li>
+      
+        <li>
           <a href="2018/08/13/placeholder/">Placeholder</a>
         </li>
       
@@ -1320,10 +1352,6 @@ function googleTranslateElementInit() {
       
         <li>
           <a href="2018/08/12/Variable/">Variable</a>
-        </li>
-      
-        <li>
-          <a href="2018/08/12/Session/">Session</a>
         </li>
       
     </ul>
@@ -1342,7 +1370,7 @@ function googleTranslateElementInit() {
   
   <div class="sidebar-module">
     <h4>Categories</h4>
-    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="categories/Languages/">Languages</a><span class="sidebar-module-list-count">1</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="categories/Languages/Python/">Python</a><span class="sidebar-module-list-count">1</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="categories/Languages/Python/Numpy/">Numpy</a><span class="sidebar-module-list-count">1</span></li></ul></li></ul></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="categories/Machine-Learning/">Machine Learning</a><span class="sidebar-module-list-count">7</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="categories/Machine-Learning/TensorFlow/">TensorFlow</a><span class="sidebar-module-list-count">7</span></li></ul></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="categories/Projects/">Projects</a><span class="sidebar-module-list-count">18</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="categories/Projects/hexo-theme-bootstrap-blog/">hexo-theme-bootstrap-blog</a><span class="sidebar-module-list-count">18</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="categories/Projects/hexo-theme-bootstrap-blog/Tutorial/">Tutorial</a><span class="sidebar-module-list-count">18</span></li></ul></li></ul></li></ul>
+    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="categories/Languages/">Languages</a><span class="sidebar-module-list-count">1</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="categories/Languages/Python/">Python</a><span class="sidebar-module-list-count">1</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="categories/Languages/Python/Numpy/">Numpy</a><span class="sidebar-module-list-count">1</span></li></ul></li></ul></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="categories/Machine-Learning/">Machine Learning</a><span class="sidebar-module-list-count">8</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="categories/Machine-Learning/TensorFlow/">TensorFlow</a><span class="sidebar-module-list-count">8</span></li></ul></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="categories/Projects/">Projects</a><span class="sidebar-module-list-count">19</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="categories/Projects/hexo-theme-bootstrap-blog/">hexo-theme-bootstrap-blog</a><span class="sidebar-module-list-count">19</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="categories/Projects/hexo-theme-bootstrap-blog/Tutorial/">Tutorial</a><span class="sidebar-module-list-count">19</span></li></ul></li></ul></li></ul>
   </div>
 
 
@@ -1350,7 +1378,7 @@ function googleTranslateElementInit() {
   
   <div class="sidebar-module">
     <h4>Archives</h4>
-    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="archives/2018/08/">八月 2018</a><span class="sidebar-module-list-count">25</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="archives/2013/12/">十二月 2013</a><span class="sidebar-module-list-count">1</span></li></ul>
+    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="archives/2018/08/">八月 2018</a><span class="sidebar-module-list-count">27</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="archives/2013/12/">十二月 2013</a><span class="sidebar-module-list-count">1</span></li></ul>
   </div>
 
 

@@ -37,17 +37,6 @@
   </script>
   <link rel="stylesheet" href="../../../../css/styles.css">
   
-<!-- Google Analytics -->
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id='UA-122713769-1'"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-122713769-1');
-</script>
-
 
 
 
@@ -140,12 +129,15 @@
 		  
 			<!-- Table of Contents -->
 
+			
+			
 			<h3 id="解释"><a href="#解释" class="headerlink" title="解释"></a>解释</h3><p><strong>A placeholder is simply a variable that we will assign data to at a later date. It allows us to create our operations and build our computation graph, without needing the data.</strong></p>
 <p>顾名思义，占位符，没有数据先占位。是一种变量。之后按照<code>sess.run(***, feed_dict={input: **})</code>形式传输数据。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> tf.Graph().as_default(), tf.Session() <span class="keyword">as</span> sess:</span><br><span class="line">    x = tf.placeholder(tf.float32)</span><br><span class="line">    y = x**<span class="number">3</span></span><br><span class="line">    feed_dict = &#123;x:[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>]&#125;</span><br><span class="line">    print(sess.run(y, feed_dict=feed_dict))</span><br></pre></td></tr></table></figure>
 <pre><code>[ 1.  8. 27. 64.]
 </code></pre><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p><code>placeholder</code> 与 <code>feed_dict={}</code> 总是一起出现的。placeholder允许没有数据先占位创建计算图，运行时通过<code>feed_dict</code>传入数据。</p>
 
+			
 		  
 		</div>
 
@@ -155,7 +147,7 @@
 		
 
 		<footer class="article-footer">
-		  <a data-url="https://www.blankspace.cn/2018/08/13/placeholder/" data-id="cjkrybpmr001nj8fib8ya5049" class="article-share-link">
+		  <a data-url="https://www.blankspace.cn/2018/08/13/placeholder/" data-id="cjksbev8r001e28fisx3fdz11" class="article-share-link">
 			<i class="fa fa-share"></i> Share
 		  </a>
 		  
@@ -176,6 +168,13 @@
     </a>
   </li>
   
+  
+  <li role="presentation">
+    <a href="../activation-function/" id="article-nav-newer" class="article-nav-link-wrap">
+      <span class="article-nav-link-title">Activation function</span>
+      <i class="fa fa-chevron-right pull-right"></i>
+    </a>
+  </li>
   
 </ul>
 

@@ -571,13 +571,28 @@ code {
   background-color: #eeeeee;
   font-size: 80%;
 }
-.table-container .table-responsive{
-	background-color:#bee1ba;
+.table{
+	margin-bottom: 0px;
 }
 
 .table-responsive{
 	border-radius:4px;
 	background-color:#1C1E1F;
+}
+.table-container .table-responsive{
+	background-color:rgba(0, 0, 0, 0.0);
+	border-bottom: 2px solid #000000;
+	border-radius: 0px;
+	margin-bottom: 8px;
+}
+
+.table-container .table-responsive .table>thead>tr>th{
+	border-bottom: 2px solid #000000;
+	border-top: 3px solid #000000;
+}
+
+.table-container .table-responsive .table>thead>tr>td{
+	border-top: 1px dotted #ddd;
 }
 
 .fa { margin-right: 0.25em; }
@@ -1067,4 +1082,16 @@ span.ping-to-top{
 
 #site_search>input{
 	width: 100%;
+}
+
+.translate-article{
+	float: right;
+	margin-top: 30px;
+	line-height: 3px;
+	margin-left: 16px;
+	margin-right: 4px;
+}
+
+.translate-article .sidebar-module h4{
+	font-size:12px;
 }

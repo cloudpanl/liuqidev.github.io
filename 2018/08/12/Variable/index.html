@@ -37,17 +37,6 @@
   </script>
   <link rel="stylesheet" href="../../../../css/styles.css">
   
-<!-- Google Analytics -->
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id='UA-122713769-1'"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-122713769-1');
-</script>
-
 
 
 
@@ -140,6 +129,8 @@
 		  
 			<!-- Table of Contents -->
 
+			
+			
 			<p><a href="https://www.gushiwen.org/GuShiWen_dd05a84e30.aspx" target="_blank" rel="noopener">《庄子·天下》</a>中说“一尺之棰，日取其半，万世不竭。”使用TensorFlow来模拟这个过程。</p>
 <h3 id="Variable"><a href="#Variable" class="headerlink" title="Variable"></a>Variable</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 定义变量</span></span><br><span class="line">bar = tf.Variable(<span class="number">1.0</span>, name=<span class="string">"bar"</span>)</span><br><span class="line"></span><br><span class="line">two = tf.constant(<span class="number">2.0</span>) </span><br><span class="line">divided = tf.divide(bar, <span class="number">2.0</span>) <span class="comment"># 定义取半操作，这一步并没有直接计算</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 将bar更新为新的长度</span></span><br><span class="line">update = tf.assign(bar, divided)</span><br></pre></td></tr></table></figure>
 <h3 id="初始化变量"><a href="#初始化变量" class="headerlink" title="初始化变量"></a>初始化变量</h3><p><code>global_variables_initializer()</code></p>
@@ -159,6 +150,7 @@ day 9 len:  0.0009765625
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 高斯的故事之高斯求和TensorFlow实现</span></span><br><span class="line">s = tf.Variable(<span class="number">0</span>, name=<span class="string">"sum"</span>)</span><br><span class="line">number = tf.Variable(<span class="number">0</span>, name=<span class="string">"number"</span>)</span><br><span class="line">one = tf.constant(<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">new_number = tf.assign(number, tf.add(number, one))</span><br><span class="line">update = tf.assign(s, tf.add(s, new_number))</span><br><span class="line"></span><br><span class="line">init = tf.global_variables_initializer()</span><br><span class="line"></span><br><span class="line">sess = tf.Session()</span><br><span class="line">sess.run(init)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>, <span class="number">101</span>):</span><br><span class="line">    sess.run(update)</span><br><span class="line">print(sess.run(s))</span><br><span class="line"></span><br><span class="line">sess.close()</span><br></pre></td></tr></table></figure>
 <pre><code>5050
 </code></pre>
+			
 		  
 		</div>
 
@@ -168,7 +160,7 @@ day 9 len:  0.0009765625
 		
 
 		<footer class="article-footer">
-		  <a data-url="https://www.blankspace.cn/2018/08/12/Variable/" data-id="cjkrybplq0006j8fi8d0oomdq" class="article-share-link">
+		  <a data-url="https://www.blankspace.cn/2018/08/12/Variable/" data-id="cjksbev8o001928ficg00qtdx" class="article-share-link">
 			<i class="fa fa-share"></i> Share
 		  </a>
 		  
