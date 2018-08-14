@@ -88,6 +88,196 @@
 	
 	
 	  
+		<article id="post-MathJax-basic-tutorial" class="article article-type-post" itemscope itemprop="blogPost">
+	
+
+
+	    <header class="article-header">
+		
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="2018/08/14/MathJax-basic-tutorial/">(no title)</a>
+    </h1>
+  
+
+
+			
+		
+		<div class="article-meta"> 
+			
+	  
+		   <div class="article-datetime">
+  <a href="2018/08/14/MathJax-basic-tutorial/" class="article-date"><time datetime="2018-08-14T10:55:15.229Z" itemprop="datePublished">2018-08-14</time></a>
+</div>
+
+
+
+			
+			  
+			
+
+ 
+			
+
+	    </div>
+	    </header>
+	    
+	  
+	  <div class="article-inner">
+		<div class="article-entry" itemprop="articleBody">
+		  
+			<p>更多内容，请看<a href="https://math.meta.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference?page=2&amp;tab=votes#tab-top" target="_blank" rel="noopener">这里</a>.本文是本人对其中部分的翻译，若有疏漏，还请联系作者更正。</p>
+<p>(德语版本: <a href="https://www.mathelounge.de/509545/mathjax-latex-basic-tutorial-und-referenz-deutsch" target="_blank" rel="noopener">Deutsch: MathJax: LaTeX Basic Tutorial und Referenz</a>)</p>
+<h2 id="基础部分"><a href="#基础部分" class="headerlink" title="基础部分"></a>基础部分</h2><ol>
+<li><p><strong>对于行内公式，使用<code>$...$</code>括起来。对于整行显示公式，使用<code>$$...$$</code>括起来。</strong></p>
+<p>比方说，键入<code>$\sum_{i=0}^n i^2 = \frac{(n^2+n)(2n+1)}{6}$</code>可以在一行内嵌入公式$\sum_{i=0}^n i^2 = \frac{(n^2+n)(2n+1)}{6}$ （这就是inline模式了），或者我们键入<code>$$\sum_{i=0}^n i^2 = \frac{(n^2+n)(2n+1)}{6}$$</code>就可以显示：</p>
+<script type="math/tex; mode=display">
+\sum_{i=0}^n i^2 = \frac{(n^2+n)(2n+1)}{6}</script><p>（这就是display模式了）。</p>
+</li>
+<li><p>对于<strong>希腊字母</strong>，使用诸如<code>\alpha</code>, <code>\beta</code>, …, <code>\omega</code> :$\alpha, \beta, …, \omega$.大写希腊字母，使用诸如<code>\Alpha</code>,<code>\Beta</code>,<code>\Gamma</code>, <code>\Delta</code>, …, <code>\Omega</code>:  $\Alpha, \Beta, \Gamma, \Delta, …, \Omega$.</p>
+</li>
+<li><p>对于<strong>上标还有下标</strong>，使用<code>^</code>和<code>_</code>.比如<code>x_i^2</code>:$x_i^2 $,<code>\log_2 x</code>:$\log_2 x$.</p>
+</li>
+<li><p><strong>组（Group）</strong>.被一对<code>{</code>…<code>}</code>包裹的部分就是一个组，里面可以是一个单一的字符，也可以是一串公式。比如输入<code>10^10</code>,得到的是$10^10$,而不是我们想要的<code>10^{10}</code>:$10^{10}$.使用花括号来对公式进行划界，否则例如:<code>x^5^6</code>就是一种错误的表示。<code>{x^y}^z</code>得到${x^y}^z$,而<code>x^{y^z}</code>得到$x^{y^z}$.还有比方说<code>x_i^2</code>:$x_i^2$,而<code>x_{i^2}</code>:$x_{i^2}$.</p>
+</li>
+<li><p><strong>括号</strong>。普通<code>()[]</code>分别生成圆括号和方括号。使用<code>\{</code>和<code>\}</code>来生成花括号：$\{ \}$.但是这样的括号并不能随着内部公式的高度来调整，所以写<code>(\frac{\sqrt x}{y^3})</code>时括号就显得有点装不下了$(\frac{\sqrt{x}}{y^3})$.使用<code>\left(</code>和<code>\right)</code>能使得括号根据括起来的公式自动调整<code>\left( \frac{\sqrt x)}{y^3} \right)</code>:$\left( \frac{\sqrt x)}{y^3} \right)$.</p>
+<p><code>\left</code>和<code>\right</code>可以应用于下列括号：<code>(</code>和<code>)</code>$\left(x \right)$, <code>[</code>和<code>]</code>$\left[ x \right]$. <code>\{</code>和<code>\}</code>，如<code>\left\{x\right\}</code>, $\left\{x\right\}$. <code>|</code>如<code>\left| x \right|</code>$\left| x \right|$, <code>\vert</code>$\left\vert x \right\vert$,<code>\Vert</code>$\left\Vert x \right\Vert$, <code>\langle</code>和<code>\rangle</code>$\left\langle x \right\rangle$, <code>\lcei;</code>和<code>\rceil</code>$\left\lceil x \right\rceil$, <code>\lfloor</code>和<code>\rfloor</code>$\left\lfloor x \right\rfloor$, <code>\middle</code>可以用了增加额外的分界。此外有隐藏括号，用<code>.</code>来标记: <code>\left.\frac12\right\rbrace</code>显示$\left.\frac12\right\rbrace$.</p>
+<p>手动调整括号大小<code>\Biggl(\biggl(\Bigl(\bigl(x\bigr)\Bigr)\biggl)\Biggl)</code>显示为：$\Biggl(\biggl(\Bigl(\bigl(x\bigr)\Bigr)\biggl)\Biggl)$.</p>
+</li>
+<li><p><strong>和与积分（sum and integral）</strong><code>\sum</code>与<code>\int</code>表示; 上标为上界，下标为下界，所以例如<code>\sum_x^n</code>$\sum_1^n$.若界超过一个字符表示，不要忘记使用<code>{</code>…<code>}</code>, 例如<code>\sum_{i=0}^\infty i^2</code>$\sum_{i=0}^\infty i^2$. 类似的还有累乘<code>\prod</code>$\prod$, 积分<code>\int</code>$\int$, 并集<code>\bigcup</code>$\bigcup$, 交集<code>\bigcap</code>$\bigcap$, 二重积分<code>\iint</code>$\iint$, 三重积分<code>\iiint</code>$\iiint$.</p>
+</li>
+<li><p><strong>分数（fraction）</strong>，<a href="https://math.meta.stackexchange.com/q/12978/3111" target="_blank" rel="noopener">创建分数的三种方法</a>. <code>\frac ab</code>得到$\frac ab$;对于更复杂分子和分母使用<code>{</code>…<code>}</code>: <code>\frac{a+1}{b+1}</code>$\frac{a+1}{b+1}$. 如果分数分子分母实在是复杂，我们可能会使用<code>\over</code>，将一个组分开：<code>{a+1 \over b+1}</code>${a+1 \over b+1}$. 对于连续的多个分数<code>\cfrac{a}{b}</code>$\cfrac{a}{b}$能派上用场。更多细节，见[后文]。</p>
+</li>
+<li><p><strong>字体</strong></p>
+<ul>
+<li><p>“Blackboard bold”,使用<code>\mathbb</code>或者<code>Bbb</code>：$\Bbb{ABCDEFGHIJKLMNOPQRSTUVWXYZ}$$\mathbb{abcdefghijklmnopqrstuvwxyz} $</p>
+</li>
+<li><p>“Boldface”,使用<code>\mathbf</code>：$\mathbf {ABCDEFGHIJKLMNOPQRSTUVWXYZ}$$\mathbf {abcdefghijklmnopqrstuvwxyz} $</p>
+</li>
+<li><p>“Typewriter”(打字机体),使用<code>\mathtt</code>：$\mathtt {ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZ}$$\mathtt{abcdefghijklmnopqrstuvwxyz}$</p>
+</li>
+<li><p>“Roman”(罗马体), 使用<code>\mathrm</code>: $\mathrm ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZ  $$\mathrm{abcdefghijklmnopqrstuvwxyz}$</p>
+</li>
+<li><p>“Sans-serif”, 使用<code>\mathsf</code>:$\mathsf {ABCDEFGHIJKLMNOPQRSTUVWXYZ}$$\mathsf abcdefghijklmnopqrstuvwxyz $</p>
+</li>
+<li><p>“Calligraphic”, 使用<code>\mathcal</code>:$\mathcal {ABCDEFGHIJKLMNOPQRSTUVWXYZ }$</p>
+</li>
+<li><p>“Script”(手写体), 使用<code>\mathscr</code>: $\mathscr {ABCDEFGHIJKLMNOPQRSTUVWXYZ}  $</p>
+</li>
+<li><p>“Fraktur”(古德语体), 使用<code>\mathfrak</code>: </p>
+<p>$\mathfrak{ABCDEFGHIJKLMNOPQRSTUVWXYZ  }$$\mathfrak {abcdefghijklmnopqrstuvwxyz} $</p>
+</li>
+</ul>
+</li>
+<li><p><strong>开方</strong>，<code>\sqrt</code>,能根据根号内容调整：<code>\sqrt{x^3}</code>$\sqrt{x^3}$;$\sqrt[3]{\frac xy}$.对于更复杂的表达使用如<code>{...}^{1/2}</code>表示，${x}^{1/2}$和$\sqrt{x}$一样.</p>
+</li>
+<li><p><strong>特殊的函数</strong>，诸如，极限“lim”, 正弦“sin”, 最大值“max”, 自然对数”ln”等通常以罗马字体代替斜体来显示。比如使用<code>\lim</code>,<code>\sin</code>等，来显示<code>\sin</code>$\sin x$, 而不是<code>sin x</code>$sin x$.使用下标来对<code>\lim</code>进行标注：<code>\lim_{x\to0}</code>显示$\lim_{x\to0}$.</p>
+</li>
+<li><p>此外有很多的<strong>特别的标记符号</strong>，部分符号列表参考<a href="https://pic.plover.com/MISC/symbols.pdf" target="_blank" rel="noopener">这里</a>，完整的符号列表参考<a href="https://www.ctan.org/tex-archive/info/symbols/comprehensive/symbols-a4.pdf" target="_blank" rel="noopener">这里</a>.最常用的如下：</p>
+<ul>
+<li><strong>比较</strong>，<code>\lt \gt \le \leq \leqq \leqslant \ge \geq \geqq\geqslant \neq</code>$\lt \gt \le \leq \leqq \leqslant \ge \geq \geqq\geqslant \neq$. 可以使用<code>\not</code>给任何符号加上一道斜线<code>\not\lt</code>$\not\lt$, 通常这样效果并不佳。</li>
+<li><code>+ - \times \div \pm \mp</code>$+-\times \div \pm \mp $.<code>\cdot</code>中心点，$x\cdot y$</li>
+<li><strong>集合</strong>，<code>\cup \cap \setminus \subset \subseteq \subsetneq \supset \in \notin \emptyset \varnothing</code>, $\cup \cap \setminus \subset \subseteq \subsetneq \supset \in \notin \emptyset \varnothing $</li>
+<li><code>{n+1 \choose 2k}</code>或<code>\binom{n+1}{2k}</code>$\binom{n+1}{2k} $</li>
+<li><strong>箭头</strong>，<code>\to \rightarrow \leftarrow \Rightarrow \Leftarrow \mapsto</code>$\to \rightarrow \leftarrow \Rightarrow \Leftarrow \mapsto $</li>
+<li><strong>逻辑</strong>，<code>\land \lor \lnot \forall \exists \top \bot \vdash \vDash</code>$\land \lor \lnot \forall \exists \top \bot \vdash \vDash $</li>
+<li><strong>形状</strong>，<code>\star \ast \oplus \circ \bullet</code>$\star \ast \oplus \circ \bullet $</li>
+<li><code>\approx \sim \simeq \cong \equiv \prec \lhd</code>$\approx \sim \simeq \cong \equiv \prec \lhd $</li>
+<li><code>\infty \aleph_0</code>$\infty \aleph_0 $<code>\nabla \partial</code>$\nabla \partial$<code>\Im \Re</code>$\Im \Re$</li>
+<li>对于取模相等使用<code>\pmod</code>例如：<code>a\equiv b\pmod n</code>$a\equiv b\pmod n$</li>
+<li>$a_1, a_2, \ldots a_n$使用<code>\ldots</code>; $a_1+a_2+\cdots+a_n$使用<code>\cdots</code></li>
+<li>一些希腊字母有多种形式：比如<code>\epsilon</code>和<code>\varepsilon</code>$\epsilon \varepsilon$, <code>\phi \varphi</code>$\phi \varphi$,等。手写体小写字母l<code>\ell</code>$\ell$</li>
+</ul>
+<p><a href="http://detexify.kirelabs.org/classify.html" target="_blank" rel="noopener">Detexif</a>能将你所绘制的图形识别成与之接近的$\TeX$符号。此外更多详情欢迎查看MathJax.org以及<a href="http://docs.mathjax.org/en/latest/tex.html#supported-latex-commands" target="_blank" rel="noopener"> list of currently supported $\LaTeX$ commands </a>和<a href="http://www.onemathematicalcat.org/MathJaxDocumentation/TeXSyntax.htm" target="_blank" rel="noopener">$\TeX$Commands Available in MathJax</a>.</p>
+</li>
+<li><p><strong>空格</strong>。在公式之间添加更多的空格数，不会增加显示的空格宽度，<code>a b</code>和<code>a        b</code>都会显示$a        b$.增加更多空格：<code>\,</code>增加小空格$a\,b$;<code>\;</code>增加更宽一点的空格$a\;b$;更宽的空格使用<code>\quad</code>$a\quad b$和<code>\qquad</code>$a\qquad b$.</p>
+<p>增加纯文本，使用<code>\text{...}</code>:$\left\{ x\in s| \text{ x is exatra large}\right\}$.在<code>\text{...}</code>中亦可使用<code>$...$</code>.</p>
+</li>
+<li><p><strong>音标和变音符号</strong>，<code>\hat</code>对单个标记加<code>...帽</code>，对公式加<code>帽</code>使用<code>\widehat</code>$\widehat{xyz}$,不过如果太宽的话看起来就有点<code>哈巴</code>了。类似的<code>\bar</code>$\bar{x}$, <code>\overline</code>$\overline{xyz}$, <code>\vec</code>$\vec x$以及<code>\overrightarrow$\overrightarrow{xyz}$</code>还有<code>\overleftrightarrow</code>$\overleftrightarrow{xyz}$. 对于点符号，例如$\frac{d}{dx}x\dot x=\dot x^2+x\ddot x$分别使用的是<code>\dot</code>和<code>\ddot</code>.</p>
+</li>
+<li><p><strong>特殊符号转义</strong>，使用<code>\</code>转义符：<code>\$</code>$$$, <code>\{</code>$\{$, <code>\_</code>$_$等。假如我们想要输出<code>\</code>符号本身，使用<code>\backslash</code>$\backslash$，而<code>\\</code>被用于创建新的一行。</p>
+</li>
+</ol>
+<h2 id="矩阵"><a href="#矩阵" class="headerlink" title="矩阵"></a>矩阵</h2><ol>
+<li><p>使用<code>\begin{matrix}...\end{matrix}</code>表示矩阵。在<code>\begin</code>和<code>\end</code>之间放置矩阵元素。矩阵每一行用<code>\\</code>分隔，元素之间使用<code>&amp;</code>来分隔。例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$$</span><br><span class="line">    \begin&#123;matrix&#125;</span><br><span class="line">    1 &amp; x &amp; x^2 \\</span><br><span class="line">    4 &amp; y &amp; y^2 \\</span><br><span class="line">    7 &amp; z &amp; z^2 \\</span><br><span class="line">    \end&#123;matrix&#125;</span><br><span class="line">$$</span><br></pre></td></tr></table></figure>
+<p>得到：</p>
+</li>
+</ol>
+<script type="math/tex; mode=display">
+\begin{matrix}
+   1&x&x^2\\
+   4&y&y^2\\
+   7&z&z^2\\
+   \end{matrix}</script><p>​    MathJax能够自动调整行和列的大小来自适应。</p>
+<ol>
+<li><p><strong>给矩阵增加括号</strong>使用上一节中的第5部分，或者将<code>matrix</code>替换成<code>pmatrix</code>$\begin{pmatrix}1&amp;2\\3&amp;4\\ \end{pmatrix}$, <code>bmatrix</code>$\begin{bmatrix}1&amp;2\\3&amp;4\\ \end{bmatrix}$, <code>Bmatrix</code>$\begin{Bmatrix}1&amp;2\\3&amp;4\\ \end{Bmatrix}$, <code>vmatrix</code>$\begin{vmatrix}1&amp;2\\3&amp;4\\ \end{vmatrix}$, <code>Vmatrix</code>$\begin{Vmatrix}1&amp;2\\3&amp;4\\ \end{Vmatrix}$.</p>
+</li>
+<li><p>使用<code>\cdots</code>$\cdots$, <code>\ddots</code>$\ddots$, <code>\vdots</code>$\vdots$, 来表示矩阵中被忽略的条目:</p>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="formula">$$</span></span><br><span class="line"><span class="formula"><span class="tag">\<span class="name">begin</span><span class="string">&#123;pmatrix&#125;</span></span></span></span><br><span class="line"><span class="formula">1&amp;a_1&amp;a_1^2&amp;<span class="tag">\<span class="name">cdots</span></span>&amp;a_1^n<span class="tag">\<span class="name">\</span></span></span></span><br><span class="line"><span class="formula">1&amp;a_2&amp;a_2^2&amp;<span class="tag">\<span class="name">cdots</span></span>&amp;a_2^n<span class="tag">\<span class="name">\</span></span></span></span><br><span class="line"><span class="formula"><span class="tag">\<span class="name">vdots</span></span>&amp;<span class="tag">\<span class="name">vdots</span></span>&amp;<span class="tag">\<span class="name">vodts</span></span>&amp;ddots&amp;<span class="tag">\<span class="name">vdots</span></span><span class="tag">\<span class="name">\</span></span></span></span><br><span class="line"><span class="formula">1&amp;a_m&amp;a_m^2&amp;<span class="tag">\<span class="name">cdots</span></span>&amp;a_m^n<span class="tag">\<span class="name">\</span></span></span></span><br><span class="line"><span class="formula"><span class="tag">\<span class="name">end</span><span class="string">&#123;pmatrix&#125;</span></span></span></span><br><span class="line"><span class="formula">$$</span></span><br></pre></td></tr></table></figure>
+<script type="math/tex; mode=display">
+\begin{pmatrix}
+1&a_1&a_1^2&\cdots&a_1^n\\
+1&a_2&a_2^2&\cdots&a_2^n\\
+\vdots&\vdots&\vdots&\ddots&\vdots\\
+1&a_m&a_m^2&\cdots&a_m^n\\
+\end{pmatrix}</script></li>
+</ol>
+<ol>
+<li><p>对于水平方向“增广“矩阵，用方括号或者圆括号将与之对应格式的表格括起来；详情见后文的<a href="_">数组</a>一节。举例如下：</p>
+<script type="math/tex; mode=display">
+\left[
+\begin{array}{cc|c}
+1&2&3\\
+4&5&6
+\end{array}
+\right]</script><p>表达式为:</p>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="formula">$$</span></span><br><span class="line"><span class="formula"><span class="tag">\<span class="name">left</span><span class="string">[</span></span></span></span><br><span class="line"><span class="formula"><span class="tag"><span class="string">\begin&#123;array&#125;&#123;cc|c&#125;</span></span></span></span><br><span class="line"><span class="formula"><span class="tag"><span class="string">1&amp;2&amp;3\\</span></span></span></span><br><span class="line"><span class="formula"><span class="tag"><span class="string">4&amp;5&amp;6</span></span></span></span><br><span class="line"><span class="formula"><span class="tag"><span class="string">\end&#123;array&#125;</span></span></span></span><br><span class="line"><span class="formula"><span class="tag"><span class="string">\right]</span></span></span></span><br><span class="line"><span class="formula">$$</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>对于垂直方向的“增广”矩阵，使用<code>\hline</code>，例如：</p>
+<script type="math/tex; mode=display">
+\begin{pmatrix}
+a&b\\
+c&d\\
+\hline
+1&0\\
+0&1
+\end{pmatrix}</script><p>表达式为:</p>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="formula">$$</span></span><br><span class="line"><span class="formula"><span class="tag">\<span class="name">begin</span><span class="string">&#123;pmatrix&#125;</span></span></span></span><br><span class="line"><span class="formula">a&amp;b<span class="tag">\<span class="name">\</span></span></span></span><br><span class="line"><span class="formula">c&amp;d<span class="tag">\<span class="name">\</span></span></span></span><br><span class="line"><span class="formula"><span class="tag">\<span class="name">hline</span></span></span></span><br><span class="line"><span class="formula">1&amp;0<span class="tag">\<span class="name">\</span></span></span></span><br><span class="line"><span class="formula">0&amp;1</span></span><br><span class="line"><span class="formula"><span class="tag">\<span class="name">end</span><span class="string">&#123;pmatrix&#125;</span></span></span></span><br><span class="line"><span class="formula">$$</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>对于小行内矩阵，使用<code>\bigl(\begin{smallmatrix}...\end{smallmatrix}\bigr)</code>, 例如：<code>\bigl(\begin{smallmatrix}a&amp;b\\c&amp;d\end{smallmatrix}\bigr)</code>$\bigl(\begin{smallmatrix}a&amp;b\\c&amp;d\end{smallmatrix}\bigr)$.</p>
+</li>
+</ol>
+			
+			  <p class="article-more-link">
+				<a class="btn btn-primary" href="2018/08/14/MathJax-basic-tutorial/#more">Read more...</a>
+			  </p>
+			
+		  
+		</div>
+
+		
+
+		<footer class="article-footer">
+		  <a data-url="https://www.blankspace.cn/2018/08/14/MathJax-basic-tutorial/" data-id="cjktlggxu0007aofifin5sv7p" class="article-share-link">
+			<i class="fa fa-share"></i> Share
+		  </a>
+		  
+		  
+
+		</footer>
+	  </div>
+	  
+	</article>
+
+	
+
+
+
+		
+
+
+	  
 		<article id="post-activation-function" class="article article-type-post" itemscope itemprop="blogPost">
 	
 
@@ -133,9 +323,9 @@
 			<p>Activation function（激活函数），是一类非线性函数，与之对应的就是线性函数。线性函数就是一条直线，形式化表示就是：</p>
 <script type="math/tex; mode=display">
 y=mx+b</script><p>$m$是直线的斜率，$y$通常是预测的值，$x$是输入的特征值，$b$是$y$轴的截距。</p>
-<p>由于现实世界的复杂性，输入特征和预测之间的关系通常不是简单的线性关系，换言之就是非线性关系。然后就发现和一些非线性函数，满足一定得性质（这个得看人家的论文），通过非线性函数多层的组合，可以来拟合非常复杂的非线性函数。</p>
-<p>更过关于激活函数的介绍，<a href="https://en.wikipedia.org/wiki/Activation_function" target="_blank" rel="noopener">这里</a>.</p>
-<p>TensorFlow中更多激活函数，<a href="https://www.tensorflow.org/api_guides/python/nn#Activation_Functions" target="_blank" rel="noopener">Activation Function</a></p>
+<p>由于现实世界的复杂性，输入特征和预测之间的关系通常不是简单的线性关系，换言之就是非线性关系。然后就发现一些非线性函数，满足一定的性质（这个得看人家的论文），通过非线性函数多层的组合，可以来拟合非常复杂的非线性函数。</p>
+<p>更过关于激活函数的介绍，请看<a href="https://en.wikipedia.org/wiki/Activation_function" target="_blank" rel="noopener">这里</a>.</p>
+<p>TensorFlow中更多激活函数，请看<a href="https://www.tensorflow.org/api_guides/python/nn#Activation_Functions" target="_blank" rel="noopener">TensorFlow Activation Function</a>.</p>
 <h3 id="Binary-step"><a href="#Binary-step" class="headerlink" title="Binary step"></a>Binary step</h3><script type="math/tex; mode=display">
 f(x) =
 \begin{cases}
@@ -152,8 +342,8 @@ x, & \text{for x $\geq$ 0}
 f(x)=\sigma{(x)} = \frac{1}{1+e^{-x}}</script><h3 id="TanH"><a href="#TanH" class="headerlink" title="TanH"></a>TanH</h3><script type="math/tex; mode=display">
 f(x)= \tanh{(x)}= \frac{e^{x}-e^{-x}}{e^{x}+e^{-x}}</script><h3 id="Softplus"><a href="#Softplus" class="headerlink" title="Softplus"></a>Softplus</h3><script type="math/tex; mode=display">
 f(x)= \ln{(1+e^x)}</script><h3 id="Softmax"><a href="#Softmax" class="headerlink" title="Softmax"></a>Softmax</h3><script type="math/tex; mode=display">
-f_{i}(x)= \frac{e^x_{i}}{\sum_{j=1}^{J}e^{e^i}}</script><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf <span class="comment"># machine learning framwork</span></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np <span class="comment"># scientific computation</span></span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt <span class="comment"># data visualization</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> tf.Graph().as_default(), tf.Session() <span class="keyword">as</span> sess:</span><br><span class="line">    x_data = np.linspace(<span class="number">-6</span>, <span class="number">6</span>, <span class="number">256</span>)</span><br><span class="line"></span><br><span class="line">    y_relu = tf.nn.relu(x_data)</span><br><span class="line">    y_sigmoid = tf.nn.sigmoid(x_data)</span><br><span class="line">    y_tanh = tf.nn.tanh(x_data)</span><br><span class="line">    y_softplus = tf.nn.softplus(x_data)</span><br><span class="line">    y_softmax = tf.nn.softmax(x_data) <span class="comment"># softmax is a special kind of activation function, it is about probablity</span></span><br><span class="line"></span><br><span class="line">    y_relu, y_sigmoid, y_tanh, y_softplus, y_softmax = sess.run([y_relu, y_sigmoid, y_tanh, y_softplus, y_softmax])</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># plot</span></span><br><span class="line">    fig = plt.figure(<span class="number">1</span>, figsize=(<span class="number">8</span>, <span class="number">6</span>))</span><br><span class="line">    plt.subplot(<span class="number">221</span>)</span><br><span class="line">    plt.plot(x_data, y_relu, c=<span class="string">'red'</span>, label=<span class="string">'relu'</span>)</span><br><span class="line">    plt.ylim(<span class="number">-1</span>, <span class="number">6</span>)</span><br><span class="line">    plt.legend(loc=<span class="string">'best'</span>)</span><br><span class="line">    </span><br><span class="line">    plt.subplot(<span class="number">222</span>)</span><br><span class="line">    plt.plot(x_data, y_sigmoid, c=<span class="string">'green'</span>, label=<span class="string">'sigmoid'</span>)</span><br><span class="line">    plt.ylim(<span class="number">-0.3</span>, <span class="number">1.5</span>)</span><br><span class="line">    plt.legend(loc=<span class="string">'best'</span>)</span><br><span class="line">    </span><br><span class="line">    plt.subplot(<span class="number">223</span>)</span><br><span class="line">    plt.plot(x_data, y_tanh, c=<span class="string">'blue'</span>, label=<span class="string">'tanh'</span>)</span><br><span class="line">    plt.ylim(<span class="number">-1.2</span>, <span class="number">1.2</span>)</span><br><span class="line">    plt.legend(loc=<span class="string">'best'</span>)</span><br><span class="line">    </span><br><span class="line">    plt.subplot(<span class="number">224</span>)</span><br><span class="line">    plt.plot(x_data, y_softplus, c=<span class="string">'yellow'</span>, label=<span class="string">'softplus'</span>)</span><br><span class="line">    plt.ylim(<span class="number">-0.3</span>, <span class="number">6</span>)</span><br><span class="line">    plt.legend(loc=<span class="string">'best'</span>)</span><br><span class="line">    </span><br><span class="line">    plt.show()</span><br></pre></td></tr></table></figure>
-<p><img src="/2018/08/13/activation-function/output_1_0.png" alt="png"></p>
+f_{i}(x)= \frac{e^{x_{i}}}{\sum_{j=1}^{J}e^{x_j}}</script><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf <span class="comment"># machine learning framwork</span></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np <span class="comment"># scientific computation</span></span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt <span class="comment"># data visualization</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> tf.Graph().as_default(), tf.Session() <span class="keyword">as</span> sess:</span><br><span class="line">    x_data = np.linspace(<span class="number">-6</span>, <span class="number">6</span>, <span class="number">256</span>)</span><br><span class="line"></span><br><span class="line">    y_relu = tf.nn.relu(x_data)</span><br><span class="line">    y_sigmoid = tf.nn.sigmoid(x_data)</span><br><span class="line">    y_tanh = tf.nn.tanh(x_data)</span><br><span class="line">    y_softplus = tf.nn.softplus(x_data)</span><br><span class="line">    y_softmax = tf.nn.softmax(x_data) <span class="comment"># softmax is a special kind of activation function, it is about probablity</span></span><br><span class="line"></span><br><span class="line">    y_relu, y_sigmoid, y_tanh, y_softplus, y_softmax = sess.run([y_relu, y_sigmoid, y_tanh, y_softplus, y_softmax])</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># plot</span></span><br><span class="line">    fig = plt.figure(<span class="number">1</span>, figsize=(<span class="number">8</span>, <span class="number">6</span>))</span><br><span class="line">    plt.subplot(<span class="number">221</span>)</span><br><span class="line">    plt.plot(x_data, y_relu, c=<span class="string">'red'</span>, label=<span class="string">'relu'</span>)</span><br><span class="line">    plt.ylim(<span class="number">-1</span>, <span class="number">6</span>)</span><br><span class="line">    plt.legend(loc=<span class="string">'best'</span>)</span><br><span class="line">    </span><br><span class="line">    plt.subplot(<span class="number">222</span>)</span><br><span class="line">    plt.plot(x_data, y_sigmoid, c=<span class="string">'green'</span>, label=<span class="string">'sigmoid'</span>)</span><br><span class="line">    plt.ylim(<span class="number">-0.3</span>, <span class="number">1.5</span>)</span><br><span class="line">    plt.legend(loc=<span class="string">'best'</span>)</span><br><span class="line">    </span><br><span class="line">    plt.subplot(<span class="number">223</span>)</span><br><span class="line">    plt.plot(x_data, y_tanh, c=<span class="string">'blue'</span>, label=<span class="string">'tanh'</span>)</span><br><span class="line">    plt.ylim(<span class="number">-1.2</span>, <span class="number">1.2</span>)</span><br><span class="line">    plt.legend(loc=<span class="string">'best'</span>)</span><br><span class="line">    </span><br><span class="line">    plt.subplot(<span class="number">224</span>)</span><br><span class="line">    plt.plot(x_data, y_softplus, c=<span class="string">'yellow'</span>, label=<span class="string">'softplus'</span>)</span><br><span class="line">    plt.ylim(<span class="number">-0.3</span>, <span class="number">6</span>)</span><br><span class="line">    plt.legend(loc=<span class="string">'best'</span>)</span><br><span class="line">    </span><br><span class="line">    plt.show()</span><br></pre></td></tr></table></figure>
+<p><img src="/2018/08/13/activation-function/output_1_0.png" alt="Activation Functions-1"></p>
 			
 			  <p class="article-more-link">
 				<a class="btn btn-primary" href="2018/08/13/activation-function/#more">Read more...</a>
@@ -165,7 +355,7 @@ f_{i}(x)= \frac{e^x_{i}}{\sum_{j=1}^{J}e^{e^i}}</script><figure class="highlight
 		
 
 		<footer class="article-footer">
-		  <a data-url="https://www.blankspace.cn/2018/08/13/activation-function/" data-id="cjksbev80000b28fiymxap882" class="article-share-link">
+		  <a data-url="https://www.blankspace.cn/2018/08/13/activation-function/" data-id="cjktlggy6000jaofi394h3iv7" class="article-share-link">
 			<i class="fa fa-share"></i> Share
 		  </a>
 		  
@@ -249,7 +439,7 @@ f_{i}(x)= \frac{e^x_{i}}{\sum_{j=1}^{J}e^{e^i}}</script><figure class="highlight
 		
 
 		<footer class="article-footer">
-		  <a data-url="https://www.blankspace.cn/2018/08/13/placeholder/" data-id="cjksbev8r001e28fisx3fdz11" class="article-share-link">
+		  <a data-url="https://www.blankspace.cn/2018/08/13/placeholder/" data-id="cjktlggz6001uaofipv4msdqc" class="article-share-link">
 			<i class="fa fa-share"></i> Share
 		  </a>
 		  
@@ -471,7 +661,7 @@ Reshaped matrix (3x2x2)
 		
 
 		<footer class="article-footer">
-		  <a data-url="https://www.blankspace.cn/2018/08/13/Tensor-Control/" data-id="cjksbev6e000228fij96hfuff" class="article-share-link">
+		  <a data-url="https://www.blankspace.cn/2018/08/13/Tensor-Control/" data-id="cjktlggxw0009aofiqebjkapa" class="article-share-link">
 			<i class="fa fa-share"></i> Share
 		  </a>
 		  
@@ -564,7 +754,7 @@ p=\frac{a+b+c}{2}</script><p>相关<a href="https://www.tensorflow.org/api_docs/
 		
 
 		<footer class="article-footer">
-		  <a data-url="https://www.blankspace.cn/2018/08/13/Tensor/" data-id="cjksbev6j000528fiq3pb7n34" class="article-share-link">
+		  <a data-url="https://www.blankspace.cn/2018/08/13/Tensor/" data-id="cjktlggy1000daofi2pxf9log" class="article-share-link">
 			<i class="fa fa-share"></i> Share
 		  </a>
 		  
@@ -661,7 +851,7 @@ day 9 len:  0.0009765625
 		
 
 		<footer class="article-footer">
-		  <a data-url="https://www.blankspace.cn/2018/08/12/Variable/" data-id="cjksbev8o001928ficg00qtdx" class="article-share-link">
+		  <a data-url="https://www.blankspace.cn/2018/08/12/Variable/" data-id="cjktlggy2000eaofiksomjcnh" class="article-share-link">
 			<i class="fa fa-share"></i> Share
 		  </a>
 		  
@@ -793,7 +983,7 @@ b&#39;Hello, world!&#39;
 		
 
 		<footer class="article-footer">
-		  <a data-url="https://www.blankspace.cn/2018/08/12/Session/" data-id="cjksbev69000128fi9eb8hqfp" class="article-share-link">
+		  <a data-url="https://www.blankspace.cn/2018/08/12/Session/" data-id="cjktlggxx000aaofioxnjif9t" class="article-share-link">
 			<i class="fa fa-share"></i> Share
 		  </a>
 		  
@@ -878,7 +1068,7 @@ b&#39;Hello, world!&#39;
 		
 
 		<footer class="article-footer">
-		  <a data-url="https://www.blankspace.cn/2018/08/12/MNIST-pros/" data-id="cjksbev86000g28fic81qjpfm" class="article-share-link">
+		  <a data-url="https://www.blankspace.cn/2018/08/12/MNIST-pros/" data-id="cjktlggxk0001aofirylbav60" class="article-share-link">
 			<i class="fa fa-share"></i> Share
 		  </a>
 		  
@@ -1020,7 +1210,7 @@ Please use alternatives such as official/mnist/dataset.py from tensorflow/models
 		
 
 		<footer class="article-footer">
-		  <a data-url="https://www.blankspace.cn/2018/08/11/TensorFlow-tutorial-mnist-beginners/" data-id="cjksbev6k000628fikyhba51w" class="article-share-link">
+		  <a data-url="https://www.blankspace.cn/2018/08/11/TensorFlow-tutorial-mnist-beginners/" data-id="cjktlggy4000haofi0o4n1vdb" class="article-share-link">
 			<i class="fa fa-share"></i> Share
 		  </a>
 		  
@@ -1099,201 +1289,12 @@ Please use alternatives such as official/mnist/dataset.py from tensorflow/models
 		
 
 		<footer class="article-footer">
-		  <a data-url="https://www.blankspace.cn/2018/08/11/code-hightlight/" data-id="cjksbev85000f28filp9t1hlv" class="article-share-link">
+		  <a data-url="https://www.blankspace.cn/2018/08/11/code-hightlight/" data-id="cjktlggya000paofi9eu1zc2t" class="article-share-link">
 			<i class="fa fa-share"></i> Share
 		  </a>
 		  
 		  
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="tags/Code/">Code</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="tags/Hexo/">Hexo</a></li></ul>
-
-
-		</footer>
-	  </div>
-	  
-	</article>
-
-	
-
-
-
-		
-
-
-	  
-		<article id="post-Numpy随机数" class="article article-type-post" itemscope itemprop="blogPost">
-	
-
-
-	    <header class="article-header">
-		
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="2018/08/11/Numpy随机数/">Numpy随机数1</a>
-    </h1>
-  
-
-
-			
-		
-		<div class="article-meta"> 
-			
-	  
-		   <div class="article-datetime">
-  <a href="2018/08/11/Numpy随机数/" class="article-date"><time datetime="2018-08-11T02:45:00.000Z" itemprop="datePublished">2018-08-11</time></a>
-</div>
-
-
-
-			
-			  
-			
-
- 
-			
-  <div class="article-category">
-    <a class="article-category-link" href="categories/Languages/">Languages</a> / <a class="article-category-link" href="categories/Languages/Python/">Python</a> / <a class="article-category-link" href="categories/Languages/Python/Numpy/">Numpy</a>
-  </div>
-
-
-	    </div>
-	    </header>
-	    
-	  
-	  <div class="article-inner">
-		<div class="article-entry" itemprop="articleBody">
-		  
-		  
-			<!-- Table of Contents -->
-
-			
-			
-			<p>更多内容查看<a href="https://docs.scipy.org/doc/numpy/reference/routines.random.html" target="_blank" rel="noopener">这里</a></p>
-<h2 id="Simple-random-data-常用随机函数"><a href="#Simple-random-data-常用随机函数" class="headerlink" title="Simple random data | 常用随机函数"></a>Simple random data | 常用随机函数</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># rand(d0, d1, …, dn)</span></span><br><span class="line"><span class="comment"># random values in a given shape</span></span><br><span class="line">np.random.rand(<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
-<pre><code>array([0.15771123])
-</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">np.random.rand(<span class="number">3</span>, <span class="number">4</span>)</span><br></pre></td></tr></table></figure>
-<pre><code>array([[0.17303082, 0.13546342, 0.96790769, 0.54289967],
-       [0.47752797, 0.3163813 , 0.33804729, 0.63760302],
-</code></pre><p>更多内容查看<a href="https://docs.scipy.org/doc/numpy/reference/routines.random.html" target="_blank" rel="noopener">这里</a></p>
-<h2 id="Simple-random-data-常用随机函数-1"><a href="#Simple-random-data-常用随机函数-1" class="headerlink" title="Simple random data | 常用随机函数"></a>Simple random data | 常用随机函数</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br></pre></td></tr></table></figure>
-<h3 id="rand-d0-d1-…-dn"><a href="#rand-d0-d1-…-dn" class="headerlink" title="rand(d0, d1, …, dn)"></a>rand(d0, d1, …, dn)</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># rand(d0, d1, …, dn)</span></span><br><span class="line"><span class="comment"># random values in a given shape</span></span><br><span class="line">np.random.rand(<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
-<pre><code>array([0.97299322])
-</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">np.random.rand(<span class="number">3</span>, <span class="number">4</span>)</span><br></pre></td></tr></table></figure>
-<pre><code>array([[0.81969546, 0.63076449, 0.70050141, 0.28701361],
-       [0.5909755 , 0.10265285, 0.03841936, 0.04747027],
-       [0.50586629, 0.33692611, 0.18006999, 0.37508064]])
-</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">np.random.rand(<span class="number">5</span>)</span><br></pre></td></tr></table></figure>
-<pre><code>array([0.4027442 , 0.29275407, 0.15175853, 0.76296697, 0.84970737])
-</code></pre><h3 id="正态分布随机数-randn-d0-d1-…-dn"><a href="#正态分布随机数-randn-d0-d1-…-dn" class="headerlink" title="正态分布随机数 randn(d0, d1, …, dn)"></a>正态分布随机数 randn(d0, d1, …, dn)</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># randn(d0, d1, …, dn)</span></span><br><span class="line"><span class="comment"># return a sample or samples from standard norma sidtribution</span></span><br><span class="line">np.random.randn(<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
-<pre><code>array([0.68010349])
-</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">np.random.randn(<span class="number">4</span>)</span><br></pre></td></tr></table></figure>
-<pre><code>array([-0.22561174, -0.12611506,  1.42778485,  0.69267162])
-</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">np.random.randn(<span class="number">2</span>, <span class="number">2</span>)</span><br></pre></td></tr></table></figure>
-<pre><code>array([[ 1.09486998, -0.12217683],
-       [-0.26184258,  0.70775913]])
-</code></pre><p><em>Note: We can use matplotlib to show the distrubution</em></p>
-<h3 id="随机整数"><a href="#随机整数" class="headerlink" title="随机整数"></a>随机整数</h3><p>randint(low[, high, size, dtype]) / np.random.random_integers(2)</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># randint(low[, high, size, dtype])</span></span><br><span class="line"><span class="comment"># return random integers from low(inclusive) to high(exclusive)</span></span><br><span class="line">np.random.randint(<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
-<pre><code>0
-</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">np.random.randint(<span class="number">3</span>)</span><br></pre></td></tr></table></figure>
-<pre><code>2
-</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">np.random.randint(<span class="number">100</span>, <span class="number">1000</span>)</span><br></pre></td></tr></table></figure>
-<pre><code>945
-</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">np.random.randint(<span class="number">0</span>, <span class="number">100</span>, <span class="number">5</span>)</span><br></pre></td></tr></table></figure>
-<pre><code>array([76, 86, 29, 40, 76])
-</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">np.random.randint(<span class="number">0</span>, <span class="number">100</span>, (<span class="number">3</span>, <span class="number">3</span>))</span><br></pre></td></tr></table></figure>
-<pre><code>array([[88, 50, 90],
-       [64, 69, 57],
-       [ 2, 10, 95]])
-</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># random_integers(low[, high, size])</span></span><br><span class="line"><span class="comment"># random integers of type np.int between low and high, inclusive</span></span><br><span class="line">np.random.random_integers(<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># This function is deprecated. Please call randint(l, r + 1) instead</span></span><br></pre></td></tr></table></figure>
-<pre><code>D:\Anaconda3\Anaconda3_py36\lib\site-packages\ipykernel_launcher.py:3: DeprecationWarning: This function is deprecated. Please call randint(1, 2 + 1) instead
-  This is separate from the ipykernel package so we can avoid doing imports until
-
-
-
-
-
-1
-</code></pre><h3 id="随机小数"><a href="#随机小数" class="headerlink" title="随机小数"></a>随机小数</h3><ul>
-<li>random_sample([size]) </li>
-<li>random([size])</li>
-<li>ranf([size])</li>
-<li>sample([size])</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># random_sample([size])</span></span><br><span class="line"><span class="comment"># return random floats in the half-open interval[0.0, 1.0)</span></span><br><span class="line">np.random.random_sample(<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
-<pre><code>array([0.42922028])
-</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">np.random.random_sample((<span class="number">3</span>,<span class="number">3</span>))</span><br></pre></td></tr></table></figure>
-<pre><code>array([[0.13911191, 0.29153576, 0.38330187],
-       [0.39095818, 0.37114282, 0.69224038],
-       [0.3664121 , 0.02533538, 0.76235701]])
-</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># random([size])</span></span><br><span class="line"><span class="comment"># return random floats in the half-open interval[0.0, 1.0)</span></span><br><span class="line">np.random.random(<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
-<pre><code>array([0.57758511])
-</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">np.random.random((<span class="number">2</span>, <span class="number">2</span>))</span><br></pre></td></tr></table></figure>
-<pre><code>array([[0.89365816, 0.10505705],
-       [0.76704421, 0.27889437]])
-</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ranf([size])</span></span><br><span class="line"><span class="comment"># return random floats int the half-open interval [0.0, 1.0)</span></span><br><span class="line">np.random.ranf(<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
-<pre><code>array([0.64518204])
-</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">np.random.ranf((<span class="number">3</span>,<span class="number">4</span>))</span><br></pre></td></tr></table></figure>
-<pre><code>array([[0.10753966, 0.70902024, 0.63834775, 0.65623879],
-       [0.71709776, 0.34437971, 0.42639926, 0.70715686],
-       [0.12977266, 0.20338805, 0.94316098, 0.3082274 ]])
-</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># sample([size])</span></span><br><span class="line"><span class="comment"># return random floats int the half-open interval [0.0, 1.0)</span></span><br><span class="line">np.random.sample(<span class="number">2</span>)</span><br></pre></td></tr></table></figure>
-<pre><code>array([0.95896772, 0.64870791])
-</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">np.random.sample((<span class="number">2</span>, <span class="number">2</span>))</span><br></pre></td></tr></table></figure>
-<pre><code>array([[0.91634732, 0.95899658],
-       [0.59189998, 0.53045256]])
-</code></pre><h3 id="自定义随机"><a href="#自定义随机" class="headerlink" title="自定义随机"></a>自定义随机</h3><ul>
-<li>choice(a[, size, replace, p])</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># choice(a[, size, replace, p])</span></span><br><span class="line"><span class="comment"># generate a random sample from a given 1-D array</span></span><br><span class="line">np.random.choice([<span class="number">3</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">0</span>],<span class="number">3</span>)</span><br></pre></td></tr></table></figure>
-<pre><code>array([3, 1, 3])
-</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">np.random.choice([<span class="number">3</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">0</span>],<span class="number">3</span>, replace=<span class="keyword">False</span>)</span><br></pre></td></tr></table></figure>
-<pre><code>array([1, 2, 3])
-</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">np.random.choice([<span class="string">"cat"</span>, <span class="string">"dog"</span>, <span class="string">"fish"</span>, <span class="string">"mouse"</span>, <span class="string">"bird"</span>],(<span class="number">2</span>, <span class="number">2</span>), replace=<span class="keyword">True</span>)</span><br></pre></td></tr></table></figure>
-<pre><code>array([[&#39;cat&#39;, &#39;dog&#39;],
-       [&#39;bird&#39;, &#39;dog&#39;]], dtype=&#39;&lt;U5&#39;)
-</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># p represents properties of the elements of the 1-D array</span></span><br><span class="line"><span class="comment"># sum of p must be 1.0</span></span><br><span class="line">np.random.choice([<span class="string">"cat"</span>, <span class="string">"dog"</span>, <span class="string">"fish"</span>, <span class="string">"mouse"</span>, <span class="string">"bird"</span>],(<span class="number">2</span>, <span class="number">2</span>), replace=<span class="keyword">True</span>,</span><br><span class="line">                p=[<span class="number">0.1</span>, <span class="number">0.5</span>, <span class="number">0.3</span>, <span class="number">0.05</span>, <span class="number">0.05</span>])</span><br></pre></td></tr></table></figure>
-<pre><code>array([[&#39;fish&#39;, &#39;dog&#39;],
-       [&#39;dog&#39;, &#39;fish&#39;]], dtype=&#39;&lt;U5&#39;)
-</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># bytes(length)</span></span><br><span class="line"><span class="comment"># return random bytes</span></span><br><span class="line">np.random.bytes(<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
-<pre><code>b&#39;\x8c&#39;
-</code></pre><h2 id="Permutations-排列"><a href="#Permutations-排列" class="headerlink" title="Permutations | 排列"></a>Permutations | 排列</h2><ul>
-<li>shuffle(x)</li>
-<li>permutation(x)</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># shuffle(x)</span></span><br><span class="line"><span class="comment"># modify a sequence in-place by shuffling its contents</span></span><br><span class="line"><span class="comment"># 将序列在原地打乱</span></span><br><span class="line">x = np.arange(<span class="number">11</span>)</span><br><span class="line">print(<span class="string">'----befor shuffle x----'</span>)</span><br><span class="line">print(x)</span><br><span class="line">print(<span class="string">'----after shuffle x----'</span>)</span><br><span class="line">np.random.shuffle(x)</span><br><span class="line">print(x)</span><br></pre></td></tr></table></figure>
-<pre><code>----befor shuffle x----
-[ 0  1  2  3  4  5  6  7  8  9 10]
-----after shuffle x----
-[ 8  1  5  4  0  2  3  9  7  6 10]
-</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># permutation(x)</span></span><br><span class="line"><span class="comment"># randomly permute a sequence, or return a permuted range</span></span><br><span class="line">x = np.arange(<span class="number">11</span>)</span><br><span class="line">print(<span class="string">"---permutation----"</span>)</span><br><span class="line">print(np.random.permutation(x))</span><br><span class="line">print(<span class="string">"---x----"</span>)</span><br><span class="line">print(x)</span><br></pre></td></tr></table></figure>
-<pre><code>---permutation----
-[ 9  4  6  0  5 10  8  3  7  2  1]
----x----
-[ 0  1  2  3  4  5  6  7  8  9 10]
-</code></pre><h2 id="Random-generator-随机数生成器"><a href="#Random-generator-随机数生成器" class="headerlink" title="Random generator | 随机数生成器"></a>Random generator | 随机数生成器</h2><p>如果设置了seed，每次重新运行时生成的随机数都是确定和上次相同的。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># RandomState([seed])</span></span><br><span class="line"><span class="comment"># container for the Mersenne Twister pseudo-random number generator</span></span><br><span class="line">np.random.RandomState(<span class="number">1</span>)</span><br><span class="line">np.random.random(<span class="number">5</span>)</span><br></pre></td></tr></table></figure>
-<pre><code>array([0.58048047, 0.57948883, 0.82388234, 0.77501925, 0.70183176])
-</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># seed([seed])</span></span><br><span class="line"><span class="comment"># seed the generator</span></span><br><span class="line">np.random.seed(<span class="number">0</span>)</span><br><span class="line">np.random.random(<span class="number">5</span>)</span><br></pre></td></tr></table></figure>
-<pre><code>array([0.5488135 , 0.71518937, 0.60276338, 0.54488318, 0.4236548 ])
-</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># get_state()</span></span><br><span class="line"><span class="comment"># return a tuple representing the internal state of the generator </span></span><br><span class="line"><span class="comment"># np.random.get_state()</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># set_state(state)</span></span><br><span class="line"><span class="comment"># set the interna state of the generator from a tuple</span></span><br></pre></td></tr></table></figure>
-
-			
-		  
-		</div>
-
-		
-		  
-
-		
-
-		<footer class="article-footer">
-		  <a data-url="https://www.blankspace.cn/2018/08/11/Numpy随机数/" data-id="cjksbev6l000728firsuhizio" class="article-share-link">
-			<i class="fa fa-share"></i> Share
-		  </a>
-		  
-		  
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="tags/Numpy/">Numpy</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="tags/random/">random</a></li></ul>
 
 
 		</footer>
@@ -1335,6 +1336,10 @@ function googleTranslateElementInit() {
     <ul class="sidebar-module-list">
       
         <li>
+          <a href="2018/08/14/MathJax-basic-tutorial/">(no title)</a>
+        </li>
+      
+        <li>
           <a href="2018/08/13/activation-function/">Activation function</a>
         </li>
       
@@ -1348,10 +1353,6 @@ function googleTranslateElementInit() {
       
         <li>
           <a href="2018/08/13/Tensor/">Tensor</a>
-        </li>
-      
-        <li>
-          <a href="2018/08/12/Variable/">Variable</a>
         </li>
       
     </ul>
@@ -1378,7 +1379,7 @@ function googleTranslateElementInit() {
   
   <div class="sidebar-module">
     <h4>Archives</h4>
-    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="archives/2018/08/">八月 2018</a><span class="sidebar-module-list-count">27</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="archives/2013/12/">十二月 2013</a><span class="sidebar-module-list-count">1</span></li></ul>
+    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="archives/2018/08/">八月 2018</a><span class="sidebar-module-list-count">28</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="archives/2013/12/">十二月 2013</a><span class="sidebar-module-list-count">1</span></li></ul>
   </div>
 
 
