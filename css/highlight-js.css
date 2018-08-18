@@ -1,9 +1,5 @@
 /** Highlight.js Styles (Syntax Highlighting) */
 
-pre{
-	background-color:#d3d3d3;
-}
-
 .highlight {
   display: block;
   background: white;
@@ -22,15 +18,6 @@ pre{
   width: 100%;
 }
 
-.highlight .code .line .string{
-	color: #F5E600;
-}
-.highlight .code .line .class .keyword{
-	color: #cf06be;
-}
-
-
-
 .highlight figcaption {
   font-size: .8em;
   color: #999;
@@ -46,17 +33,12 @@ pre{
 
 .highlight pre {
   margin: 0;
-  background-color: #1C1E1F;
-  color: #ffffffa8;
-  font-size:16px;
-  border: none 1px #ccc;
+  background-color: #eeeeee;
 }
 
-.highlight .comment{
-	color:#DA9934;
-}
+.highlight .comment,
 .highlight .meta {
-  color: #c68b30f0;
+  color: #969896;
 }
 
 .highlight .string,
@@ -76,7 +58,7 @@ pre{
 .highlight .selector-tag,
 .highlight .type,
 .highlight.javascript .function {
-  color: #BC5CFF;
+  color: #a71d5d;
 }
 
 .highlight .number,
@@ -103,7 +85,7 @@ pre{
 .highlight.perl .sub,
 .highlight.javascript .title,
 .highlight.coffeescript .title {
-  color: #0070ff;
+  color: #63a35c;
 }
 
 .highlight .tag,
@@ -143,8 +125,4 @@ pre{
 
 .highlight .link {
   text-decoration: underline;
-}
-
-.highlight .gutter pre .line{
-	color:#808080;
 }
