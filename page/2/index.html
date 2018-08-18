@@ -7,7 +7,9 @@
 
 <title>WizardLQ’s | 魔法师の小茶馆</title>
 <!-- Bootstrap core CSS -->
-<link rel="stylesheet" href="../../css/bootstrap.min.css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<link rel="stylesheet" href="../../css/bootstrap.min.css">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 </head>
 
@@ -53,7 +55,7 @@
 	
 	
 	  
-		<article id="post-Numpy随机数" class="article article-type-post" itemscope itemprop="blogPost">
+		<article id="post-Variable" class="article article-type-post" itemscope itemprop="blogPost">
 	
 
 
@@ -61,7 +63,7 @@
 		
   
     <h1 itemprop="name">
-      <a class="article-title" href="../../2018/08/11/Numpy随机数/">Numpy随机数1</a>
+      <a class="article-title" href="../../2018/08/12/Variable/">Variable</a>
     </h1>
   
 
@@ -72,7 +74,7 @@
 			
 	  
 		   <div class="article-datetime">
-  <a href="../../2018/08/11/Numpy随机数/" class="article-date"><time datetime="2018-08-11T02:45:00.000Z" itemprop="datePublished">2018-08-11</time></a>
+  <a href="../../2018/08/12/Variable/" class="article-date"><time datetime="2018-08-12T14:35:05.000Z" itemprop="datePublished">2018-08-12</time></a>
 </div>
 
 
@@ -84,7 +86,7 @@
  
 			
   <div class="article-category">
-    <a class="article-category-link" href="../../categories/Languages/">Languages</a> / <a class="article-category-link" href="../../categories/Languages/Python/">Python</a> / <a class="article-category-link" href="../../categories/Languages/Python/Numpy/">Numpy</a>
+    <a class="article-category-link" href="../../categories/Machine-Learning/">Machine Learning</a> / <a class="article-category-link" href="../../categories/Machine-Learning/TensorFlow/">TensorFlow</a>
   </div>
 
 
@@ -100,117 +102,25 @@
 
 			
 			
-			<p>更多内容查看<a href="https://docs.scipy.org/doc/numpy/reference/routines.random.html" target="_blank" rel="noopener">这里</a></p>
-<h2 id="Simple-random-data-常用随机函数"><a href="#Simple-random-data-常用随机函数" class="headerlink" title="Simple random data | 常用随机函数"></a>Simple random data | 常用随机函数</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># rand(d0, d1, …, dn)</span></span><br><span class="line"><span class="comment"># random values in a given shape</span></span><br><span class="line">np.random.rand(<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
-<pre><code>array([0.15771123])
-</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">np.random.rand(<span class="number">3</span>, <span class="number">4</span>)</span><br></pre></td></tr></table></figure>
-<pre><code>array([[0.17303082, 0.13546342, 0.96790769, 0.54289967],
-       [0.47752797, 0.3163813 , 0.33804729, 0.63760302],
-</code></pre><p>更多内容查看<a href="https://docs.scipy.org/doc/numpy/reference/routines.random.html" target="_blank" rel="noopener">这里</a></p>
-<h2 id="Simple-random-data-常用随机函数-1"><a href="#Simple-random-data-常用随机函数-1" class="headerlink" title="Simple random data | 常用随机函数"></a>Simple random data | 常用随机函数</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br></pre></td></tr></table></figure>
-<h3 id="rand-d0-d1-…-dn"><a href="#rand-d0-d1-…-dn" class="headerlink" title="rand(d0, d1, …, dn)"></a>rand(d0, d1, …, dn)</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># rand(d0, d1, …, dn)</span></span><br><span class="line"><span class="comment"># random values in a given shape</span></span><br><span class="line">np.random.rand(<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
-<pre><code>array([0.97299322])
-</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">np.random.rand(<span class="number">3</span>, <span class="number">4</span>)</span><br></pre></td></tr></table></figure>
-<pre><code>array([[0.81969546, 0.63076449, 0.70050141, 0.28701361],
-       [0.5909755 , 0.10265285, 0.03841936, 0.04747027],
-       [0.50586629, 0.33692611, 0.18006999, 0.37508064]])
-</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">np.random.rand(<span class="number">5</span>)</span><br></pre></td></tr></table></figure>
-<pre><code>array([0.4027442 , 0.29275407, 0.15175853, 0.76296697, 0.84970737])
-</code></pre><h3 id="正态分布随机数-randn-d0-d1-…-dn"><a href="#正态分布随机数-randn-d0-d1-…-dn" class="headerlink" title="正态分布随机数 randn(d0, d1, …, dn)"></a>正态分布随机数 randn(d0, d1, …, dn)</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># randn(d0, d1, …, dn)</span></span><br><span class="line"><span class="comment"># return a sample or samples from standard norma sidtribution</span></span><br><span class="line">np.random.randn(<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
-<pre><code>array([0.68010349])
-</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">np.random.randn(<span class="number">4</span>)</span><br></pre></td></tr></table></figure>
-<pre><code>array([-0.22561174, -0.12611506,  1.42778485,  0.69267162])
-</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">np.random.randn(<span class="number">2</span>, <span class="number">2</span>)</span><br></pre></td></tr></table></figure>
-<pre><code>array([[ 1.09486998, -0.12217683],
-       [-0.26184258,  0.70775913]])
-</code></pre><p><em>Note: We can use matplotlib to show the distrubution</em></p>
-<h3 id="随机整数"><a href="#随机整数" class="headerlink" title="随机整数"></a>随机整数</h3><p>randint(low[, high, size, dtype]) / np.random.random_integers(2)</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># randint(low[, high, size, dtype])</span></span><br><span class="line"><span class="comment"># return random integers from low(inclusive) to high(exclusive)</span></span><br><span class="line">np.random.randint(<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
-<pre><code>0
-</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">np.random.randint(<span class="number">3</span>)</span><br></pre></td></tr></table></figure>
-<pre><code>2
-</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">np.random.randint(<span class="number">100</span>, <span class="number">1000</span>)</span><br></pre></td></tr></table></figure>
-<pre><code>945
-</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">np.random.randint(<span class="number">0</span>, <span class="number">100</span>, <span class="number">5</span>)</span><br></pre></td></tr></table></figure>
-<pre><code>array([76, 86, 29, 40, 76])
-</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">np.random.randint(<span class="number">0</span>, <span class="number">100</span>, (<span class="number">3</span>, <span class="number">3</span>))</span><br></pre></td></tr></table></figure>
-<pre><code>array([[88, 50, 90],
-       [64, 69, 57],
-       [ 2, 10, 95]])
-</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># random_integers(low[, high, size])</span></span><br><span class="line"><span class="comment"># random integers of type np.int between low and high, inclusive</span></span><br><span class="line">np.random.random_integers(<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># This function is deprecated. Please call randint(l, r + 1) instead</span></span><br></pre></td></tr></table></figure>
-<pre><code>D:\Anaconda3\Anaconda3_py36\lib\site-packages\ipykernel_launcher.py:3: DeprecationWarning: This function is deprecated. Please call randint(1, 2 + 1) instead
-  This is separate from the ipykernel package so we can avoid doing imports until
-
-
-
-
-
-1
-</code></pre><h3 id="随机小数"><a href="#随机小数" class="headerlink" title="随机小数"></a>随机小数</h3><ul>
-<li>random_sample([size]) </li>
-<li>random([size])</li>
-<li>ranf([size])</li>
-<li>sample([size])</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># random_sample([size])</span></span><br><span class="line"><span class="comment"># return random floats in the half-open interval[0.0, 1.0)</span></span><br><span class="line">np.random.random_sample(<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
-<pre><code>array([0.42922028])
-</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">np.random.random_sample((<span class="number">3</span>,<span class="number">3</span>))</span><br></pre></td></tr></table></figure>
-<pre><code>array([[0.13911191, 0.29153576, 0.38330187],
-       [0.39095818, 0.37114282, 0.69224038],
-       [0.3664121 , 0.02533538, 0.76235701]])
-</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># random([size])</span></span><br><span class="line"><span class="comment"># return random floats in the half-open interval[0.0, 1.0)</span></span><br><span class="line">np.random.random(<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
-<pre><code>array([0.57758511])
-</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">np.random.random((<span class="number">2</span>, <span class="number">2</span>))</span><br></pre></td></tr></table></figure>
-<pre><code>array([[0.89365816, 0.10505705],
-       [0.76704421, 0.27889437]])
-</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ranf([size])</span></span><br><span class="line"><span class="comment"># return random floats int the half-open interval [0.0, 1.0)</span></span><br><span class="line">np.random.ranf(<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
-<pre><code>array([0.64518204])
-</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">np.random.ranf((<span class="number">3</span>,<span class="number">4</span>))</span><br></pre></td></tr></table></figure>
-<pre><code>array([[0.10753966, 0.70902024, 0.63834775, 0.65623879],
-       [0.71709776, 0.34437971, 0.42639926, 0.70715686],
-       [0.12977266, 0.20338805, 0.94316098, 0.3082274 ]])
-</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># sample([size])</span></span><br><span class="line"><span class="comment"># return random floats int the half-open interval [0.0, 1.0)</span></span><br><span class="line">np.random.sample(<span class="number">2</span>)</span><br></pre></td></tr></table></figure>
-<pre><code>array([0.95896772, 0.64870791])
-</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">np.random.sample((<span class="number">2</span>, <span class="number">2</span>))</span><br></pre></td></tr></table></figure>
-<pre><code>array([[0.91634732, 0.95899658],
-       [0.59189998, 0.53045256]])
-</code></pre><h3 id="自定义随机"><a href="#自定义随机" class="headerlink" title="自定义随机"></a>自定义随机</h3><ul>
-<li>choice(a[, size, replace, p])</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># choice(a[, size, replace, p])</span></span><br><span class="line"><span class="comment"># generate a random sample from a given 1-D array</span></span><br><span class="line">np.random.choice([<span class="number">3</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">0</span>],<span class="number">3</span>)</span><br></pre></td></tr></table></figure>
-<pre><code>array([3, 1, 3])
-</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">np.random.choice([<span class="number">3</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">0</span>],<span class="number">3</span>, replace=<span class="keyword">False</span>)</span><br></pre></td></tr></table></figure>
-<pre><code>array([1, 2, 3])
-</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">np.random.choice([<span class="string">"cat"</span>, <span class="string">"dog"</span>, <span class="string">"fish"</span>, <span class="string">"mouse"</span>, <span class="string">"bird"</span>],(<span class="number">2</span>, <span class="number">2</span>), replace=<span class="keyword">True</span>)</span><br></pre></td></tr></table></figure>
-<pre><code>array([[&#39;cat&#39;, &#39;dog&#39;],
-       [&#39;bird&#39;, &#39;dog&#39;]], dtype=&#39;&lt;U5&#39;)
-</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># p represents properties of the elements of the 1-D array</span></span><br><span class="line"><span class="comment"># sum of p must be 1.0</span></span><br><span class="line">np.random.choice([<span class="string">"cat"</span>, <span class="string">"dog"</span>, <span class="string">"fish"</span>, <span class="string">"mouse"</span>, <span class="string">"bird"</span>],(<span class="number">2</span>, <span class="number">2</span>), replace=<span class="keyword">True</span>,</span><br><span class="line">                p=[<span class="number">0.1</span>, <span class="number">0.5</span>, <span class="number">0.3</span>, <span class="number">0.05</span>, <span class="number">0.05</span>])</span><br></pre></td></tr></table></figure>
-<pre><code>array([[&#39;fish&#39;, &#39;dog&#39;],
-       [&#39;dog&#39;, &#39;fish&#39;]], dtype=&#39;&lt;U5&#39;)
-</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># bytes(length)</span></span><br><span class="line"><span class="comment"># return random bytes</span></span><br><span class="line">np.random.bytes(<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
-<pre><code>b&#39;\x8c&#39;
-</code></pre><h2 id="Permutations-排列"><a href="#Permutations-排列" class="headerlink" title="Permutations | 排列"></a>Permutations | 排列</h2><ul>
-<li>shuffle(x)</li>
-<li>permutation(x)</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># shuffle(x)</span></span><br><span class="line"><span class="comment"># modify a sequence in-place by shuffling its contents</span></span><br><span class="line"><span class="comment"># 将序列在原地打乱</span></span><br><span class="line">x = np.arange(<span class="number">11</span>)</span><br><span class="line">print(<span class="string">'----befor shuffle x----'</span>)</span><br><span class="line">print(x)</span><br><span class="line">print(<span class="string">'----after shuffle x----'</span>)</span><br><span class="line">np.random.shuffle(x)</span><br><span class="line">print(x)</span><br></pre></td></tr></table></figure>
-<pre><code>----befor shuffle x----
-[ 0  1  2  3  4  5  6  7  8  9 10]
-----after shuffle x----
-[ 8  1  5  4  0  2  3  9  7  6 10]
-</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># permutation(x)</span></span><br><span class="line"><span class="comment"># randomly permute a sequence, or return a permuted range</span></span><br><span class="line">x = np.arange(<span class="number">11</span>)</span><br><span class="line">print(<span class="string">"---permutation----"</span>)</span><br><span class="line">print(np.random.permutation(x))</span><br><span class="line">print(<span class="string">"---x----"</span>)</span><br><span class="line">print(x)</span><br></pre></td></tr></table></figure>
-<pre><code>---permutation----
-[ 9  4  6  0  5 10  8  3  7  2  1]
----x----
-[ 0  1  2  3  4  5  6  7  8  9 10]
-</code></pre><h2 id="Random-generator-随机数生成器"><a href="#Random-generator-随机数生成器" class="headerlink" title="Random generator | 随机数生成器"></a>Random generator | 随机数生成器</h2><p>如果设置了seed，每次重新运行时生成的随机数都是确定和上次相同的。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># RandomState([seed])</span></span><br><span class="line"><span class="comment"># container for the Mersenne Twister pseudo-random number generator</span></span><br><span class="line">np.random.RandomState(<span class="number">1</span>)</span><br><span class="line">np.random.random(<span class="number">5</span>)</span><br></pre></td></tr></table></figure>
-<pre><code>array([0.58048047, 0.57948883, 0.82388234, 0.77501925, 0.70183176])
-</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># seed([seed])</span></span><br><span class="line"><span class="comment"># seed the generator</span></span><br><span class="line">np.random.seed(<span class="number">0</span>)</span><br><span class="line">np.random.random(<span class="number">5</span>)</span><br></pre></td></tr></table></figure>
-<pre><code>array([0.5488135 , 0.71518937, 0.60276338, 0.54488318, 0.4236548 ])
-</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># get_state()</span></span><br><span class="line"><span class="comment"># return a tuple representing the internal state of the generator </span></span><br><span class="line"><span class="comment"># np.random.get_state()</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># set_state(state)</span></span><br><span class="line"><span class="comment"># set the interna state of the generator from a tuple</span></span><br></pre></td></tr></table></figure>
-
+			<p><a href="https://www.gushiwen.org/GuShiWen_dd05a84e30.aspx" target="_blank" rel="noopener">《庄子·天下》</a>中说“一尺之棰，日取其半，万世不竭。”使用TensorFlow来模拟这个过程。</p>
+<h3 id="Variable"><a href="#Variable" class="headerlink" title="Variable"></a>Variable</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 定义变量</span></span><br><span class="line">bar = tf.Variable(<span class="number">1.0</span>, name=<span class="string">"bar"</span>)</span><br><span class="line"></span><br><span class="line">two = tf.constant(<span class="number">2.0</span>) </span><br><span class="line">divided = tf.divide(bar, <span class="number">2.0</span>) <span class="comment"># 定义取半操作，这一步并没有直接计算</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 将bar更新为新的长度</span></span><br><span class="line">update = tf.assign(bar, divided)</span><br></pre></td></tr></table></figure>
+<h3 id="初始化变量"><a href="#初始化变量" class="headerlink" title="初始化变量"></a>初始化变量</h3><p><code>global_variables_initializer()</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">init = tf.global_variables_initializer() <span class="comment"># z定义了变量就必须要初始化</span></span><br></pre></td></tr></table></figure>
+<h3 id="创建会话并运行"><a href="#创建会话并运行" class="headerlink" title="创建会话并运行"></a>创建会话并运行</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> tf.Session() <span class="keyword">as</span> sess:</span><br><span class="line">    sess.run(init)</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">10</span>):</span><br><span class="line">        sess.run(update)</span><br><span class="line">        print(<span class="string">'day %d len: '</span>%i, sess.run(bar))</span><br></pre></td></tr></table></figure>
+<pre><code>day 0 len:  0.5
+day 1 len:  0.25
+day 2 len:  0.125
+day 3 len:  0.0625
+day 4 len:  0.03125
+day 5 len:  0.015625
+day 6 len:  0.0078125
+day 7 len:  0.00390625
+day 8 len:  0.001953125
+day 9 len:  0.0009765625
+</code></pre><h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>Variable就是变量，和变量相对的就是常量，常量就是不变的量，那么变量就是会变化的量。在TensorFlow中使用<code>tf.Variable()</code>来定义变量。定义了变量就必须要进行变量初始化，初始化使用<code>tf.global_variables_initializer()</code><del>tf.initialize_all_variables()</del>.变量在运行时也需依靠定义会话Session来run才行。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 高斯的故事之高斯求和TensorFlow实现</span></span><br><span class="line">s = tf.Variable(<span class="number">0</span>, name=<span class="string">"sum"</span>)</span><br><span class="line">number = tf.Variable(<span class="number">0</span>, name=<span class="string">"number"</span>)</span><br><span class="line">one = tf.constant(<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">new_number = tf.assign(number, tf.add(number, one))</span><br><span class="line">update = tf.assign(s, tf.add(s, new_number))</span><br><span class="line"></span><br><span class="line">init = tf.global_variables_initializer()</span><br><span class="line"></span><br><span class="line">sess = tf.Session()</span><br><span class="line">sess.run(init)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>, <span class="number">101</span>):</span><br><span class="line">    sess.run(update)</span><br><span class="line">print(sess.run(s))</span><br><span class="line"></span><br><span class="line">sess.close()</span><br></pre></td></tr></table></figure>
+<pre><code>5050
+</code></pre>
 			
 		  
 		</div>
@@ -221,12 +131,12 @@
 		
 
 		<footer class="article-footer">
-		  <a data-url="https://www.blankspace.cn/2018/08/11/Numpy随机数/" data-id="cjkz4bk5c000de4fim45lw5hc" class="article-share-link">
+		  <a data-url="https://www.blankspace.cn/2018/08/12/Variable/" data-id="cjkz4bk6j0025e4fi27mbe4ux" class="article-share-link">
 			<i class="fa fa-share"></i> Share
 		  </a>
 		  
 		  
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Numpy/">Numpy</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/random/">random</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/TensorFlow/">TensorFlow</a></li></ul>
 
 
 		</footer>
@@ -242,7 +152,7 @@
 
 
 	  
-		<article id="post-emoji-text" class="article article-type-post" itemscope itemprop="blogPost">
+		<article id="post-Session" class="article article-type-post" itemscope itemprop="blogPost">
 	
 
 
@@ -250,7 +160,7 @@
 		
   
     <h1 itemprop="name">
-      <a class="article-title" href="../../2018/08/10/emoji-text/">Emoji</a>
+      <a class="article-title" href="../../2018/08/12/Session/">Session</a>
     </h1>
   
 
@@ -261,7 +171,7 @@
 			
 	  
 		   <div class="article-datetime">
-  <a href="../../2018/08/10/emoji-text/" class="article-date"><time datetime="2018-08-10T12:20:02.000Z" itemprop="datePublished">2018-08-10</time></a>
+  <a href="../../2018/08/12/Session/" class="article-date"><time datetime="2018-08-12T14:28:06.000Z" itemprop="datePublished">2018-08-12</time></a>
 </div>
 
 
@@ -273,7 +183,7 @@
  
 			
   <div class="article-category">
-    <a class="article-category-link" href="../../categories/Projects/">Projects</a> / <a class="article-category-link" href="../../categories/Projects/hexo-theme-bootstrap-blog/">hexo-theme-bootstrap-blog</a> / <a class="article-category-link" href="../../categories/Projects/hexo-theme-bootstrap-blog/Tutorial/">Tutorial</a>
+    <a class="article-category-link" href="../../categories/Machine-Learning/">Machine Learning</a> / <a class="article-category-link" href="../../categories/Machine-Learning/TensorFlow/">TensorFlow</a>
   </div>
 
 
@@ -289,120 +199,60 @@
 
 			
 			
-			<p>Input emoji with syntax <code>:smile:</code>.  Sad, it is failed.</p>
-<p>😂😁</p>
-<p>Use inputs(eg. MS default input) which can input emoji directly, this is the easiest way.</p>
-<p><a href="https://www.webfx.com/tools/emoji-cheat-sheet/" target="_blank" rel="noopener">Here</a> to know more.</p>
-
-			
-		  
-		</div>
-
-		
-		  
-
-		
-
-		<footer class="article-footer">
-		  <a data-url="https://www.blankspace.cn/2018/08/10/emoji-text/" data-id="cjkz4bk5s000ze4fic1qhkz35" class="article-share-link">
-			<i class="fa fa-share"></i> Share
-		  </a>
-		  
-		  
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Emoji/">Emoji</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Hexo/">Hexo</a></li></ul>
+			<p>举两个例子。</p>
+<h3 id="Hello-World"><a href="#Hello-World" class="headerlink" title="Hello World"></a>Hello World</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"></span><br><span class="line">node = tf.constant(<span class="string">"Hello, world!"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># method 1</span></span><br><span class="line">sess = tf.Session()</span><br><span class="line">print(sess.run(node))</span><br><span class="line">sess.close</span><br><span class="line"></span><br><span class="line"><span class="comment"># method 2</span></span><br><span class="line"><span class="keyword">with</span> tf.Session() <span class="keyword">as</span> tf:</span><br><span class="line">    print(sess.run(node))</span><br></pre></td></tr></table></figure>
+<pre><code>D:\Anaconda3\Anaconda3_py36\lib\site-packages\h5py\__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
+  from ._conv import register_converters as _register_converters
 
 
-		</footer>
-	  </div>
-	  
-	</article>
-
-	
-
-
-
-		
-
-
-	  
-		<article id="post-mathjax-test" class="article article-type-post" itemscope itemprop="blogPost">
-	
-
-
-	    <header class="article-header">
-		
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="../../2018/08/10/mathjax-test/">Mathjax</a>
-    </h1>
-  
-
-
-			
-		
-		<div class="article-meta"> 
-			
-	  
-		   <div class="article-datetime">
-  <a href="../../2018/08/10/mathjax-test/" class="article-date"><time datetime="2018-08-10T11:53:22.000Z" itemprop="datePublished">2018-08-10</time></a>
-</div>
-
-
-
-			
-			  
-			
-
- 
-			
-  <div class="article-category">
-    <a class="article-category-link" href="../../categories/Projects/">Projects</a> / <a class="article-category-link" href="../../categories/Projects/hexo-theme-bootstrap-blog/">hexo-theme-bootstrap-blog</a> / <a class="article-category-link" href="../../categories/Projects/hexo-theme-bootstrap-blog/Tutorial/">Tutorial</a>
-  </div>
-
-
-	    </div>
-	    </header>
-	    
-	  
-	  <div class="article-inner">
-		<div class="article-entry" itemprop="articleBody">
-		  
-		  
-			<!-- Table of Contents -->
-
-			
-			
-			<p>This post is used for testing mathjax(latex) support.</p>
-<h2 id="Inline-math"><a href="#Inline-math" class="headerlink" title="Inline math"></a>Inline math</h2><p><strong>Use <code>$...$</code></strong>, example:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$\lim_&#123;x \to \infty&#125; \exp(-x) = 0$</span><br></pre></td></tr></table></figure>
-<p>Writing LaTex like: <script type="math/tex">\lim_{x \to \infty} \exp(-x) = 0</script></p>
-<h2 id="Displayed-formulas"><a href="#Displayed-formulas" class="headerlink" title="Displayed formulas"></a><strong>Displayed formulas</strong></h2><p><strong>Use <code>$$...$$</code></strong> , example:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$$\sum_&#123;i=0&#125;^n i^2 = \frac&#123;(n^2+n)(2n+1)&#125;&#123;6&#125;$$</span><br></pre></td></tr></table></figure>
-<script type="math/tex; mode=display">\sum_{i=0}^n i^2 = \frac{(n^2+n)(2n+1)}{6}</script><figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$$</span><br><span class="line">    \begin&#123;matrix&#125;</span><br><span class="line">    <span class="number">1</span> &amp; x &amp; x^<span class="number">2</span> \\</span><br><span class="line">    <span class="number">1</span> &amp; y &amp; y^<span class="number">2</span> \\</span><br><span class="line">    <span class="number">1</span> &amp; z &amp; z^<span class="number">2</span> \\</span><br><span class="line">    \end&#123;matrix&#125;</span><br><span class="line">$$</span><br></pre></td></tr></table></figure>
+b&#39;Hello, world!&#39;
+b&#39;Hello, world!&#39;
+</code></pre><h3 id="矩阵乘法"><a href="#矩阵乘法" class="headerlink" title="矩阵乘法"></a>矩阵乘法</h3><p>理解Session会话，并使用TensorFlow来解决买菜问题（矩阵乘法）。素材来自<a href="https://mp.weixin.qq.com/s?__biz=MjM5MDE3OTk2Ng==&amp;mid=2657440935&amp;idx=1&amp;sn=5b968c80fb07df3005039ca1466cb0c5&amp;chksm=bdd943b68aaecaa0420e1f3f9a576b1b0256ac7165a2fcf9b0c84080a5b0b53250418be594c8&amp;mpshare=1&amp;scene=1&amp;srcid=0812pRYblN0eJVNurGxLbC4F#rd" target="_blank" rel="noopener">《如何让11岁表妹知道矩阵乘法的本质是什么？》</a>.</p>
+<p>假设买肉和菜，农贸市场一斤肉25元，一斤菜3元。<br>第一天我去农贸买了1斤肉，3斤菜，问计算用了多少钱：答：$25\times1+3\times3=34$。表示成向量乘法：</p>
 <script type="math/tex; mode=display">
-\begin{matrix}
-    1 & x & x^2 \\
-    1 & y & y^2 \\
-    1 & z & z^2 \\
-    \end{matrix}</script><figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">\begin&#123;align&#125;</span><br><span class="line">\sqrt&#123;37&#125; &amp; = \sqrt&#123;\frac&#123;73^2-1&#125;&#123;12^2&#125;&#125; \\</span><br><span class="line"> &amp; = \sqrt&#123;\frac&#123;73^2&#125;&#123;12^2&#125;\cdot\frac&#123;73^2-1&#125;&#123;73^2&#125;&#125; \\ </span><br><span class="line"> &amp; = \sqrt&#123;\frac&#123;73^2&#125;&#123;12^2&#125;&#125;\sqrt&#123;\frac&#123;73^2-1&#125;&#123;73^2&#125;&#125; \\</span><br><span class="line"> &amp; = \frac&#123;73&#125;&#123;12&#125;\sqrt&#123;1 - \frac&#123;1&#125;&#123;73^2&#125;&#125; \\ </span><br><span class="line"> &amp; \approx \frac&#123;73&#125;&#123;12&#125;\left(<span class="number">1</span> - \frac&#123;1&#125;&#123;2\cdot73^2&#125;\right)</span><br><span class="line">\end&#123;align&#125;</span><br></pre></td></tr></table></figure>
+\begin{bmatrix}
+ 25&3 \\
+\end{bmatrix} 
+\times 
+\begin{bmatrix}
+ 1 \\
+ 3 \\
+\end{bmatrix} 
+= 34</script><p>第二天，又去农贸市场买了2斤肉，1斤菜,则两天的花销可以表示为：</p>
 <script type="math/tex; mode=display">
-\begin{align}
-\sqrt{37} & = \sqrt{\frac{73^2-1}{12^2}} \\
- & = \sqrt{\frac{73^2}{12^2}\cdot\frac{73^2-1}{73^2}} \\ 
- & = \sqrt{\frac{73^2}{12^2}}\sqrt{\frac{73^2-1}{73^2}} \\
- & = \frac{73}{12}\sqrt{1 - \frac{1}{73^2}} \\ 
- & \approx \frac{73}{12}\left(1 - \frac{1}{2\cdot73^2}\right)
-\end{align}</script><figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">\begin&#123;array&#125;&#123;c|lcr&#125;</span><br><span class="line">n &amp; \text&#123;Left&#125; &amp; \text&#123;Center&#125; &amp; \text&#123;Right&#125; \\</span><br><span class="line">\hline</span><br><span class="line"><span class="number">1</span> &amp; <span class="number">0.24</span> &amp; <span class="number">1</span> &amp; <span class="number">125</span> \\</span><br><span class="line"><span class="number">2</span> &amp; <span class="number">-1</span> &amp; <span class="number">189</span> &amp; <span class="number">-8</span> \\</span><br><span class="line"><span class="number">3</span> &amp; <span class="number">-20</span> &amp; <span class="number">2000</span> &amp; <span class="number">1</span>+<span class="number">10</span>i</span><br><span class="line">\end&#123;array&#125;</span><br></pre></td></tr></table></figure>
+\begin{bmatrix}
+ 25&3 \\
+\end{bmatrix} 
+\times 
+\begin{bmatrix}
+ 1&2 \\
+ 3&1 \\
+\end{bmatrix} 
+= 
+\begin{bmatrix}
+34 & 53
+\end{bmatrix}</script><p>左边矩阵形状为1x2，行就表示<code>农贸市场</code>，两列分别表示<code>肉的单价和菜的单价</code>.右边矩阵，第一列表示第一天，第二列表示第二天，依次类推。第一行表示买的肉的数量，第二行表示买的菜的数量。两者进行矩阵相乘，得到的就是农贸市场，第n天，买肉和菜的总和。</p>
+<p>听说王大妈哪里肉一斤20，菜一斤2元，假如这两天在王大妈哪里买菜，表示成矩阵：</p>
 <script type="math/tex; mode=display">
-\begin{array}{c|lcr}
-n & \text{Left} & \text{Center} & \text{Right} \\
-\hline
-1 & 0.24 & 1 & 125 \\
-2 & -1 & 189 & -8 \\
-3 & -20 & 2000 & 1+10i
-\end{array}</script><p>More information can be found <a href="https://math.meta.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference" target="_blank" rel="noopener">Here</a>.</p>
-<p>To know how to let hexo support Matjax, you can read <a href="https://ranmaosong.github.io/2017/11/29/hexo-support-mathjax/" target="_blank" rel="noopener">this</a>.</p>
-
+\begin{bmatrix}
+25&3\\
+20&2\\
+\end{bmatrix}
+\begin{bmatrix}
+1&2\\
+3&1\\
+\end{bmatrix}
+=
+\begin{bmatrix}
+34&53\\
+26&42\\
+\end{bmatrix}</script><p><img src="https://mmbiz.qpic.cn/mmbiz_png/pojyAtdhQhNM8WaSdOWGtLciaHKXKs4DrOkXwemKzA7p3AuHKhht3em8mV0hXDyNQeBU6geAQIGoFa3WX0ThoZg/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1" alt=""></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="comment"># 创建计算图</span></span><br><span class="line"></span><br><span class="line">mat1 = tf.constant(np.array([[<span class="number">25</span>, <span class="number">3</span>], [<span class="number">20</span>, <span class="number">2</span>]]))</span><br><span class="line">mat2 = tf.constant(np.array([[<span class="number">1</span>, <span class="number">2</span>], [<span class="number">3</span>, <span class="number">1</span>]]))</span><br><span class="line">product = tf.matmul(mat1, mat2)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建会话和运行</span></span><br><span class="line"><span class="comment"># method 1</span></span><br><span class="line">sess = tf.Session()</span><br><span class="line">money = sess.run(product)</span><br><span class="line">print(money)</span><br><span class="line">sess.close()</span><br><span class="line"></span><br><span class="line"><span class="comment"># method 2</span></span><br><span class="line"><span class="keyword">with</span> tf.Session() <span class="keyword">as</span> sess:</span><br><span class="line">    money = sess.run(product)</span><br><span class="line">    print(money)</span><br></pre></td></tr></table></figure>
+<pre><code>[[34 53]
+ [26 42]]
+[[34 53]
+ [26 42]]
+</code></pre>
 			
 		  
 		</div>
@@ -413,12 +263,12 @@ n & \text{Left} & \text{Center} & \text{Right} \\
 		
 
 		<footer class="article-footer">
-		  <a data-url="https://www.blankspace.cn/2018/08/10/mathjax-test/" data-id="cjkz4bk6t002de4fitz3v2qx8" class="article-share-link">
+		  <a data-url="https://www.blankspace.cn/2018/08/12/Session/" data-id="cjkz4bk5j000me4ficnzz8j4e" class="article-share-link">
 			<i class="fa fa-share"></i> Share
 		  </a>
 		  
 		  
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Hexo/">Hexo</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/TensorFlow/">TensorFlow</a></li></ul>
 
 
 		</footer>
@@ -434,7 +284,7 @@ n & \text{Left} & \text{Center} & \text{Right} \\
 
 
 	  
-		<article id="post-translate" class="article article-type-post" itemscope itemprop="blogPost">
+		<article id="post-MNIST-pros" class="article article-type-post" itemscope itemprop="blogPost">
 	
 
 
@@ -442,7 +292,7 @@ n & \text{Left} & \text{Center} & \text{Right} \\
 		
   
     <h1 itemprop="name">
-      <a class="article-title" href="../../2018/08/08/translate/">Translation</a>
+      <a class="article-title" href="../../2018/08/12/MNIST-pros/">MNIST pros</a>
     </h1>
   
 
@@ -453,7 +303,7 @@ n & \text{Left} & \text{Center} & \text{Right} \\
 			
 	  
 		   <div class="article-datetime">
-  <a href="../../2018/08/08/translate/" class="article-date"><time datetime="2018-08-08T10:27:25.000Z" itemprop="datePublished">2018-08-08</time></a>
+  <a href="../../2018/08/12/MNIST-pros/" class="article-date"><time datetime="2018-08-12T02:11:47.000Z" itemprop="datePublished">2018-08-12</time></a>
 </div>
 
 
@@ -465,7 +315,7 @@ n & \text{Left} & \text{Center} & \text{Right} \\
  
 			
   <div class="article-category">
-    <a class="article-category-link" href="../../categories/Projects/">Projects</a> / <a class="article-category-link" href="../../categories/Projects/hexo-theme-bootstrap-blog/">hexo-theme-bootstrap-blog</a> / <a class="article-category-link" href="../../categories/Projects/hexo-theme-bootstrap-blog/Tutorial/">Tutorial</a>
+    <a class="article-category-link" href="../../categories/Machine-Learning/">Machine Learning</a> / <a class="article-category-link" href="../../categories/Machine-Learning/TensorFlow/">TensorFlow</a>
   </div>
 
 
@@ -476,10 +326,20 @@ n & \text{Left} & \text{Center} & \text{Right} \\
 	  <div class="article-inner">
 		<div class="article-entry" itemprop="articleBody">
 		  
-			<p>This post is for testing google translation widget.</p>
+			<h3 id="运行TensorFlow的InteractiveSession-交互式会话"><a href="#运行TensorFlow的InteractiveSession-交互式会话" class="headerlink" title="运行TensorFlow的InteractiveSession/交互式会话"></a>运行TensorFlow的InteractiveSession/交互式会话</h3><p><code>sess = tf.InteractiveSession()</code>用来创建交互式的会话，其余使用同Session</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br></pre></td></tr></table></figure>
+<pre><code>D:\Anaconda3\Anaconda3_py36\lib\site-packages\h5py\__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
+  from ._conv import register_converters as _register_converters
+</code></pre><h3 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h3><p>和上一节类似</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># http://yann.lecun.com/exdb/mnist/  to download mnist dataset</span></span><br><span class="line"><span class="comment"># https://github.com/tensorflow/tensorflow/blob/master/tensorflow/examples/tutorials/mnist/input_data.py</span></span><br><span class="line"><span class="comment"># to read dataset</span></span><br><span class="line"><span class="keyword">from</span> load_mnist <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">import</span> tensorflow.examples.tutorials.mnist.input_data <span class="keyword">as</span> input_data</span><br><span class="line">minst_dir = <span class="string">"MNIST_data/"</span></span><br><span class="line">mnist = input_data.read_data_sets(minst_dir, one_hot=<span class="keyword">True</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">x = tf.placeholder(<span class="string">"float"</span>, shape=[<span class="keyword">None</span>, <span class="number">784</span>]) </span><br><span class="line">y_ = tf.placeholder(<span class="string">"float"</span>, shape=[<span class="keyword">None</span>, <span class="number">10</span>]) <span class="comment"># true label</span></span><br></pre></td></tr></table></figure>
+<h2 id="构建一个多层卷积网络"><a href="#构建一个多层卷积网络" class="headerlink" title="构建一个多层卷积网络"></a>构建一个多层卷积网络</h2><h3 id="权重初始化"><a href="#权重初始化" class="headerlink" title="权重初始化"></a>权重初始化</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">weight_variable</span><span class="params">(shape)</span>:</span></span><br><span class="line">    initial = tf.truncated_normal(shape, stddev=<span class="number">0.1</span>) <span class="comment">#  The generated values follow a normal distribution with specified mean and</span></span><br><span class="line">    <span class="comment"># standard deviation.从截断的正态分布中输出随机值，中如果x的取值在区间（μ-2σ，μ+2σ）之外则重新进行选择</span></span><br><span class="line">    <span class="keyword">return</span> tf.Variable(initial)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">bias_variable</span><span class="params">(shape)</span>:</span></span><br><span class="line">    initial = tf.constant(<span class="number">0.1</span>, shape=shape) <span class="comment"># Constant 2-D tensor populated with scalar value 0.1. 初始值为0.1，广播到shape形状的二维数组</span></span><br><span class="line">    <span class="keyword">return</span> tf.Variable(initial)</span><br></pre></td></tr></table></figure>
+<h3 id="卷积和汇聚（池化）"><a href="#卷积和汇聚（池化）" class="headerlink" title="卷积和汇聚（池化）"></a>卷积和汇聚（<del>池化</del>）</h3><p><em>由于Pooling翻译成池化让人不明所以，个人习惯依据其作用，而称之为汇聚。</em></p>
+<p>简单起见，卷积使用1步长（stride size），0边距（padding size）的模板，保证输出和输入是同一个大小。我们的池化用简单传统的2x2大小的模板做max pooling.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">conv2d</span><span class="params">(x, W)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> tf.nn.conv2d(x, W, strides=[<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>], padding=<span class="string">'SAME'</span>)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">max_pool_2x2</span><span class="params">(x)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> tf.nn.max_pool(x, ksize=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">2</span>,<span class="number">1</span>], strides=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">2</span>,<span class="number">1</span>], padding=<span class="string">'SAME'</span>)</span><br></pre></td></tr></table></figure>
 			
 			  <p class="article-more-link">
-				<a class="btn btn-primary" href="../../2018/08/08/translate/#more">Read more...</a>
+				<a class="btn btn-primary" href="../../2018/08/12/MNIST-pros/#more">Read more...</a>
 			  </p>
 			
 		  
@@ -488,12 +348,12 @@ n & \text{Left} & \text{Center} & \text{Right} \\
 		
 
 		<footer class="article-footer">
-		  <a data-url="https://www.blankspace.cn/2018/08/08/translate/" data-id="cjkz4bk6z002oe4fiqnyfktv2" class="article-share-link">
+		  <a data-url="https://www.blankspace.cn/2018/08/12/MNIST-pros/" data-id="cjkz4bk59000be4fiy61t8u1x" class="article-share-link">
 			<i class="fa fa-share"></i> Share
 		  </a>
 		  
 		  
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Hexo/">Hexo</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/TensorFlow/">TensorFlow</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/mnist/">mnist</a></li></ul>
 
 
 		</footer>
@@ -509,7 +369,7 @@ n & \text{Left} & \text{Center} & \text{Right} \\
 
 
 	  
-		<article id="post-categories" class="article article-type-post" itemscope itemprop="blogPost">
+		<article id="post-TensorFlow-tutorial-mnist-beginners" class="article article-type-post" itemscope itemprop="blogPost">
 	
 
 
@@ -517,7 +377,7 @@ n & \text{Left} & \text{Center} & \text{Right} \\
 		
   
     <h1 itemprop="name">
-      <a class="article-title" href="../../2018/08/08/categories/">Categories</a>
+      <a class="article-title" href="../../2018/08/11/TensorFlow-tutorial-mnist-beginners/">TensorFlow tutorial mnist beginners</a>
     </h1>
   
 
@@ -528,7 +388,149 @@ n & \text{Left} & \text{Center} & \text{Right} \\
 			
 	  
 		   <div class="article-datetime">
-  <a href="../../2018/08/08/categories/" class="article-date"><time datetime="2018-08-07T16:01:04.000Z" itemprop="datePublished">2018-08-08</time></a>
+  <a href="../../2018/08/11/TensorFlow-tutorial-mnist-beginners/" class="article-date"><time datetime="2018-08-11T09:25:06.000Z" itemprop="datePublished">2018-08-11</time></a>
+</div>
+
+
+
+			
+			  
+			
+
+ 
+			
+  <div class="article-category">
+    <a class="article-category-link" href="../../categories/Machine-Learning/">Machine Learning</a> / <a class="article-category-link" href="../../categories/Machine-Learning/TensorFlow/">TensorFlow</a>
+  </div>
+
+
+	    </div>
+	    </header>
+	    
+	  
+	  <div class="article-inner">
+		<div class="article-entry" itemprop="articleBody">
+		  
+		  
+			<!-- Table of Contents -->
+
+			
+			
+			<h1 id="从示例开始"><a href="#从示例开始" class="headerlink" title="从示例开始"></a>从示例开始</h1><h3 id="导入"><a href="#导入" class="headerlink" title="导入"></a>导入</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np <span class="comment"># 和tf配合使用</span></span><br></pre></td></tr></table></figure>
+<pre><code>D:\Anaconda3\Anaconda3_py36\lib\site-packages\h5py\__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
+  from ._conv import register_converters as _register_converters
+</code></pre><h3 id="构造线性模型"><a href="#构造线性模型" class="headerlink" title="构造线性模型"></a>构造线性模型</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># generate phony data | 生成假数据</span></span><br><span class="line"><span class="comment"># 实际应用应该是面对真实的数据</span></span><br><span class="line"><span class="comment"># 100个点，（2x100）</span></span><br><span class="line">x_data = np.float32(np.random.rand(<span class="number">2</span>, <span class="number">100</span>))</span><br><span class="line">y_data = np.dot([<span class="number">0.100</span>, <span class="number">0.200</span>], x_data)+<span class="number">0.300</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 构造线性模型</span></span><br><span class="line">b = tf.Variable(tf.zeros([<span class="number">1</span>])) <span class="comment"># tensor of shape 1</span></span><br><span class="line">W = tf.Variable(tf.random_uniform([<span class="number">1</span>, <span class="number">2</span>], minval=<span class="number">-0.1</span>, maxval=<span class="number">1.0</span>)) <span class="comment"># tensor of shape 1x2 whose values are from a uniform distribution </span></span><br><span class="line"><span class="comment"># in the range of [minval, maxval)</span></span><br><span class="line">y = tf.matmul(W, x_data)+b</span><br><span class="line"></span><br><span class="line"><span class="comment"># 最小化方差</span></span><br><span class="line">loss = tf.reduce_mean(tf.square(y-y_data))</span><br><span class="line">optimizer = tf.train.GradientDescentOptimizer(<span class="number">0.5</span>)</span><br><span class="line">train = optimizer.minimize(loss)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 初始化变量</span></span><br><span class="line"><span class="comment"># init = tf.initialize_all_variables()</span></span><br><span class="line">init = tf.global_variables_initializer()</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 启动计算图(graph)</span></span><br><span class="line">sess = tf.Session() <span class="comment"># 创建会话</span></span><br><span class="line">sess.run(init)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 拟合平面</span></span><br><span class="line"><span class="keyword">for</span> step <span class="keyword">in</span> range(<span class="number">0</span>, <span class="number">201</span>):</span><br><span class="line">    sess.run(train)</span><br><span class="line">    <span class="keyword">if</span> step%<span class="number">20</span>==<span class="number">0</span>:</span><br><span class="line">        print(<span class="string">"Step: "</span>, step, <span class="string">" W= "</span>,sess.run(W), <span class="string">" b= "</span>, sess.run(b))</span><br></pre></td></tr></table></figure>
+<pre><code>Step:  0  W=  [[0.4871506  0.41139394]]  b=  [-0.09778017]
+Step:  20  W=  [[0.22539519 0.34252512]]  b=  [0.15573283]
+Step:  40  W=  [[0.14763923 0.26675704]]  b=  [0.23892412]
+Step:  60  W=  [[0.11975352 0.22945689]]  b=  [0.2737922]
+Step:  80  W=  [[0.10842387 0.21279107]]  b=  [0.2887098]
+Step:  100  W=  [[0.10362242 0.20552918]]  b=  [0.2951307]
+Step:  120  W=  [[0.10156146 0.20238699]]  b=  [0.29789925]
+Step:  140  W=  [[0.10067356 0.2010301 ]]  b=  [0.2990936]
+Step:  160  W=  [[0.10029061 0.20044449]]  b=  [0.29960892]
+Step:  180  W=  [[0.10012538 0.20019177]]  b=  [0.29983127]
+Step:  200  W=  [[0.10005409 0.20008272]]  b=  [0.2999272]
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 关闭会话</span></span><br><span class="line">sess.close()</span><br></pre></td></tr></table></figure>
+<h2 id="MNIST机器学习入门"><a href="#MNIST机器学习入门" class="headerlink" title="MNIST机器学习入门"></a>MNIST机器学习入门</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># http://yann.lecun.com/exdb/mnist/  to download mnist dataset</span></span><br><span class="line"><span class="comment"># https://github.com/tensorflow/tensorflow/blob/master/tensorflow/examples/tutorials/mnist/input_data.py</span></span><br><span class="line"><span class="comment"># to read dataset</span></span><br><span class="line"><span class="keyword">from</span> load_mnist <span class="keyword">import</span> *</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow.examples.tutorials.mnist.input_data <span class="keyword">as</span> input_data</span><br><span class="line">minst_dir = <span class="string">"MNIST_data/"</span></span><br><span class="line">mnist = input_data.read_data_sets(minst_dir, one_hot=<span class="keyword">True</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>Extracting MNIST_data/train-images-idx3-ubyte.gz
+Extracting MNIST_data/train-labels-idx1-ubyte.gz
+Extracting MNIST_data/t10k-images-idx3-ubyte.gz
+Extracting MNIST_data/t10k-labels-idx1-ubyte.gz
+WARNING:tensorflow:From D:\Anaconda3\Anaconda3_py36\lib\site-packages\tensorflow\contrib\learn\python\learn\datasets\mnist.py:290: DataSet.__init__ (from tensorflow.contrib.learn.python.learn.datasets.mnist) is deprecated and will be removed in a future version.
+Instructions for updating:
+Please use alternatives such as official/mnist/dataset.py from tensorflow/models.
+</code></pre><p>下载下来的数据集被分成两部分：60000行的训练数据集（mnist.train）和10000行的测试数据集（mnist.test）.</p>
+<p>每一个MNIST数据单元有两部分组成：一张包含手写数字的图片和一个对应的标签。我们把这些图片设为“xs”，把这些标签设为“ys”。训练数据集和测试数据集都包含xs和ys，比如训练数据集的图片是 mnist.train.images ，训练数据集的标签是 mnist.train.labels.</p>
+<p>每一张图片包含28像素X28像素。我们可以用一个数字数组来表示这张图片：<br><img src="http://www.tensorfly.cn/tfdoc/images/MNIST-Matrix.png" alt=""></p>
+<p>我们把这个数组展开成一个向量，长度是 28x28 = 784。如何展开这个数组（数字间的顺序）不重要，只要保持各个图片采用相同的方式展开。从这个角度来看，MNIST数据集的图片就是在784维向量空间里面的点, 并且拥有比较复杂的结构 (提醒: 此类数据的可视化是计算密集型的)。</p>
+<p>在MNIST训练数据集中，mnist.train.images 是一个形状为 <code>[60000, 784]</code>的张量，第一个维度数字用来索引图片，第二个维度数字用来索引每张图片中的像素点。在此张量里的每一个元素，都表示某张图片里的某个像素的强度值，值介于0和1之间。<br><img src="http://www.tensorfly.cn/tfdoc/images/mnist-train-xs.png" alt=""></p>
+<p>相对应的MNIST数据集的标签是介于0到9的数字，用来描述给定图片里表示的数字。为了用于这个教程，我们使标签数据是”one-hot vectors”。 一个one-hot向量除了某一位的数字是1以外其余各维度数字都是0。所以在此教程中，数字n将表示成一个只有在第n维度（从0开始）数字为1的10维向量。比如，标签0将表示成(<code>[1,0,0,0,0,0,0,0,0,0,0])</code>。因此， mnist.train.labels 是一个<code>[60000, 10]</code>的数字矩阵。<br><img src="http://www.tensorfly.cn/tfdoc/images/mnist-train-ys.png" alt=""></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># x represent the input</span></span><br><span class="line"><span class="comment"># None means number of images is adaptable</span></span><br><span class="line"><span class="comment"># a 28x28 image is flatten to a vector of 784</span></span><br><span class="line">x = tf.placeholder(<span class="string">"float"</span>, [<span class="keyword">None</span>, <span class="number">784</span>])</span><br><span class="line"></span><br><span class="line">W = tf.Variable(tf.zeros([<span class="number">784</span>, <span class="number">10</span>]))</span><br><span class="line">b = tf.Variable(tf.zeros([<span class="number">10</span>]))</span><br></pre></td></tr></table></figure>
+<h3 id="Softmax-regression"><a href="#Softmax-regression" class="headerlink" title="Softmax regression"></a>Softmax regression</h3><p>关于Softmax可以阅读<a href="http://www.tensorfly.cn/tfdoc/tutorials/mnist_beginners.html" target="_blank" rel="noopener">这篇</a>或者<a href="http://neuralnetworksanddeeplearning.com/chap3.html" target="_blank" rel="noopener">这篇</a>.</p>
+<p><img src="http://www.tensorfly.cn/tfdoc/images/mnist6.png" alt=""></p>
+<p>整个回归模型：<br><img src="http://www.tensorfly.cn/tfdoc/images/softmax-regression-scalargraph.png" alt=""><br><img src="http://www.tensorfly.cn/tfdoc/images/mnist7.png" alt=""></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># softmax</span></span><br><span class="line">y = tf.nn.softmax(tf.matmul(x, W)+b)</span><br></pre></td></tr></table></figure>
+<h3 id="训练模型"><a href="#训练模型" class="headerlink" title="训练模型"></a>训练模型</h3><p>使用交叉熵损失函数，更多介绍看<a href="https://colah.github.io/posts/2015-09-Visual-Information/" target="_blank" rel="noopener">这篇</a>.<br><img src="http://www.tensorfly.cn/tfdoc/images/mnist10.png" alt=""></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">y_ = tf.placeholder(<span class="string">"float"</span>, [<span class="keyword">None</span>, <span class="number">10</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment"># 注意，这里的交叉熵不仅仅用来衡量单一的一对预测和真实值，而是所有100幅图片的交叉熵的总和</span></span><br><span class="line">cross_entropy = -tf.reduce_sum(y_*tf.log(y))</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># gradient descent and backprapagation</span></span><br><span class="line">train_step = tf.train.GradientDescentOptimizer(<span class="number">0.01</span>).minimize(cross_entropy)</span><br></pre></td></tr></table></figure>
+<p>更多优化算法点击<a href="http://www.tensorfly.cn/tfdoc/api_docs/python/train.html#optimizers" target="_blank" rel="noopener">这里</a>.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># init graph</span></span><br><span class="line">init = tf.global_variables_initializer()</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> tf.Session() <span class="keyword">as</span> sess:</span><br><span class="line">    sess.run(init)</span><br><span class="line">    <span class="keyword">for</span> step <span class="keyword">in</span> range(<span class="number">1001</span>):</span><br><span class="line">        batch_xs, batch_ys = mnist.train.next_batch(<span class="number">100</span>)</span><br><span class="line">        feed_dict =&#123;x: batch_xs, y_:batch_ys&#125;</span><br><span class="line">        sess.run(train_step, feed_dict)</span><br></pre></td></tr></table></figure>
+<h3 id="评估我们的模型"><a href="#评估我们的模型" class="headerlink" title="评估我们的模型"></a>评估我们的模型</h3><p>tf.argmax 是一个非常有用的函数，它能给出某个tensor对象在某一维上的其数据最大值所在的索引值。由于标签向量是由0,1组成，因此最大值1所在的索引位置就是类别标签，比如tf.argmax(y,1)返回的是模型对于任一输入x预测到的标签值，而 tf.argmax(y_,1) 代表正确的标签，我们可以用 tf.equal 来检测我们的预测是否真实标签匹配(索引位置一样表示匹配)。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> tf.Session() <span class="keyword">as</span> sess:</span><br><span class="line">    sess.run(init)</span><br><span class="line">    <span class="keyword">for</span> step <span class="keyword">in</span> range(<span class="number">1001</span>):</span><br><span class="line">        batch_xs, batch_ys = mnist.train.next_batch(<span class="number">100</span>)</span><br><span class="line">        feed_dict =&#123;x: batch_xs, y_:batch_ys&#125;</span><br><span class="line">        sess.run(train_step, feed_dict)</span><br><span class="line">        <span class="keyword">if</span> step%<span class="number">100</span>==<span class="number">0</span>:</span><br><span class="line">            correct_prediction = tf.equal(tf.argmax(y, <span class="number">1</span>), tf.argmax(y_, <span class="number">1</span>))</span><br><span class="line">            accuracy = tf.reduce_mean(tf.cast(correct_prediction, <span class="string">"float"</span>))</span><br><span class="line">            print(step, <span class="string">" train acc: "</span>, sess.run(accuracy, feed_dict))</span><br></pre></td></tr></table></figure>
+<pre><code>0  train acc:  0.48
+100  train acc:  0.94
+200  train acc:  0.96
+300  train acc:  0.93
+400  train acc:  0.93
+500  train acc:  0.89
+600  train acc:  0.96
+700  train acc:  0.94
+800  train acc:  0.94
+900  train acc:  0.95
+1000  train acc:  0.98
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> tf.Session() <span class="keyword">as</span> sess:</span><br><span class="line">    sess.run(init)</span><br><span class="line">    <span class="keyword">for</span> step <span class="keyword">in</span> range(<span class="number">1001</span>):</span><br><span class="line">        batch_xs, batch_ys = mnist.train.next_batch(<span class="number">100</span>)</span><br><span class="line">        feed_dict =&#123;x: batch_xs, y_:batch_ys&#125;</span><br><span class="line">        sess.run(train_step, feed_dict)</span><br><span class="line"><span class="comment">#         if step%100==0:</span></span><br><span class="line"><span class="comment">#             correct_prediction = tf.equal(tf.argmax(y, 1), tf.argmax(y_, 1))</span></span><br><span class="line"><span class="comment">#             accuracy = tf.reduce_mean(tf.cast(correct_prediction, "float"))</span></span><br><span class="line"><span class="comment">#             print(step, " train acc: ", sess.run(accuracy, feed_dict))</span></span><br><span class="line"><span class="comment">#   # for test set</span></span><br><span class="line">    correct_prediction = tf.equal(tf.argmax(y, <span class="number">1</span>), tf.argmax(y_, <span class="number">1</span>))</span><br><span class="line">    accuracy = tf.reduce_mean(tf.cast(correct_prediction, <span class="string">"float"</span>))</span><br><span class="line">    print(<span class="string">"Test acc:"</span>, sess.run(accuracy, feed_dict=&#123;x:mnist.test.images, y_:mnist.test.labels&#125;))</span><br></pre></td></tr></table></figure>
+<pre><code>Test acc: 0.9138
+</code></pre><p>更多内容<a href="https://www.tensorflow.org/tutorials/" target="_blank" rel="noopener">https://www.tensorflow.org/tutorials/</a></p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>本文首先通过一个完整的线性回归的例子，展示了TensorFlow的基本使用，首先构造计算图graph，其中包含诸如<code>Variable</code>、<code>placeholder</code>等节点，以及节点之间的数学运算如矩阵乘法；接着对计算图初始化，<code>tf.global_variables_initializer()</code>，其中TensorFlow中很重要的就是回话session机制，通过会话来运行计算图；随后，通过会话进行训练，拟合并德大检测结果。</p>
+<p>其次，使用TensorFlow完成了基于MNIST数据集，进行手写体识别的任务，并在测试集上实现了91%的正确率。<br>其完整过程，首先是准备数据，下载的数据被分为训练数据和测试数据。每种数据的基本单元都包含两部分，一部分是手写体图片，统一规格28x28，另一部分是对应的标记，来指出对应的数字，将原始图片展开向量表示，标记采用one-hot表示；<br>接着，构建softmax回归模型。使用梯度下降算法进行反向传播，最小化交叉熵损失进行训练。<br>最后，在测试机上测试，得到实验正确率指标，可以达到91%以上。</p>
+
+			
+		  
+		</div>
+
+		
+		  
+
+		
+
+		<footer class="article-footer">
+		  <a data-url="https://www.blankspace.cn/2018/08/11/TensorFlow-tutorial-mnist-beginners/" data-id="cjkz4bk61001ae4fia7a6o5b5" class="article-share-link">
+			<i class="fa fa-share"></i> Share
+		  </a>
+		  
+		  
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/TensorFlow/">TensorFlow</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/mnist/">mnist</a></li></ul>
+
+
+		</footer>
+	  </div>
+	  
+	</article>
+
+	
+
+
+
+		
+
+
+	  
+		<article id="post-code-hightlight" class="article article-type-post" itemscope itemprop="blogPost">
+	
+
+
+	    <header class="article-header">
+		
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="../../2018/08/11/code-hightlight/">Code Highlight</a>
+    </h1>
+  
+
+
+			
+		
+		<div class="article-meta"> 
+			
+	  
+		   <div class="article-datetime">
+  <a href="../../2018/08/11/code-hightlight/" class="article-date"><time datetime="2018-08-11T04:30:03.000Z" itemprop="datePublished">2018-08-11</time></a>
 </div>
 
 
@@ -556,8 +558,7 @@ n & \text{Left} & \text{Center} & \text{Right} \\
 
 			
 			
-			<p>This post contains 3 categories. Make sure the theme can display all of the categories.</p>
-
+			<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * This is some sample code to illustrate how things look!</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">import</span> Musician <span class="keyword">from</span> <span class="string">'./liverpool'</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Paul</span> <span class="keyword">extends</span> <span class="title">Musician</span> </span>&#123;</span><br><span class="line">    <span class="keyword">constructor</span>(bass) &#123;</span><br><span class="line">        <span class="keyword">super</span>(bass);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    get fullName() &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">'Paul McCartney'</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    perform() &#123;</span><br><span class="line">        <span class="keyword">this</span>.play(<span class="keyword">this</span>.instrument);</span><br><span class="line">        <span class="keyword">this</span>.sing();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> Paul;</span><br></pre></td></tr></table></figure>
 			
 		  
 		</div>
@@ -568,496 +569,13 @@ n & \text{Left} & \text{Center} & \text{Right} \\
 		
 
 		<footer class="article-footer">
-		  <a data-url="https://www.blankspace.cn/2018/08/08/categories/" data-id="cjkz4bk5q000xe4fibvwwtlva" class="article-share-link">
+		  <a data-url="https://www.blankspace.cn/2018/08/11/code-hightlight/" data-id="cjkz4bk5p000ve4fibgc1n154" class="article-share-link">
 			<i class="fa fa-share"></i> Share
 		  </a>
 		  
 		  
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Code/">Code</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Hexo/">Hexo</a></li></ul>
 
-		</footer>
-	  </div>
-	  
-	</article>
-
-	
-
-
-
-		
-
-
-	  
-		<article id="post-elements" class="article article-type-post" itemscope itemprop="blogPost">
-	
-
-
-	    <header class="article-header">
-		
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="../../2018/08/08/elements/">Elements</a>
-    </h1>
-  
-
-
-			
-		
-		<div class="article-meta"> 
-			
-	  
-		   <div class="article-datetime">
-  <a href="../../2018/08/08/elements/" class="article-date"><time datetime="2018-08-07T16:01:03.000Z" itemprop="datePublished">2018-08-08</time></a>
-</div>
-
-
-
-			
-			  
-			
-
- 
-			
-  <div class="article-category">
-    <a class="article-category-link" href="../../categories/Projects/">Projects</a> / <a class="article-category-link" href="../../categories/Projects/hexo-theme-bootstrap-blog/">hexo-theme-bootstrap-blog</a> / <a class="article-category-link" href="../../categories/Projects/hexo-theme-bootstrap-blog/Tutorial/">Tutorial</a>
-  </div>
-
-
-	    </div>
-	    </header>
-	    
-	  
-	  <div class="article-inner">
-		<div class="article-entry" itemprop="articleBody">
-		  
-		  
-			<!-- Table of Contents -->
-
-			
-			
-			<p>The purpose of this post is to make sure all HTML elements can display properly.</p>
-<hr>
-<h1 id="Heading-1"><a href="#Heading-1" class="headerlink" title="Heading 1"></a>Heading 1</h1><h2 id="Heading-2"><a href="#Heading-2" class="headerlink" title="Heading 2"></a>Heading 2</h2><h3 id="Heading-3"><a href="#Heading-3" class="headerlink" title="Heading 3"></a>Heading 3</h3><h4 id="Heading-4"><a href="#Heading-4" class="headerlink" title="Heading 4"></a>Heading 4</h4><h5 id="Heading-5"><a href="#Heading-5" class="headerlink" title="Heading 5"></a>Heading 5</h5><h6 id="Heading-6"><a href="#Heading-6" class="headerlink" title="Heading 6"></a>Heading 6</h6><hr>
-<h2 id="Paragraph"><a href="#Paragraph" class="headerlink" title="Paragraph"></a>Paragraph</h2><p>Lorem ipsum dolor sit amet, <a href="">test link</a> consectetur adipiscing elit. <strong>Strong text</strong> pellentesque ligula commodo viverra vehicula. <em>Italic text</em> at ullamcorper enim. Morbi a euismod nibh. <u>Underline text</u> non elit nisl. <del>Deleted text</del> tristique, sem id condimentum tempus, metus lectus venenatis mauris, sit amet semper lorem felis a eros. Fusce egestas nibh at sagittis auctor. Sed ultricies ac arcu quis molestie. Donec dapibus nunc in nibh egestas, vitae volutpat sem iaculis. Curabitur sem tellus, elementum nec quam id, fermentum laoreet mi. Ut mollis ullamcorper turpis, vitae facilisis velit ultricies sit amet. Etiam laoreet dui odio, id tempus justo tincidunt id. Phasellus scelerisque nunc sed nunc ultricies accumsan.</p>
-<p>Interdum et malesuada fames ac ante ipsum primis in faucibus. <code>Sed erat diam</code>, blandit eget felis aliquam, rhoncus varius urna. Donec tellus sapien, sodales eget ante vitae, feugiat ullamcorper urna. Praesent auctor dui vitae dapibus eleifend. Proin viverra mollis neque, ut ullamcorper elit posuere eget.</p>
-<blockquote>
-<p>Praesent diam elit, interdum ut pulvinar placerat, imperdiet at magna.</p>
-</blockquote>
-<p>Maecenas ornare arcu at mi suscipit, non molestie tortor ultrices. Aenean convallis, diam et congue ultricies, erat magna tincidunt orci, pulvinar posuere mi sapien ac magna. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Praesent vitae placerat mauris. Nullam laoreet ante posuere tortor blandit auctor. Sed id ligula volutpat leo consequat placerat. Mauris fermentum dolor sed augue malesuada sollicitudin. Vivamus ultrices nunc felis, quis viverra orci eleifend ut. Donec et quam id urna cursus posuere. Donec elementum scelerisque laoreet.</p>
-<h2 id="List-Types"><a href="#List-Types" class="headerlink" title="List Types"></a>List Types</h2><h3 id="Definition-List-dl"><a href="#Definition-List-dl" class="headerlink" title="Definition List (dl)"></a>Definition List (dl)</h3><dl><dt>Definition List Title</dt><dd>This is a definition list division.</dd></dl>
-
-<h3 id="Ordered-List-ol"><a href="#Ordered-List-ol" class="headerlink" title="Ordered List (ol)"></a>Ordered List (ol)</h3><ol>
-<li>List Item 1</li>
-<li>List Item 2</li>
-<li>List Item 3</li>
-</ol>
-<h3 id="Unordered-List-ul"><a href="#Unordered-List-ul" class="headerlink" title="Unordered List (ul)"></a>Unordered List (ul)</h3><ul>
-<li>List Item 1</li>
-<li>List Item 2</li>
-<li>List Item 3</li>
-</ul>
-<h2 id="Table"><a href="#Table" class="headerlink" title="Table"></a>Table</h2><div class="table-container">
-<table>
-<thead>
-<tr>
-<th>Table Header 1</th>
-<th>Table Header 2</th>
-<th>Table Header 3</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Division 1</td>
-<td>Division 2</td>
-<td>Division 3</td>
-</tr>
-<tr>
-<td>Division 1</td>
-<td>Division 2</td>
-<td>Division 3</td>
-</tr>
-<tr>
-<td>Division 1</td>
-<td>Division 2</td>
-<td>Division 3</td>
-</tr>
-</tbody>
-</table>
-</div>
-<h2 id="Misc-Stuff-abbr-acronym-sub-sup-etc"><a href="#Misc-Stuff-abbr-acronym-sub-sup-etc" class="headerlink" title="Misc Stuff - abbr, acronym, sub, sup, etc."></a>Misc Stuff - abbr, acronym, sub, sup, etc.</h2><p>Lorem <sup>superscript</sup> dolor <sub>subscript</sub> amet, consectetuer adipiscing elit. Nullam dignissim convallis est. Quisque aliquam. <cite>cite</cite>. Nunc iaculis suscipit dui. Nam sit amet sem. Aliquam libero nisi, imperdiet at, tincidunt nec, gravida vehicula, nisl. Praesent mattis, massa quis luctus fermentum, turpis mi volutpat justo, eu volutpat enim diam eget metus. Maecenas ornare tortor. Donec sed tellus eget sapien fringilla nonummy. <acronym title="National Basketball Association">NBA</acronym> Mauris a ante. Suspendisse quam sem, consequat at, commodo vitae, feugiat in, nunc. Morbi imperdiet augue quis tellus.  <abbr title="Avenue">AVE</abbr></p>
-
-			
-		  
-		</div>
-
-		
-		  
-
-		
-
-		<footer class="article-footer">
-		  <a data-url="https://www.blankspace.cn/2018/08/08/elements/" data-id="cjkz4bk5v0014e4ficd3e0ei9" class="article-share-link">
-			<i class="fa fa-share"></i> Share
-		  </a>
-		  
-		  
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Elements/">Elements</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Hexo/">Hexo</a></li></ul>
-
-
-		</footer>
-	  </div>
-	  
-	</article>
-
-	
-
-
-
-		
-
-
-	  
-		<article id="post-gallery" class="article article-type-post" itemscope itemprop="blogPost">
-	
-
-
-	    <header class="article-header">
-		
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="../../2018/08/08/gallery/">Gallery</a>
-    </h1>
-  
-
-
-			
-		
-		<div class="article-meta"> 
-			
-	  
-		   <div class="article-datetime">
-  <a href="../../2018/08/08/gallery/" class="article-date"><time datetime="2018-08-07T16:01:02.000Z" itemprop="datePublished">2018-08-08</time></a>
-</div>
-
-
-
-			
-			  
-			
-
- 
-			
-  <div class="article-category">
-    <a class="article-category-link" href="../../categories/Projects/">Projects</a> / <a class="article-category-link" href="../../categories/Projects/hexo-theme-bootstrap-blog/">hexo-theme-bootstrap-blog</a> / <a class="article-category-link" href="../../categories/Projects/hexo-theme-bootstrap-blog/Tutorial/">Tutorial</a>
-  </div>
-
-
-	    </div>
-	    </header>
-	    
-	  
-	  <div class="article-inner">
-		<div class="article-entry" itemprop="articleBody">
-		  
-		  
-			<!-- Table of Contents -->
-
-			
-			
-			<p>A photo gallery example…</p>
-
-			
-		  
-		</div>
-
-		
-		  
-<div class="row article-gallery">
-  
-    <div class="col-xs-6 col-md-4">
-      <a class="thumbnail image-link" href="../../images/test-pic-1.jpg" rel="gallery_cjkz4bk5x0016e4fivwi5z9kn">
-        <img src="../../images/test-pic-1.jpg" itemprop="image">
-      </a>
-    </div>
-  
-    <div class="col-xs-6 col-md-4">
-      <a class="thumbnail image-link" href="../../images/test-pic-4.jpg" rel="gallery_cjkz4bk5x0016e4fivwi5z9kn">
-        <img src="../../images/test-pic-4.jpg" itemprop="image">
-      </a>
-    </div>
-  
-    <div class="col-xs-6 col-md-4">
-      <a class="thumbnail image-link" href="../../images/test-pic-5.png" rel="gallery_cjkz4bk5x0016e4fivwi5z9kn">
-        <img src="../../images/test-pic-5.png" itemprop="image">
-      </a>
-    </div>
-  
-    <div class="col-xs-6 col-md-4">
-      <a class="thumbnail image-link" href="../../images/test-pic-6.jpg" rel="gallery_cjkz4bk5x0016e4fivwi5z9kn">
-        <img src="../../images/test-pic-6.jpg" itemprop="image">
-      </a>
-    </div>
-  
-    <div class="col-xs-6 col-md-4">
-      <a class="thumbnail image-link" href="../../images/test-pic-7.gif" rel="gallery_cjkz4bk5x0016e4fivwi5z9kn">
-        <img src="../../images/test-pic-7.gif" itemprop="image">
-      </a>
-    </div>
-  
-</div>
-
-
-		
-
-		<footer class="article-footer">
-		  <a data-url="https://www.blankspace.cn/2018/08/08/gallery/" data-id="cjkz4bk5x0016e4fivwi5z9kn" class="article-share-link">
-			<i class="fa fa-share"></i> Share
-		  </a>
-		  
-		  
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Hexo/">Hexo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Photos/">Photos</a></li></ul>
-
-
-		</footer>
-	  </div>
-	  
-	</article>
-
-	
-
-
-
-		
-
-
-	  
-		<article id="post-hexo-theme-bootstrap-blog" class="article article-type-post" itemscope itemprop="blogPost">
-	
-
-
-	    <header class="article-header">
-		
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="../../2018/08/08/hexo-theme-bootstrap-blog/">Hexo Theme: Bootstrap Blog</a>
-    </h1>
-  
-
-
-			
-		
-		<div class="article-meta"> 
-			
-	  
-		   <div class="article-datetime">
-  <a href="../../2018/08/08/hexo-theme-bootstrap-blog/" class="article-date"><time datetime="2018-08-07T16:01:01.000Z" itemprop="datePublished">2018-08-08</time></a>
-</div>
-
-
-
-			
-			<div class="article-author">Leo Liu</div>
-			
-			  
-			
-
- 
-			
-  <div class="article-category">
-    <a class="article-category-link" href="../../categories/Projects/">Projects</a> / <a class="article-category-link" href="../../categories/Projects/hexo-theme-bootstrap-blog/">hexo-theme-bootstrap-blog</a> / <a class="article-category-link" href="../../categories/Projects/hexo-theme-bootstrap-blog/Tutorial/">Tutorial</a>
-  </div>
-
-
-	    </div>
-	    </header>
-	    
-	  
-	  <div class="article-inner">
-		<div class="article-entry" itemprop="articleBody">
-		  
-			<p>A simple <a href="http://getbootstrap.com/" target="_blank" rel="noopener">Bootstrap</a> v3 blog theme for <a href="http://zespia.tw/hexo/" target="_blank" rel="noopener">Hexo</a>.</p>
-<p>Based on the <a href="http://getbootstrap.com/examples/blog/" target="_blank" rel="noopener">official Bootstrap Blog example template</a>.</p>
-<p>The theme and example site source code can be found on Github:</p>
-<ul>
-<li><a href="https://github.com/liuqidev/hexo-theme-bootstrap-blog" target="_blank" rel="noopener">Theme package source code</a></li>
-<li><a href="https://github.com/liuqidev/hexo-theme-bootstrap-blog" target="_blank" rel="noopener">Example site source content</a></li>
-<li><a href="https://github.com/liuqidev/hexo-theme-bootstrap-blog" target="_blank" rel="noopener">Example site generated output</a></li>
-<li><a href="https://github.com/liuqidev/hexo-theme-bootstrap-blog" target="_blank" rel="noopener">Theme announcement blog post</a></li>
-</ul>
-			
-			  <p class="article-more-link">
-				<a class="btn btn-primary" href="../../2018/08/08/hexo-theme-bootstrap-blog/#more">Read more...</a>
-			  </p>
-			
-		  
-		</div>
-
-		
-
-		<footer class="article-footer">
-		  <a data-url="https://www.blankspace.cn/2018/08/08/hexo-theme-bootstrap-blog/" data-id="cjkz4bk74002we4fi3od01g0p" class="article-share-link">
-			<i class="fa fa-share"></i> Share
-		  </a>
-		  
-		  
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Hexo/">Hexo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Theme/">Theme</a></li></ul>
-
-
-		</footer>
-	  </div>
-	  
-	</article>
-
-	
-
-
-
-		
-
-
-	  
-		<article id="post-日本語テスト" class="article article-type-post" itemscope itemprop="blogPost">
-	
-
-
-	    <header class="article-header">
-		
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="../../2018/08/08/日本語テスト/">日本語テスト</a>
-    </h1>
-  
-
-
-			
-		
-		<div class="article-meta"> 
-			
-	  
-		   <div class="article-datetime">
-  <a href="../../2018/08/08/日本語テスト/" class="article-date"><time datetime="2018-08-07T16:00:11.000Z" itemprop="datePublished">2018-08-08</time></a>
-</div>
-
-
-
-			
-			  
-			
-
- 
-			
-  <div class="article-category">
-    <a class="article-category-link" href="../../categories/Projects/">Projects</a> / <a class="article-category-link" href="../../categories/Projects/hexo-theme-bootstrap-blog/">hexo-theme-bootstrap-blog</a> / <a class="article-category-link" href="../../categories/Projects/hexo-theme-bootstrap-blog/Tutorial/">Tutorial</a>
-  </div>
-
-
-	    </div>
-	    </header>
-	    
-	  
-	  <div class="article-inner">
-		<div class="article-entry" itemprop="articleBody">
-		  
-			<p>This is a Japanese test post.</p>
-<p>私は昨日ついにその助力家というのの上よりするたなけれ。</p>
-<p>最も今をお話団はちょうどこの前後なかろでくらいに困りがいるたをは帰着考えたなかって、そうにもするでうたらない。</p>
-			
-			  <p class="article-more-link">
-				<a class="btn btn-primary" href="../../2018/08/08/日本語テスト/#more">Read more...</a>
-			  </p>
-			
-		  
-		</div>
-
-		
-
-		<footer class="article-footer">
-		  <a data-url="https://www.blankspace.cn/2018/08/08/日本語テスト/" data-id="cjkz4bk780031e4fig9ssdvsd" class="article-share-link">
-			<i class="fa fa-share"></i> Share
-		  </a>
-		  
-		  
-
-		</footer>
-	  </div>
-	  
-	</article>
-
-	
-
-
-
-		
-
-
-	  
-		<article id="post-中文測試" class="article article-type-post" itemscope itemprop="blogPost">
-	
-
-
-	    <header class="article-header">
-		
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="../../2018/08/08/中文測試/">中文测试</a>
-    </h1>
-  
-
-
-			
-		
-		<div class="article-meta"> 
-			
-	  
-		   <div class="article-datetime">
-  <a href="../../2018/08/08/中文測試/" class="article-date"><time datetime="2018-08-07T16:00:10.000Z" itemprop="datePublished">2018-08-08</time></a>
-</div>
-
-
-
-			
-			  
-			
-
- 
-			
-  <div class="article-category">
-    <a class="article-category-link" href="../../categories/Projects/">Projects</a> / <a class="article-category-link" href="../../categories/Projects/hexo-theme-bootstrap-blog/">hexo-theme-bootstrap-blog</a> / <a class="article-category-link" href="../../categories/Projects/hexo-theme-bootstrap-blog/Tutorial/">Tutorial</a>
-  </div>
-
-
-	    </div>
-	    </header>
-	    
-	  
-	  <div class="article-inner">
-		<div class="article-entry" itemprop="articleBody">
-		  
-			<p>This is a Chinese test post.</p>
-<p>当朝大学士，统共有五位，朕不得不罢免四位，六部尚书，朕不得不罢免三位。</p>
-<p>看看这七个人吧，哪个不是两鬓半百，哪个不是朝廷的栋梁，哪个不是朕的儿女亲家。</p>
-<p>他们烂了，朕心要碎了。</p>
-<p>祖宗把江山交到朕的手里，却搞成了这个样子，朕是痛心疾首。</p>
-<p>朕有罪于国家，愧对祖宗，愧对天地，朕恨不得自己罢免了自己！</p>
-<p>还有你们，虽然各个冠冕堂皇站在干岸上，你们，就那么干净吗？！！！！</p>
-<p>朕知道，你们有的人比这七个人更腐败！</p>
-<p>朕劝你们一句，都把自己的心肺肠子翻出来晒一晒洗一洗拾掇拾掇！</p>
-<p>。。。。。。。</p>
-			
-			  <p class="article-more-link">
-				<a class="btn btn-primary" href="../../2018/08/08/中文測試/#more">Read more...</a>
-			  </p>
-			
-		  
-		</div>
-
-		
-
-		<footer class="article-footer">
-		  <a data-url="https://www.blankspace.cn/2018/08/08/中文測試/" data-id="cjkz4bk72002te4fi1prhlpcf" class="article-share-link">
-			<i class="fa fa-share"></i> Share
-		  </a>
-		  
-		  
 
 		</footer>
 	  </div>
@@ -1076,7 +594,7 @@ n & \text{Left} & \text{Center} & \text{Right} \\
 	
 	
 	  <div id="page-nav">
-		<nav><ul class="pagination"><li><a class="page-prev" rel="prev" href="../../index.html"><i class="fa fa-chevron-left"></i> Prev</a></li><li><a class="page-number" href="../../index.html">1</a></li><li class="active"><span class="page-number">2</span></li><li><a class="page-number" href="../../page/3/">3</a></li><li><a class="page-next" rel="next" href="../../page/3/">Next <i class="fa fa-chevron-right"></i></a></li></ul></nav>
+		<nav><ul class="pagination"><li><a class="page-prev" rel="prev" href="../../index.html"><i class="fa fa-chevron-left"></i> Prev</a></li><li><a class="page-number" href="../../index.html">1</a></li><li class="active"><span class="page-number">2</span></li><li><a class="page-number" href="../../page/3/">3</a></li><li><a class="page-number" href="../../page/4/">4</a></li><li class="disabled"><span class="page-space">&hellip;</span></li><li><a class="page-number" href="../../page/6/">6</a></li><li><a class="page-next" rel="next" href="../../page/3/">Next <i class="fa fa-chevron-right"></i></a></li></ul></nav>
 	  </div>
 	
 
@@ -1255,9 +773,6 @@ var _hmt = _hmt || [];
 
 
 
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 
 	
 
