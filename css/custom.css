@@ -13,7 +13,7 @@
 body {
   font-family: -apple-system,SF UI Text,Arial,PingFang SC,Hiragino Sans GB,Microsoft YaHei,WenQuanYi Micro Hei,sans-serif, Georgia, "Times New Roman", Times, serif;
   color: #555;
-  font-size: 15px;
+  font-size: 16.5px;
   font-weight: blod;
   background-color: #cecbcb0a;
 }
@@ -94,12 +94,13 @@ code {
  */
 
 .navbar {
-  position:fixed;
-  width: 100%;
-  background-color: hsla(0, 7%, 77%, 0.5);
-  -webkit-box-shadow: inset 0 -2px 5px rgba(0,0,0,.1);
-  box-shadow: inset 0 -2px 5px rgba(0,0,0,.1);
+position:fixed;
+width: 100%;
+background-color: hsla(0, 7%, 77%, 0.5);
+-webkit-box-shadow: inset 0 -2px 5px rgba(0,0,0,.1);
+box-shadow: inset 0 -2px 5px rgba(0,0,0,.1);
 text-align: center;
+min-height:fit-content;
 }
 
 .navbar-nav li{
@@ -494,10 +495,14 @@ p#back-to-top a span {
 * avatar-logo
 */
 #avatar-logo{
+	float: left;
 	max-width: 150px;
 	width: 100%;
 	border:2px solid transparent;
 	margin-bottom:10px;
+	border-radius: 30px;
+	margin-right: 20px;
+	border: 2px solid;
 }
 
 /*
