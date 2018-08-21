@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.blankspace.cn/"/>
-  <updated>2018-08-21T05:51:57.478Z</updated>
+  <updated>2018-08-21T08:20:42.256Z</updated>
   <id>https://www.blankspace.cn/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="https://www.blankspace.cn/2018/08/21/let-ubuntu-be-controled-by-windows/"/>
     <id>https://www.blankspace.cn/2018/08/21/let-ubuntu-be-controled-by-windows/</id>
     <published>2018-08-21T05:28:47.000Z</published>
-    <updated>2018-08-21T05:51:57.478Z</updated>
+    <updated>2018-08-21T08:20:42.256Z</updated>
     
-    <content type="html"><![CDATA[<p>刚好手头有一台旧电脑由于硬件老化，所以安装上了Ubuntu系统，现在想通过另外一台Windows电脑来控制。</p><p>最简单的方法可以使用Teamviewer，在两台电脑上都装上，然后同时登陆，输入口令，就能远程相互控制了，而且是图像化界面，十分方便。</p><p>另外一种方法可以在局域网使用SSH来连接及控制，成功之后的操作就跟远程操作云服务供应商（比如阿里云，腾讯云，GoDaddy等）提供的云服务器或者云虚拟主机一样，相当于一台本地服务器。过程如下：</p><ol><li><p>两台电脑连接到同一局域网下</p></li><li><p>在Linux电脑安装<code>openssh-server</code>：<code>sudo apt-get install openssh-server</code></p></li><li><p>在Linux启动SSH服务：<code>sudo /etc/init.d/ssh start</code></p></li><li><p>在Windows安装相关SSH软件，推荐<code>xshell</code>还有<code>PuTTY</code>（感谢<code>xshell</code>提供学生优惠）</p></li><li><p>查看Linux的IP地址，在终端中输入：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fconfig -a</span><br></pre></td></tr></table></figure></li><li><p>连接，在<code>xshell</code>中创建新的连接，输入Linux的IP，端口号选择<code>22</code></p></li><li><p>输入用户名和密码，就进入Linux终端来控制了。</p></li></ol>]]></content>
+    <content type="html"><![CDATA[<p>刚好手头有一台旧电脑由于硬件老化，所以安装上了Ubuntu系统，现在想通过另外一台Windows电脑来控制。</p><p>最简单的方法可以使用Teamviewer，在两台电脑上都装上，然后同时登陆，输入口令，就能远程相互控制了，而且是图像化界面，十分方便。</p><p>另外一种方法可以在局域网使用SSH来连接及控制，成功之后的操作就跟远程操作云服务供应商（比如阿里云，腾讯云，GoDaddy等）提供的云服务器或者云虚拟主机一样，相当于一台本地服务器。过程如下：</p><ol><li><p>两台电脑连接到同一局域网下</p></li><li><p>在Linux电脑安装<code>openssh-server</code>：<code>sudo apt-get install openssh-server</code></p></li><li><p>在Linux启动SSH服务：<code>sudo /etc/init.d/ssh start</code></p></li><li><p>在Windows安装相关SSH软件，推荐<code>xshell</code>还有<code>PuTTY</code>（感谢<code>xshell</code>提供学生优惠）</p></li><li><p>查看Linux的IP地址，在终端中输入：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fconfig -a</span><br></pre></td></tr></table></figure></li><li><p>连接，在<code>xshell</code>中创建新的连接，输入Linux的IP，端口号选择<code>22</code></p></li><li><p>接着输入用户名和密码，就能在xshell中进入Linux终端（黑窗口）来控制了。</p></li></ol>]]></content>
     
     <summary type="html">
     
