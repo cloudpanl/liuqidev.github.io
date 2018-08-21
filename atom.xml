@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.blankspace.cn/"/>
-  <updated>2018-08-14T23:48:37.320Z</updated>
+  <updated>2018-08-21T05:51:57.478Z</updated>
   <id>https://www.blankspace.cn/</id>
   
   <author>
@@ -15,6 +15,65 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>通过SSH让Windows控制Ubuntu</title>
+    <link href="https://www.blankspace.cn/2018/08/21/let-ubuntu-be-controled-by-windows/"/>
+    <id>https://www.blankspace.cn/2018/08/21/let-ubuntu-be-controled-by-windows/</id>
+    <published>2018-08-21T05:28:47.000Z</published>
+    <updated>2018-08-21T05:51:57.478Z</updated>
+    
+    <content type="html"><![CDATA[<p>刚好手头有一台旧电脑由于硬件老化，所以安装上了Ubuntu系统，现在想通过另外一台Windows电脑来控制。</p><p>最简单的方法可以使用Teamviewer，在两台电脑上都装上，然后同时登陆，输入口令，就能远程相互控制了，而且是图像化界面，十分方便。</p><p>另外一种方法可以在局域网使用SSH来连接及控制，成功之后的操作就跟远程操作云服务供应商（比如阿里云，腾讯云，GoDaddy等）提供的云服务器或者云虚拟主机一样，相当于一台本地服务器。过程如下：</p><ol><li><p>两台电脑连接到同一局域网下</p></li><li><p>在Linux电脑安装<code>openssh-server</code>：<code>sudo apt-get install openssh-server</code></p></li><li><p>在Linux启动SSH服务：<code>sudo /etc/init.d/ssh start</code></p></li><li><p>在Windows安装相关SSH软件，推荐<code>xshell</code>还有<code>PuTTY</code>（感谢<code>xshell</code>提供学生优惠）</p></li><li><p>查看Linux的IP地址，在终端中输入：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fconfig -a</span><br></pre></td></tr></table></figure></li><li><p>连接，在<code>xshell</code>中创建新的连接，输入Linux的IP，端口号选择<code>22</code></p></li><li><p>输入用户名和密码，就进入Linux终端来控制了。</p></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;刚好手头有一台旧电脑由于硬件老化，所以安装上了Ubuntu系统，现在想通过另外一台Windows电脑来控制。&lt;/p&gt;
+&lt;p&gt;最简单的方法可以使用Teamviewer，在两台电脑上都装上，然后同时登陆，输入口令，就能远程相互控制了，而且是图像化界面，十分方便。&lt;/p&gt;
+&lt;p&gt;
+      
+    
+    </summary>
+    
+      <category term="Linux" scheme="https://www.blankspace.cn/categories/Linux/"/>
+    
+      <category term="Ubuntu" scheme="https://www.blankspace.cn/categories/Linux/Ubuntu/"/>
+    
+    
+      <category term="SSH" scheme="https://www.blankspace.cn/tags/SSH/"/>
+    
+      <category term="Ubuntu" scheme="https://www.blankspace.cn/tags/Ubuntu/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Ubuntu 18.04.1 初学遇到的部分小问题和解决方法</title>
+    <link href="https://www.blankspace.cn/2018/08/20/ubuntu-beginner/"/>
+    <id>https://www.blankspace.cn/2018/08/20/ubuntu-beginner/</id>
+    <published>2018-08-20T13:46:53.000Z</published>
+    <updated>2018-08-21T05:25:49.292Z</updated>
+    
+    <content type="html"><![CDATA[<p>由于学习和工作需要，得使用Linux系统，初学者试水，难免遇到各种各样的Bug，很莫名奇妙也很幸运的是从安装到使用都是<em>“惊喜连连, bug不断</em>, 特总结如下:</p><h2 id="查看Ubuntu版本号"><a href="#查看Ubuntu版本号" class="headerlink" title="查看Ubuntu版本号"></a>查看Ubuntu版本号</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat /etc/issue</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ubuntu 18.04.1 LTS</span><br></pre></td></tr></table></figure><p>本文的Linux版本如上。</p><h2 id="安装后出现Bug-soft-lockup"><a href="#安装后出现Bug-soft-lockup" class="headerlink" title="安装后出现Bug soft lockup"></a>安装后出现<code>Bug soft lockup</code></h2><p>也许是因为安装双系统的原因,导致Ubuntu安装后启动发现如下错误, 卡顿无比:</p><blockquote><p>kernel: xxx watchdog: Bug: soft lockup - CPU#X stuck for xxs</p></blockquote><p><strong>解决方法:</strong></p><ol><li>重启,开机时不要按<code>enter</code>,而是按<code>e</code>,进入编辑开机指令状态</li><li>在命令中的后几行,找到<code>quite splash</code>, 在后面加上<code>nomodeset</code>, 即变成<code>quite splash nomodeset</code></li><li>按下<code>Ctrl+x</code>启动系统</li><li>这下耐性等待就可以进入系统了,进入系统后打开终端(可以使用<code>Ctrl+Alt+T</code>)</li><li>在终端中输入:<code>cd /etc/default/</code>, 按下回车</li><li>接着输入<code>sudo sudo nano grub</code>, 输入管理员密码,回车</li><li>在打开的窗口中找到<code>GRUB_CMDLINE_LINUX_DEFAULT=&quot;quite splash&quot;</code>更改为<code>GRUB_CMDLINE_LINUX_DEFAULT=&quot;quite splash nomodeset&quot;</code></li><li>在相同的窗口中,找到<code>GRUB_DEFAULT=0</code>,其表示启动的序号。若要默认Windows启动则将其改为开机启动画面中Windows所代表的序号（序号从0开始），通常为2.</li><li>按下<code>Ctrl+x</code>,然后输入<code>y</code>保存编辑后的文件</li><li>再次询问，回车</li><li>然后在终端中输入<code>sudo update-grub</code>,更新grub</li><li>重启，就能正常进入Ubuntu系统了</li></ol><hr><h2 id="无法为chrome安装插件"><a href="#无法为chrome安装插件" class="headerlink" title="无法为chrome安装插件"></a>无法为chrome安装插件</h2><p>习惯使用chrome浏览器，上面有保存的很多网络书签和插件需要同步。<br>下载安装后，下载插件的<code>.crx</code>无法通过拖拽的方式安装进chrome，即使打开了<code>开发者模式</code>也不行。<br>解决方法：<br>打开终端，以命令行方式启动chrome：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">google-chrome --enable-easy-off-store-extension-install</span><br></pre></td></tr></table></figure><p>然后就可以安装插件了。</p><hr><h2 id="更换为国内源"><a href="#更换为国内源" class="headerlink" title="更换为国内源"></a>更换为国内源</h2><p>访问国内源理所应当比国外快吧，所以就换了。<br>步骤如下：</p><ol><li>备份原来的源</li></ol><blockquote><p>sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak</p></blockquote><p>2.更换源</p><blockquote><p>sudo gedit /etc/apt/sources.list</p></blockquote><p>   更换成国内源，复制粘贴即可：</p><p>   阿里源：<a href="https://opsx.alibaba.com/mirror，选择相应的LINUX系统点击查看帮助，其中有最新的源。" target="_blank" rel="noopener">https://opsx.alibaba.com/mirror，选择相应的LINUX系统点击查看帮助，其中有最新的源。</a></p><blockquote><p>deb <a href="http://mirrors.aliyun.com/ubuntu/" target="_blank" rel="noopener">http://mirrors.aliyun.com/ubuntu/</a> bionic main restricted universe multiverse<br>deb-src <a href="http://mirrors.aliyun.com/ubuntu/" target="_blank" rel="noopener">http://mirrors.aliyun.com/ubuntu/</a> bionic main restricted universe multiverse</p><p>deb <a href="http://mirrors.aliyun.com/ubuntu/" target="_blank" rel="noopener">http://mirrors.aliyun.com/ubuntu/</a> bionic-security main restricted universe multiverse<br>deb-src <a href="http://mirrors.aliyun.com/ubuntu/" target="_blank" rel="noopener">http://mirrors.aliyun.com/ubuntu/</a> bionic-security main restricted universe multiverse</p><p>deb <a href="http://mirrors.aliyun.com/ubuntu/" target="_blank" rel="noopener">http://mirrors.aliyun.com/ubuntu/</a> bionic-updates main restricted universe multiverse<br>deb-src <a href="http://mirrors.aliyun.com/ubuntu/" target="_blank" rel="noopener">http://mirrors.aliyun.com/ubuntu/</a> bionic-updates main restricted universe multiverse</p><p>deb <a href="http://mirrors.aliyun.com/ubuntu/" target="_blank" rel="noopener">http://mirrors.aliyun.com/ubuntu/</a> bionic-proposed main restricted universe multiverse<br>deb-src <a href="http://mirrors.aliyun.com/ubuntu/" target="_blank" rel="noopener">http://mirrors.aliyun.com/ubuntu/</a> bionic-proposed main restricted universe multiverse</p><p>deb <a href="http://mirrors.aliyun.com/ubuntu/" target="_blank" rel="noopener">http://mirrors.aliyun.com/ubuntu/</a> bionic-backports main restricted universe multiverse<br>deb-src <a href="http://mirrors.aliyun.com/ubuntu/" target="_blank" rel="noopener">http://mirrors.aliyun.com/ubuntu/</a> bionic-backports main restricted universe multiverse</p></blockquote><p>TUNA源：<a href="https://mirror.tuna.tsinghua.edu.cn/help/ubuntu/" target="_blank" rel="noopener">https://mirror.tuna.tsinghua.edu.cn/help/ubuntu/</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"># 默认注释了源码镜像以提高 apt update 速度，如有需要可自行取消注释</span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic main restricted universe multiverse</span><br><span class="line"># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic main restricted universe multiverse</span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-updates main restricted universe multiverse</span><br><span class="line"># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-updates main restricted universe multiverse</span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-backports main restricted universe multiverse</span><br><span class="line"># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-backports main restricted universe multiverse</span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-security main restricted universe multiverse</span><br><span class="line"># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-security main restricted universe multiverse</span><br><span class="line"></span><br><span class="line"># 预发布软件源，不建议启用</span><br><span class="line"># deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-proposed main restricted universe multiverse</span><br><span class="line"># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-proposed main restricted universe multiverse</span><br></pre></td></tr></table></figure><p>网易源：<a href="http://mirrors.163.com/.help/ubuntu.html" target="_blank" rel="noopener">http://mirrors.163.com/.help/ubuntu.html</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">deb http://mirrors.163.com/ubuntu/ wily main restricted universe multiverse</span><br><span class="line">deb http://mirrors.163.com/ubuntu/ wily-security main restricted universe multiverse</span><br><span class="line">deb http://mirrors.163.com/ubuntu/ wily-updates main restricted universe multiverse</span><br><span class="line">deb http://mirrors.163.com/ubuntu/ wily-proposed main restricted universe multiverse</span><br><span class="line">deb http://mirrors.163.com/ubuntu/ wily-backports main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.163.com/ubuntu/ wily main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.163.com/ubuntu/ wily-security main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.163.com/ubuntu/ wily-updates main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.163.com/ubuntu/ wily-proposed main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.163.com/ubuntu/ wily-backports main restricted universe multiverse</span><br></pre></td></tr></table></figure><p>等等。</p><p>3.更新</p><p>   更新源：</p><blockquote><p>sudo apt-get update</p></blockquote><p>   更新已经安装的软件：</p><blockquote><p>sudo apt-get upgrade</p></blockquote><p>4.使用。之后使用<code>apt-get install</code>命令就是从上面替换的源头，可以输入<code>sudo apt-get install sl</code>查看小火车来测试。</p><hr><h2 id="安装-卸载-搜狗-拼音输入法失败"><a href="#安装-卸载-搜狗-拼音输入法失败" class="headerlink" title="安装/卸载(搜狗)拼音输入法失败"></a>安装/卸载(搜狗)拼音输入法失败</h2><p><em>以下顺序不要搞错了,否则将会产生很多莫名其妙的错误：无法进入语言支持Language Support更改语言，右上角莫名错误气泡等</em></p><ol><li>打开设置，侧边栏进入区域和语言，点击<code>管理已安装的语言</code></li><li>语言下的<strong>键盘输入法系统选择<code>fcitx</code></strong></li><li>去<a href="https://pinyin.sogou.com/linux/?r=pinyin" target="_blank" rel="noopener">搜狗拼音</a>下载对应版本拼音输入法(貌似没有找到其他更好用的LINUX拼音输入法)</li><li>安装</li><li>注销账户后生效</li></ol><p>这是正常的操作。</p><p>假如遇到了上面所说的莫名奇妙的错误，问题就是出在安装顺序上，解决办法，先卸载搜狗拼音输入法，然后按照上面顺序操作。</p><p><strong>卸载搜狗拼音输入法</strong></p><p>在终端中输入:</p><blockquote><p>sudo dpkg -l so*</p></blockquote><p>然后输入:</p><blockquote><p>sudo dpkg —remove —force-all sogoupinyin</p></blockquote><p>注意有的教程中没有<code>--force-all</code>, 可能会卸载失败。</p><p>等待卸载完成后安装正确顺序重新操作即可正常使用搜狗拼音输入法。</p><hr><h2 id="调整屏幕分辨率"><a href="#调整屏幕分辨率" class="headerlink" title="调整屏幕分辨率"></a>调整屏幕分辨率</h2><p>默认的放大比例只有<code>100%</code>和<code>200%</code>，和我之前用过的Ubuntu麒麟相比好像缺了分辨率的调整。解决办法如下：</p><ol><li>打卡终端</li><li>下载<code>tweak</code>： <code>sudo apt-get install gnome-tweak-tool</code></li><li>在搜索栏中搜索<code>tweaks</code>中文叫做<code>优化</code></li><li>里面有很多可调整的东西</li></ol><hr><h2 id="使用pip3遇到ImportError-cannot-import-name-‘sysconfig’"><a href="#使用pip3遇到ImportError-cannot-import-name-‘sysconfig’" class="headerlink" title="使用pip3遇到ImportError: cannot import name ‘sysconfig’"></a>使用pip3遇到ImportError: cannot import name ‘sysconfig’</h2><p>自带Python3，终端输入<code>python3 --version</code>即可查看</p><p>但是没有安装pip。</p><p>输入:<code>sudo apt-get install python3-pip</code></p><p>安装后启动<code>pip3 list</code>，报错<code>ImportError: cannot import name &#39;sysconfig&#39;</code></p><p>解决方法：<a href="https://blog.csdn.net/qq_27366789/article/details/80559074" target="_blank" rel="noopener">这篇</a></p><p>在原有基础上添加源：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deb http://cn.archive.ubuntu.com/ubuntu bionic main multiverse restricted universe</span><br><span class="line">deb http://cn.archive.ubuntu.com/ubuntu bionic-updates main multiverse restricted universe</span><br><span class="line">deb http://cn.archive.ubuntu.com/ubuntu bionic-security main multiverse restricted universe</span><br><span class="line">deb http://cn.archive.ubuntu.com/ubuntu bionic-proposed main multiverse restricted universe</span><br></pre></td></tr></table></figure><p>添加源的方法和上文更改源的操作类似。</p><p>重新输入上述安装命令即可解决。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;由于学习和工作需要，得使用Linux系统，初学者试水，难免遇到各种各样的Bug，很莫名奇妙也很幸运的是从安装到使用都是&lt;em&gt;“惊喜连连, bug不断&lt;/em&gt;, 特总结如下:&lt;/p&gt;
+&lt;h2 id=&quot;查看Ubuntu版本号&quot;&gt;&lt;a href=&quot;#查看Ubuntu版本号&quot; 
+      
+    
+    </summary>
+    
+      <category term="Linux" scheme="https://www.blankspace.cn/categories/Linux/"/>
+    
+      <category term="Ubuntu" scheme="https://www.blankspace.cn/categories/Linux/Ubuntu/"/>
+    
+    
+      <category term="Ubuntu" scheme="https://www.blankspace.cn/tags/Ubuntu/"/>
+    
+  </entry>
   
   <entry>
     <title>MathJax basic tutorial and quick reference</title>
@@ -264,9 +323,9 @@ f_{i}(x)= \frac{e^{x_{i}}}{\sum_{j=1}^{J}e^{x_j}}&lt;/script&gt;&lt;figure class
       <category term="TensorFlow" scheme="https://www.blankspace.cn/categories/Machine-Learning/TensorFlow/"/>
     
     
-      <category term="TensorFlow" scheme="https://www.blankspace.cn/tags/TensorFlow/"/>
-    
       <category term="Tensor" scheme="https://www.blankspace.cn/tags/Tensor/"/>
+    
+      <category term="TensorFlow" scheme="https://www.blankspace.cn/tags/TensorFlow/"/>
     
   </entry>
   
@@ -308,9 +367,9 @@ p=\frac{a+b+c}{2}&lt;/script&gt;&lt;p&gt;相关&lt;a href=&quot;https://www.tens
       <category term="TensorFlow" scheme="https://www.blankspace.cn/categories/Machine-Learning/TensorFlow/"/>
     
     
-      <category term="TensorFlow" scheme="https://www.blankspace.cn/tags/TensorFlow/"/>
-    
       <category term="Tensor" scheme="https://www.blankspace.cn/tags/Tensor/"/>
+    
+      <category term="TensorFlow" scheme="https://www.blankspace.cn/tags/TensorFlow/"/>
     
   </entry>
   
@@ -399,9 +458,9 @@ p=\frac{a+b+c}{2}&lt;/script&gt;&lt;p&gt;相关&lt;a href=&quot;https://www.tens
       <category term="TensorFlow" scheme="https://www.blankspace.cn/categories/Machine-Learning/TensorFlow/"/>
     
     
-      <category term="mnist" scheme="https://www.blankspace.cn/tags/mnist/"/>
-    
       <category term="TensorFlow" scheme="https://www.blankspace.cn/tags/TensorFlow/"/>
+    
+      <category term="mnist" scheme="https://www.blankspace.cn/tags/mnist/"/>
     
   </entry>
   
@@ -428,9 +487,9 @@ p=\frac{a+b+c}{2}&lt;/script&gt;&lt;p&gt;相关&lt;a href=&quot;https://www.tens
       <category term="TensorFlow" scheme="https://www.blankspace.cn/categories/Machine-Learning/TensorFlow/"/>
     
     
-      <category term="mnist" scheme="https://www.blankspace.cn/tags/mnist/"/>
-    
       <category term="TensorFlow" scheme="https://www.blankspace.cn/tags/TensorFlow/"/>
+    
+      <category term="mnist" scheme="https://www.blankspace.cn/tags/mnist/"/>
     
   </entry>
   
@@ -712,65 +771,6 @@ p=\frac{a+b+c}{2}&lt;/script&gt;&lt;p&gt;相关&lt;a href=&quot;https://www.tens
       <category term="Hexo" scheme="https://www.blankspace.cn/tags/Hexo/"/>
     
       <category term="Theme" scheme="https://www.blankspace.cn/tags/Theme/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>日本語テスト</title>
-    <link href="https://www.blankspace.cn/2018/08/08/%E6%97%A5%E6%9C%AC%E8%AA%9E%E3%83%86%E3%82%B9%E3%83%88/"/>
-    <id>https://www.blankspace.cn/2018/08/08/日本語テスト/</id>
-    <published>2018-08-07T16:00:11.000Z</published>
-    <updated>2018-08-10T06:38:31.875Z</updated>
-    
-    <content type="html"><![CDATA[<p>This is a Japanese test post.</p><p>私は昨日ついにその助力家というのの上よりするたなけれ。</p><p>最も今をお話団はちょうどこの前後なかろでくらいに困りがいるたをは帰着考えたなかって、そうにもするでうたらない。</p><a id="more"></a><p>がたを知っないはずも同時に九月をいよいよたありた。</p><p>もっと槙さんにぼんやり金少し説明にえた自分大した人私か影響にというお関係たうませないが、この次第も私か兄具合に使うて、槙さんののに当人のあなたにさぞご意味と行くて私個人が小尊敬を聴いように同時に同反抗に集っだうて、いよいよまず相当へあっうからいだ事をしでなけれ。</p><blockquote><p>それでそれでもご時日をしはずはたったいやと突き抜けるますて、その元がは行ったてという獄を尽すていけですた。</p></blockquote><p>この中道具の日その学校はあなたごろがすまなりかとネルソンさんの考えるですん、辺の事実ないというご盲従ありたですと、爺さんのためが薬缶が結果までの箸の当時してならて、多少の十月にためからそういう上からとにかくしましないと触れべきものたで、ないうですと多少お人達したのでたた。</p><p><em>From <a href="http://lipsum.sugutsukaeru.jp/index.cgi" target="_blank" rel="noopener">すぐ使えるダミーテキスト - 日本語 Lorem ipsum</a></em></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;This is a Japanese test post.&lt;/p&gt;
-&lt;p&gt;私は昨日ついにその助力家というのの上よりするたなけれ。&lt;/p&gt;
-&lt;p&gt;最も今をお話団はちょうどこの前後なかろでくらいに困りがいるたをは帰着考えたなかって、そうにもするでうたらない。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Projects" scheme="https://www.blankspace.cn/categories/Projects/"/>
-    
-      <category term="hexo-theme-bootstrap-blog" scheme="https://www.blankspace.cn/categories/Projects/hexo-theme-bootstrap-blog/"/>
-    
-      <category term="Tutorial" scheme="https://www.blankspace.cn/categories/Projects/hexo-theme-bootstrap-blog/Tutorial/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>中文测试</title>
-    <link href="https://www.blankspace.cn/2018/08/08/%E4%B8%AD%E6%96%87%E6%B8%AC%E8%A9%A6/"/>
-    <id>https://www.blankspace.cn/2018/08/08/中文測試/</id>
-    <published>2018-08-07T16:00:10.000Z</published>
-    <updated>2018-08-10T06:38:26.897Z</updated>
-    
-    <content type="html"><![CDATA[<p>This is a Chinese test post.</p><p>当朝大学士，统共有五位，朕不得不罢免四位，六部尚书，朕不得不罢免三位。</p><p>看看这七个人吧，哪个不是两鬓半百，哪个不是朝廷的栋梁，哪个不是朕的儿女亲家。</p><p>他们烂了，朕心要碎了。</p><p>祖宗把江山交到朕的手里，却搞成了这个样子，朕是痛心疾首。</p><p>朕有罪于国家，愧对祖宗，愧对天地，朕恨不得自己罢免了自己！</p><p>还有你们，虽然各个冠冕堂皇站在干岸上，你们，就那么干净吗？！！！！</p><p>朕知道，你们有的人比这七个人更腐败！</p><p>朕劝你们一句，都把自己的心肺肠子翻出来晒一晒洗一洗拾掇拾掇！</p><p>。。。。。。。</p><a id="more"></a><p>朕现在是越来越清楚了，大清的心头之患不在外边，而是在朝廷。就是在这乾清宫！！！！</p><p>就在朕的骨肉皇子和大臣们当中。</p><p>咱们这烂一点，大清国就烂一片！你们要是全烂了，大清各地就会揭竿而起，让咱们死无葬身之地呀！</p><p>想想吧，崇祯皇帝朱由检吊死在煤山上才几年呢。。</p><p>忘啦？？？？！！！！！！！！！！！！</p><p>那棵老歪脖子树还站在皇宫后边天天地盯着你们哪！</p><p>朕已经三天三夜没有合眼了，老想着和大伙儿说些什么，可是话总得有个头哇，想来想去只有四个字——————————————————————</p><blockquote><p>（悲壮音乐响起，匾额从康熙身后徐徐升起，上面赫然书写着四个大字：</p><p><strong>正——大——光——明</strong>）</p></blockquote><p>这四个字，说说容易阿，身体力行又何其难？？！！！</p><p>这四个字，朕是从心里刨出来的，从血海里挖出来的。</p><p>记着，从今日起，此殿改为正大光明殿！</p><p>好好看看，你们都抬起头来好好看看，想想自己，给朕看半个时辰——</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;This is a Chinese test post.&lt;/p&gt;
-&lt;p&gt;当朝大学士，统共有五位，朕不得不罢免四位，六部尚书，朕不得不罢免三位。&lt;/p&gt;
-&lt;p&gt;看看这七个人吧，哪个不是两鬓半百，哪个不是朝廷的栋梁，哪个不是朕的儿女亲家。&lt;/p&gt;
-&lt;p&gt;他们烂了，朕心要碎了。&lt;/p&gt;
-&lt;p&gt;祖宗把江山交到朕的手里，却搞成了这个样子，朕是痛心疾首。&lt;/p&gt;
-&lt;p&gt;朕有罪于国家，愧对祖宗，愧对天地，朕恨不得自己罢免了自己！&lt;/p&gt;
-&lt;p&gt;还有你们，虽然各个冠冕堂皇站在干岸上，你们，就那么干净吗？！！！！&lt;/p&gt;
-&lt;p&gt;朕知道，你们有的人比这七个人更腐败！&lt;/p&gt;
-&lt;p&gt;朕劝你们一句，都把自己的心肺肠子翻出来晒一晒洗一洗拾掇拾掇！&lt;/p&gt;
-&lt;p&gt;。。。。。。。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Projects" scheme="https://www.blankspace.cn/categories/Projects/"/>
-    
-      <category term="hexo-theme-bootstrap-blog" scheme="https://www.blankspace.cn/categories/Projects/hexo-theme-bootstrap-blog/"/>
-    
-      <category term="Tutorial" scheme="https://www.blankspace.cn/categories/Projects/hexo-theme-bootstrap-blog/Tutorial/"/>
-    
     
   </entry>
   

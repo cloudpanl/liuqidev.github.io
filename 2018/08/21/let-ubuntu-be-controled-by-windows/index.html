@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>通过SSH让Windows控制Ubuntu | WizardLQ’s | 魔法师の小茶馆</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="刚好手头有一台旧电脑由于硬件老化，所以安装上了Ubuntu系统，现在想通过另外一台Windows电脑来控制。 最简单的方法可以使用Teamviewer，在两台电脑上都装上，然后同时登陆，输入口令，就能远程相互控制了，而且是图像化界面，十分方便。 另外一种方法可以在局域网使用SSH来连接及控制，成功之后的操作就跟远程操作云服务供应商（比如阿里云，腾讯云，GoDaddy等）提供的云服务器或者云虚拟主机">
+<meta name="keywords" content="SSH,Ubuntu">
+<meta property="og:type" content="article">
+<meta property="og:title" content="通过SSH让Windows控制Ubuntu">
+<meta property="og:url" content="https://www.blankspace.cn/2018/08/21/let-ubuntu-be-controled-by-windows/index.html">
+<meta property="og:site_name" content="WizardLQ’s | 魔法师の小茶馆">
+<meta property="og:description" content="刚好手头有一台旧电脑由于硬件老化，所以安装上了Ubuntu系统，现在想通过另外一台Windows电脑来控制。 最简单的方法可以使用Teamviewer，在两台电脑上都装上，然后同时登陆，输入口令，就能远程相互控制了，而且是图像化界面，十分方便。 另外一种方法可以在局域网使用SSH来连接及控制，成功之后的操作就跟远程操作云服务供应商（比如阿里云，腾讯云，GoDaddy等）提供的云服务器或者云虚拟主机">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-08-21T05:51:57.478Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="通过SSH让Windows控制Ubuntu">
+<meta name="twitter:description" content="刚好手头有一台旧电脑由于硬件老化，所以安装上了Ubuntu系统，现在想通过另外一台Windows电脑来控制。 最简单的方法可以使用Teamviewer，在两台电脑上都装上，然后同时登陆，输入口令，就能远程相互控制了，而且是图像化界面，十分方便。 另外一种方法可以在局域网使用SSH来连接及控制，成功之后的操作就跟远程操作云服务供应商（比如阿里云，腾讯云，GoDaddy等）提供的云服务器或者云虚拟主机">
+<link rel="publisher" href="112373242775367340000">
+  
+    <link rel="alternate" href="../../../../atom.xml" title="WizardLQ’s | 魔法师の小茶馆" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="../../../../images/icon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+<link href="https://cdn.bootcss.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet"><link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.slim.min.js"></script><script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<script type="text/javascript" src="//ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.3.min.js"></script>
+
+<link rel="stylesheet" href="../../../../css/styles.css">
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+</head>
+
+<body>
+
+	
+
+	
+	<div class="container">
+	<div class="article-wrapper">
+
+
+<article id="post-let-ubuntu-be-controled-by-windows" class="article article-type-post" itemscope itemprop="blogPost">
+	
+
+
+<header class="article-header">
+
+  
+    <h1 class="article-title" itemprop="name">
+      通过SSH让Windows控制Ubuntu
+    </h1>
+  
+
+
+	
+
+</header>
+
+<div class="article-inner">
+<div class="article-entry" itemprop="articleBody">
+  
+  
+	<!-- Table of Contents -->
+
+	
+	
+	<p>刚好手头有一台旧电脑由于硬件老化，所以安装上了Ubuntu系统，现在想通过另外一台Windows电脑来控制。</p>
+<p>最简单的方法可以使用Teamviewer，在两台电脑上都装上，然后同时登陆，输入口令，就能远程相互控制了，而且是图像化界面，十分方便。</p>
+<p>另外一种方法可以在局域网使用SSH来连接及控制，成功之后的操作就跟远程操作云服务供应商（比如阿里云，腾讯云，GoDaddy等）提供的云服务器或者云虚拟主机一样，相当于一台本地服务器。过程如下：</p>
+<ol>
+<li><p>两台电脑连接到同一局域网下</p>
+</li>
+<li><p>在Linux电脑安装<code>openssh-server</code>：<code>sudo apt-get install openssh-server</code></p>
+</li>
+<li><p>在Linux启动SSH服务：<code>sudo /etc/init.d/ssh start</code></p>
+</li>
+<li><p>在Windows安装相关SSH软件，推荐<code>xshell</code>还有<code>PuTTY</code>（感谢<code>xshell</code>提供学生优惠）</p>
+</li>
+<li><p>查看Linux的IP地址，在终端中输入：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fconfig -a</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>连接，在<code>xshell</code>中创建新的连接，输入Linux的IP，端口号选择<code>22</code></p>
+</li>
+<li><p>输入用户名和密码，就进入Linux终端来控制了。</p>
+</li>
+</ol>
+
+	
+  
+</div>
+
+
+  
+
+
+
+
+</div>
+
+</article>
+
+
+
+
+	</div><!--end of article wrapper-->
+	</div>
+
+
+
+
+
+
+	
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?70a761ba668ab8571ac79968adcf6078";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+
+
+
+
+
+	
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = 'Opps...●﹏●';
+            clearTimeout(titleTime);
+        } else {
+            document.title = 'o(∩_∩)o Welcome!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+
+<script src="https://cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+  <link rel="stylesheet" href="../../../../fancybox/jquery.fancybox.css">
+  <script src="../../../../fancybox/jquery.fancybox.pack.js"></script>
+
+<script src="../../../../js/script.js"></script>
+
+<!--Back to top-->
+<body id="top">
+<p id="back-to-top"><a href="#top"><span></span></a></p>
+</body>
+
+
+<script>
+$(document).ready(function() {
+    //首先将#back-to-top隐藏
+    $("#back-to-top").hide();
+ 
+    //当滚动条的位置处于距顶部3600像素以下时，跳转链接出现，否则消失
+    $(function() {
+        $(window).scroll(function() {
+            if ($(window).scrollTop() > 3600) {
+                $("#back-to-top").fadeIn(1500);
+            }
+            else {
+                $("#back-to-top").fadeOut(1500);
+            }
+        });
+        //当点击跳转链接后，回到页面顶部位置
+        $("#back-to-top").click(function() {
+            $('body,html').animate({
+                scrollTop: 0
+            },
+            500);
+			
+            return false;
+        });
+    });
+});
+</script>
+
+</body>
+</html>
