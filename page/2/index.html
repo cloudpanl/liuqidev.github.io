@@ -129,6 +129,98 @@ MathJax.Hub.Queue(function() {
 	  
 		
 
+<article id="post-placeholder" class="article article-type-post" itemscope itemprop="blogPost">
+	
+
+
+<header class="article-header">
+
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="../../2018/08/13/placeholder/">Placeholder</a>
+    </h1>
+  
+
+
+	
+
+<div class="article-meta"> 
+	
+
+   <div class="article-datetime">
+  <a href="../../2018/08/13/placeholder/" class="article-date"><time datetime="2018-08-13T07:05:47.000Z" itemprop="datePublished">2018-08-13</time></a>
+</div>
+
+
+
+	
+	  
+	
+      <div class="post-meta">
+            <span class="glyphicon glyphicon-pencil"></span>
+            <span class="post-meta-item-text">&nbsp;Total&nbsp;</span>
+            <span class="post-count">147&nbsp;words</span>
+      </div>
+
+
+ 
+	
+  <div class="article-category">
+    <a class="article-category-link" href="../../categories/Machine-Learning/">Machine Learning</a> / <a class="article-category-link" href="../../categories/Machine-Learning/TensorFlow/">TensorFlow</a>
+  </div>
+
+
+</div>
+	   
+
+</header>
+
+<div class="article-inner">
+<div class="article-entry" itemprop="articleBody">
+  
+  
+	<!-- Table of Contents -->
+
+	
+	
+	<h3 id="解释"><a href="#解释" class="headerlink" title="解释"></a>解释</h3><p><strong>A placeholder is simply a variable that we will assign data to at a later date. It allows us to create our operations and build our computation graph, without needing the data.</strong></p>
+<p>顾名思义，占位符，没有数据先占位。是一种变量。之后按照<code>sess.run(***, feed_dict={input: **})</code>形式传输数据。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> tf.Graph().as_default(), tf.Session() <span class="keyword">as</span> sess:</span><br><span class="line">    x = tf.placeholder(tf.float32)</span><br><span class="line">    y = x**<span class="number">3</span></span><br><span class="line">    feed_dict = &#123;x:[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>]&#125;</span><br><span class="line">    print(sess.run(y, feed_dict=feed_dict))</span><br></pre></td></tr></table></figure>
+<pre><code>[ 1.  8. 27. 64.]
+</code></pre><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p><code>placeholder</code> 与 <code>feed_dict={}</code> 总是一起出现的。placeholder允许没有数据先占位创建计算图，运行时通过<code>feed_dict</code>传入数据。</p>
+
+	
+  
+</div>
+
+
+  
+
+
+
+<footer class="article-footer">
+  <a data-url="https://www.blankspace.cn/2018/08/13/placeholder/" data-id="cjlkbkm8m001otsfi0rpzczkx" class="article-share-link">
+	<i class="fa fa-share"></i> Share
+  </a>
+  
+  
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/TensorFlow/">TensorFlow</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/placeholder/">placeholder</a></li></ul>
+
+
+</footer>
+
+
+</div>
+
+</article>
+
+
+
+
+
+	  
+		
+
 <article id="post-Tensor-Control" class="article article-type-post" itemscope itemprop="blogPost">
 	
 
@@ -337,7 +429,7 @@ Reshaped matrix (3x2x2)
 
 
 <footer class="article-footer">
-  <a data-url="https://www.blankspace.cn/2018/08/13/Tensor-Control/" data-id="cjl3ikdgh000qegfikw77er0v" class="article-share-link">
+  <a data-url="https://www.blankspace.cn/2018/08/13/Tensor-Control/" data-id="cjlkbkm730009tsfifrhrdbj0" class="article-share-link">
 	<i class="fa fa-share"></i> Share
   </a>
   
@@ -438,7 +530,7 @@ p=\frac{a+b+c}{2}</script><p>相关<a href="https://www.tensorflow.org/api_docs/
 
 
 <footer class="article-footer">
-  <a data-url="https://www.blankspace.cn/2018/08/13/Tensor/" data-id="cjl3ikdgj000tegfit12uqb1i" class="article-share-link">
+  <a data-url="https://www.blankspace.cn/2018/08/13/Tensor/" data-id="cjlkbkm7d000etsfi5w5ywcp3" class="article-share-link">
 	<i class="fa fa-share"></i> Share
   </a>
   
@@ -543,7 +635,7 @@ day 9 len:  0.0009765625
 
 
 <footer class="article-footer">
-  <a data-url="https://www.blankspace.cn/2018/08/12/Variable/" data-id="cjl3ikdgl000uegfi7x3p7nju" class="article-share-link">
+  <a data-url="https://www.blankspace.cn/2018/08/12/Variable/" data-id="cjlkbkm7i000itsfi80knwrhq" class="article-share-link">
 	<i class="fa fa-share"></i> Share
   </a>
   
@@ -683,105 +775,12 @@ b&#39;Hello, world!&#39;
 
 
 <footer class="article-footer">
-  <a data-url="https://www.blankspace.cn/2018/08/12/Session/" data-id="cjl3ikdge000legfigvfw3ywl" class="article-share-link">
+  <a data-url="https://www.blankspace.cn/2018/08/12/Session/" data-id="cjlkbkm7b000dtsfirkhneu00" class="article-share-link">
 	<i class="fa fa-share"></i> Share
   </a>
   
   
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/TensorFlow/">TensorFlow</a></li></ul>
-
-
-</footer>
-
-
-</div>
-
-</article>
-
-
-
-
-
-	  
-		
-
-<article id="post-MNIST-pros" class="article article-type-post" itemscope itemprop="blogPost">
-	
-
-
-<header class="article-header">
-
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="../../2018/08/12/MNIST-pros/">MNIST pros</a>
-    </h1>
-  
-
-
-	
-
-<div class="article-meta"> 
-	
-
-   <div class="article-datetime">
-  <a href="../../2018/08/12/MNIST-pros/" class="article-date"><time datetime="2018-08-12T02:11:47.000Z" itemprop="datePublished">2018-08-12</time></a>
-</div>
-
-
-
-	
-	  
-	
-      <div class="post-meta">
-            <span class="glyphicon glyphicon-pencil"></span>
-            <span class="post-meta-item-text">&nbsp;Total&nbsp;</span>
-            <span class="post-count">2,554&nbsp;words</span>
-      </div>
-
-
- 
-	
-  <div class="article-category">
-    <a class="article-category-link" href="../../categories/Machine-Learning/">Machine Learning</a> / <a class="article-category-link" href="../../categories/Machine-Learning/TensorFlow/">TensorFlow</a>
-  </div>
-
-
-</div>
-	   
-
-</header>
-
-<div class="article-inner">
-<div class="article-entry" itemprop="articleBody">
-  
-	<h3 id="运行TensorFlow的InteractiveSession-交互式会话"><a href="#运行TensorFlow的InteractiveSession-交互式会话" class="headerlink" title="运行TensorFlow的InteractiveSession/交互式会话"></a>运行TensorFlow的InteractiveSession/交互式会话</h3><p><code>sess = tf.InteractiveSession()</code>用来创建交互式的会话，其余使用同Session</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br></pre></td></tr></table></figure>
-<pre><code>D:\Anaconda3\Anaconda3_py36\lib\site-packages\h5py\__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
-  from ._conv import register_converters as _register_converters
-</code></pre><h3 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h3><p>和上一节类似</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># http://yann.lecun.com/exdb/mnist/  to download mnist dataset</span></span><br><span class="line"><span class="comment"># https://github.com/tensorflow/tensorflow/blob/master/tensorflow/examples/tutorials/mnist/input_data.py</span></span><br><span class="line"><span class="comment"># to read dataset</span></span><br><span class="line"><span class="keyword">from</span> load_mnist <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">import</span> tensorflow.examples.tutorials.mnist.input_data <span class="keyword">as</span> input_data</span><br><span class="line">minst_dir = <span class="string">"MNIST_data/"</span></span><br><span class="line">mnist = input_data.read_data_sets(minst_dir, one_hot=<span class="keyword">True</span>)</span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">x = tf.placeholder(<span class="string">"float"</span>, shape=[<span class="keyword">None</span>, <span class="number">784</span>]) </span><br><span class="line">y_ = tf.placeholder(<span class="string">"float"</span>, shape=[<span class="keyword">None</span>, <span class="number">10</span>]) <span class="comment"># true label</span></span><br></pre></td></tr></table></figure>
-<h2 id="构建一个多层卷积网络"><a href="#构建一个多层卷积网络" class="headerlink" title="构建一个多层卷积网络"></a>构建一个多层卷积网络</h2><h3 id="权重初始化"><a href="#权重初始化" class="headerlink" title="权重初始化"></a>权重初始化</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">weight_variable</span><span class="params">(shape)</span>:</span></span><br><span class="line">    initial = tf.truncated_normal(shape, stddev=<span class="number">0.1</span>) <span class="comment">#  The generated values follow a normal distribution with specified mean and</span></span><br><span class="line">    <span class="comment"># standard deviation.从截断的正态分布中输出随机值，中如果x的取值在区间（μ-2σ，μ+2σ）之外则重新进行选择</span></span><br><span class="line">    <span class="keyword">return</span> tf.Variable(initial)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">bias_variable</span><span class="params">(shape)</span>:</span></span><br><span class="line">    initial = tf.constant(<span class="number">0.1</span>, shape=shape) <span class="comment"># Constant 2-D tensor populated with scalar value 0.1. 初始值为0.1，广播到shape形状的二维数组</span></span><br><span class="line">    <span class="keyword">return</span> tf.Variable(initial)</span><br></pre></td></tr></table></figure>
-<h3 id="卷积和汇聚（池化）"><a href="#卷积和汇聚（池化）" class="headerlink" title="卷积和汇聚（池化）"></a>卷积和汇聚（<del>池化</del>）</h3><p><em>由于Pooling翻译成池化让人不明所以，个人习惯依据其作用，而称之为汇聚。</em></p>
-<p>简单起见，卷积使用1步长（stride size），0边距（padding size）的模板，保证输出和输入是同一个大小。我们的池化用简单传统的2x2大小的模板做max pooling.</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">conv2d</span><span class="params">(x, W)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> tf.nn.conv2d(x, W, strides=[<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>], padding=<span class="string">'SAME'</span>)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">max_pool_2x2</span><span class="params">(x)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> tf.nn.max_pool(x, ksize=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">2</span>,<span class="number">1</span>], strides=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">2</span>,<span class="number">1</span>], padding=<span class="string">'SAME'</span>)</span><br></pre></td></tr></table></figure>
-	
-	  <p class="article-more-link">
-		<a class="btn btn-primary" href="../../2018/08/12/MNIST-pros/#more">Read more...</a>
-	  </p>
-	
-  
-</div>
-
-
-
-<footer class="article-footer">
-  <a data-url="https://www.blankspace.cn/2018/08/12/MNIST-pros/" data-id="cjl3ikdga000jegfiiexm9fui" class="article-share-link">
-	<i class="fa fa-share"></i> Share
-  </a>
-  
-  
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/TensorFlow/">TensorFlow</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/mnist/">mnist</a></li></ul>
 
 
 </footer>
@@ -813,6 +812,10 @@ b&#39;Hello, world!&#39;
     <ul class="sidebar-module-list">
       
         <li>
+          <a href="../../2018/09/02/shorthand/">英语速记符号</a>
+        </li>
+      
+        <li>
           <a href="../../2018/08/21/let-ubuntu-be-controled-by-windows/">通过SSH让Windows控制Ubuntu</a>
         </li>
       
@@ -826,10 +829,6 @@ b&#39;Hello, world!&#39;
       
         <li>
           <a href="../../2018/08/13/activation-function/">Activation function</a>
-        </li>
-      
-        <li>
-          <a href="../../2018/08/13/placeholder/">Placeholder</a>
         </li>
       
     </ul>
@@ -848,7 +847,7 @@ b&#39;Hello, world!&#39;
   
   <div class="sidebar-module">
     <h4>Categories</h4>
-    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../categories/Languages/">Languages</a><span class="sidebar-module-list-count">1</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../categories/Languages/Python/">Python</a><span class="sidebar-module-list-count">1</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../categories/Languages/Python/Numpy/">Numpy</a><span class="sidebar-module-list-count">1</span></li></ul></li></ul></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../categories/Linux/">Linux</a><span class="sidebar-module-list-count">2</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../categories/Linux/Ubuntu/">Ubuntu</a><span class="sidebar-module-list-count">2</span></li></ul></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../categories/Machine-Learning/">Machine Learning</a><span class="sidebar-module-list-count">8</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../categories/Machine-Learning/TensorFlow/">TensorFlow</a><span class="sidebar-module-list-count">8</span></li></ul></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../categories/Math/">Math</a><span class="sidebar-module-list-count">1</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../categories/Math/MathJax/">MathJax</a><span class="sidebar-module-list-count">1</span></li></ul></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../categories/Projects/">Projects</a><span class="sidebar-module-list-count">19</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../categories/Projects/hexo-theme-bootstrap-blog/">hexo-theme-bootstrap-blog</a><span class="sidebar-module-list-count">19</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../categories/Projects/hexo-theme-bootstrap-blog/Tutorial/">Tutorial</a><span class="sidebar-module-list-count">19</span></li></ul></li></ul></li></ul>
+    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../categories/English/">English</a><span class="sidebar-module-list-count">1</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../categories/English/Tips/">Tips</a><span class="sidebar-module-list-count">1</span></li></ul></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../categories/Languages/">Languages</a><span class="sidebar-module-list-count">1</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../categories/Languages/Python/">Python</a><span class="sidebar-module-list-count">1</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../categories/Languages/Python/Numpy/">Numpy</a><span class="sidebar-module-list-count">1</span></li></ul></li></ul></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../categories/Linux/">Linux</a><span class="sidebar-module-list-count">2</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../categories/Linux/Ubuntu/">Ubuntu</a><span class="sidebar-module-list-count">2</span></li></ul></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../categories/Machine-Learning/">Machine Learning</a><span class="sidebar-module-list-count">8</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../categories/Machine-Learning/TensorFlow/">TensorFlow</a><span class="sidebar-module-list-count">8</span></li></ul></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../categories/Math/">Math</a><span class="sidebar-module-list-count">1</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../categories/Math/MathJax/">MathJax</a><span class="sidebar-module-list-count">1</span></li></ul></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../categories/Projects/">Projects</a><span class="sidebar-module-list-count">19</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../categories/Projects/hexo-theme-bootstrap-blog/">hexo-theme-bootstrap-blog</a><span class="sidebar-module-list-count">19</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../categories/Projects/hexo-theme-bootstrap-blog/Tutorial/">Tutorial</a><span class="sidebar-module-list-count">19</span></li></ul></li></ul></li></ul>
   </div>
 
 
@@ -856,7 +855,7 @@ b&#39;Hello, world!&#39;
   
   <div class="sidebar-module">
     <h4>Archives</h4>
-    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../archives/2018/08/">八月 2018</a><span class="sidebar-module-list-count">30</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../archives/2013/12/">十二月 2013</a><span class="sidebar-module-list-count">1</span></li></ul>
+    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../archives/2018/09/">九月 2018</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../archives/2018/08/">八月 2018</a><span class="sidebar-module-list-count">30</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="../../archives/2013/12/">十二月 2013</a><span class="sidebar-module-list-count">1</span></li></ul>
   </div>
 
 
