@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.blankspace.cn/"/>
-  <updated>2018-09-09T00:16:27.626Z</updated>
+  <updated>2018-09-10T15:38:44.045Z</updated>
   <id>https://www.blankspace.cn/</id>
   
   <author>
@@ -15,6 +15,48 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>KNN-K近邻算法</title>
+    <link href="https://www.blankspace.cn/2018/09/10/python-KNN/"/>
+    <id>https://www.blankspace.cn/2018/09/10/python-KNN/</id>
+    <published>2018-09-10T15:33:30.000Z</published>
+    <updated>2018-09-10T15:38:44.045Z</updated>
+    
+    <content type="html"><![CDATA[<p>K近邻算法采用测量不同特征之间的距离来进行分类。</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="comment"># 收集数据：无</span></span><br><span class="line"><span class="comment"># 准备数据：用以计算数值所需要的数据</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">createDataset</span><span class="params">()</span>:</span></span><br><span class="line">    group = np.array([[<span class="number">0.0</span>, <span class="number">0.0</span>], [<span class="number">0.0</span>, <span class="number">0.1</span>], [<span class="number">1.0</span>, <span class="number">1.0</span>], [<span class="number">1.0</span>, <span class="number">1.1</span>]])</span><br><span class="line">    labels = np.array([<span class="string">'A'</span>, <span class="string">'A'</span>, <span class="string">'B'</span>, <span class="string">'B'</span>])</span><br><span class="line">    <span class="keyword">return</span> group, labels</span><br></pre></td></tr></table></figure><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">group, labels = createDataset()</span><br><span class="line">print(group)</span><br><span class="line">print(labels)</span><br></pre></td></tr></table></figure><pre><code>[[0.  0. ] [0.  0.1] [1.  1. ] [1.  1.1]][&#39;A&#39; &#39;A&#39; &#39;B&#39; &#39;B&#39;]</code></pre><h3 id="实施K近邻算法："><a href="#实施K近邻算法：" class="headerlink" title="实施K近邻算法："></a>实施K近邻算法：</h3><ol><li>计算已知类别数据集中点和当前点之间的距离；</li><li>按照距离递增次序排序；</li><li>选取与当前点距离最小的K个点；</li><li>确定前K个点在类别中出现的频率；</li><li>将出现频率最高的代表的类别作为当前点的预测类别。</li></ol><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">class0</span><span class="params">(inX, dataSet, labels, k)</span>:</span></span><br><span class="line">    distances = np.sqrt(((inX-dataSet)**<span class="number">2</span>).sum(axis=<span class="number">1</span>))</span><br><span class="line">    sortedDistIndicies = distances.argsort()</span><br><span class="line">    </span><br><span class="line">    classCount = &#123;&#125;</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(k):</span><br><span class="line">        voteLabel = labels[sortedDistIndicies[i]]</span><br><span class="line">        classCount[voteLabel] = classCount.get(voteLabel, <span class="number">0</span>) + <span class="number">1</span></span><br><span class="line">    sortedClassCount = sorted(classCount.items(), key=<span class="keyword">lambda</span> s:s[<span class="number">1</span>], reverse=<span class="keyword">True</span>)</span><br><span class="line">    <span class="keyword">return</span> sortedClassCount</span><br></pre></td></tr></table></figure><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">class0([<span class="number">0.0</span>, <span class="number">0.2</span>], group,labels, <span class="number">3</span>)</span><br></pre></td></tr></table></figure><pre><code>[(&#39;A&#39;, 2), (&#39;B&#39;, 1)]</code></pre><h2 id="示例：使用K-近邻算法改进约会网站的配对效果"><a href="#示例：使用K-近邻算法改进约会网站的配对效果" class="headerlink" title="示例：使用K-近邻算法改进约会网站的配对效果"></a>示例：使用K-近邻算法改进约会网站的配对效果</h2><a id="more"></a>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;K近邻算法采用测量不同特征之间的距离来进行分类。&lt;/p&gt;
+&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; numpy &lt;span class=&quot;keyword&quot;&gt;as&lt;/span&gt; np&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# 收集数据：无&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# 准备数据：用以计算数值所需要的数据&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;createDataset&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt;:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    group = np.array([[&lt;span class=&quot;number&quot;&gt;0.0&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;0.0&lt;/span&gt;], [&lt;span class=&quot;number&quot;&gt;0.0&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;0.1&lt;/span&gt;], [&lt;span class=&quot;number&quot;&gt;1.0&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;1.0&lt;/span&gt;], [&lt;span class=&quot;number&quot;&gt;1.0&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;1.1&lt;/span&gt;]])&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    labels = np.array([&lt;span class=&quot;string&quot;&gt;&#39;A&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;A&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;B&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;B&#39;&lt;/span&gt;])&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; group, labels&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;group, labels = createDataset()&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;print(group)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;print(labels)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;pre&gt;&lt;code&gt;[[0.  0. ]
+ [0.  0.1]
+ [1.  1. ]
+ [1.  1.1]]
+[&amp;#39;A&amp;#39; &amp;#39;A&amp;#39; &amp;#39;B&amp;#39; &amp;#39;B&amp;#39;]
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;实施K近邻算法：&quot;&gt;&lt;a href=&quot;#实施K近邻算法：&quot; class=&quot;headerlink&quot; title=&quot;实施K近邻算法：&quot;&gt;&lt;/a&gt;实施K近邻算法：&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;计算已知类别数据集中点和当前点之间的距离；&lt;/li&gt;
+&lt;li&gt;按照距离递增次序排序；&lt;/li&gt;
+&lt;li&gt;选取与当前点距离最小的K个点；&lt;/li&gt;
+&lt;li&gt;确定前K个点在类别中出现的频率；&lt;/li&gt;
+&lt;li&gt;将出现频率最高的代表的类别作为当前点的预测类别。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;class0&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(inX, dataSet, labels, k)&lt;/span&gt;:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    distances = np.sqrt(((inX-dataSet)**&lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;).sum(axis=&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;))&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    sortedDistIndicies = distances.argsort()&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    classCount = &amp;#123;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; i &lt;span class=&quot;keyword&quot;&gt;in&lt;/span&gt; range(k):&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        voteLabel = labels[sortedDistIndicies[i]]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        classCount[voteLabel] = classCount.get(voteLabel, &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;) + &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    sortedClassCount = sorted(classCount.items(), key=&lt;span class=&quot;keyword&quot;&gt;lambda&lt;/span&gt; s:s[&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;], reverse=&lt;span class=&quot;keyword&quot;&gt;True&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; sortedClassCount&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;class0([&lt;span class=&quot;number&quot;&gt;0.0&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;0.2&lt;/span&gt;], group,labels, &lt;span class=&quot;number&quot;&gt;3&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;pre&gt;&lt;code&gt;[(&amp;#39;A&amp;#39;, 2), (&amp;#39;B&amp;#39;, 1)]
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;示例：使用K-近邻算法改进约会网站的配对效果&quot;&gt;&lt;a href=&quot;#示例：使用K-近邻算法改进约会网站的配对效果&quot; class=&quot;headerlink&quot; title=&quot;示例：使用K-近邻算法改进约会网站的配对效果&quot;&gt;&lt;/a&gt;示例：使用K-近邻算法改进约会网站的配对效果&lt;/h2&gt;
+    
+    </summary>
+    
+      <category term="Machine Learning" scheme="https://www.blankspace.cn/categories/Machine-Learning/"/>
+    
+      <category term="Algorithms" scheme="https://www.blankspace.cn/categories/Machine-Learning/Algorithms/"/>
+    
+    
+      <category term="KNN" scheme="https://www.blankspace.cn/tags/KNN/"/>
+    
+  </entry>
   
   <entry>
     <title>研究生规划</title>
@@ -721,39 +763,6 @@ p=\frac{a+b+c}{2}&lt;/script&gt;&lt;p&gt;相关&lt;a href=&quot;https://www.tens
     
       <category term="Tutorial" scheme="https://www.blankspace.cn/categories/Projects/hexo-theme-bootstrap-blog/Tutorial/"/>
     
-    
-  </entry>
-  
-  <entry>
-    <title>Elements</title>
-    <link href="https://www.blankspace.cn/2018/08/08/elements/"/>
-    <id>https://www.blankspace.cn/2018/08/08/elements/</id>
-    <published>2018-08-07T16:01:03.000Z</published>
-    <updated>2018-08-10T02:53:18.753Z</updated>
-    
-    <content type="html"><![CDATA[<p>The purpose of this post is to make sure all HTML elements can display properly.</p><hr><h1 id="Heading-1"><a href="#Heading-1" class="headerlink" title="Heading 1"></a>Heading 1</h1><h2 id="Heading-2"><a href="#Heading-2" class="headerlink" title="Heading 2"></a>Heading 2</h2><h3 id="Heading-3"><a href="#Heading-3" class="headerlink" title="Heading 3"></a>Heading 3</h3><h4 id="Heading-4"><a href="#Heading-4" class="headerlink" title="Heading 4"></a>Heading 4</h4><h5 id="Heading-5"><a href="#Heading-5" class="headerlink" title="Heading 5"></a>Heading 5</h5><h6 id="Heading-6"><a href="#Heading-6" class="headerlink" title="Heading 6"></a>Heading 6</h6><hr><h2 id="Paragraph"><a href="#Paragraph" class="headerlink" title="Paragraph"></a>Paragraph</h2><p>Lorem ipsum dolor sit amet, <a href="">test link</a> consectetur adipiscing elit. <strong>Strong text</strong> pellentesque ligula commodo viverra vehicula. <em>Italic text</em> at ullamcorper enim. Morbi a euismod nibh. <u>Underline text</u> non elit nisl. <del>Deleted text</del> tristique, sem id condimentum tempus, metus lectus venenatis mauris, sit amet semper lorem felis a eros. Fusce egestas nibh at sagittis auctor. Sed ultricies ac arcu quis molestie. Donec dapibus nunc in nibh egestas, vitae volutpat sem iaculis. Curabitur sem tellus, elementum nec quam id, fermentum laoreet mi. Ut mollis ullamcorper turpis, vitae facilisis velit ultricies sit amet. Etiam laoreet dui odio, id tempus justo tincidunt id. Phasellus scelerisque nunc sed nunc ultricies accumsan.</p><p>Interdum et malesuada fames ac ante ipsum primis in faucibus. <code>Sed erat diam</code>, blandit eget felis aliquam, rhoncus varius urna. Donec tellus sapien, sodales eget ante vitae, feugiat ullamcorper urna. Praesent auctor dui vitae dapibus eleifend. Proin viverra mollis neque, ut ullamcorper elit posuere eget.</p><blockquote><p>Praesent diam elit, interdum ut pulvinar placerat, imperdiet at magna.</p></blockquote><p>Maecenas ornare arcu at mi suscipit, non molestie tortor ultrices. Aenean convallis, diam et congue ultricies, erat magna tincidunt orci, pulvinar posuere mi sapien ac magna. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Praesent vitae placerat mauris. Nullam laoreet ante posuere tortor blandit auctor. Sed id ligula volutpat leo consequat placerat. Mauris fermentum dolor sed augue malesuada sollicitudin. Vivamus ultrices nunc felis, quis viverra orci eleifend ut. Donec et quam id urna cursus posuere. Donec elementum scelerisque laoreet.</p><h2 id="List-Types"><a href="#List-Types" class="headerlink" title="List Types"></a>List Types</h2><h3 id="Definition-List-dl"><a href="#Definition-List-dl" class="headerlink" title="Definition List (dl)"></a>Definition List (dl)</h3><dl><dt>Definition List Title</dt><dd>This is a definition list division.</dd></dl><h3 id="Ordered-List-ol"><a href="#Ordered-List-ol" class="headerlink" title="Ordered List (ol)"></a>Ordered List (ol)</h3><ol><li>List Item 1</li><li>List Item 2</li><li>List Item 3</li></ol><h3 id="Unordered-List-ul"><a href="#Unordered-List-ul" class="headerlink" title="Unordered List (ul)"></a>Unordered List (ul)</h3><ul><li>List Item 1</li><li>List Item 2</li><li>List Item 3</li></ul><h2 id="Table"><a href="#Table" class="headerlink" title="Table"></a>Table</h2><div class="table-container"><table><thead><tr><th>Table Header 1</th><th>Table Header 2</th><th>Table Header 3</th></tr></thead><tbody><tr><td>Division 1</td><td>Division 2</td><td>Division 3</td></tr><tr><td>Division 1</td><td>Division 2</td><td>Division 3</td></tr><tr><td>Division 1</td><td>Division 2</td><td>Division 3</td></tr></tbody></table></div><h2 id="Misc-Stuff-abbr-acronym-sub-sup-etc"><a href="#Misc-Stuff-abbr-acronym-sub-sup-etc" class="headerlink" title="Misc Stuff - abbr, acronym, sub, sup, etc."></a>Misc Stuff - abbr, acronym, sub, sup, etc.</h2><p>Lorem <sup>superscript</sup> dolor <sub>subscript</sub> amet, consectetuer adipiscing elit. Nullam dignissim convallis est. Quisque aliquam. <cite>cite</cite>. Nunc iaculis suscipit dui. Nam sit amet sem. Aliquam libero nisi, imperdiet at, tincidunt nec, gravida vehicula, nisl. Praesent mattis, massa quis luctus fermentum, turpis mi volutpat justo, eu volutpat enim diam eget metus. Maecenas ornare tortor. Donec sed tellus eget sapien fringilla nonummy. <acronym title="National Basketball Association">NBA</acronym> Mauris a ante. Suspendisse quam sem, consequat at, commodo vitae, feugiat in, nunc. Morbi imperdiet augue quis tellus.  <abbr title="Avenue">AVE</abbr></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;The purpose of this post is to make sure all HTML elements can display properly.&lt;/p&gt;
-&lt;hr&gt;
-&lt;h1 id=&quot;Heading-1&quot;&gt;&lt;a href=&quot;#Heading-1&quot; class=&quot;
-      
-    
-    </summary>
-    
-      <category term="Projects" scheme="https://www.blankspace.cn/categories/Projects/"/>
-    
-      <category term="hexo-theme-bootstrap-blog" scheme="https://www.blankspace.cn/categories/Projects/hexo-theme-bootstrap-blog/"/>
-    
-      <category term="Tutorial" scheme="https://www.blankspace.cn/categories/Projects/hexo-theme-bootstrap-blog/Tutorial/"/>
-    
-    
-      <category term="Hexo" scheme="https://www.blankspace.cn/tags/Hexo/"/>
-    
-      <category term="Elements" scheme="https://www.blankspace.cn/tags/Elements/"/>
     
   </entry>
   

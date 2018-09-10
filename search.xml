@@ -3,6 +3,29 @@
   
     
     <entry>
+      <title>KNN-K近邻算法</title>
+      <link href="/2018/09/10/python-KNN/"/>
+      <url>/2018/09/10/python-KNN/</url>
+      <content type="html"><![CDATA[<p>K近邻算法采用测量不同特征之间的距离来进行分类。</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="comment"># 收集数据：无</span></span><br><span class="line"><span class="comment"># 准备数据：用以计算数值所需要的数据</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">createDataset</span><span class="params">()</span>:</span></span><br><span class="line">    group = np.array([[<span class="number">0.0</span>, <span class="number">0.0</span>], [<span class="number">0.0</span>, <span class="number">0.1</span>], [<span class="number">1.0</span>, <span class="number">1.0</span>], [<span class="number">1.0</span>, <span class="number">1.1</span>]])</span><br><span class="line">    labels = np.array([<span class="string">'A'</span>, <span class="string">'A'</span>, <span class="string">'B'</span>, <span class="string">'B'</span>])</span><br><span class="line">    <span class="keyword">return</span> group, labels</span><br></pre></td></tr></table></figure><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">group, labels = createDataset()</span><br><span class="line">print(group)</span><br><span class="line">print(labels)</span><br></pre></td></tr></table></figure><pre><code>[[0.  0. ] [0.  0.1] [1.  1. ] [1.  1.1]][&#39;A&#39; &#39;A&#39; &#39;B&#39; &#39;B&#39;]</code></pre><h3 id="实施K近邻算法："><a href="#实施K近邻算法：" class="headerlink" title="实施K近邻算法："></a>实施K近邻算法：</h3><ol><li>计算已知类别数据集中点和当前点之间的距离；</li><li>按照距离递增次序排序；</li><li>选取与当前点距离最小的K个点；</li><li>确定前K个点在类别中出现的频率；</li><li>将出现频率最高的代表的类别作为当前点的预测类别。</li></ol><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">class0</span><span class="params">(inX, dataSet, labels, k)</span>:</span></span><br><span class="line">    distances = np.sqrt(((inX-dataSet)**<span class="number">2</span>).sum(axis=<span class="number">1</span>))</span><br><span class="line">    sortedDistIndicies = distances.argsort()</span><br><span class="line">    </span><br><span class="line">    classCount = &#123;&#125;</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(k):</span><br><span class="line">        voteLabel = labels[sortedDistIndicies[i]]</span><br><span class="line">        classCount[voteLabel] = classCount.get(voteLabel, <span class="number">0</span>) + <span class="number">1</span></span><br><span class="line">    sortedClassCount = sorted(classCount.items(), key=<span class="keyword">lambda</span> s:s[<span class="number">1</span>], reverse=<span class="keyword">True</span>)</span><br><span class="line">    <span class="keyword">return</span> sortedClassCount</span><br></pre></td></tr></table></figure><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">class0([<span class="number">0.0</span>, <span class="number">0.2</span>], group,labels, <span class="number">3</span>)</span><br></pre></td></tr></table></figure><pre><code>[(&#39;A&#39;, 2), (&#39;B&#39;, 1)]</code></pre><h2 id="示例：使用K-近邻算法改进约会网站的配对效果"><a href="#示例：使用K-近邻算法改进约会网站的配对效果" class="headerlink" title="示例：使用K-近邻算法改进约会网站的配对效果"></a>示例：使用K-近邻算法改进约会网站的配对效果</h2><a id="more"></a>]]></content>
+      
+      <categories>
+          
+          <category> Machine Learning </category>
+          
+          <category> Algorithms </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> KNN </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
       <title>研究生规划</title>
       <link href="/2018/09/08/postgraduate-plan/"/>
       <url>/2018/09/08/postgraduate-plan/</url>
