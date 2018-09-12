@@ -1,0 +1,1201 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>K-近邻手写体识别 | WizardLQ’s | 魔法师の小茶馆</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="构建K近邻手写体识别分类器。 流程：  收集数据：文本，下载 准备数据：编写函数img2vector,将图像转换成向量格式 分析数据：检查并确保数据符合要求 训练算法：K近邻算法不适用此步 测试算法：将数据集中一部分作为测试数据，来测试样本。测试数据和非测试数据的区别在于，测试数据是已经完成分类的数据。 使用算法：从图像中提取数字并完成数字识别  准备数据：将图像转换为测试向量123456789i">
+<meta name="keywords" content="MNIST,KNN">
+<meta property="og:type" content="article">
+<meta property="og:title" content="K-近邻手写体识别">
+<meta property="og:url" content="https://www.blankspace.cn/2018/09/12/KNN-MNIST/index.html">
+<meta property="og:site_name" content="WizardLQ’s | 魔法师の小茶馆">
+<meta property="og:description" content="构建K近邻手写体识别分类器。 流程：  收集数据：文本，下载 准备数据：编写函数img2vector,将图像转换成向量格式 分析数据：检查并确保数据符合要求 训练算法：K近邻算法不适用此步 测试算法：将数据集中一部分作为测试数据，来测试样本。测试数据和非测试数据的区别在于，测试数据是已经完成分类的数据。 使用算法：从图像中提取数字并完成数字识别  准备数据：将图像转换为测试向量123456789i">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-09-12T10:22:31.781Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="K-近邻手写体识别">
+<meta name="twitter:description" content="构建K近邻手写体识别分类器。 流程：  收集数据：文本，下载 准备数据：编写函数img2vector,将图像转换成向量格式 分析数据：检查并确保数据符合要求 训练算法：K近邻算法不适用此步 测试算法：将数据集中一部分作为测试数据，来测试样本。测试数据和非测试数据的区别在于，测试数据是已经完成分类的数据。 使用算法：从图像中提取数字并完成数字识别  准备数据：将图像转换为测试向量123456789i">
+<link rel="publisher" href="112373242775367340000">
+  
+    <link rel="alternate" href="../../../../atom.xml" title="WizardLQ’s | 魔法师の小茶馆" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="../../../../images/icon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+<link href="https://cdn.bootcss.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet"><link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.slim.min.js"></script><script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<script type="text/javascript" src="//ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.3.min.js"></script>
+
+<link rel="stylesheet" href="../../../../css/styles.css">
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+</head>
+
+<body>
+
+	
+
+	
+	<div class="container">
+	<div class="article-wrapper">
+
+
+<article id="post-KNN-MNIST" class="article article-type-post" itemscope itemprop="blogPost">
+	
+
+
+<header class="article-header">
+
+  
+    <h1 class="article-title" itemprop="name">
+      K-近邻手写体识别
+    </h1>
+  
+
+
+	
+
+</header>
+
+<div class="article-inner">
+<div class="article-entry" itemprop="articleBody">
+  
+  
+	<!-- Table of Contents -->
+
+	
+	
+	<p>构建K近邻手写体识别分类器。</p>
+<p>流程：</p>
+<ol>
+<li>收集数据：文本，<a href="2018/09/12/KNN-MNIST/digits.zip">下载</a></li>
+<li>准备数据：编写函数img2vector,将图像转换成向量格式</li>
+<li>分析数据：检查并确保数据符合要求</li>
+<li>训练算法：K近邻算法不适用此步</li>
+<li>测试算法：将数据集中一部分作为测试数据，来测试样本。测试数据和非测试数据的区别在于，测试数据是已经完成分类的数据。</li>
+<li>使用算法：从图像中提取数字并完成数字识别</li>
+</ol>
+<h2 id="准备数据：将图像转换为测试向量"><a href="#准备数据：将图像转换为测试向量" class="headerlink" title="准备数据：将图像转换为测试向量"></a>准备数据：将图像转换为测试向量</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="comment"># 将文件中的32*32的图像转换成为1*1024的向量</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">img2vector</span><span class="params">(filename)</span>:</span></span><br><span class="line">    returnVec = []</span><br><span class="line">    <span class="keyword">with</span> open(filename, <span class="string">'r'</span>) <span class="keyword">as</span> f:</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">32</span>):</span><br><span class="line">            line = list(f.readline().strip())</span><br><span class="line">            returnVec += line</span><br><span class="line">    <span class="keyword">return</span> np.array(returnVec, dtype=np.int32).reshape(<span class="number">1</span>, <span class="number">1024</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">testVect = img2vector(<span class="string">'digits/trainingDigits/0_0.txt'</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">testVect[<span class="number">0</span>, <span class="number">0</span>:<span class="number">31</span>]</span><br></pre></td></tr></table></figure>
+<pre><code>array([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0,
+       0, 0, 0, 0, 0, 0, 0, 0, 0])
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看一下数据</span></span><br><span class="line"><span class="keyword">for</span> line <span class="keyword">in</span> testVect.reshape(<span class="number">32</span>, <span class="number">32</span>):</span><br><span class="line">    print(line)</span><br></pre></td></tr></table></figure>
+<pre><code>[0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+[0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0]
+[0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0]
+[0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0]
+[0 0 0 0 0 0 0 1 1 1 1 1 1 1 0 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0]
+[0 0 0 0 0 0 1 1 1 1 1 1 1 0 0 0 0 0 1 1 1 1 0 0 0 0 0 0 0 0 0 0]
+[0 0 0 0 0 0 1 1 1 1 1 1 1 0 0 0 0 0 0 0 1 1 1 0 0 0 0 0 0 0 0 0]
+[0 0 0 0 0 0 1 1 1 1 1 1 1 0 0 0 0 0 0 0 1 1 1 1 0 0 0 0 0 0 0 0]
+[0 0 0 0 0 0 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 1 1 1 0 0 0 0 0 0 0 0]
+[0 0 0 0 0 0 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 1 1 1 0 0 0 0 0 0 0 0]
+[0 0 0 0 0 0 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 1 1 1 1 0 0 0 0 0 0 0]
+[0 0 0 0 0 0 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 1 1 1 0 0 0 0 0 0 0]
+[0 0 0 0 0 0 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 1 1 1 0 0 0 0 0 0 0]
+[0 0 0 0 0 0 0 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 1 1 1 0 0 0 0 0 0]
+[0 0 0 0 0 0 0 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 1 1 1 0 0 0 0 0 0]
+[0 0 0 0 0 0 0 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 1 1 1 0 0 0 0 0 0]
+[0 0 0 0 0 0 0 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 1 1 1 0 0 0 0 0 0]
+[0 0 0 0 0 0 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 1 1 1 1 0 0 0 0 0 0]
+[0 0 0 0 0 0 1 1 1 1 0 1 1 0 0 0 0 0 0 0 0 0 1 1 1 1 0 0 0 0 0 0]
+[0 0 0 0 0 0 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 0 0 0 0 0 0 0]
+[0 0 0 0 0 0 0 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 0 0 0 0 0 0]
+[0 0 0 0 0 0 0 1 1 1 1 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 0 0 0 0 0 0]
+[0 0 0 0 0 0 0 1 1 1 1 0 0 0 0 0 0 0 0 0 1 1 1 1 1 0 0 0 0 0 0 0]
+[0 0 0 0 0 0 0 1 1 1 1 0 0 0 0 0 0 0 0 1 1 1 1 1 0 0 0 0 0 0 0 0]
+[0 0 0 0 0 0 0 0 1 1 1 0 0 0 0 0 0 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0]
+[0 0 0 0 0 0 0 0 1 1 1 1 0 0 0 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0]
+[0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0]
+[0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0]
+[0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0]
+[0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0]
+[0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+[0 0 0 0 0 0 0 0 0 0 0 0 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+</code></pre><h2 id="测试算法：使用K-近邻算法识别手写数字"><a href="#测试算法：使用K-近邻算法识别手写数字" class="headerlink" title="测试算法：使用K-近邻算法识别手写数字"></a>测试算法：使用K-近邻算法识别手写数字</h2><p>首先需要确保<code>from os import listdir</code>,列出制定目录的文件名</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> os <span class="keyword">import</span> listdir</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> KNN <span class="keyword">import</span> classify0 <span class="comment"># 见上一篇文章</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">handwritingClassTest</span><span class="params">(k=<span class="number">3</span>)</span>:</span></span><br><span class="line">    <span class="comment"># 从文件中解析手写字母的类型</span></span><br><span class="line">    trainingFileList = listdir(<span class="string">'digits/trainingDigits'</span>)</span><br><span class="line">    hwLabels = []</span><br><span class="line">    trainingMat = np.zeros((len(trainingFileList), <span class="number">1024</span>))</span><br><span class="line">    <span class="keyword">for</span> i, filename <span class="keyword">in</span> enumerate(trainingFileList):</span><br><span class="line">        hwLabels += filename.split(<span class="string">'.'</span>)[<span class="number">0</span>].split(<span class="string">'_'</span>)[<span class="number">0</span>] </span><br><span class="line">        trainingMat[i, :] = img2vector(<span class="string">'digits/trainingDigits/%s'</span>%filename)</span><br><span class="line"><span class="comment">#     trainingMat = np.array(trainingMat).reshape(len(trainingFileList), 1024)</span></span><br><span class="line">    <span class="comment"># 测试k近邻算法</span></span><br><span class="line">    testFileList = listdir(<span class="string">'digits/testDigits'</span>)</span><br><span class="line">    errorCount = <span class="number">0.0</span></span><br><span class="line">    m = len(testFileList)</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(m):</span><br><span class="line">        fileNameStr = testFileList[i]</span><br><span class="line">        classNumStr = fileNameStr.split(<span class="string">'.'</span>)[<span class="number">0</span>].split(<span class="string">'_'</span>)[<span class="number">0</span>]</span><br><span class="line">        vectorUnderTest = img2vector(<span class="string">'digits/testDigits/%s'</span>%fileNameStr)</span><br><span class="line">        classifierResult = classify0(vectorUnderTest, trainingMat, hwLabels, k)</span><br><span class="line">        print(<span class="string">'Classify result: '</span>, classifierResult, <span class="string">' Real class: '</span>, classNumStr)</span><br><span class="line">        <span class="keyword">if</span> (classifierResult!=classNumStr):</span><br><span class="line">            errorCount+=<span class="number">1.0</span></span><br><span class="line">    print(<span class="string">'\nThe total number of errors is: %d'</span>%errorCount)</span><br><span class="line">    print(<span class="string">'\nTotal error rate is: %f (%d/%d)'</span>%(errorCount/float(m), errorCount, m))</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">help(classify0)</span><br></pre></td></tr></table></figure>
+<pre><code>Help on function classify0 in module KNN:
+
+classify0(inX, dataSet, labels, k)
+    使用K近邻算法，对输入特征进行分类。
+    输入参数：
+    - inX: 输入特征向量
+    - dataSet: 数据集，计算输入向量和数据集中每个点的距离。
+</code></pre><p>​    <a id="more"></a></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">handwritingClassTest()</span><br></pre></td></tr></table></figure>
+<pre><code>Classify result:  0  Real class:  0
+Classify result:  0  Real class:  0
+Classify result:  0  Real class:  0
+Classify result:  0  Real class:  0
+Classify result:  0  Real class:  0
+Classify result:  0  Real class:  0
+Classify result:  0  Real class:  0
+Classify result:  0  Real class:  0
+Classify result:  0  Real class:  0
+Classify result:  0  Real class:  0
+Classify result:  0  Real class:  0
+Classify result:  0  Real class:  0
+Classify result:  0  Real class:  0
+Classify result:  0  Real class:  0
+Classify result:  0  Real class:  0
+Classify result:  0  Real class:  0
+Classify result:  0  Real class:  0
+Classify result:  0  Real class:  0
+Classify result:  0  Real class:  0
+Classify result:  0  Real class:  0
+Classify result:  0  Real class:  0
+Classify result:  0  Real class:  0
+Classify result:  0  Real class:  0
+Classify result:  0  Real class:  0
+Classify result:  0  Real class:  0
+Classify result:  0  Real class:  0
+Classify result:  0  Real class:  0
+Classify result:  0  Real class:  0
+Classify result:  0  Real class:  0
+Classify result:  0  Real class:  0
+Classify result:  0  Real class:  0
+Classify result:  0  Real class:  0
+Classify result:  0  Real class:  0
+Classify result:  0  Real class:  0
+Classify result:  0  Real class:  0
+Classify result:  0  Real class:  0
+Classify result:  0  Real class:  0
+Classify result:  0  Real class:  0
+Classify result:  0  Real class:  0
+Classify result:  0  Real class:  0
+Classify result:  0  Real class:  0
+Classify result:  0  Real class:  0
+Classify result:  0  Real class:  0
+Classify result:  0  Real class:  0
+Classify result:  0  Real class:  0
+Classify result:  0  Real class:  0
+Classify result:  0  Real class:  0
+Classify result:  0  Real class:  0
+Classify result:  0  Real class:  0
+Classify result:  0  Real class:  0
+Classify result:  0  Real class:  0
+Classify result:  0  Real class:  0
+Classify result:  0  Real class:  0
+Classify result:  0  Real class:  0
+Classify result:  0  Real class:  0
+Classify result:  0  Real class:  0
+Classify result:  0  Real class:  0
+Classify result:  0  Real class:  0
+Classify result:  0  Real class:  0
+Classify result:  0  Real class:  0
+Classify result:  0  Real class:  0
+Classify result:  0  Real class:  0
+Classify result:  0  Real class:  0
+Classify result:  0  Real class:  0
+Classify result:  0  Real class:  0
+Classify result:  0  Real class:  0
+Classify result:  0  Real class:  0
+Classify result:  0  Real class:  0
+Classify result:  0  Real class:  0
+Classify result:  0  Real class:  0
+Classify result:  0  Real class:  0
+Classify result:  0  Real class:  0
+Classify result:  0  Real class:  0
+Classify result:  0  Real class:  0
+Classify result:  0  Real class:  0
+Classify result:  0  Real class:  0
+Classify result:  0  Real class:  0
+Classify result:  0  Real class:  0
+Classify result:  0  Real class:  0
+Classify result:  0  Real class:  0
+Classify result:  0  Real class:  0
+Classify result:  0  Real class:  0
+Classify result:  0  Real class:  0
+Classify result:  0  Real class:  0
+Classify result:  0  Real class:  0
+Classify result:  0  Real class:  0
+Classify result:  0  Real class:  0
+Classify result:  1  Real class:  1
+Classify result:  1  Real class:  1
+Classify result:  1  Real class:  1
+Classify result:  1  Real class:  1
+Classify result:  1  Real class:  1
+Classify result:  1  Real class:  1
+Classify result:  1  Real class:  1
+Classify result:  1  Real class:  1
+Classify result:  1  Real class:  1
+Classify result:  1  Real class:  1
+Classify result:  1  Real class:  1
+Classify result:  1  Real class:  1
+Classify result:  1  Real class:  1
+Classify result:  1  Real class:  1
+Classify result:  1  Real class:  1
+Classify result:  1  Real class:  1
+Classify result:  1  Real class:  1
+Classify result:  1  Real class:  1
+Classify result:  1  Real class:  1
+Classify result:  1  Real class:  1
+Classify result:  1  Real class:  1
+Classify result:  1  Real class:  1
+Classify result:  1  Real class:  1
+Classify result:  1  Real class:  1
+Classify result:  1  Real class:  1
+Classify result:  1  Real class:  1
+Classify result:  1  Real class:  1
+Classify result:  1  Real class:  1
+Classify result:  1  Real class:  1
+Classify result:  1  Real class:  1
+Classify result:  1  Real class:  1
+Classify result:  1  Real class:  1
+Classify result:  1  Real class:  1
+Classify result:  1  Real class:  1
+Classify result:  1  Real class:  1
+Classify result:  1  Real class:  1
+Classify result:  1  Real class:  1
+Classify result:  1  Real class:  1
+Classify result:  1  Real class:  1
+Classify result:  1  Real class:  1
+Classify result:  1  Real class:  1
+Classify result:  1  Real class:  1
+Classify result:  1  Real class:  1
+Classify result:  1  Real class:  1
+Classify result:  1  Real class:  1
+Classify result:  1  Real class:  1
+Classify result:  1  Real class:  1
+Classify result:  1  Real class:  1
+Classify result:  1  Real class:  1
+Classify result:  1  Real class:  1
+Classify result:  1  Real class:  1
+Classify result:  1  Real class:  1
+Classify result:  1  Real class:  1
+Classify result:  1  Real class:  1
+Classify result:  1  Real class:  1
+Classify result:  1  Real class:  1
+Classify result:  1  Real class:  1
+Classify result:  1  Real class:  1
+Classify result:  1  Real class:  1
+Classify result:  1  Real class:  1
+Classify result:  1  Real class:  1
+Classify result:  1  Real class:  1
+Classify result:  1  Real class:  1
+Classify result:  1  Real class:  1
+Classify result:  1  Real class:  1
+Classify result:  1  Real class:  1
+Classify result:  1  Real class:  1
+Classify result:  1  Real class:  1
+Classify result:  1  Real class:  1
+Classify result:  1  Real class:  1
+Classify result:  1  Real class:  1
+Classify result:  1  Real class:  1
+Classify result:  1  Real class:  1
+Classify result:  1  Real class:  1
+Classify result:  1  Real class:  1
+Classify result:  1  Real class:  1
+Classify result:  1  Real class:  1
+Classify result:  1  Real class:  1
+Classify result:  1  Real class:  1
+Classify result:  1  Real class:  1
+Classify result:  1  Real class:  1
+Classify result:  1  Real class:  1
+Classify result:  1  Real class:  1
+Classify result:  1  Real class:  1
+Classify result:  1  Real class:  1
+Classify result:  7  Real class:  1
+Classify result:  1  Real class:  1
+Classify result:  1  Real class:  1
+Classify result:  1  Real class:  1
+Classify result:  1  Real class:  1
+Classify result:  1  Real class:  1
+Classify result:  1  Real class:  1
+Classify result:  1  Real class:  1
+Classify result:  1  Real class:  1
+Classify result:  1  Real class:  1
+Classify result:  1  Real class:  1
+Classify result:  1  Real class:  1
+Classify result:  2  Real class:  2
+Classify result:  2  Real class:  2
+Classify result:  2  Real class:  2
+Classify result:  2  Real class:  2
+Classify result:  2  Real class:  2
+Classify result:  2  Real class:  2
+Classify result:  2  Real class:  2
+Classify result:  2  Real class:  2
+Classify result:  2  Real class:  2
+Classify result:  2  Real class:  2
+Classify result:  2  Real class:  2
+Classify result:  2  Real class:  2
+Classify result:  2  Real class:  2
+Classify result:  2  Real class:  2
+Classify result:  2  Real class:  2
+Classify result:  2  Real class:  2
+Classify result:  2  Real class:  2
+Classify result:  2  Real class:  2
+Classify result:  2  Real class:  2
+Classify result:  2  Real class:  2
+Classify result:  2  Real class:  2
+Classify result:  2  Real class:  2
+Classify result:  2  Real class:  2
+Classify result:  2  Real class:  2
+Classify result:  2  Real class:  2
+Classify result:  2  Real class:  2
+Classify result:  2  Real class:  2
+Classify result:  2  Real class:  2
+Classify result:  2  Real class:  2
+Classify result:  2  Real class:  2
+Classify result:  2  Real class:  2
+Classify result:  2  Real class:  2
+Classify result:  2  Real class:  2
+Classify result:  2  Real class:  2
+Classify result:  2  Real class:  2
+Classify result:  2  Real class:  2
+Classify result:  2  Real class:  2
+Classify result:  2  Real class:  2
+Classify result:  2  Real class:  2
+Classify result:  2  Real class:  2
+Classify result:  2  Real class:  2
+Classify result:  2  Real class:  2
+Classify result:  2  Real class:  2
+Classify result:  2  Real class:  2
+Classify result:  2  Real class:  2
+Classify result:  2  Real class:  2
+Classify result:  2  Real class:  2
+Classify result:  2  Real class:  2
+Classify result:  2  Real class:  2
+Classify result:  2  Real class:  2
+Classify result:  2  Real class:  2
+Classify result:  2  Real class:  2
+Classify result:  2  Real class:  2
+Classify result:  2  Real class:  2
+Classify result:  2  Real class:  2
+Classify result:  2  Real class:  2
+Classify result:  2  Real class:  2
+Classify result:  2  Real class:  2
+Classify result:  2  Real class:  2
+Classify result:  2  Real class:  2
+Classify result:  2  Real class:  2
+Classify result:  2  Real class:  2
+Classify result:  2  Real class:  2
+Classify result:  2  Real class:  2
+Classify result:  2  Real class:  2
+Classify result:  2  Real class:  2
+Classify result:  2  Real class:  2
+Classify result:  2  Real class:  2
+Classify result:  2  Real class:  2
+Classify result:  2  Real class:  2
+Classify result:  2  Real class:  2
+Classify result:  2  Real class:  2
+Classify result:  2  Real class:  2
+Classify result:  2  Real class:  2
+Classify result:  2  Real class:  2
+Classify result:  2  Real class:  2
+Classify result:  2  Real class:  2
+Classify result:  2  Real class:  2
+Classify result:  2  Real class:  2
+Classify result:  2  Real class:  2
+Classify result:  2  Real class:  2
+Classify result:  2  Real class:  2
+Classify result:  2  Real class:  2
+Classify result:  2  Real class:  2
+Classify result:  2  Real class:  2
+Classify result:  2  Real class:  2
+Classify result:  2  Real class:  2
+Classify result:  2  Real class:  2
+Classify result:  2  Real class:  2
+Classify result:  2  Real class:  2
+Classify result:  2  Real class:  2
+Classify result:  2  Real class:  2
+Classify result:  3  Real class:  3
+Classify result:  3  Real class:  3
+Classify result:  3  Real class:  3
+Classify result:  9  Real class:  3
+Classify result:  3  Real class:  3
+Classify result:  3  Real class:  3
+Classify result:  3  Real class:  3
+Classify result:  3  Real class:  3
+Classify result:  3  Real class:  3
+Classify result:  3  Real class:  3
+Classify result:  3  Real class:  3
+Classify result:  3  Real class:  3
+Classify result:  3  Real class:  3
+Classify result:  3  Real class:  3
+Classify result:  3  Real class:  3
+Classify result:  3  Real class:  3
+Classify result:  3  Real class:  3
+Classify result:  3  Real class:  3
+Classify result:  3  Real class:  3
+Classify result:  3  Real class:  3
+Classify result:  3  Real class:  3
+Classify result:  3  Real class:  3
+Classify result:  3  Real class:  3
+Classify result:  3  Real class:  3
+Classify result:  3  Real class:  3
+Classify result:  3  Real class:  3
+Classify result:  3  Real class:  3
+Classify result:  3  Real class:  3
+Classify result:  3  Real class:  3
+Classify result:  3  Real class:  3
+Classify result:  3  Real class:  3
+Classify result:  3  Real class:  3
+Classify result:  3  Real class:  3
+Classify result:  3  Real class:  3
+Classify result:  3  Real class:  3
+Classify result:  3  Real class:  3
+Classify result:  3  Real class:  3
+Classify result:  3  Real class:  3
+Classify result:  3  Real class:  3
+Classify result:  3  Real class:  3
+Classify result:  3  Real class:  3
+Classify result:  3  Real class:  3
+Classify result:  3  Real class:  3
+Classify result:  3  Real class:  3
+Classify result:  3  Real class:  3
+Classify result:  3  Real class:  3
+Classify result:  3  Real class:  3
+Classify result:  3  Real class:  3
+Classify result:  3  Real class:  3
+Classify result:  3  Real class:  3
+Classify result:  3  Real class:  3
+Classify result:  3  Real class:  3
+Classify result:  3  Real class:  3
+Classify result:  3  Real class:  3
+Classify result:  3  Real class:  3
+Classify result:  3  Real class:  3
+Classify result:  3  Real class:  3
+Classify result:  3  Real class:  3
+Classify result:  3  Real class:  3
+Classify result:  3  Real class:  3
+Classify result:  3  Real class:  3
+Classify result:  3  Real class:  3
+Classify result:  3  Real class:  3
+Classify result:  3  Real class:  3
+Classify result:  3  Real class:  3
+Classify result:  3  Real class:  3
+Classify result:  3  Real class:  3
+Classify result:  3  Real class:  3
+Classify result:  3  Real class:  3
+Classify result:  3  Real class:  3
+Classify result:  3  Real class:  3
+Classify result:  3  Real class:  3
+Classify result:  3  Real class:  3
+Classify result:  3  Real class:  3
+Classify result:  3  Real class:  3
+Classify result:  3  Real class:  3
+Classify result:  3  Real class:  3
+Classify result:  3  Real class:  3
+Classify result:  3  Real class:  3
+Classify result:  3  Real class:  3
+Classify result:  3  Real class:  3
+Classify result:  3  Real class:  3
+Classify result:  3  Real class:  3
+Classify result:  3  Real class:  3
+Classify result:  3  Real class:  3
+Classify result:  4  Real class:  4
+Classify result:  4  Real class:  4
+Classify result:  4  Real class:  4
+Classify result:  4  Real class:  4
+Classify result:  4  Real class:  4
+Classify result:  4  Real class:  4
+Classify result:  4  Real class:  4
+Classify result:  4  Real class:  4
+Classify result:  4  Real class:  4
+Classify result:  4  Real class:  4
+Classify result:  4  Real class:  4
+Classify result:  4  Real class:  4
+Classify result:  4  Real class:  4
+Classify result:  4  Real class:  4
+Classify result:  4  Real class:  4
+Classify result:  4  Real class:  4
+Classify result:  4  Real class:  4
+Classify result:  4  Real class:  4
+Classify result:  4  Real class:  4
+Classify result:  4  Real class:  4
+Classify result:  4  Real class:  4
+Classify result:  4  Real class:  4
+Classify result:  4  Real class:  4
+Classify result:  4  Real class:  4
+Classify result:  4  Real class:  4
+Classify result:  4  Real class:  4
+Classify result:  4  Real class:  4
+Classify result:  4  Real class:  4
+Classify result:  4  Real class:  4
+Classify result:  4  Real class:  4
+Classify result:  4  Real class:  4
+Classify result:  4  Real class:  4
+Classify result:  4  Real class:  4
+Classify result:  4  Real class:  4
+Classify result:  4  Real class:  4
+Classify result:  4  Real class:  4
+Classify result:  4  Real class:  4
+Classify result:  4  Real class:  4
+Classify result:  4  Real class:  4
+Classify result:  4  Real class:  4
+Classify result:  4  Real class:  4
+Classify result:  4  Real class:  4
+Classify result:  4  Real class:  4
+Classify result:  4  Real class:  4
+Classify result:  4  Real class:  4
+Classify result:  4  Real class:  4
+Classify result:  4  Real class:  4
+Classify result:  4  Real class:  4
+Classify result:  4  Real class:  4
+Classify result:  4  Real class:  4
+Classify result:  4  Real class:  4
+Classify result:  4  Real class:  4
+Classify result:  4  Real class:  4
+Classify result:  4  Real class:  4
+Classify result:  4  Real class:  4
+Classify result:  4  Real class:  4
+Classify result:  4  Real class:  4
+Classify result:  4  Real class:  4
+Classify result:  4  Real class:  4
+Classify result:  4  Real class:  4
+Classify result:  4  Real class:  4
+Classify result:  4  Real class:  4
+Classify result:  4  Real class:  4
+Classify result:  4  Real class:  4
+Classify result:  4  Real class:  4
+Classify result:  4  Real class:  4
+Classify result:  4  Real class:  4
+Classify result:  4  Real class:  4
+Classify result:  4  Real class:  4
+Classify result:  4  Real class:  4
+Classify result:  4  Real class:  4
+Classify result:  4  Real class:  4
+Classify result:  4  Real class:  4
+Classify result:  4  Real class:  4
+Classify result:  4  Real class:  4
+Classify result:  4  Real class:  4
+Classify result:  4  Real class:  4
+Classify result:  4  Real class:  4
+Classify result:  4  Real class:  4
+Classify result:  4  Real class:  4
+Classify result:  4  Real class:  4
+Classify result:  4  Real class:  4
+Classify result:  4  Real class:  4
+Classify result:  4  Real class:  4
+Classify result:  4  Real class:  4
+Classify result:  4  Real class:  4
+Classify result:  4  Real class:  4
+Classify result:  4  Real class:  4
+Classify result:  4  Real class:  4
+Classify result:  4  Real class:  4
+Classify result:  4  Real class:  4
+Classify result:  4  Real class:  4
+Classify result:  4  Real class:  4
+Classify result:  4  Real class:  4
+Classify result:  4  Real class:  4
+Classify result:  4  Real class:  4
+Classify result:  4  Real class:  4
+Classify result:  4  Real class:  4
+Classify result:  4  Real class:  4
+Classify result:  4  Real class:  4
+Classify result:  4  Real class:  4
+Classify result:  4  Real class:  4
+Classify result:  4  Real class:  4
+Classify result:  4  Real class:  4
+Classify result:  4  Real class:  4
+Classify result:  4  Real class:  4
+Classify result:  4  Real class:  4
+Classify result:  4  Real class:  4
+Classify result:  4  Real class:  4
+Classify result:  4  Real class:  4
+Classify result:  4  Real class:  4
+Classify result:  4  Real class:  4
+Classify result:  4  Real class:  4
+Classify result:  4  Real class:  4
+Classify result:  5  Real class:  5
+Classify result:  5  Real class:  5
+Classify result:  5  Real class:  5
+Classify result:  5  Real class:  5
+Classify result:  5  Real class:  5
+Classify result:  5  Real class:  5
+Classify result:  5  Real class:  5
+Classify result:  5  Real class:  5
+Classify result:  5  Real class:  5
+Classify result:  5  Real class:  5
+Classify result:  5  Real class:  5
+Classify result:  5  Real class:  5
+Classify result:  5  Real class:  5
+Classify result:  5  Real class:  5
+Classify result:  5  Real class:  5
+Classify result:  5  Real class:  5
+Classify result:  5  Real class:  5
+Classify result:  5  Real class:  5
+Classify result:  5  Real class:  5
+Classify result:  5  Real class:  5
+Classify result:  5  Real class:  5
+Classify result:  5  Real class:  5
+Classify result:  5  Real class:  5
+Classify result:  5  Real class:  5
+Classify result:  5  Real class:  5
+Classify result:  5  Real class:  5
+Classify result:  5  Real class:  5
+Classify result:  5  Real class:  5
+Classify result:  5  Real class:  5
+Classify result:  5  Real class:  5
+Classify result:  5  Real class:  5
+Classify result:  5  Real class:  5
+Classify result:  5  Real class:  5
+Classify result:  5  Real class:  5
+Classify result:  5  Real class:  5
+Classify result:  5  Real class:  5
+Classify result:  5  Real class:  5
+Classify result:  5  Real class:  5
+Classify result:  5  Real class:  5
+Classify result:  5  Real class:  5
+Classify result:  5  Real class:  5
+Classify result:  5  Real class:  5
+Classify result:  5  Real class:  5
+Classify result:  5  Real class:  5
+Classify result:  5  Real class:  5
+Classify result:  3  Real class:  5
+Classify result:  6  Real class:  5
+Classify result:  5  Real class:  5
+Classify result:  5  Real class:  5
+Classify result:  5  Real class:  5
+Classify result:  5  Real class:  5
+Classify result:  5  Real class:  5
+Classify result:  5  Real class:  5
+Classify result:  5  Real class:  5
+Classify result:  5  Real class:  5
+Classify result:  5  Real class:  5
+Classify result:  5  Real class:  5
+Classify result:  5  Real class:  5
+Classify result:  5  Real class:  5
+Classify result:  5  Real class:  5
+Classify result:  5  Real class:  5
+Classify result:  5  Real class:  5
+Classify result:  5  Real class:  5
+Classify result:  5  Real class:  5
+Classify result:  5  Real class:  5
+Classify result:  5  Real class:  5
+Classify result:  5  Real class:  5
+Classify result:  5  Real class:  5
+Classify result:  5  Real class:  5
+Classify result:  5  Real class:  5
+Classify result:  5  Real class:  5
+Classify result:  5  Real class:  5
+Classify result:  5  Real class:  5
+Classify result:  5  Real class:  5
+Classify result:  5  Real class:  5
+Classify result:  5  Real class:  5
+Classify result:  5  Real class:  5
+Classify result:  5  Real class:  5
+Classify result:  5  Real class:  5
+Classify result:  5  Real class:  5
+Classify result:  5  Real class:  5
+Classify result:  5  Real class:  5
+Classify result:  5  Real class:  5
+Classify result:  5  Real class:  5
+Classify result:  5  Real class:  5
+Classify result:  5  Real class:  5
+Classify result:  5  Real class:  5
+Classify result:  5  Real class:  5
+Classify result:  5  Real class:  5
+Classify result:  5  Real class:  5
+Classify result:  5  Real class:  5
+Classify result:  5  Real class:  5
+Classify result:  5  Real class:  5
+Classify result:  5  Real class:  5
+Classify result:  5  Real class:  5
+Classify result:  5  Real class:  5
+Classify result:  5  Real class:  5
+Classify result:  5  Real class:  5
+Classify result:  5  Real class:  5
+Classify result:  5  Real class:  5
+Classify result:  5  Real class:  5
+Classify result:  5  Real class:  5
+Classify result:  5  Real class:  5
+Classify result:  5  Real class:  5
+Classify result:  5  Real class:  5
+Classify result:  5  Real class:  5
+Classify result:  5  Real class:  5
+Classify result:  5  Real class:  5
+Classify result:  6  Real class:  6
+Classify result:  6  Real class:  6
+Classify result:  6  Real class:  6
+Classify result:  6  Real class:  6
+Classify result:  6  Real class:  6
+Classify result:  6  Real class:  6
+Classify result:  6  Real class:  6
+Classify result:  6  Real class:  6
+Classify result:  6  Real class:  6
+Classify result:  6  Real class:  6
+Classify result:  6  Real class:  6
+Classify result:  6  Real class:  6
+Classify result:  6  Real class:  6
+Classify result:  6  Real class:  6
+Classify result:  6  Real class:  6
+Classify result:  6  Real class:  6
+Classify result:  6  Real class:  6
+Classify result:  6  Real class:  6
+Classify result:  6  Real class:  6
+Classify result:  6  Real class:  6
+Classify result:  6  Real class:  6
+Classify result:  6  Real class:  6
+Classify result:  6  Real class:  6
+Classify result:  6  Real class:  6
+Classify result:  6  Real class:  6
+Classify result:  6  Real class:  6
+Classify result:  6  Real class:  6
+Classify result:  6  Real class:  6
+Classify result:  6  Real class:  6
+Classify result:  6  Real class:  6
+Classify result:  6  Real class:  6
+Classify result:  6  Real class:  6
+Classify result:  6  Real class:  6
+Classify result:  6  Real class:  6
+Classify result:  6  Real class:  6
+Classify result:  6  Real class:  6
+Classify result:  6  Real class:  6
+Classify result:  6  Real class:  6
+Classify result:  6  Real class:  6
+Classify result:  6  Real class:  6
+Classify result:  6  Real class:  6
+Classify result:  6  Real class:  6
+Classify result:  6  Real class:  6
+Classify result:  6  Real class:  6
+Classify result:  6  Real class:  6
+Classify result:  6  Real class:  6
+Classify result:  6  Real class:  6
+Classify result:  6  Real class:  6
+Classify result:  6  Real class:  6
+Classify result:  6  Real class:  6
+Classify result:  6  Real class:  6
+Classify result:  6  Real class:  6
+Classify result:  6  Real class:  6
+Classify result:  6  Real class:  6
+Classify result:  6  Real class:  6
+Classify result:  6  Real class:  6
+Classify result:  6  Real class:  6
+Classify result:  6  Real class:  6
+Classify result:  6  Real class:  6
+Classify result:  6  Real class:  6
+Classify result:  6  Real class:  6
+Classify result:  6  Real class:  6
+Classify result:  6  Real class:  6
+Classify result:  6  Real class:  6
+Classify result:  6  Real class:  6
+Classify result:  6  Real class:  6
+Classify result:  6  Real class:  6
+Classify result:  6  Real class:  6
+Classify result:  6  Real class:  6
+Classify result:  6  Real class:  6
+Classify result:  6  Real class:  6
+Classify result:  6  Real class:  6
+Classify result:  6  Real class:  6
+Classify result:  6  Real class:  6
+Classify result:  6  Real class:  6
+Classify result:  6  Real class:  6
+Classify result:  6  Real class:  6
+Classify result:  6  Real class:  6
+Classify result:  6  Real class:  6
+Classify result:  6  Real class:  6
+Classify result:  6  Real class:  6
+Classify result:  6  Real class:  6
+Classify result:  6  Real class:  6
+Classify result:  6  Real class:  6
+Classify result:  6  Real class:  6
+Classify result:  6  Real class:  6
+Classify result:  6  Real class:  6
+Classify result:  7  Real class:  7
+Classify result:  7  Real class:  7
+Classify result:  7  Real class:  7
+Classify result:  7  Real class:  7
+Classify result:  7  Real class:  7
+Classify result:  7  Real class:  7
+Classify result:  7  Real class:  7
+Classify result:  7  Real class:  7
+Classify result:  7  Real class:  7
+Classify result:  7  Real class:  7
+Classify result:  7  Real class:  7
+Classify result:  7  Real class:  7
+Classify result:  7  Real class:  7
+Classify result:  7  Real class:  7
+Classify result:  7  Real class:  7
+Classify result:  7  Real class:  7
+Classify result:  7  Real class:  7
+Classify result:  7  Real class:  7
+Classify result:  7  Real class:  7
+Classify result:  7  Real class:  7
+Classify result:  7  Real class:  7
+Classify result:  7  Real class:  7
+Classify result:  7  Real class:  7
+Classify result:  7  Real class:  7
+Classify result:  7  Real class:  7
+Classify result:  7  Real class:  7
+Classify result:  7  Real class:  7
+Classify result:  7  Real class:  7
+Classify result:  7  Real class:  7
+Classify result:  7  Real class:  7
+Classify result:  7  Real class:  7
+Classify result:  7  Real class:  7
+Classify result:  7  Real class:  7
+Classify result:  7  Real class:  7
+Classify result:  7  Real class:  7
+Classify result:  7  Real class:  7
+Classify result:  7  Real class:  7
+Classify result:  7  Real class:  7
+Classify result:  7  Real class:  7
+Classify result:  7  Real class:  7
+Classify result:  7  Real class:  7
+Classify result:  7  Real class:  7
+Classify result:  7  Real class:  7
+Classify result:  7  Real class:  7
+Classify result:  7  Real class:  7
+Classify result:  7  Real class:  7
+Classify result:  7  Real class:  7
+Classify result:  7  Real class:  7
+Classify result:  7  Real class:  7
+Classify result:  7  Real class:  7
+Classify result:  7  Real class:  7
+Classify result:  7  Real class:  7
+Classify result:  7  Real class:  7
+Classify result:  7  Real class:  7
+Classify result:  7  Real class:  7
+Classify result:  7  Real class:  7
+Classify result:  7  Real class:  7
+Classify result:  7  Real class:  7
+Classify result:  7  Real class:  7
+Classify result:  7  Real class:  7
+Classify result:  7  Real class:  7
+Classify result:  7  Real class:  7
+Classify result:  7  Real class:  7
+Classify result:  7  Real class:  7
+Classify result:  7  Real class:  7
+Classify result:  7  Real class:  7
+Classify result:  7  Real class:  7
+Classify result:  7  Real class:  7
+Classify result:  7  Real class:  7
+Classify result:  7  Real class:  7
+Classify result:  7  Real class:  7
+Classify result:  7  Real class:  7
+Classify result:  7  Real class:  7
+Classify result:  7  Real class:  7
+Classify result:  7  Real class:  7
+Classify result:  7  Real class:  7
+Classify result:  7  Real class:  7
+Classify result:  7  Real class:  7
+Classify result:  7  Real class:  7
+Classify result:  7  Real class:  7
+Classify result:  7  Real class:  7
+Classify result:  7  Real class:  7
+Classify result:  7  Real class:  7
+Classify result:  7  Real class:  7
+Classify result:  7  Real class:  7
+Classify result:  7  Real class:  7
+Classify result:  7  Real class:  7
+Classify result:  7  Real class:  7
+Classify result:  7  Real class:  7
+Classify result:  7  Real class:  7
+Classify result:  7  Real class:  7
+Classify result:  7  Real class:  7
+Classify result:  7  Real class:  7
+Classify result:  7  Real class:  7
+Classify result:  7  Real class:  7
+Classify result:  7  Real class:  7
+Classify result:  8  Real class:  8
+Classify result:  8  Real class:  8
+Classify result:  8  Real class:  8
+Classify result:  6  Real class:  8
+Classify result:  8  Real class:  8
+Classify result:  8  Real class:  8
+Classify result:  8  Real class:  8
+Classify result:  8  Real class:  8
+Classify result:  8  Real class:  8
+Classify result:  8  Real class:  8
+Classify result:  8  Real class:  8
+Classify result:  8  Real class:  8
+Classify result:  8  Real class:  8
+Classify result:  8  Real class:  8
+Classify result:  8  Real class:  8
+Classify result:  8  Real class:  8
+Classify result:  3  Real class:  8
+Classify result:  8  Real class:  8
+Classify result:  8  Real class:  8
+Classify result:  8  Real class:  8
+Classify result:  8  Real class:  8
+Classify result:  8  Real class:  8
+Classify result:  8  Real class:  8
+Classify result:  8  Real class:  8
+Classify result:  8  Real class:  8
+Classify result:  8  Real class:  8
+Classify result:  8  Real class:  8
+Classify result:  8  Real class:  8
+Classify result:  8  Real class:  8
+Classify result:  8  Real class:  8
+Classify result:  1  Real class:  8
+Classify result:  8  Real class:  8
+Classify result:  8  Real class:  8
+Classify result:  8  Real class:  8
+Classify result:  8  Real class:  8
+Classify result:  8  Real class:  8
+Classify result:  8  Real class:  8
+Classify result:  8  Real class:  8
+Classify result:  8  Real class:  8
+Classify result:  8  Real class:  8
+Classify result:  1  Real class:  8
+Classify result:  8  Real class:  8
+Classify result:  8  Real class:  8
+Classify result:  8  Real class:  8
+Classify result:  8  Real class:  8
+Classify result:  8  Real class:  8
+Classify result:  8  Real class:  8
+Classify result:  8  Real class:  8
+Classify result:  8  Real class:  8
+Classify result:  8  Real class:  8
+Classify result:  8  Real class:  8
+Classify result:  8  Real class:  8
+Classify result:  8  Real class:  8
+Classify result:  8  Real class:  8
+Classify result:  8  Real class:  8
+Classify result:  8  Real class:  8
+Classify result:  8  Real class:  8
+Classify result:  8  Real class:  8
+Classify result:  8  Real class:  8
+Classify result:  8  Real class:  8
+Classify result:  8  Real class:  8
+Classify result:  8  Real class:  8
+Classify result:  8  Real class:  8
+Classify result:  8  Real class:  8
+Classify result:  8  Real class:  8
+Classify result:  8  Real class:  8
+Classify result:  8  Real class:  8
+Classify result:  8  Real class:  8
+Classify result:  8  Real class:  8
+Classify result:  8  Real class:  8
+Classify result:  8  Real class:  8
+Classify result:  8  Real class:  8
+Classify result:  8  Real class:  8
+Classify result:  8  Real class:  8
+Classify result:  8  Real class:  8
+Classify result:  8  Real class:  8
+Classify result:  8  Real class:  8
+Classify result:  8  Real class:  8
+Classify result:  8  Real class:  8
+Classify result:  8  Real class:  8
+Classify result:  8  Real class:  8
+Classify result:  8  Real class:  8
+Classify result:  8  Real class:  8
+Classify result:  8  Real class:  8
+Classify result:  8  Real class:  8
+Classify result:  8  Real class:  8
+Classify result:  8  Real class:  8
+Classify result:  8  Real class:  8
+Classify result:  8  Real class:  8
+Classify result:  8  Real class:  8
+Classify result:  8  Real class:  8
+Classify result:  9  Real class:  9
+Classify result:  9  Real class:  9
+Classify result:  9  Real class:  9
+Classify result:  9  Real class:  9
+Classify result:  9  Real class:  9
+Classify result:  9  Real class:  9
+Classify result:  1  Real class:  9
+Classify result:  9  Real class:  9
+Classify result:  9  Real class:  9
+Classify result:  9  Real class:  9
+Classify result:  9  Real class:  9
+Classify result:  9  Real class:  9
+Classify result:  9  Real class:  9
+Classify result:  9  Real class:  9
+Classify result:  9  Real class:  9
+Classify result:  9  Real class:  9
+Classify result:  9  Real class:  9
+Classify result:  9  Real class:  9
+Classify result:  9  Real class:  9
+Classify result:  9  Real class:  9
+Classify result:  9  Real class:  9
+Classify result:  9  Real class:  9
+Classify result:  9  Real class:  9
+Classify result:  9  Real class:  9
+Classify result:  9  Real class:  9
+Classify result:  9  Real class:  9
+Classify result:  9  Real class:  9
+Classify result:  9  Real class:  9
+Classify result:  9  Real class:  9
+Classify result:  9  Real class:  9
+Classify result:  9  Real class:  9
+Classify result:  9  Real class:  9
+Classify result:  9  Real class:  9
+Classify result:  9  Real class:  9
+Classify result:  9  Real class:  9
+Classify result:  9  Real class:  9
+Classify result:  9  Real class:  9
+Classify result:  9  Real class:  9
+Classify result:  9  Real class:  9
+Classify result:  9  Real class:  9
+Classify result:  9  Real class:  9
+Classify result:  9  Real class:  9
+Classify result:  9  Real class:  9
+Classify result:  9  Real class:  9
+Classify result:  9  Real class:  9
+Classify result:  9  Real class:  9
+Classify result:  9  Real class:  9
+Classify result:  9  Real class:  9
+Classify result:  9  Real class:  9
+Classify result:  9  Real class:  9
+Classify result:  9  Real class:  9
+Classify result:  9  Real class:  9
+Classify result:  9  Real class:  9
+Classify result:  9  Real class:  9
+Classify result:  9  Real class:  9
+Classify result:  9  Real class:  9
+Classify result:  9  Real class:  9
+Classify result:  7  Real class:  9
+Classify result:  9  Real class:  9
+Classify result:  9  Real class:  9
+Classify result:  9  Real class:  9
+Classify result:  9  Real class:  9
+Classify result:  9  Real class:  9
+Classify result:  9  Real class:  9
+Classify result:  9  Real class:  9
+Classify result:  9  Real class:  9
+Classify result:  9  Real class:  9
+Classify result:  9  Real class:  9
+Classify result:  9  Real class:  9
+Classify result:  9  Real class:  9
+Classify result:  9  Real class:  9
+Classify result:  9  Real class:  9
+Classify result:  9  Real class:  9
+Classify result:  9  Real class:  9
+Classify result:  9  Real class:  9
+Classify result:  9  Real class:  9
+Classify result:  9  Real class:  9
+Classify result:  9  Real class:  9
+Classify result:  9  Real class:  9
+Classify result:  9  Real class:  9
+Classify result:  9  Real class:  9
+Classify result:  9  Real class:  9
+Classify result:  9  Real class:  9
+Classify result:  9  Real class:  9
+Classify result:  9  Real class:  9
+Classify result:  9  Real class:  9
+Classify result:  9  Real class:  9
+Classify result:  9  Real class:  9
+Classify result:  9  Real class:  9
+
+The total number of errors is: 10
+
+Total error rate is: 0.010571 (10/946)
+</code></pre><h2 id="小节"><a href="#小节" class="headerlink" title="小节"></a>小节</h2><p>K近邻算法是简单有效的分类算法，但算法的执行效率并不高。对于每个测试点，都需要计算其和所有其他点的距离，每个距离计算包含了特征向量这么多维度的浮点运算，总共执行测试点这么多的次。当数据集很大时需要消耗很大的存储空间。<br>此外，K近邻算法的另一个缺陷就是其无法给出任何数据的基础结构信息，所以我们无法知晓平均实力样本和典型样例有什么特征<br>K决策树是K近邻算法的优化版本，可以减少算法存储空间和计算时间开销。</p>
+<p>本例中，使用KNN构建手写体识别系统任务，剩余的工作例如从图像中提取数字，数据的检查和规格化等没有完全完成，因此侧重于算法理解和应用。</p>
+
+	
+  
+</div>
+
+
+  
+
+
+
+
+</div>
+
+</article>
+
+
+
+
+	</div><!--end of article wrapper-->
+	</div>
+
+
+
+
+
+
+	
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?70a761ba668ab8571ac79968adcf6078";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+
+
+
+
+
+
+
+<script src="https://cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+  <link rel="stylesheet" href="../../../../fancybox/jquery.fancybox.css">
+  <script src="../../../../fancybox/jquery.fancybox.pack.js"></script>
+
+<script src="../../../../js/script.js"></script>
+
+<!--Back to top-->
+<body id="top">
+<p id="back-to-top"><a href="#top"><span></span></a></p>
+</body>
+
+
+<script>
+$(document).ready(function() {
+    //首先将#back-to-top隐藏
+    $("#back-to-top").hide();
+ 
+    //当滚动条的位置处于距顶部3600像素以下时，跳转链接出现，否则消失
+    $(function() {
+        $(window).scroll(function() {
+            if ($(window).scrollTop() > 3600) {
+                $("#back-to-top").fadeIn(1500);
+            }
+            else {
+                $("#back-to-top").fadeOut(1500);
+            }
+        });
+        //当点击跳转链接后，回到页面顶部位置
+        $("#back-to-top").click(function() {
+            $('body,html').animate({
+                scrollTop: 0
+            },
+            500);
+			
+            return false;
+        });
+    });
+});
+</script>
+
+</body>
+</html>

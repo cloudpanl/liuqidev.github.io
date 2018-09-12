@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://www.blankspace.cn/2018/09/12/KNN-MNIST/</loc>
+    
+    <lastmod>2018-09-12T10:22:31.781Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://www.blankspace.cn/2018/09/10/python-KNN/</loc>
     
-    <lastmod>2018-09-11T11:47:32.908Z</lastmod>
+    <lastmod>2018-09-12T10:19:18.413Z</lastmod>
     
   </url>
   
