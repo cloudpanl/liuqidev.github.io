@@ -3,11 +3,25 @@
   
     
     <entry>
-      <title></title>
+      <title>大数据生态系统</title>
       <link href="/2018/09/16/bigdata-system-ch1-s5/"/>
       <url>/2018/09/16/bigdata-system-ch1-s5/</url>
-      <content type="html"><![CDATA[]]></content>
+      <content type="html"><![CDATA[<p>现今主要有两大生态，Hadoop生态和Spark生态。</p><h2 id="Hadoop生态"><a href="#Hadoop生态" class="headerlink" title="Hadoop生态"></a>Hadoop生态</h2><p><img src="https://www.dotnettricks.com/img/hadoop/hadoop-ecosystem.png" alt="Hadoop生态：存储-HdoopHDFS,资源管理-yann；驻内存数据量引擎；基于Hadoop的SQL分析-HIVE；NoSQL数据库-HBASE；机器学习-R/SparkMLib/mahout；搜索-Solr；脚本-Pig；等等"></p><h2 id="Spark生态系统"><a href="#Spark生态系统" class="headerlink" title="Spark生态系统"></a>Spark生态系统</h2><p><img src="http://backtobazics.com/wp-content/themes/twentyfourteen/images/spark/spark-architecture-and-ecosystem.png" alt="Spark生态系统"></p><h3 id="优势"><a href="#优势" class="headerlink" title="优势"></a>优势</h3><p><img src="/2018/09/16/bigdata-system-ch1-s5/Spark生态圈的优势.jpg" alt="Spark生态圈的优势:统一的开发框架和快速的数据处理"></p>]]></content>
       
+      <categories>
+          
+          <category> Big Data </category>
+          
+          <category> Big Data System </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Big Data Ecosystem </tag>
+            
+        </tags>
       
     </entry>
     

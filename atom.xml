@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.blankspace.cn/"/>
-  <updated>2018-09-16T14:38:32.719Z</updated>
+  <updated>2018-09-16T14:47:58.251Z</updated>
   <id>https://www.blankspace.cn/</id>
   
   <author>
@@ -17,16 +17,30 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title></title>
+    <title>大数据生态系统</title>
     <link href="https://www.blankspace.cn/2018/09/16/bigdata-system-ch1-s5/"/>
     <id>https://www.blankspace.cn/2018/09/16/bigdata-system-ch1-s5/</id>
-    <published>2018-09-16T14:02:33.273Z</published>
-    <updated>2018-09-16T14:38:32.719Z</updated>
+    <published>2018-09-16T14:02:33.000Z</published>
+    <updated>2018-09-16T14:47:58.251Z</updated>
+    
+    <content type="html"><![CDATA[<p>现今主要有两大生态，Hadoop生态和Spark生态。</p><h2 id="Hadoop生态"><a href="#Hadoop生态" class="headerlink" title="Hadoop生态"></a>Hadoop生态</h2><p><img src="https://www.dotnettricks.com/img/hadoop/hadoop-ecosystem.png" alt="Hadoop生态：存储-HdoopHDFS,资源管理-yann；驻内存数据量引擎；基于Hadoop的SQL分析-HIVE；NoSQL数据库-HBASE；机器学习-R/SparkMLib/mahout；搜索-Solr；脚本-Pig；等等"></p><h2 id="Spark生态系统"><a href="#Spark生态系统" class="headerlink" title="Spark生态系统"></a>Spark生态系统</h2><p><img src="http://backtobazics.com/wp-content/themes/twentyfourteen/images/spark/spark-architecture-and-ecosystem.png" alt="Spark生态系统"></p><h3 id="优势"><a href="#优势" class="headerlink" title="优势"></a>优势</h3><p><img src="/2018/09/16/bigdata-system-ch1-s5/Spark生态圈的优势.jpg" alt="Spark生态圈的优势:统一的开发框架和快速的数据处理"></p>]]></content>
     
     <summary type="html">
     
+      
+      
+        &lt;p&gt;现今主要有两大生态，Hadoop生态和Spark生态。&lt;/p&gt;
+&lt;h2 id=&quot;Hadoop生态&quot;&gt;&lt;a href=&quot;#Hadoop生态&quot; class=&quot;headerlink&quot; title=&quot;Hadoop生态&quot;&gt;&lt;/a&gt;Hadoop生态&lt;/h2&gt;&lt;p&gt;&lt;img src=&quot;h
+      
+    
     </summary>
     
+      <category term="Big Data" scheme="https://www.blankspace.cn/categories/Big-Data/"/>
+    
+      <category term="Big Data System" scheme="https://www.blankspace.cn/categories/Big-Data/Big-Data-System/"/>
+    
+    
+      <category term="Big Data Ecosystem" scheme="https://www.blankspace.cn/tags/Big-Data-Ecosystem/"/>
     
   </entry>
   
