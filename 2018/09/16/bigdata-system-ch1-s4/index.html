@@ -5,17 +5,23 @@
   
   <title>大数据技术体系 | WizardLQ’s | 魔法师の小茶馆</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="keywords" content="Big Data Technologies">
+  <meta name="description" content="大数据技术体系现状 数据质量 传统数据质量 仅通过ETL（抽取、转换、加载）执行 没有完全覆盖数据及质量的基本性质    挑战 分布式环境中，保障全局数据的一致性，进取型，完整性 流处理环境中，如何保证时效性 例如：时序一致性    在大数据中保证绝对的数据质量并不现实 高纬，异质，模糊，海量，多变  数据存储和管理某些转变 Hash大于扫描 单副本转向多副本 但阶段转为多阶段 压缩不再解压  传">
+<meta name="keywords" content="Big Data Technologies">
 <meta property="og:type" content="article">
 <meta property="og:title" content="大数据技术体系">
 <meta property="og:url" content="https://www.blankspace.cn/2018/09/16/bigdata-system-ch1-s4/index.html">
 <meta property="og:site_name" content="WizardLQ’s | 魔法师の小茶馆">
+<meta property="og:description" content="大数据技术体系现状 数据质量 传统数据质量 仅通过ETL（抽取、转换、加载）执行 没有完全覆盖数据及质量的基本性质    挑战 分布式环境中，保障全局数据的一致性，进取型，完整性 流处理环境中，如何保证时效性 例如：时序一致性    在大数据中保证绝对的数据质量并不现实 高纬，异质，模糊，海量，多变  数据存储和管理某些转变 Hash大于扫描 单副本转向多副本 但阶段转为多阶段 压缩不再解压  传">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://www.blankspace.cn/2018/09/16/bigdata-system-ch1-s4/G:/mysite/liuqidev.github.io/source/_posts/bigdata-system-ch1-s4/大数据技术分类.png">
-<meta property="og:updated_time" content="2018-09-16T12:31:20.260Z">
+<meta property="og:image" content="https://www.blankspace.cn/2018/09/16/bigdata-system-ch1-s4/大数据技术分类.png">
+<meta property="og:image" content="https://www.blankspace.cn/2018/09/16/bigdata-system-ch1-s4/大数据分析的特点.jpg">
+<meta property="og:image" content="https://www.blankspace.cn/2018/09/16/bigdata-system-ch1-s4/可视化挑战.jpg">
+<meta property="og:image" content="https://www.blankspace.cn/2018/09/16/bigdata-system-ch1-s4/计算范型.png">
+<meta property="og:updated_time" content="2018-09-16T14:02:08.715Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="大数据技术体系">
-<meta name="twitter:image" content="https://www.blankspace.cn/2018/09/16/bigdata-system-ch1-s4/G:/mysite/liuqidev.github.io/source/_posts/bigdata-system-ch1-s4/大数据技术分类.png">
+<meta name="twitter:description" content="大数据技术体系现状 数据质量 传统数据质量 仅通过ETL（抽取、转换、加载）执行 没有完全覆盖数据及质量的基本性质    挑战 分布式环境中，保障全局数据的一致性，进取型，完整性 流处理环境中，如何保证时效性 例如：时序一致性    在大数据中保证绝对的数据质量并不现实 高纬，异质，模糊，海量，多变  数据存储和管理某些转变 Hash大于扫描 单副本转向多副本 但阶段转为多阶段 压缩不再解压  传">
+<meta name="twitter:image" content="https://www.blankspace.cn/2018/09/16/bigdata-system-ch1-s4/大数据技术分类.png">
 <link rel="publisher" href="112373242775367340000">
   
     <link rel="alternate" href="/atom.xml" title="WizardLQ’s | 魔法师の小茶馆" type="application/atom+xml">
@@ -108,14 +114,51 @@ MathJax.Hub.Queue(function() {
 		<div id="article-toc-inner">
 			<strong class="sidebar-title">
 			Contents</strong>
-			
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#大数据技术体系现状"><span class="toc-text">大数据技术体系现状</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据质量"><span class="toc-text">数据质量</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#挑战"><span class="toc-text">挑战</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#在大数据中保证绝对的数据质量并不现实"><span class="toc-text">在大数据中保证绝对的数据质量并不现实</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据存储和管理"><span class="toc-text">数据存储和管理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#某些转变"><span class="toc-text">某些转变</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#传统数据分析和大数据"><span class="toc-text">传统数据分析和大数据</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#大数据分析的特点"><span class="toc-text">大数据分析的特点</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#可视化挑战"><span class="toc-text">可视化挑战</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#计算范型"><span class="toc-text">计算范型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安全与隐私"><span class="toc-text">安全与隐私</span></a></li></ol>
 		</div>
 	</aside>
 
 	
 	
-	<p><img src="/2018/09/16/bigdata-system-ch1-s4/G:/mysite\liuqidev.github.io\source\_posts\bigdata-system-ch1-s4\大数据技术分类.png" alt="大数据技术分类：1.采集和集成；2.存储和管理；3.分析和挖掘；4.可视化；5.计算范式；6.隐私和安全"></p>
+	<h2 id="大数据技术体系现状"><a href="#大数据技术体系现状" class="headerlink" title="大数据技术体系现状"></a>大数据技术体系现状</h2><p><img src="/2018/09/16/bigdata-system-ch1-s4/大数据技术分类.png" alt="大数据技术分类：1.采集和集成；2.存储和管理；3.分析和挖掘；4.可视化；5.计算范式；6.隐私和安全"></p>
+<h2 id="数据质量"><a href="#数据质量" class="headerlink" title="数据质量"></a>数据质量</h2><ul>
+<li>传统数据质量<ul>
+<li>仅通过ETL（抽取、转换、加载）执行</li>
+<li>没有完全覆盖数据及质量的基本性质</li>
+</ul>
+</li>
+</ul>
+<h3 id="挑战"><a href="#挑战" class="headerlink" title="挑战"></a>挑战</h3><ul>
+<li>分布式环境中，保障全局数据的一致性，进取型，完整性</li>
+<li>流处理环境中，如何保证时效性<ul>
+<li>例如：时序一致性</li>
+</ul>
+</li>
+</ul>
+<h3 id="在大数据中保证绝对的数据质量并不现实"><a href="#在大数据中保证绝对的数据质量并不现实" class="headerlink" title="在大数据中保证绝对的数据质量并不现实"></a>在大数据中保证绝对的数据质量并不现实</h3><ul>
+<li>高纬，异质，模糊，海量，多变</li>
+</ul>
+<h2 id="数据存储和管理"><a href="#数据存储和管理" class="headerlink" title="数据存储和管理"></a>数据存储和管理</h2><h3 id="某些转变"><a href="#某些转变" class="headerlink" title="某些转变"></a>某些转变</h3><ul>
+<li>Hash大于扫描</li>
+<li>单副本转向多副本</li>
+<li>但阶段转为多阶段</li>
+<li>压缩不再解压</li>
+</ul>
+<h2 id="传统数据分析和大数据"><a href="#传统数据分析和大数据" class="headerlink" title="传统数据分析和大数据"></a>传统数据分析和大数据</h2><p><img src="/2018/09/16/bigdata-system-ch1-s4/大数据分析的特点.jpg" alt="大数据分析的特点:和传统的数据分析相比，大数据分析焦点在对未来的预测，数据多是大规模、多样化、无关联的数据，更侧重于关联分析"></p>
+<h3 id="大数据分析的特点"><a href="#大数据分析的特点" class="headerlink" title="大数据分析的特点"></a>大数据分析的特点</h3><ul>
+<li>监控动态流数据，跟踪变化趋势而非仅仅考虑静态数据</li>
+<li>数据科学家要和领域科学家一起进行分析</li>
+<li>将大数据分析集成到核心业务和运营环节</li>
+</ul>
+<h2 id="可视化挑战"><a href="#可视化挑战" class="headerlink" title="可视化挑战"></a>可视化挑战</h2><p><img src="/2018/09/16/bigdata-system-ch1-s4/可视化挑战.jpg" alt="可视化挑战：将蕴含在原始数据中的关联和因果关系可视化展示出来，并根据人的交互反馈，触发新一轮的知识发现"></p>
+<ul>
+<li>强调人的作用</li>
+<li>强调分析中的迭代</li>
+</ul>
 <a id="more"></a>
+<h2 id="计算范型"><a href="#计算范型" class="headerlink" title="计算范型"></a>计算范型</h2><p><img src="/2018/09/16/bigdata-system-ch1-s4/计算范型.png" alt="大数据计算范型：关注人在知识发现中的作用，大规模分布式并行计算平台，共享平台，众包模式等"></p>
+<h2 id="安全与隐私"><a href="#安全与隐私" class="headerlink" title="安全与隐私"></a>安全与隐私</h2><p>要尽量保证数据安全和隐私的前提下发展，不能因噎废食</p>
+
 	
   
 </div>
