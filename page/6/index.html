@@ -129,6 +129,253 @@ MathJax.Hub.Queue(function() {
 	  
 		
 
+<article id="post-TensorFlow-tutorial-mnist-beginners" class="article article-type-post" itemscope itemprop="blogPost">
+	
+
+
+<header class="article-header">
+
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/11/TensorFlow-tutorial-mnist-beginners/">TensorFlow tutorial mnist beginners</a>
+    </h1>
+  
+
+
+	
+
+
+	<div class="article-meta"> 
+		
+		
+
+		  <div class="article-datetime">
+  <a href="/2018/08/11/TensorFlow-tutorial-mnist-beginners/" class="article-date"><time datetime="2018-08-11T09:25:06.000Z" itemprop="datePublished">2018-08-11</time></a>
+</div>
+
+
+
+			
+
+		  
+		   
+      <div class="post-meta">
+            <span class="glyphicon glyphicon-pencil"></span>
+            <span class="post-meta-item-text">&nbsp;Total&nbsp;</span>
+            <span class="post-count">1,957&nbsp;words</span>
+      </div>
+
+
+ 
+		  
+		  
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Machine-Learning/">Machine Learning</a> / <a class="article-category-link" href="/categories/Machine-Learning/TensorFlow/">TensorFlow</a>
+  </div>
+
+	
+		  </div>
+
+	   
+
+</header>
+
+<div class="article-inner">
+<div class="article-entry" itemprop="articleBody">
+  
+  
+	<!-- Table of Contents -->
+
+	
+	
+	<h1 id="从示例开始"><a href="#从示例开始" class="headerlink" title="从示例开始"></a>从示例开始</h1><h3 id="导入"><a href="#导入" class="headerlink" title="导入"></a>导入</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np <span class="comment"># 和tf配合使用</span></span><br></pre></td></tr></table></figure>
+<pre><code>D:\Anaconda3\Anaconda3_py36\lib\site-packages\h5py\__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
+  from ._conv import register_converters as _register_converters
+</code></pre><h3 id="构造线性模型"><a href="#构造线性模型" class="headerlink" title="构造线性模型"></a>构造线性模型</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># generate phony data | 生成假数据</span></span><br><span class="line"><span class="comment"># 实际应用应该是面对真实的数据</span></span><br><span class="line"><span class="comment"># 100个点，（2x100）</span></span><br><span class="line">x_data = np.float32(np.random.rand(<span class="number">2</span>, <span class="number">100</span>))</span><br><span class="line">y_data = np.dot([<span class="number">0.100</span>, <span class="number">0.200</span>], x_data)+<span class="number">0.300</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 构造线性模型</span></span><br><span class="line">b = tf.Variable(tf.zeros([<span class="number">1</span>])) <span class="comment"># tensor of shape 1</span></span><br><span class="line">W = tf.Variable(tf.random_uniform([<span class="number">1</span>, <span class="number">2</span>], minval=<span class="number">-0.1</span>, maxval=<span class="number">1.0</span>)) <span class="comment"># tensor of shape 1x2 whose values are from a uniform distribution </span></span><br><span class="line"><span class="comment"># in the range of [minval, maxval)</span></span><br><span class="line">y = tf.matmul(W, x_data)+b</span><br><span class="line"></span><br><span class="line"><span class="comment"># 最小化方差</span></span><br><span class="line">loss = tf.reduce_mean(tf.square(y-y_data))</span><br><span class="line">optimizer = tf.train.GradientDescentOptimizer(<span class="number">0.5</span>)</span><br><span class="line">train = optimizer.minimize(loss)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 初始化变量</span></span><br><span class="line"><span class="comment"># init = tf.initialize_all_variables()</span></span><br><span class="line">init = tf.global_variables_initializer()</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 启动计算图(graph)</span></span><br><span class="line">sess = tf.Session() <span class="comment"># 创建会话</span></span><br><span class="line">sess.run(init)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 拟合平面</span></span><br><span class="line"><span class="keyword">for</span> step <span class="keyword">in</span> range(<span class="number">0</span>, <span class="number">201</span>):</span><br><span class="line">    sess.run(train)</span><br><span class="line">    <span class="keyword">if</span> step%<span class="number">20</span>==<span class="number">0</span>:</span><br><span class="line">        print(<span class="string">"Step: "</span>, step, <span class="string">" W= "</span>,sess.run(W), <span class="string">" b= "</span>, sess.run(b))</span><br></pre></td></tr></table></figure>
+<pre><code>Step:  0  W=  [[0.4871506  0.41139394]]  b=  [-0.09778017]
+Step:  20  W=  [[0.22539519 0.34252512]]  b=  [0.15573283]
+Step:  40  W=  [[0.14763923 0.26675704]]  b=  [0.23892412]
+Step:  60  W=  [[0.11975352 0.22945689]]  b=  [0.2737922]
+Step:  80  W=  [[0.10842387 0.21279107]]  b=  [0.2887098]
+Step:  100  W=  [[0.10362242 0.20552918]]  b=  [0.2951307]
+Step:  120  W=  [[0.10156146 0.20238699]]  b=  [0.29789925]
+Step:  140  W=  [[0.10067356 0.2010301 ]]  b=  [0.2990936]
+Step:  160  W=  [[0.10029061 0.20044449]]  b=  [0.29960892]
+Step:  180  W=  [[0.10012538 0.20019177]]  b=  [0.29983127]
+Step:  200  W=  [[0.10005409 0.20008272]]  b=  [0.2999272]
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 关闭会话</span></span><br><span class="line">sess.close()</span><br></pre></td></tr></table></figure>
+<h2 id="MNIST机器学习入门"><a href="#MNIST机器学习入门" class="headerlink" title="MNIST机器学习入门"></a>MNIST机器学习入门</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># http://yann.lecun.com/exdb/mnist/  to download mnist dataset</span></span><br><span class="line"><span class="comment"># https://github.com/tensorflow/tensorflow/blob/master/tensorflow/examples/tutorials/mnist/input_data.py</span></span><br><span class="line"><span class="comment"># to read dataset</span></span><br><span class="line"><span class="keyword">from</span> load_mnist <span class="keyword">import</span> *</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow.examples.tutorials.mnist.input_data <span class="keyword">as</span> input_data</span><br><span class="line">minst_dir = <span class="string">"MNIST_data/"</span></span><br><span class="line">mnist = input_data.read_data_sets(minst_dir, one_hot=<span class="keyword">True</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>Extracting MNIST_data/train-images-idx3-ubyte.gz
+Extracting MNIST_data/train-labels-idx1-ubyte.gz
+Extracting MNIST_data/t10k-images-idx3-ubyte.gz
+Extracting MNIST_data/t10k-labels-idx1-ubyte.gz
+WARNING:tensorflow:From D:\Anaconda3\Anaconda3_py36\lib\site-packages\tensorflow\contrib\learn\python\learn\datasets\mnist.py:290: DataSet.__init__ (from tensorflow.contrib.learn.python.learn.datasets.mnist) is deprecated and will be removed in a future version.
+Instructions for updating:
+Please use alternatives such as official/mnist/dataset.py from tensorflow/models.
+</code></pre><p>下载下来的数据集被分成两部分：60000行的训练数据集（mnist.train）和10000行的测试数据集（mnist.test）.</p>
+<p>每一个MNIST数据单元有两部分组成：一张包含手写数字的图片和一个对应的标签。我们把这些图片设为“xs”，把这些标签设为“ys”。训练数据集和测试数据集都包含xs和ys，比如训练数据集的图片是 mnist.train.images ，训练数据集的标签是 mnist.train.labels.</p>
+<p>每一张图片包含28像素X28像素。我们可以用一个数字数组来表示这张图片：<br><img src="http://www.tensorfly.cn/tfdoc/images/MNIST-Matrix.png" alt=""></p>
+<p>我们把这个数组展开成一个向量，长度是 28x28 = 784。如何展开这个数组（数字间的顺序）不重要，只要保持各个图片采用相同的方式展开。从这个角度来看，MNIST数据集的图片就是在784维向量空间里面的点, 并且拥有比较复杂的结构 (提醒: 此类数据的可视化是计算密集型的)。</p>
+<p>在MNIST训练数据集中，mnist.train.images 是一个形状为 <code>[60000, 784]</code>的张量，第一个维度数字用来索引图片，第二个维度数字用来索引每张图片中的像素点。在此张量里的每一个元素，都表示某张图片里的某个像素的强度值，值介于0和1之间。<br><img src="http://www.tensorfly.cn/tfdoc/images/mnist-train-xs.png" alt=""></p>
+<p>相对应的MNIST数据集的标签是介于0到9的数字，用来描述给定图片里表示的数字。为了用于这个教程，我们使标签数据是”one-hot vectors”。 一个one-hot向量除了某一位的数字是1以外其余各维度数字都是0。所以在此教程中，数字n将表示成一个只有在第n维度（从0开始）数字为1的10维向量。比如，标签0将表示成(<code>[1,0,0,0,0,0,0,0,0,0,0])</code>。因此， mnist.train.labels 是一个<code>[60000, 10]</code>的数字矩阵。<br><img src="http://www.tensorfly.cn/tfdoc/images/mnist-train-ys.png" alt=""></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># x represent the input</span></span><br><span class="line"><span class="comment"># None means number of images is adaptable</span></span><br><span class="line"><span class="comment"># a 28x28 image is flatten to a vector of 784</span></span><br><span class="line">x = tf.placeholder(<span class="string">"float"</span>, [<span class="keyword">None</span>, <span class="number">784</span>])</span><br><span class="line"></span><br><span class="line">W = tf.Variable(tf.zeros([<span class="number">784</span>, <span class="number">10</span>]))</span><br><span class="line">b = tf.Variable(tf.zeros([<span class="number">10</span>]))</span><br></pre></td></tr></table></figure>
+<h3 id="Softmax-regression"><a href="#Softmax-regression" class="headerlink" title="Softmax regression"></a>Softmax regression</h3><p>关于Softmax可以阅读<a href="http://www.tensorfly.cn/tfdoc/tutorials/mnist_beginners.html" target="_blank" rel="noopener">这篇</a>或者<a href="http://neuralnetworksanddeeplearning.com/chap3.html" target="_blank" rel="noopener">这篇</a>.</p>
+<p><img src="http://www.tensorfly.cn/tfdoc/images/mnist6.png" alt=""></p>
+<p>整个回归模型：<br><img src="http://www.tensorfly.cn/tfdoc/images/softmax-regression-scalargraph.png" alt=""><br><img src="http://www.tensorfly.cn/tfdoc/images/mnist7.png" alt=""></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># softmax</span></span><br><span class="line">y = tf.nn.softmax(tf.matmul(x, W)+b)</span><br></pre></td></tr></table></figure>
+<h3 id="训练模型"><a href="#训练模型" class="headerlink" title="训练模型"></a>训练模型</h3><p>使用交叉熵损失函数，更多介绍看<a href="https://colah.github.io/posts/2015-09-Visual-Information/" target="_blank" rel="noopener">这篇</a>.<br><img src="http://www.tensorfly.cn/tfdoc/images/mnist10.png" alt=""></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">y_ = tf.placeholder(<span class="string">"float"</span>, [<span class="keyword">None</span>, <span class="number">10</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment"># 注意，这里的交叉熵不仅仅用来衡量单一的一对预测和真实值，而是所有100幅图片的交叉熵的总和</span></span><br><span class="line">cross_entropy = -tf.reduce_sum(y_*tf.log(y))</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># gradient descent and backprapagation</span></span><br><span class="line">train_step = tf.train.GradientDescentOptimizer(<span class="number">0.01</span>).minimize(cross_entropy)</span><br></pre></td></tr></table></figure>
+<p>更多优化算法点击<a href="http://www.tensorfly.cn/tfdoc/api_docs/python/train.html#optimizers" target="_blank" rel="noopener">这里</a>.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># init graph</span></span><br><span class="line">init = tf.global_variables_initializer()</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> tf.Session() <span class="keyword">as</span> sess:</span><br><span class="line">    sess.run(init)</span><br><span class="line">    <span class="keyword">for</span> step <span class="keyword">in</span> range(<span class="number">1001</span>):</span><br><span class="line">        batch_xs, batch_ys = mnist.train.next_batch(<span class="number">100</span>)</span><br><span class="line">        feed_dict =&#123;x: batch_xs, y_:batch_ys&#125;</span><br><span class="line">        sess.run(train_step, feed_dict)</span><br></pre></td></tr></table></figure>
+<h3 id="评估我们的模型"><a href="#评估我们的模型" class="headerlink" title="评估我们的模型"></a>评估我们的模型</h3><p>tf.argmax 是一个非常有用的函数，它能给出某个tensor对象在某一维上的其数据最大值所在的索引值。由于标签向量是由0,1组成，因此最大值1所在的索引位置就是类别标签，比如tf.argmax(y,1)返回的是模型对于任一输入x预测到的标签值，而 tf.argmax(y_,1) 代表正确的标签，我们可以用 tf.equal 来检测我们的预测是否真实标签匹配(索引位置一样表示匹配)。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> tf.Session() <span class="keyword">as</span> sess:</span><br><span class="line">    sess.run(init)</span><br><span class="line">    <span class="keyword">for</span> step <span class="keyword">in</span> range(<span class="number">1001</span>):</span><br><span class="line">        batch_xs, batch_ys = mnist.train.next_batch(<span class="number">100</span>)</span><br><span class="line">        feed_dict =&#123;x: batch_xs, y_:batch_ys&#125;</span><br><span class="line">        sess.run(train_step, feed_dict)</span><br><span class="line">        <span class="keyword">if</span> step%<span class="number">100</span>==<span class="number">0</span>:</span><br><span class="line">            correct_prediction = tf.equal(tf.argmax(y, <span class="number">1</span>), tf.argmax(y_, <span class="number">1</span>))</span><br><span class="line">            accuracy = tf.reduce_mean(tf.cast(correct_prediction, <span class="string">"float"</span>))</span><br><span class="line">            print(step, <span class="string">" train acc: "</span>, sess.run(accuracy, feed_dict))</span><br></pre></td></tr></table></figure>
+<pre><code>0  train acc:  0.48
+100  train acc:  0.94
+200  train acc:  0.96
+300  train acc:  0.93
+400  train acc:  0.93
+500  train acc:  0.89
+600  train acc:  0.96
+700  train acc:  0.94
+800  train acc:  0.94
+900  train acc:  0.95
+1000  train acc:  0.98
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> tf.Session() <span class="keyword">as</span> sess:</span><br><span class="line">    sess.run(init)</span><br><span class="line">    <span class="keyword">for</span> step <span class="keyword">in</span> range(<span class="number">1001</span>):</span><br><span class="line">        batch_xs, batch_ys = mnist.train.next_batch(<span class="number">100</span>)</span><br><span class="line">        feed_dict =&#123;x: batch_xs, y_:batch_ys&#125;</span><br><span class="line">        sess.run(train_step, feed_dict)</span><br><span class="line"><span class="comment">#         if step%100==0:</span></span><br><span class="line"><span class="comment">#             correct_prediction = tf.equal(tf.argmax(y, 1), tf.argmax(y_, 1))</span></span><br><span class="line"><span class="comment">#             accuracy = tf.reduce_mean(tf.cast(correct_prediction, "float"))</span></span><br><span class="line"><span class="comment">#             print(step, " train acc: ", sess.run(accuracy, feed_dict))</span></span><br><span class="line"><span class="comment">#   # for test set</span></span><br><span class="line">    correct_prediction = tf.equal(tf.argmax(y, <span class="number">1</span>), tf.argmax(y_, <span class="number">1</span>))</span><br><span class="line">    accuracy = tf.reduce_mean(tf.cast(correct_prediction, <span class="string">"float"</span>))</span><br><span class="line">    print(<span class="string">"Test acc:"</span>, sess.run(accuracy, feed_dict=&#123;x:mnist.test.images, y_:mnist.test.labels&#125;))</span><br></pre></td></tr></table></figure>
+<pre><code>Test acc: 0.9138
+</code></pre><p>更多内容<a href="https://www.tensorflow.org/tutorials/" target="_blank" rel="noopener">https://www.tensorflow.org/tutorials/</a></p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>本文首先通过一个完整的线性回归的例子，展示了TensorFlow的基本使用，首先构造计算图graph，其中包含诸如<code>Variable</code>、<code>placeholder</code>等节点，以及节点之间的数学运算如矩阵乘法；接着对计算图初始化，<code>tf.global_variables_initializer()</code>，其中TensorFlow中很重要的就是回话session机制，通过会话来运行计算图；随后，通过会话进行训练，拟合并德大检测结果。</p>
+<p>其次，使用TensorFlow完成了基于MNIST数据集，进行手写体识别的任务，并在测试集上实现了91%的正确率。<br>其完整过程，首先是准备数据，下载的数据被分为训练数据和测试数据。每种数据的基本单元都包含两部分，一部分是手写体图片，统一规格28x28，另一部分是对应的标记，来指出对应的数字，将原始图片展开向量表示，标记采用one-hot表示；<br>接着，构建softmax回归模型。使用梯度下降算法进行反向传播，最小化交叉熵损失进行训练。<br>最后，在测试机上测试，得到实验正确率指标，可以达到91%以上。</p>
+
+	
+  
+</div>
+
+
+  
+
+
+
+<footer class="article-footer">
+  <a data-url="https://www.blankspace.cn/2018/08/11/TensorFlow-tutorial-mnist-beginners/" data-id="cjm5r1gca000o4ofix2729fxb" class="article-share-link">
+	<i class="fa fa-share"></i> Share
+  </a>
+  
+  
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/TensorFlow/">TensorFlow</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mnist/">mnist</a></li></ul>
+
+
+</footer>
+
+
+</div>
+
+</article>
+
+
+
+
+
+	  
+		
+
+<article id="post-code-hightlight" class="article article-type-post" itemscope itemprop="blogPost">
+	
+
+
+<header class="article-header">
+
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/11/code-hightlight/">Code Highlight</a>
+    </h1>
+  
+
+
+	
+
+
+	<div class="article-meta"> 
+		
+		
+
+		  <div class="article-datetime">
+  <a href="/2018/08/11/code-hightlight/" class="article-date"><time datetime="2018-08-11T04:30:03.000Z" itemprop="datePublished">2018-08-11</time></a>
+</div>
+
+
+
+			
+
+		  
+		   
+      <div class="post-meta">
+            <span class="glyphicon glyphicon-pencil"></span>
+            <span class="post-meta-item-text">&nbsp;Total&nbsp;</span>
+            <span class="post-count">58&nbsp;words</span>
+      </div>
+
+
+ 
+		  
+		  
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Projects/">Projects</a> / <a class="article-category-link" href="/categories/Projects/hexo-theme-bootstrap-blog/">hexo-theme-bootstrap-blog</a> / <a class="article-category-link" href="/categories/Projects/hexo-theme-bootstrap-blog/Tutorial/">Tutorial</a>
+  </div>
+
+	
+		  </div>
+
+	   
+
+</header>
+
+<div class="article-inner">
+<div class="article-entry" itemprop="articleBody">
+  
+  
+	<!-- Table of Contents -->
+
+	
+	
+	<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * This is some sample code to illustrate how things look!</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">import</span> Musician <span class="keyword">from</span> <span class="string">'./liverpool'</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Paul</span> <span class="keyword">extends</span> <span class="title">Musician</span> </span>&#123;</span><br><span class="line">    <span class="keyword">constructor</span>(bass) &#123;</span><br><span class="line">        <span class="keyword">super</span>(bass);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    get fullName() &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">'Paul McCartney'</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    perform() &#123;</span><br><span class="line">        <span class="keyword">this</span>.play(<span class="keyword">this</span>.instrument);</span><br><span class="line">        <span class="keyword">this</span>.sing();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> Paul;</span><br></pre></td></tr></table></figure>
+	
+  
+</div>
+
+
+  
+
+
+
+<footer class="article-footer">
+  <a data-url="https://www.blankspace.cn/2018/08/11/code-hightlight/" data-id="cjm5r1gda001m4ofiq8krwclp" class="article-share-link">
+	<i class="fa fa-share"></i> Share
+  </a>
+  
+  
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Code/">Code</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/">Hexo</a></li></ul>
+
+
+</footer>
+
+
+</div>
+
+</article>
+
+
+
+
+
+	  
+		
+
 <article id="post-Numpy随机数" class="article article-type-post" itemscope itemprop="blogPost">
 	
 
@@ -309,7 +556,7 @@ MathJax.Hub.Queue(function() {
 
 
 <footer class="article-footer">
-  <a data-url="https://www.blankspace.cn/2018/08/11/Numpy随机数/" data-id="cjm4z2oa4000hggfitptc4aa7" class="article-share-link">
+  <a data-url="https://www.blankspace.cn/2018/08/11/Numpy随机数/" data-id="cjm5r1gbq000g4ofi2cdndfbk" class="article-share-link">
 	<i class="fa fa-share"></i> Share
   </a>
   
@@ -405,7 +652,7 @@ MathJax.Hub.Queue(function() {
 
 
 <footer class="article-footer">
-  <a data-url="https://www.blankspace.cn/2018/08/10/emoji-text/" data-id="cjm4z2obo001qggfiqfzfn085" class="article-share-link">
+  <a data-url="https://www.blankspace.cn/2018/08/10/emoji-text/" data-id="cjm5r1gde001u4ofivcfx980j" class="article-share-link">
 	<i class="fa fa-share"></i> Share
   </a>
   
@@ -527,192 +774,13 @@ n & \text{Left} & \text{Center} & \text{Right} \\
 
 
 <footer class="article-footer">
-  <a data-url="https://www.blankspace.cn/2018/08/10/mathjax-test/" data-id="cjm4z2of0002tggfif27166tu" class="article-share-link">
+  <a data-url="https://www.blankspace.cn/2018/08/10/mathjax-test/" data-id="cjm5r1ge7002w4ofi5dyr7jbi" class="article-share-link">
 	<i class="fa fa-share"></i> Share
   </a>
   
   
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/">Hexo</a></li></ul>
 
-
-</footer>
-
-
-</div>
-
-</article>
-
-
-
-
-
-	  
-		
-
-<article id="post-translate" class="article article-type-post" itemscope itemprop="blogPost">
-	
-
-
-<header class="article-header">
-
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/08/translate/">Translation</a>
-    </h1>
-  
-
-
-	
-
-
-	<div class="article-meta"> 
-		
-		
-
-		  <div class="article-datetime">
-  <a href="/2018/08/08/translate/" class="article-date"><time datetime="2018-08-08T10:27:25.000Z" itemprop="datePublished">2018-08-08</time></a>
-</div>
-
-
-
-			
-
-		  
-		   
-      <div class="post-meta">
-            <span class="glyphicon glyphicon-pencil"></span>
-            <span class="post-meta-item-text">&nbsp;Total&nbsp;</span>
-            <span class="post-count">580&nbsp;words</span>
-      </div>
-
-
- 
-		  
-		  
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Projects/">Projects</a> / <a class="article-category-link" href="/categories/Projects/hexo-theme-bootstrap-blog/">hexo-theme-bootstrap-blog</a> / <a class="article-category-link" href="/categories/Projects/hexo-theme-bootstrap-blog/Tutorial/">Tutorial</a>
-  </div>
-
-	
-		  </div>
-
-	   
-
-</header>
-
-<div class="article-inner">
-<div class="article-entry" itemprop="articleBody">
-  
-	<p>This post is for testing google translation widget.</p>
-	
-	  <p class="article-more-link">
-		<a class="btn btn-primary" href="/2018/08/08/translate/#more">Read more...</a>
-	  </p>
-	
-  
-</div>
-
-
-
-<footer class="article-footer">
-  <a data-url="https://www.blankspace.cn/2018/08/08/translate/" data-id="cjm4z2ok6008rggfi2z9f2g22" class="article-share-link">
-	<i class="fa fa-share"></i> Share
-  </a>
-  
-  
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/">Hexo</a></li></ul>
-
-
-</footer>
-
-
-</div>
-
-</article>
-
-
-
-
-
-	  
-		
-
-<article id="post-categories" class="article article-type-post" itemscope itemprop="blogPost">
-	
-
-
-<header class="article-header">
-
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/08/categories/">Categories</a>
-    </h1>
-  
-
-
-	
-
-
-	<div class="article-meta"> 
-		
-		
-
-		  <div class="article-datetime">
-  <a href="/2018/08/08/categories/" class="article-date"><time datetime="2018-08-07T16:01:04.000Z" itemprop="datePublished">2018-08-08</time></a>
-</div>
-
-
-
-			
-
-		  
-		   
-      <div class="post-meta">
-            <span class="glyphicon glyphicon-pencil"></span>
-            <span class="post-meta-item-text">&nbsp;Total&nbsp;</span>
-            <span class="post-count">15&nbsp;words</span>
-      </div>
-
-
- 
-		  
-		  
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Projects/">Projects</a> / <a class="article-category-link" href="/categories/Projects/hexo-theme-bootstrap-blog/">hexo-theme-bootstrap-blog</a> / <a class="article-category-link" href="/categories/Projects/hexo-theme-bootstrap-blog/Tutorial/">Tutorial</a>
-  </div>
-
-	
-		  </div>
-
-	   
-
-</header>
-
-<div class="article-inner">
-<div class="article-entry" itemprop="articleBody">
-  
-  
-	<!-- Table of Contents -->
-
-	
-	
-	<p>This post contains 3 categories. Make sure the theme can display all of the categories.</p>
-
-	
-  
-</div>
-
-
-  
-
-
-
-<footer class="article-footer">
-  <a data-url="https://www.blankspace.cn/2018/08/08/categories/" data-id="cjm4z2obl001oggfiyub4kzwn" class="article-share-link">
-	<i class="fa fa-share"></i> Share
-  </a>
-  
-  
 
 </footer>
 
@@ -730,7 +798,7 @@ n & \text{Left} & \text{Center} & \text{Right} \\
 	
 	
 	  <div id="page-nav">
-		<nav><ul class="pagination"><li><a class="page-prev" rel="prev" href="/page/5/"><i class="fa fa-chevron-left"></i> Prev</a></li><li><a class="page-number" href="/">1</a></li><li class="disabled"><span class="page-space">&hellip;</span></li><li><a class="page-number" href="/page/4/">4</a></li><li><a class="page-number" href="/page/5/">5</a></li><li class="active"><span class="page-number">6</span></li><li><a class="page-number" href="/page/7/">7</a></li><li><a class="page-number" href="/page/8/">8</a></li><li><a class="page-number" href="/page/9/">9</a></li><li><a class="page-next" rel="next" href="/page/7/">Next <i class="fa fa-chevron-right"></i></a></li></ul></nav>
+		<nav><ul class="pagination"><li><a class="page-prev" rel="prev" href="/page/5/"><i class="fa fa-chevron-left"></i> Prev</a></li><li><a class="page-number" href="/">1</a></li><li class="disabled"><span class="page-space">&hellip;</span></li><li><a class="page-number" href="/page/4/">4</a></li><li><a class="page-number" href="/page/5/">5</a></li><li class="active"><span class="page-number">6</span></li><li><a class="page-number" href="/page/7/">7</a></li><li><a class="page-number" href="/page/8/">8</a></li><li class="disabled"><span class="page-space">&hellip;</span></li><li><a class="page-number" href="/page/10/">10</a></li><li><a class="page-next" rel="next" href="/page/7/">Next <i class="fa fa-chevron-right"></i></a></li></ul></nav>
 	  </div>
 	
 
@@ -743,6 +811,14 @@ n & \text{Left} & \text{Center} & \text{Right} \\
     <ul class="sidebar-module-list">
       
         <li>
+          <a href="/2018/09/17/linux-shiyan2/">Linux基础概念和操作</a>
+        </li>
+      
+        <li>
+          <a href="/2018/09/17/linux-shiyan1/">Linux简单学习路径</a>
+        </li>
+      
+        <li>
           <a href="/2018/09/16/bigdata-system-ch1-s5/">大数据生态系统</a>
         </li>
       
@@ -752,14 +828,6 @@ n & \text{Left} & \text{Center} & \text{Right} \\
       
         <li>
           <a href="/2018/09/16/bigdata-system-ch1-s3/">大数据的特点</a>
-        </li>
-      
-        <li>
-          <a href="/2018/09/16/bigdata-system-ch1-s2/">大数据的典型应用</a>
-        </li>
-      
-        <li>
-          <a href="/2018/09/16/bigdata-system-ch1/">大数据系统基础绪论</a>
         </li>
       
     </ul>
@@ -778,7 +846,7 @@ n & \text{Left} & \text{Center} & \text{Right} \\
   
   <div class="sidebar-module">
     <h4>Categories</h4>
-    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Big-Data/">Big Data</a><span class="sidebar-module-list-count">5</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Big-Data/Big-Data-System/">Big Data System</a><span class="sidebar-module-list-count">5</span></li></ul></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Dairy/">Dairy</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/English/">English</a><span class="sidebar-module-list-count">1</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/English/Tips/">Tips</a><span class="sidebar-module-list-count">1</span></li></ul></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Languages/">Languages</a><span class="sidebar-module-list-count">1</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Languages/Python/">Python</a><span class="sidebar-module-list-count">1</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Languages/Python/Numpy/">Numpy</a><span class="sidebar-module-list-count">1</span></li></ul></li></ul></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Linux/">Linux</a><span class="sidebar-module-list-count">2</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Linux/Ubuntu/">Ubuntu</a><span class="sidebar-module-list-count">2</span></li></ul></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Machine-Learning/">Machine Learning</a><span class="sidebar-module-list-count">10</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Machine-Learning/Algorithms/">Algorithms</a><span class="sidebar-module-list-count">2</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Machine-Learning/Algorithms/KNN/">KNN</a><span class="sidebar-module-list-count">2</span></li></ul></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Machine-Learning/TensorFlow/">TensorFlow</a><span class="sidebar-module-list-count">8</span></li></ul></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Math/">Math</a><span class="sidebar-module-list-count">1</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Math/MathJax/">MathJax</a><span class="sidebar-module-list-count">1</span></li></ul></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Projects/">Projects</a><span class="sidebar-module-list-count">19</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Projects/hexo-theme-bootstrap-blog/">hexo-theme-bootstrap-blog</a><span class="sidebar-module-list-count">19</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Projects/hexo-theme-bootstrap-blog/Tutorial/">Tutorial</a><span class="sidebar-module-list-count">19</span></li></ul></li></ul></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/现代生物学导论/">现代生物学导论</a><span class="sidebar-module-list-count">4</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/现代生物学导论/生命的化学基础/">生命的化学基础</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/现代生物学导论/绪论/">绪论</a><span class="sidebar-module-list-count">3</span></li></ul></li></ul>
+    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Big-Data/">Big Data</a><span class="sidebar-module-list-count">5</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Big-Data/Big-Data-System/">Big Data System</a><span class="sidebar-module-list-count">5</span></li></ul></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Dairy/">Dairy</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/English/">English</a><span class="sidebar-module-list-count">1</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/English/Tips/">Tips</a><span class="sidebar-module-list-count">1</span></li></ul></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Languages/">Languages</a><span class="sidebar-module-list-count">1</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Languages/Python/">Python</a><span class="sidebar-module-list-count">1</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Languages/Python/Numpy/">Numpy</a><span class="sidebar-module-list-count">1</span></li></ul></li></ul></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Linux/">Linux</a><span class="sidebar-module-list-count">4</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Linux/Linux-Basic/">Linux Basic</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Linux/Ubuntu/">Ubuntu</a><span class="sidebar-module-list-count">2</span></li></ul></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Machine-Learning/">Machine Learning</a><span class="sidebar-module-list-count">10</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Machine-Learning/Algorithms/">Algorithms</a><span class="sidebar-module-list-count">2</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Machine-Learning/Algorithms/KNN/">KNN</a><span class="sidebar-module-list-count">2</span></li></ul></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Machine-Learning/TensorFlow/">TensorFlow</a><span class="sidebar-module-list-count">8</span></li></ul></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Math/">Math</a><span class="sidebar-module-list-count">1</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Math/MathJax/">MathJax</a><span class="sidebar-module-list-count">1</span></li></ul></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Projects/">Projects</a><span class="sidebar-module-list-count">19</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Projects/hexo-theme-bootstrap-blog/">hexo-theme-bootstrap-blog</a><span class="sidebar-module-list-count">19</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Projects/hexo-theme-bootstrap-blog/Tutorial/">Tutorial</a><span class="sidebar-module-list-count">19</span></li></ul></li></ul></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/现代生物学导论/">现代生物学导论</a><span class="sidebar-module-list-count">4</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/现代生物学导论/生命的化学基础/">生命的化学基础</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/现代生物学导论/绪论/">绪论</a><span class="sidebar-module-list-count">3</span></li></ul></li></ul>
   </div>
 
 
@@ -786,7 +854,7 @@ n & \text{Left} & \text{Center} & \text{Right} \\
   
   <div class="sidebar-module">
     <h4>Archives</h4>
-    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2018/09/">九月 2018</a><span class="sidebar-module-list-count">13</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2018/08/">八月 2018</a><span class="sidebar-module-list-count">30</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2013/12/">十二月 2013</a><span class="sidebar-module-list-count">1</span></li></ul>
+    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2018/09/">九月 2018</a><span class="sidebar-module-list-count">15</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2018/08/">八月 2018</a><span class="sidebar-module-list-count">30</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2013/12/">十二月 2013</a><span class="sidebar-module-list-count">1</span></li></ul>
   </div>
 
 
