@@ -3,6 +3,33 @@
   
     
     <entry>
+      <title>linux-shiyan3</title>
+      <link href="/2018/09/17/linux-shiyan3/"/>
+      <url>/2018/09/17/linux-shiyan3/</url>
+      <content type="html"><![CDATA[<h2 id="查看用户"><a href="#查看用户" class="headerlink" title="查看用户"></a>查看用户</h2><p>打开终端输入：<code>who am i</code>或<code>who mom likes</code>：</p><p><img src="/2018/09/17/linux-shiyan3/shell-who.gif" alt="查看用户：who am i &amp; who mom likes"></p><p>输出：</p><ul><li>第一列：打开当前终端用户用户名（只查看用户名使用<code>whoami</code>即可）</li><li>第二列：<code>pts/0</code>中<code>pts</code>表示伪终端，伪是相对于<code>dev/tty</code>而言的，上一节中使用<code>Ctrl+Alt+F1~F7</code>切换的是真终端，伪终端是在图形用户界面使用<code>/dev/tty[0-7]</code>时打开的一个终端，<code>pts/0</code>中数字就是打开的伪终端号</li><li>第三列：启动时间</li></ul><p><code>who</code> 命令其它常用参数</p><div class="table-container"><table><thead><tr><th>参数</th><th>说明</th></tr></thead><tbody><tr><td><code>-a</code></td><td>打印能打印的全部</td></tr><tr><td><code>-d</code></td><td>打印死掉的进程</td></tr><tr><td><code>-m</code></td><td>同<code>am i</code>,<code>mom likes</code></td></tr><tr><td><code>-q</code></td><td>打印当前登录用户数及用户名</td></tr><tr><td><code>-u</code></td><td>打印当前登录用户登录信息</td></tr><tr><td><code>-r</code></td><td>打印运行等级</td></tr></tbody></table></div><h2 id="创建用户"><a href="#创建用户" class="headerlink" title="创建用户"></a>创建用户</h2><p>一般登录时使用普通账户身份登录的，创建用户需要用到<strong>root权限<sup><a href="#fn_1" id="reffn_1">1</a></sup></strong>，此时需要使用<code>sudo</code>命令。</p><p>使用<code>sudo</code>前提:</p><ol><li>要知道当前登录用户的密码</li><li>当前用户必须要在<code>sudo</code>用户组</li></ol><h3 id="创建用户-1"><a href="#创建用户-1" class="headerlink" title="创建用户"></a>创建用户</h3><h2 id="删除用户"><a href="#删除用户" class="headerlink" title="删除用户"></a>删除用户</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo deluser &lt;username&gt; --remove-home</span><br></pre></td></tr></table></figure><video width="600px" height="600px" src="/2018/09/17/linux-shiyan3/shell-deluser.avi" controls="controls"></video><a id="more"></a><blockquote id="fn_ 1"><sup> 1</sup>. root权限是系统权限的一种，与SYSTEM权限可以理解为一个概念，但高于Administrator权限，root是Unix/Linux中的超级管理员账户，可以操作所有对象。<a href="#reffn_ 1" title="Jump back to footnote [ 1] in the text."> &#8617;</a></blockquote>]]></content>
+      
+      <categories>
+          
+          <category> Linux </category>
+          
+          <category> Linux Basic </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Linux </tag>
+            
+            <tag> Shell </tag>
+            
+            <tag> Priority </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
       <title>Linux基础概念和操作</title>
       <link href="/2018/09/17/linux-shiyan2/"/>
       <url>/2018/09/17/linux-shiyan2/</url>
