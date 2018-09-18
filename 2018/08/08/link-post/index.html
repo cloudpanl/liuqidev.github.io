@@ -12,7 +12,7 @@
 <meta property="og:url" content="https://www.blankspace.cn/2018/08/08/link-post/index.html">
 <meta property="og:site_name" content="WizardLQ’s | 魔法师の小茶馆">
 <meta property="og:description" content="This is a link post. Clicking on the link should open Google in a new tab or window.">
-<meta property="og:locale" content="zh-CN">
+<meta property="og:locale" content="en">
 <meta property="og:updated_time" content="2018-08-10T02:52:33.474Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Link Post">
@@ -192,6 +192,17 @@ $(document).ready(function() {
     });
 });
 </script>
+
+
+  <script src="/js/languages.js"></script>
+  <script src="/js/calendar.js"></script>
+  <script type="text/javascript">
+  $(function() {
+    $('#calendar').aCalendar('en', $.extend({"months":["January","February","March","April","May","June","July","August","September","October","November","December"],"dayOfWeekShort":["S","M","T","W","T","F","S"],"dayOfWeek":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"postsMonthTip":"Posts published in LMM yyyy","titleFormat":"yyyy LMM","titleLinkFormat":"/archives/yyyy/MM/","headArrows":{"previous":"<span class=\"cal-prev\"></span>","next":"<span class=\"cal-next\"></span>"},"footArrows":{"previous":" ","next":" "},"weekOffset":0,"single":false,"root":"/calendar/","url":"/calendar.json"}, {single:true, root:'calendar/'}));
+  });
+  </script>
+
+
 
 </body>
 </html>

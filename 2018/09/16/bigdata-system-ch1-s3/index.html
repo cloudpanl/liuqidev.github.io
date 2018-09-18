@@ -12,7 +12,7 @@
 <meta property="og:url" content="https://www.blankspace.cn/2018/09/16/bigdata-system-ch1-s3/index.html">
 <meta property="og:site_name" content="WizardLQ’s | 魔法师の小茶馆">
 <meta property="og:description" content="特点 数据的规模  TB$\to$PB$\to$EB$\to$ZB$\to$$\to$…  数据类型    生命周期    加工深度    处理方式  批量（Batch）$\to$在线（Online）$\to$实时（In time）  用户  内部用户+外部用户号  数据质量    数据价值 价值稀疏：大部分的数据都是“辣鸡”或者无人问津。例如微博和红楼梦。 长尾效应">
-<meta property="og:locale" content="zh-CN">
+<meta property="og:locale" content="en">
 <meta property="og:image" content="https://www.blankspace.cn/2018/09/16/bigdata-system-ch1-s3/数据的规模.jpg">
 <meta property="og:image" content="https://www.blankspace.cn/2018/09/16/bigdata-system-ch1-s3/数据生命周期.jpg">
 <meta property="og:image" content="https://www.blankspace.cn/2018/09/16/bigdata-system-ch1-s3/加工深度.jpg">
@@ -242,6 +242,17 @@ $(document).ready(function() {
     });
 });
 </script>
+
+
+  <script src="/js/languages.js"></script>
+  <script src="/js/calendar.js"></script>
+  <script type="text/javascript">
+  $(function() {
+    $('#calendar').aCalendar('en', $.extend({"months":["January","February","March","April","May","June","July","August","September","October","November","December"],"dayOfWeekShort":["S","M","T","W","T","F","S"],"dayOfWeek":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"postsMonthTip":"Posts published in LMM yyyy","titleFormat":"yyyy LMM","titleLinkFormat":"/archives/yyyy/MM/","headArrows":{"previous":"<span class=\"cal-prev\"></span>","next":"<span class=\"cal-next\"></span>"},"footArrows":{"previous":" ","next":" "},"weekOffset":0,"single":false,"root":"/calendar/","url":"/calendar.json"}, {single:true, root:'calendar/'}));
+  });
+  </script>
+
+
 
 </body>
 </html>
