@@ -3,6 +3,29 @@
   
     
     <entry>
+      <title>数据挖掘绪论</title>
+      <link href="/2018/09/17/data-mining-ch1-s1/"/>
+      <url>/2018/09/17/data-mining-ch1-s1/</url>
+      <content type="html"><![CDATA[<p>这是选修清华大学深圳研究生院袁博老师《数据挖掘》课程资料整理。</p><h2 id="DRIP"><a href="#DRIP" class="headerlink" title="DRIP"></a>DRIP</h2><blockquote><p>Data Rich Information Poor</p></blockquote><h2 id="学习资源"><a href="#学习资源" class="headerlink" title="学习资源"></a>学习资源</h2><h3 id="教材"><a href="#教材" class="headerlink" title="教材"></a>教材</h3><ul><li>数据挖掘概念和技术</li><li>模式分类</li><li>Data Mining</li><li>Beautiful Data</li></ul><h3 id="顶级会议"><a href="#顶级会议" class="headerlink" title="顶级会议"></a>顶级会议</h3><p><a href="https://www.myhuiban.com/search?SearchForm%5Bkey%5D=data+mining" target="_blank" rel="noopener">数据挖掘顶级会议</a></p><h3 id="软件工具"><a href="#软件工具" class="headerlink" title="软件工具"></a>软件工具</h3><ul><li>信息搜索：Google等</li><li>数学模拟：Matlab，<a href="https://www.cs.waikato.ac.nz/ml/weka/" target="_blank" rel="noopener">Weka 3: Data Mining Software in Java</a>等</li><li>数据集：<a href="http://archive.ics.uci.edu/ml/index.php" target="_blank" rel="noopener">UCI</a>，<a href="https://www.kdnuggets.com/datasets/index.html" target="_blank" rel="noopener">KDnuggets</a></li><li>…</li></ul><h3 id="学习方法"><a href="#学习方法" class="headerlink" title="学习方法"></a>学习方法</h3><ul><li>课堂：认真思考，讨论</li><li>阅读材料</li><li>勤于动手</li><li>主动思考，刨根问底</li></ul><h2 id="大数据"><a href="#大数据" class="headerlink" title="大数据"></a>大数据</h2><p>特点3V</p><ul><li>Velocity速度</li><li>Varity种类</li><li>Volume体量</li></ul><p><img src="/2018/09/17/data-mining-ch1-s1/大数据特点3V.png" alt="大数据核心特点——3V"></p><h2 id="数据挖掘-知识发现"><a href="#数据挖掘-知识发现" class="headerlink" title="数据挖掘==知识发现"></a>数据挖掘==知识发现</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>从大规模，不完整，有噪声的数据中，自动提取<strong>有趣</strong>，<strong>有用</strong>且原来<strong>未知</strong>的模式的过程。</p><p><img src="/2018/09/17/data-mining-ch1-s1/从数据到决策.png" alt="从数据到智能：数据是最底层的"></p><h3 id="数据整合和分析（传统方式ETL）"><a href="#数据整合和分析（传统方式ETL）" class="headerlink" title="数据整合和分析（传统方式ETL）"></a>数据整合和分析（传统方式ETL）</h3><ul><li>E：Extration，提取</li><li>T：Transform，转换</li><li>L：Load，装载</li></ul><p><img src="https://panoply.io/uploads/versions/diagram4---x----750-328x---.jpg" alt="ETL：提取，转换和装载"></p><h3 id="流程"><a href="#流程" class="headerlink" title="流程"></a>流程</h3><p><img src="/2018/09/17/data-mining-ch1-s1/数据挖掘流程.png" alt="数据挖掘流程：定义问题；数据收集；数据预处理；数据建模；分析评估；应用部署不断迭代"></p><h2 id="分类问题"><a href="#分类问题" class="headerlink" title="分类问题"></a>分类问题</h2><h3 id="混淆矩阵"><a href="#混淆矩阵" class="headerlink" title="混淆矩阵"></a>混淆矩阵</h3><h3 id="ROC分析"><a href="#ROC分析" class="headerlink" title="ROC分析"></a>ROC分析</h3><h3 id="Lift分析"><a href="#Lift分析" class="headerlink" title="Lift分析"></a>Lift分析</h3><h2 id="聚类问题"><a href="#聚类问题" class="headerlink" title="聚类问题"></a>聚类问题</h2><a id="more"></a>]]></content>
+      
+      <categories>
+          
+          <category> AI </category>
+          
+          <category> Data Mining </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Data Mining </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
       <title>用户和文件权限管理</title>
       <link href="/2018/09/17/linux-shiyan3/"/>
       <url>/2018/09/17/linux-shiyan3/</url>

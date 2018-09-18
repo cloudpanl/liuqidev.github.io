@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>数据挖掘绪论 | WizardLQ’s | 魔法师の小茶馆</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="这是选修清华大学深圳研究生院袁博老师《数据挖掘》课程资料整理。 DRIP Data Rich Information Poor  学习资源教材 数据挖掘概念和技术 模式分类 Data Mining Beautiful Data  顶级会议数据挖掘顶级会议 软件工具 信息搜索：Google等 数学模拟：Matlab，Weka 3: Data Mining Software in Java等 数据集：">
+<meta name="keywords" content="Data Mining">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据挖掘绪论">
+<meta property="og:url" content="https://www.blankspace.cn/2018/09/17/data-mining-ch1-s1/index.html">
+<meta property="og:site_name" content="WizardLQ’s | 魔法师の小茶馆">
+<meta property="og:description" content="这是选修清华大学深圳研究生院袁博老师《数据挖掘》课程资料整理。 DRIP Data Rich Information Poor  学习资源教材 数据挖掘概念和技术 模式分类 Data Mining Beautiful Data  顶级会议数据挖掘顶级会议 软件工具 信息搜索：Google等 数学模拟：Matlab，Weka 3: Data Mining Software in Java等 数据集：">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://www.blankspace.cn/2018/09/17/data-mining-ch1-s1/大数据特点3V.png">
+<meta property="og:image" content="https://www.blankspace.cn/2018/09/17/data-mining-ch1-s1/从数据到决策.png">
+<meta property="og:image" content="https://panoply.io/uploads/versions/diagram4---x----750-328x---.jpg">
+<meta property="og:image" content="https://www.blankspace.cn/2018/09/17/data-mining-ch1-s1/数据挖掘流程.png">
+<meta property="og:updated_time" content="2018-09-18T08:46:51.914Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="数据挖掘绪论">
+<meta name="twitter:description" content="这是选修清华大学深圳研究生院袁博老师《数据挖掘》课程资料整理。 DRIP Data Rich Information Poor  学习资源教材 数据挖掘概念和技术 模式分类 Data Mining Beautiful Data  顶级会议数据挖掘顶级会议 软件工具 信息搜索：Google等 数学模拟：Matlab，Weka 3: Data Mining Software in Java等 数据集：">
+<meta name="twitter:image" content="https://www.blankspace.cn/2018/09/17/data-mining-ch1-s1/大数据特点3V.png">
+<link rel="publisher" href="112373242775367340000">
+  
+    <link rel="alternate" href="/atom.xml" title="WizardLQ’s | 魔法师の小茶馆" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/images/icon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+<link href="https://cdn.bootcss.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet"><link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.slim.min.js"></script><script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<script type="text/javascript" src="//ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.3.min.js"></script>
+
+<link rel="stylesheet" href="/css/styles.css">
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+</head>
+
+<body>
+
+	
+
+	
+	<div class="container">
+	<div class="article-wrapper">
+
+
+<article id="post-data-mining-ch1-s1" class="article article-type-post" itemscope itemprop="blogPost">
+	
+
+
+<header class="article-header">
+
+  
+    <h1 class="article-title" itemprop="name">
+      数据挖掘绪论
+    </h1>
+  
+
+
+	
+
+ 
+	
+		魔法师LQ
+	
+	</hr>
+	<div class="article-datetime">
+	  <time datetime="2018-09-17T15:15:06.000Z" itemprop="datePublished">2018-09-17</time>
+	</div>
+	<div class="header-divider"></div>	
+
+	   
+
+</header>
+
+<div class="article-inner">
+<div class="article-entry" itemprop="articleBody">
+  
+  
+	<!-- Table of Contents -->
+
+	<aside id="article-toc" role="navigation" class="fixed">
+		<div id="article-toc-inner">
+			<strong class="sidebar-title">
+			Contents</strong>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#DRIP"><span class="toc-text">DRIP</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#学习资源"><span class="toc-text">学习资源</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#教材"><span class="toc-text">教材</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#顶级会议"><span class="toc-text">顶级会议</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#软件工具"><span class="toc-text">软件工具</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#学习方法"><span class="toc-text">学习方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#大数据"><span class="toc-text">大数据</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据挖掘-知识发现"><span class="toc-text">数据挖掘==知识发现</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#定义"><span class="toc-text">定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数据整合和分析（传统方式ETL）"><span class="toc-text">数据整合和分析（传统方式ETL）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#流程"><span class="toc-text">流程</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#分类问题"><span class="toc-text">分类问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#混淆矩阵"><span class="toc-text">混淆矩阵</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ROC分析"><span class="toc-text">ROC分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Lift分析"><span class="toc-text">Lift分析</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#聚类问题"><span class="toc-text">聚类问题</span></a></li></ol>
+		</div>
+	</aside>
+
+	
+	
+	<p>这是选修清华大学深圳研究生院袁博老师《数据挖掘》课程资料整理。</p>
+<h2 id="DRIP"><a href="#DRIP" class="headerlink" title="DRIP"></a>DRIP</h2><blockquote>
+<p>Data Rich Information Poor</p>
+</blockquote>
+<h2 id="学习资源"><a href="#学习资源" class="headerlink" title="学习资源"></a>学习资源</h2><h3 id="教材"><a href="#教材" class="headerlink" title="教材"></a>教材</h3><ul>
+<li>数据挖掘概念和技术</li>
+<li>模式分类</li>
+<li>Data Mining</li>
+<li>Beautiful Data</li>
+</ul>
+<h3 id="顶级会议"><a href="#顶级会议" class="headerlink" title="顶级会议"></a>顶级会议</h3><p><a href="https://www.myhuiban.com/search?SearchForm%5Bkey%5D=data+mining" target="_blank" rel="noopener">数据挖掘顶级会议</a></p>
+<h3 id="软件工具"><a href="#软件工具" class="headerlink" title="软件工具"></a>软件工具</h3><ul>
+<li>信息搜索：Google等</li>
+<li>数学模拟：Matlab，<a href="https://www.cs.waikato.ac.nz/ml/weka/" target="_blank" rel="noopener">Weka 3: Data Mining Software in Java</a>等</li>
+<li>数据集：<a href="http://archive.ics.uci.edu/ml/index.php" target="_blank" rel="noopener">UCI</a>，<a href="https://www.kdnuggets.com/datasets/index.html" target="_blank" rel="noopener">KDnuggets</a></li>
+<li>…</li>
+</ul>
+<h3 id="学习方法"><a href="#学习方法" class="headerlink" title="学习方法"></a>学习方法</h3><ul>
+<li>课堂：认真思考，讨论</li>
+<li>阅读材料</li>
+<li>勤于动手</li>
+<li>主动思考，刨根问底</li>
+</ul>
+<h2 id="大数据"><a href="#大数据" class="headerlink" title="大数据"></a>大数据</h2><p>特点3V</p>
+<ul>
+<li>Velocity速度</li>
+<li>Varity种类</li>
+<li>Volume体量</li>
+</ul>
+<p><img src="/2018/09/17/data-mining-ch1-s1/大数据特点3V.png" alt="大数据核心特点——3V"></p>
+<h2 id="数据挖掘-知识发现"><a href="#数据挖掘-知识发现" class="headerlink" title="数据挖掘==知识发现"></a>数据挖掘==知识发现</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>从大规模，不完整，有噪声的数据中，自动提取<strong>有趣</strong>，<strong>有用</strong>且原来<strong>未知</strong>的模式的过程。</p>
+<p><img src="/2018/09/17/data-mining-ch1-s1/从数据到决策.png" alt="从数据到智能：数据是最底层的"></p>
+<h3 id="数据整合和分析（传统方式ETL）"><a href="#数据整合和分析（传统方式ETL）" class="headerlink" title="数据整合和分析（传统方式ETL）"></a>数据整合和分析（传统方式ETL）</h3><ul>
+<li>E：Extration，提取</li>
+<li>T：Transform，转换</li>
+<li>L：Load，装载</li>
+</ul>
+<p><img src="https://panoply.io/uploads/versions/diagram4---x----750-328x---.jpg" alt="ETL：提取，转换和装载"></p>
+<h3 id="流程"><a href="#流程" class="headerlink" title="流程"></a>流程</h3><p><img src="/2018/09/17/data-mining-ch1-s1/数据挖掘流程.png" alt="数据挖掘流程：定义问题；数据收集；数据预处理；数据建模；分析评估；应用部署不断迭代"></p>
+<h2 id="分类问题"><a href="#分类问题" class="headerlink" title="分类问题"></a>分类问题</h2><h3 id="混淆矩阵"><a href="#混淆矩阵" class="headerlink" title="混淆矩阵"></a>混淆矩阵</h3><h3 id="ROC分析"><a href="#ROC分析" class="headerlink" title="ROC分析"></a>ROC分析</h3><h3 id="Lift分析"><a href="#Lift分析" class="headerlink" title="Lift分析"></a>Lift分析</h3><h2 id="聚类问题"><a href="#聚类问题" class="headerlink" title="聚类问题"></a>聚类问题</h2><a id="more"></a>
+
+	
+  
+</div>
+
+
+  
+
+
+
+
+</div>
+
+</article>
+
+
+
+
+	</div><!--end of article wrapper-->
+	</div>
+
+
+
+
+
+
+	
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?70a761ba668ab8571ac79968adcf6078";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+
+
+
+
+
+
+
+<script src="https://cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+<script src="/js/script.js"></script>
+
+<!--Back to top-->
+<body id="top">
+<p id="back-to-top"><a href="#top"><span></span></a></p>
+</body>
+
+
+<script>
+$(document).ready(function() {
+    //首先将#back-to-top隐藏
+    $("#back-to-top").hide();
+ 
+    //当滚动条的位置处于距顶部3600像素以下时，跳转链接出现，否则消失
+    $(function() {
+        $(window).scroll(function() {
+            if ($(window).scrollTop() > 3600) {
+                $("#back-to-top").fadeIn(1500);
+            }
+            else {
+                $("#back-to-top").fadeOut(1500);
+            }
+        });
+        //当点击跳转链接后，回到页面顶部位置
+        $("#back-to-top").click(function() {
+            $('body,html').animate({
+                scrollTop: 0
+            },
+            500);
+			
+            return false;
+        });
+    });
+});
+</script>
+
+</body>
+</html>

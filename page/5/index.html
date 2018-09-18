@@ -129,6 +129,117 @@ MathJax.Hub.Queue(function() {
 	  
 		
 
+<article id="post-activation-function" class="article article-type-post" itemscope itemprop="blogPost">
+	
+
+
+<header class="article-header">
+
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/13/activation-function/">Activation function</a>
+    </h1>
+  
+
+
+	
+
+
+	<div class="article-meta"> 
+		
+		
+
+		  <div class="article-datetime">
+  <a href="/2018/08/13/activation-function/" class="article-date"><time datetime="2018-08-13T13:24:57.000Z" itemprop="datePublished">2018-08-13</time></a>
+</div>
+
+
+
+			
+
+		  
+		   
+      <div class="post-meta">
+            <span class="glyphicon glyphicon-pencil"></span>
+            <span class="post-meta-item-text">&nbsp;Total&nbsp;</span>
+            <span class="post-count">648&nbsp;words</span>
+      </div>
+
+
+ 
+		  
+		  
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Machine-Learning/">Machine Learning</a> / <a class="article-category-link" href="/categories/Machine-Learning/TensorFlow/">TensorFlow</a>
+  </div>
+
+	
+		  </div>
+
+	   
+
+</header>
+
+<div class="article-inner">
+<div class="article-entry" itemprop="articleBody">
+  
+	<p>Activation function（激活函数），是一类非线性函数，与之对应的就是线性函数。线性函数就是一条直线，形式化表示就是：</p>
+<script type="math/tex; mode=display">
+y=mx+b</script><p>$m$是直线的斜率，$y$通常是预测的值，$x$是输入的特征值，$b$是$y$轴的截距。</p>
+<p>由于现实世界的复杂性，输入特征和预测之间的关系通常不是简单的线性关系，换言之就是非线性关系。然后就发现一些非线性函数，满足一定的性质（这个得看人家的论文），通过非线性函数多层的组合，可以来拟合非常复杂的非线性函数。</p>
+<p>更过关于激活函数的介绍，请看<a href="https://en.wikipedia.org/wiki/Activation_function" target="_blank" rel="noopener">这里</a>.</p>
+<p>TensorFlow中更多激活函数，请看<a href="https://www.tensorflow.org/api_guides/python/nn#Activation_Functions" target="_blank" rel="noopener">TensorFlow Activation Function</a>.</p>
+<h3 id="Binary-step"><a href="#Binary-step" class="headerlink" title="Binary step"></a>Binary step</h3><script type="math/tex; mode=display">
+f(x) =
+\begin{cases}
+0,  & \text{for x $\lt$ 0} \\
+1, & \text{for x $\geq$ 0}
+\end{cases}</script><p>阶跃函数是理想的激活函数，但是不可导。</p>
+<p>下面对几种常见的激活函数进行可视化。</p>
+<h3 id="ReLu-rectified-linear-unit-ReLu"><a href="#ReLu-rectified-linear-unit-ReLu" class="headerlink" title="ReLu(rectified linear unit, ReLu)"></a>ReLu(rectified linear unit, ReLu)</h3><script type="math/tex; mode=display">
+f(x) =
+\begin{cases}
+0,  & \text{for x $\lt$ 0} \\
+x, & \text{for x $\geq$ 0}
+\end{cases}</script><h3 id="Logistic-Sigmoid-or-Soft-step"><a href="#Logistic-Sigmoid-or-Soft-step" class="headerlink" title="Logistic(Sigmoid or Soft step)"></a>Logistic(Sigmoid or Soft step)</h3><script type="math/tex; mode=display">
+f(x)=\sigma{(x)} = \frac{1}{1+e^{-x}}</script><h3 id="TanH"><a href="#TanH" class="headerlink" title="TanH"></a>TanH</h3><script type="math/tex; mode=display">
+f(x)= \tanh{(x)}= \frac{e^{x}-e^{-x}}{e^{x}+e^{-x}}</script><h3 id="Softplus"><a href="#Softplus" class="headerlink" title="Softplus"></a>Softplus</h3><script type="math/tex; mode=display">
+f(x)= \ln{(1+e^x)}</script><h3 id="Softmax"><a href="#Softmax" class="headerlink" title="Softmax"></a>Softmax</h3><script type="math/tex; mode=display">
+f_{i}(x)= \frac{e^{x_{i}}}{\sum_{j=1}^{J}e^{x_j}}</script><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf <span class="comment"># machine learning framwork</span></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np <span class="comment"># scientific computation</span></span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt <span class="comment"># data visualization</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> tf.Graph().as_default(), tf.Session() <span class="keyword">as</span> sess:</span><br><span class="line">    x_data = np.linspace(<span class="number">-6</span>, <span class="number">6</span>, <span class="number">256</span>)</span><br><span class="line"></span><br><span class="line">    y_relu = tf.nn.relu(x_data)</span><br><span class="line">    y_sigmoid = tf.nn.sigmoid(x_data)</span><br><span class="line">    y_tanh = tf.nn.tanh(x_data)</span><br><span class="line">    y_softplus = tf.nn.softplus(x_data)</span><br><span class="line">    y_softmax = tf.nn.softmax(x_data) <span class="comment"># softmax is a special kind of activation function, it is about probablity</span></span><br><span class="line"></span><br><span class="line">    y_relu, y_sigmoid, y_tanh, y_softplus, y_softmax = sess.run([y_relu, y_sigmoid, y_tanh, y_softplus, y_softmax])</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># plot</span></span><br><span class="line">    fig = plt.figure(<span class="number">1</span>, figsize=(<span class="number">8</span>, <span class="number">6</span>))</span><br><span class="line">    plt.subplot(<span class="number">221</span>)</span><br><span class="line">    plt.plot(x_data, y_relu, c=<span class="string">'red'</span>, label=<span class="string">'relu'</span>)</span><br><span class="line">    plt.ylim(<span class="number">-1</span>, <span class="number">6</span>)</span><br><span class="line">    plt.legend(loc=<span class="string">'best'</span>)</span><br><span class="line">    </span><br><span class="line">    plt.subplot(<span class="number">222</span>)</span><br><span class="line">    plt.plot(x_data, y_sigmoid, c=<span class="string">'green'</span>, label=<span class="string">'sigmoid'</span>)</span><br><span class="line">    plt.ylim(<span class="number">-0.3</span>, <span class="number">1.5</span>)</span><br><span class="line">    plt.legend(loc=<span class="string">'best'</span>)</span><br><span class="line">    </span><br><span class="line">    plt.subplot(<span class="number">223</span>)</span><br><span class="line">    plt.plot(x_data, y_tanh, c=<span class="string">'blue'</span>, label=<span class="string">'tanh'</span>)</span><br><span class="line">    plt.ylim(<span class="number">-1.2</span>, <span class="number">1.2</span>)</span><br><span class="line">    plt.legend(loc=<span class="string">'best'</span>)</span><br><span class="line">    </span><br><span class="line">    plt.subplot(<span class="number">224</span>)</span><br><span class="line">    plt.plot(x_data, y_softplus, c=<span class="string">'yellow'</span>, label=<span class="string">'softplus'</span>)</span><br><span class="line">    plt.ylim(<span class="number">-0.3</span>, <span class="number">6</span>)</span><br><span class="line">    plt.legend(loc=<span class="string">'best'</span>)</span><br><span class="line">    </span><br><span class="line">    plt.show()</span><br></pre></td></tr></table></figure>
+<p><img src="/2018/08/13/activation-function/output_1_0.png" alt="Activation Functions-1"></p>
+	
+	  <p class="article-more-link">
+		<a class="btn btn-primary" href="/2018/08/13/activation-function/#more">Read more...</a>
+	  </p>
+	
+  
+</div>
+
+
+
+<footer class="article-footer">
+  <a data-url="https://www.blankspace.cn/2018/08/13/activation-function/" data-id="cjm7h65i4000gv4ficq7o51n7" class="article-share-link">
+	<i class="fa fa-share"></i> Share
+  </a>
+  
+  
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Activation/">Activation</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/TensorFlow/">TensorFlow</a></li></ul>
+
+
+</footer>
+
+
+</div>
+
+</article>
+
+
+
+
+
+	  
+		
+
 <article id="post-placeholder" class="article article-type-post" itemscope itemprop="blogPost">
 	
 
@@ -204,7 +315,7 @@ MathJax.Hub.Queue(function() {
 
 
 <footer class="article-footer">
-  <a data-url="https://www.blankspace.cn/2018/08/13/placeholder/" data-id="cjm66n9gs002ttofikqr4j4v8" class="article-share-link">
+  <a data-url="https://www.blankspace.cn/2018/08/13/placeholder/" data-id="cjm7h65n40040v4fi6aspvilo" class="article-share-link">
 	<i class="fa fa-share"></i> Share
   </a>
   
@@ -439,7 +550,7 @@ Reshaped matrix (3x2x2)
 
 
 <footer class="article-footer">
-  <a data-url="https://www.blankspace.cn/2018/08/13/Tensor-Control/" data-id="cjm66n9fe000utofidh73j5rn" class="article-share-link">
+  <a data-url="https://www.blankspace.cn/2018/08/13/Tensor-Control/" data-id="cjm7h65gu0007v4fi6pnxsfkq" class="article-share-link">
 	<i class="fa fa-share"></i> Share
   </a>
   
@@ -545,7 +656,7 @@ p=\frac{a+b+c}{2}</script><p>相关<a href="https://www.tensorflow.org/api_docs/
 
 
 <footer class="article-footer">
-  <a data-url="https://www.blankspace.cn/2018/08/13/Tensor/" data-id="cjm66n9fd000ttofipoyffd6u" class="article-share-link">
+  <a data-url="https://www.blankspace.cn/2018/08/13/Tensor/" data-id="cjm7h65gk0005v4fis4vufcgj" class="article-share-link">
 	<i class="fa fa-share"></i> Share
   </a>
   
@@ -655,152 +766,7 @@ day 9 len:  0.0009765625
 
 
 <footer class="article-footer">
-  <a data-url="https://www.blankspace.cn/2018/08/12/Variable/" data-id="cjm66n9fj0013tofibefocf0j" class="article-share-link">
-	<i class="fa fa-share"></i> Share
-  </a>
-  
-  
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/TensorFlow/">TensorFlow</a></li></ul>
-
-
-</footer>
-
-
-</div>
-
-</article>
-
-
-
-
-
-	  
-		
-
-<article id="post-Session" class="article article-type-post" itemscope itemprop="blogPost">
-	
-
-
-<header class="article-header">
-
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/12/Session/">Session</a>
-    </h1>
-  
-
-
-	
-
-
-	<div class="article-meta"> 
-		
-		
-
-		  <div class="article-datetime">
-  <a href="/2018/08/12/Session/" class="article-date"><time datetime="2018-08-12T14:28:06.000Z" itemprop="datePublished">2018-08-12</time></a>
-</div>
-
-
-
-			
-
-		  
-		   
-      <div class="post-meta">
-            <span class="glyphicon glyphicon-pencil"></span>
-            <span class="post-meta-item-text">&nbsp;Total&nbsp;</span>
-            <span class="post-count">465&nbsp;words</span>
-      </div>
-
-
- 
-		  
-		  
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Machine-Learning/">Machine Learning</a> / <a class="article-category-link" href="/categories/Machine-Learning/TensorFlow/">TensorFlow</a>
-  </div>
-
-	
-		  </div>
-
-	   
-
-</header>
-
-<div class="article-inner">
-<div class="article-entry" itemprop="articleBody">
-  
-  
-	<!-- Table of Contents -->
-
-	
-	
-	<p>举两个例子。</p>
-<h3 id="Hello-World"><a href="#Hello-World" class="headerlink" title="Hello World"></a>Hello World</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"></span><br><span class="line">node = tf.constant(<span class="string">"Hello, world!"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># method 1</span></span><br><span class="line">sess = tf.Session()</span><br><span class="line">print(sess.run(node))</span><br><span class="line">sess.close</span><br><span class="line"></span><br><span class="line"><span class="comment"># method 2</span></span><br><span class="line"><span class="keyword">with</span> tf.Session() <span class="keyword">as</span> tf:</span><br><span class="line">    print(sess.run(node))</span><br></pre></td></tr></table></figure>
-<pre><code>D:\Anaconda3\Anaconda3_py36\lib\site-packages\h5py\__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
-  from ._conv import register_converters as _register_converters
-
-
-b&#39;Hello, world!&#39;
-b&#39;Hello, world!&#39;
-</code></pre><h3 id="矩阵乘法"><a href="#矩阵乘法" class="headerlink" title="矩阵乘法"></a>矩阵乘法</h3><p>理解Session会话，并使用TensorFlow来解决买菜问题（矩阵乘法）。素材来自<a href="https://mp.weixin.qq.com/s?__biz=MjM5MDE3OTk2Ng==&amp;mid=2657440935&amp;idx=1&amp;sn=5b968c80fb07df3005039ca1466cb0c5&amp;chksm=bdd943b68aaecaa0420e1f3f9a576b1b0256ac7165a2fcf9b0c84080a5b0b53250418be594c8&amp;mpshare=1&amp;scene=1&amp;srcid=0812pRYblN0eJVNurGxLbC4F#rd" target="_blank" rel="noopener">《如何让11岁表妹知道矩阵乘法的本质是什么？》</a>.</p>
-<p>假设买肉和菜，农贸市场一斤肉25元，一斤菜3元。<br>第一天我去农贸买了1斤肉，3斤菜，问计算用了多少钱：答：$25\times1+3\times3=34$。表示成向量乘法：</p>
-<script type="math/tex; mode=display">
-\begin{bmatrix}
- 25&3 \\
-\end{bmatrix} 
-\times 
-\begin{bmatrix}
- 1 \\
- 3 \\
-\end{bmatrix} 
-= 34</script><p>第二天，又去农贸市场买了2斤肉，1斤菜,则两天的花销可以表示为：</p>
-<script type="math/tex; mode=display">
-\begin{bmatrix}
- 25&3 \\
-\end{bmatrix} 
-\times 
-\begin{bmatrix}
- 1&2 \\
- 3&1 \\
-\end{bmatrix} 
-= 
-\begin{bmatrix}
-34 & 53
-\end{bmatrix}</script><p>左边矩阵形状为1x2，行就表示<code>农贸市场</code>，两列分别表示<code>肉的单价和菜的单价</code>.右边矩阵，第一列表示第一天，第二列表示第二天，依次类推。第一行表示买的肉的数量，第二行表示买的菜的数量。两者进行矩阵相乘，得到的就是农贸市场，第n天，买肉和菜的总和。</p>
-<p>听说王大妈哪里肉一斤20，菜一斤2元，假如这两天在王大妈哪里买菜，表示成矩阵：</p>
-<script type="math/tex; mode=display">
-\begin{bmatrix}
-25&3\\
-20&2\\
-\end{bmatrix}
-\begin{bmatrix}
-1&2\\
-3&1\\
-\end{bmatrix}
-=
-\begin{bmatrix}
-34&53\\
-26&42\\
-\end{bmatrix}</script><p><img src="https://mmbiz.qpic.cn/mmbiz_png/pojyAtdhQhNM8WaSdOWGtLciaHKXKs4DrOkXwemKzA7p3AuHKhht3em8mV0hXDyNQeBU6geAQIGoFa3WX0ThoZg/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1" alt=""></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="comment"># 创建计算图</span></span><br><span class="line"></span><br><span class="line">mat1 = tf.constant(np.array([[<span class="number">25</span>, <span class="number">3</span>], [<span class="number">20</span>, <span class="number">2</span>]]))</span><br><span class="line">mat2 = tf.constant(np.array([[<span class="number">1</span>, <span class="number">2</span>], [<span class="number">3</span>, <span class="number">1</span>]]))</span><br><span class="line">product = tf.matmul(mat1, mat2)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建会话和运行</span></span><br><span class="line"><span class="comment"># method 1</span></span><br><span class="line">sess = tf.Session()</span><br><span class="line">money = sess.run(product)</span><br><span class="line">print(money)</span><br><span class="line">sess.close()</span><br><span class="line"></span><br><span class="line"><span class="comment"># method 2</span></span><br><span class="line"><span class="keyword">with</span> tf.Session() <span class="keyword">as</span> sess:</span><br><span class="line">    money = sess.run(product)</span><br><span class="line">    print(money)</span><br></pre></td></tr></table></figure>
-<pre><code>[[34 53]
- [26 42]]
-[[34 53]
- [26 42]]
-</code></pre>
-	
-  
-</div>
-
-
-  
-
-
-
-<footer class="article-footer">
-  <a data-url="https://www.blankspace.cn/2018/08/12/Session/" data-id="cjm66n9f1000ltofixjgfkkt7" class="article-share-link">
+  <a data-url="https://www.blankspace.cn/2018/08/12/Variable/" data-id="cjm7h65i2000fv4figahhwedx" class="article-share-link">
 	<i class="fa fa-share"></i> Share
   </a>
   
@@ -837,6 +803,10 @@ b&#39;Hello, world!&#39;
     <ul class="sidebar-module-list">
       
         <li>
+          <a href="/2018/09/17/data-mining-ch1-s1/">数据挖掘绪论</a>
+        </li>
+      
+        <li>
           <a href="/2018/09/17/linux-shiyan3/">用户和文件权限管理</a>
         </li>
       
@@ -850,10 +820,6 @@ b&#39;Hello, world!&#39;
       
         <li>
           <a href="/2018/09/16/bigdata-system-ch1-s5/">大数据生态系统</a>
-        </li>
-      
-        <li>
-          <a href="/2018/09/16/bigdata-system-ch1-s4/">大数据技术体系</a>
         </li>
       
     </ul>
@@ -872,7 +838,7 @@ b&#39;Hello, world!&#39;
   
   <div class="sidebar-module">
     <h4>Categories</h4>
-    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Big-Data/">Big Data</a><span class="sidebar-module-list-count">5</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Big-Data/Big-Data-System/">Big Data System</a><span class="sidebar-module-list-count">5</span></li></ul></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Dairy/">Dairy</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/English/">English</a><span class="sidebar-module-list-count">1</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/English/Tips/">Tips</a><span class="sidebar-module-list-count">1</span></li></ul></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Languages/">Languages</a><span class="sidebar-module-list-count">1</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Languages/Python/">Python</a><span class="sidebar-module-list-count">1</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Languages/Python/Numpy/">Numpy</a><span class="sidebar-module-list-count">1</span></li></ul></li></ul></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Linux/">Linux</a><span class="sidebar-module-list-count">5</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Linux/Linux-Basic/">Linux Basic</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Linux/Ubuntu/">Ubuntu</a><span class="sidebar-module-list-count">2</span></li></ul></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Machine-Learning/">Machine Learning</a><span class="sidebar-module-list-count">10</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Machine-Learning/Algorithms/">Algorithms</a><span class="sidebar-module-list-count">2</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Machine-Learning/Algorithms/KNN/">KNN</a><span class="sidebar-module-list-count">2</span></li></ul></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Machine-Learning/TensorFlow/">TensorFlow</a><span class="sidebar-module-list-count">8</span></li></ul></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Math/">Math</a><span class="sidebar-module-list-count">1</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Math/MathJax/">MathJax</a><span class="sidebar-module-list-count">1</span></li></ul></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Projects/">Projects</a><span class="sidebar-module-list-count">19</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Projects/hexo-theme-bootstrap-blog/">hexo-theme-bootstrap-blog</a><span class="sidebar-module-list-count">19</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Projects/hexo-theme-bootstrap-blog/Tutorial/">Tutorial</a><span class="sidebar-module-list-count">19</span></li></ul></li></ul></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/现代生物学导论/">现代生物学导论</a><span class="sidebar-module-list-count">4</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/现代生物学导论/生命的化学基础/">生命的化学基础</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/现代生物学导论/绪论/">绪论</a><span class="sidebar-module-list-count">3</span></li></ul></li></ul>
+    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/AI/">AI</a><span class="sidebar-module-list-count">1</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/AI/Data-Mining/">Data Mining</a><span class="sidebar-module-list-count">1</span></li></ul></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Big-Data/">Big Data</a><span class="sidebar-module-list-count">5</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Big-Data/Big-Data-System/">Big Data System</a><span class="sidebar-module-list-count">5</span></li></ul></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Dairy/">Dairy</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/English/">English</a><span class="sidebar-module-list-count">1</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/English/Tips/">Tips</a><span class="sidebar-module-list-count">1</span></li></ul></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Languages/">Languages</a><span class="sidebar-module-list-count">1</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Languages/Python/">Python</a><span class="sidebar-module-list-count">1</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Languages/Python/Numpy/">Numpy</a><span class="sidebar-module-list-count">1</span></li></ul></li></ul></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Linux/">Linux</a><span class="sidebar-module-list-count">5</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Linux/Linux-Basic/">Linux Basic</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Linux/Ubuntu/">Ubuntu</a><span class="sidebar-module-list-count">2</span></li></ul></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Machine-Learning/">Machine Learning</a><span class="sidebar-module-list-count">10</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Machine-Learning/Algorithms/">Algorithms</a><span class="sidebar-module-list-count">2</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Machine-Learning/Algorithms/KNN/">KNN</a><span class="sidebar-module-list-count">2</span></li></ul></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Machine-Learning/TensorFlow/">TensorFlow</a><span class="sidebar-module-list-count">8</span></li></ul></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Math/">Math</a><span class="sidebar-module-list-count">1</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Math/MathJax/">MathJax</a><span class="sidebar-module-list-count">1</span></li></ul></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Projects/">Projects</a><span class="sidebar-module-list-count">19</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Projects/hexo-theme-bootstrap-blog/">hexo-theme-bootstrap-blog</a><span class="sidebar-module-list-count">19</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Projects/hexo-theme-bootstrap-blog/Tutorial/">Tutorial</a><span class="sidebar-module-list-count">19</span></li></ul></li></ul></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/现代生物学导论/">现代生物学导论</a><span class="sidebar-module-list-count">4</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/现代生物学导论/生命的化学基础/">生命的化学基础</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/现代生物学导论/绪论/">绪论</a><span class="sidebar-module-list-count">3</span></li></ul></li></ul>
   </div>
 
 
@@ -880,7 +846,7 @@ b&#39;Hello, world!&#39;
   
   <div class="sidebar-module">
     <h4>Archives</h4>
-    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2018/09/">九月 2018</a><span class="sidebar-module-list-count">16</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2018/08/">八月 2018</a><span class="sidebar-module-list-count">30</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2013/12/">十二月 2013</a><span class="sidebar-module-list-count">1</span></li></ul>
+    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2018/09/">九月 2018</a><span class="sidebar-module-list-count">17</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2018/08/">八月 2018</a><span class="sidebar-module-list-count">30</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2013/12/">十二月 2013</a><span class="sidebar-module-list-count">1</span></li></ul>
   </div>
 
 

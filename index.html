@@ -129,6 +129,135 @@ MathJax.Hub.Queue(function() {
 	  
 		
 
+<article id="post-data-mining-ch1-s1" class="article article-type-post" itemscope itemprop="blogPost">
+	
+
+
+<header class="article-header">
+
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/09/17/data-mining-ch1-s1/">数据挖掘绪论</a>
+    </h1>
+  
+
+
+	
+
+
+	<div class="article-meta"> 
+		
+		
+
+		  <div class="article-datetime">
+  <a href="/2018/09/17/data-mining-ch1-s1/" class="article-date"><time datetime="2018-09-17T15:15:06.000Z" itemprop="datePublished">2018-09-17</time></a>
+</div>
+
+
+
+			
+			<div class="article-author">魔法师LQ</div>
+		  
+
+		  
+		   
+      <div class="post-meta">
+            <span class="glyphicon glyphicon-pencil"></span>
+            <span class="post-meta-item-text">&nbsp;Total&nbsp;</span>
+            <span class="post-count">226&nbsp;words</span>
+      </div>
+
+
+ 
+		  
+		  
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/AI/">AI</a> / <a class="article-category-link" href="/categories/AI/Data-Mining/">Data Mining</a>
+  </div>
+
+	
+		  </div>
+
+	   
+
+</header>
+
+<div class="article-inner">
+<div class="article-entry" itemprop="articleBody">
+  
+	<p>这是选修清华大学深圳研究生院袁博老师《数据挖掘》课程资料整理。</p>
+<h2 id="DRIP"><a href="#DRIP" class="headerlink" title="DRIP"></a>DRIP</h2><blockquote>
+<p>Data Rich Information Poor</p>
+</blockquote>
+<h2 id="学习资源"><a href="#学习资源" class="headerlink" title="学习资源"></a>学习资源</h2><h3 id="教材"><a href="#教材" class="headerlink" title="教材"></a>教材</h3><ul>
+<li>数据挖掘概念和技术</li>
+<li>模式分类</li>
+<li>Data Mining</li>
+<li>Beautiful Data</li>
+</ul>
+<h3 id="顶级会议"><a href="#顶级会议" class="headerlink" title="顶级会议"></a>顶级会议</h3><p><a href="https://www.myhuiban.com/search?SearchForm%5Bkey%5D=data+mining" target="_blank" rel="noopener">数据挖掘顶级会议</a></p>
+<h3 id="软件工具"><a href="#软件工具" class="headerlink" title="软件工具"></a>软件工具</h3><ul>
+<li>信息搜索：Google等</li>
+<li>数学模拟：Matlab，<a href="https://www.cs.waikato.ac.nz/ml/weka/" target="_blank" rel="noopener">Weka 3: Data Mining Software in Java</a>等</li>
+<li>数据集：<a href="http://archive.ics.uci.edu/ml/index.php" target="_blank" rel="noopener">UCI</a>，<a href="https://www.kdnuggets.com/datasets/index.html" target="_blank" rel="noopener">KDnuggets</a></li>
+<li>…</li>
+</ul>
+<h3 id="学习方法"><a href="#学习方法" class="headerlink" title="学习方法"></a>学习方法</h3><ul>
+<li>课堂：认真思考，讨论</li>
+<li>阅读材料</li>
+<li>勤于动手</li>
+<li>主动思考，刨根问底</li>
+</ul>
+<h2 id="大数据"><a href="#大数据" class="headerlink" title="大数据"></a>大数据</h2><p>特点3V</p>
+<ul>
+<li>Velocity速度</li>
+<li>Varity种类</li>
+<li>Volume体量</li>
+</ul>
+<p><img src="/2018/09/17/data-mining-ch1-s1/大数据特点3V.png" alt="大数据核心特点——3V"></p>
+<h2 id="数据挖掘-知识发现"><a href="#数据挖掘-知识发现" class="headerlink" title="数据挖掘==知识发现"></a>数据挖掘==知识发现</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>从大规模，不完整，有噪声的数据中，自动提取<strong>有趣</strong>，<strong>有用</strong>且原来<strong>未知</strong>的模式的过程。</p>
+<p><img src="/2018/09/17/data-mining-ch1-s1/从数据到决策.png" alt="从数据到智能：数据是最底层的"></p>
+<h3 id="数据整合和分析（传统方式ETL）"><a href="#数据整合和分析（传统方式ETL）" class="headerlink" title="数据整合和分析（传统方式ETL）"></a>数据整合和分析（传统方式ETL）</h3><ul>
+<li>E：Extration，提取</li>
+<li>T：Transform，转换</li>
+<li>L：Load，装载</li>
+</ul>
+<p><img src="https://panoply.io/uploads/versions/diagram4---x----750-328x---.jpg" alt="ETL：提取，转换和装载"></p>
+<h3 id="流程"><a href="#流程" class="headerlink" title="流程"></a>流程</h3><p><img src="/2018/09/17/data-mining-ch1-s1/数据挖掘流程.png" alt="数据挖掘流程：定义问题；数据收集；数据预处理；数据建模；分析评估；应用部署不断迭代"></p>
+<h2 id="分类问题"><a href="#分类问题" class="headerlink" title="分类问题"></a>分类问题</h2><h3 id="混淆矩阵"><a href="#混淆矩阵" class="headerlink" title="混淆矩阵"></a>混淆矩阵</h3><h3 id="ROC分析"><a href="#ROC分析" class="headerlink" title="ROC分析"></a>ROC分析</h3><h3 id="Lift分析"><a href="#Lift分析" class="headerlink" title="Lift分析"></a>Lift分析</h3><h2 id="聚类问题"><a href="#聚类问题" class="headerlink" title="聚类问题"></a>聚类问题</h2>
+	
+	  <p class="article-more-link">
+		<a class="btn btn-primary" href="/2018/09/17/data-mining-ch1-s1/#more">Read more...</a>
+	  </p>
+	
+  
+</div>
+
+
+
+<footer class="article-footer">
+  <a data-url="https://www.blankspace.cn/2018/09/17/data-mining-ch1-s1/" data-id="cjm7h65lc002wv4fi78e3gw3d" class="article-share-link">
+	<i class="fa fa-share"></i> Share
+  </a>
+  
+  
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Data-Mining/">Data Mining</a></li></ul>
+
+
+</footer>
+
+
+</div>
+
+</article>
+
+
+
+
+
+	  
+		
+
 <article id="post-linux-shiyan3" class="article article-type-post" itemscope itemprop="blogPost">
 	
 
@@ -258,7 +387,7 @@ MathJax.Hub.Queue(function() {
 
 
 <footer class="article-footer">
-  <a data-url="https://www.blankspace.cn/2018/09/17/linux-shiyan3/" data-id="cjm66n9gn002mtofitiu0xhdc" class="article-share-link">
+  <a data-url="https://www.blankspace.cn/2018/09/17/linux-shiyan3/" data-id="cjm7h65mw003qv4fiueqq5iw2" class="article-share-link">
 	<i class="fa fa-share"></i> Share
   </a>
   
@@ -380,7 +509,7 @@ MathJax.Hub.Queue(function() {
 
 
 <footer class="article-footer">
-  <a data-url="https://www.blankspace.cn/2018/09/17/linux-shiyan2/" data-id="cjm66n9gp002ptofiqev204ux" class="article-share-link">
+  <a data-url="https://www.blankspace.cn/2018/09/17/linux-shiyan2/" data-id="cjm7h65ms003jv4fi5ztshhj9" class="article-share-link">
 	<i class="fa fa-share"></i> Share
   </a>
   
@@ -476,7 +605,7 @@ MathJax.Hub.Queue(function() {
 
 
 <footer class="article-footer">
-  <a data-url="https://www.blankspace.cn/2018/09/17/linux-shiyan1/" data-id="cjm66n9gm002ktofi4bdtbet7" class="article-share-link">
+  <a data-url="https://www.blankspace.cn/2018/09/17/linux-shiyan1/" data-id="cjm7h65mu003mv4fi0rqjvuxs" class="article-share-link">
 	<i class="fa fa-share"></i> Share
   </a>
   
@@ -574,136 +703,12 @@ MathJax.Hub.Queue(function() {
 
 
 <footer class="article-footer">
-  <a data-url="https://www.blankspace.cn/2018/09/16/bigdata-system-ch1-s5/" data-id="cjm66n9ft001gtofi6kpwzp2j" class="article-share-link">
+  <a data-url="https://www.blankspace.cn/2018/09/16/bigdata-system-ch1-s5/" data-id="cjm7h65k50029v4fihx54dhqz" class="article-share-link">
 	<i class="fa fa-share"></i> Share
   </a>
   
   
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Big-Data-Ecosystem/">Big Data Ecosystem</a></li></ul>
-
-
-</footer>
-
-
-</div>
-
-</article>
-
-
-
-
-
-	  
-		
-
-<article id="post-bigdata-system-ch1-s4" class="article article-type-post" itemscope itemprop="blogPost">
-	
-
-
-<header class="article-header">
-
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/09/16/bigdata-system-ch1-s4/">大数据技术体系</a>
-    </h1>
-  
-
-
-	
-
-
-	<div class="article-meta"> 
-		
-		
-
-		  <div class="article-datetime">
-  <a href="/2018/09/16/bigdata-system-ch1-s4/" class="article-date"><time datetime="2018-09-16T12:25:11.000Z" itemprop="datePublished">2018-09-16</time></a>
-</div>
-
-
-
-			
-			<div class="article-author">魔法师LQ</div>
-		  
-
-		  
-		   
-      <div class="post-meta">
-            <span class="glyphicon glyphicon-pencil"></span>
-            <span class="post-meta-item-text">&nbsp;Total&nbsp;</span>
-            <span class="post-count">286&nbsp;words</span>
-      </div>
-
-
- 
-		  
-		  
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Big-Data/">Big Data</a> / <a class="article-category-link" href="/categories/Big-Data/Big-Data-System/">Big Data System</a>
-  </div>
-
-	
-		  </div>
-
-	   
-
-</header>
-
-<div class="article-inner">
-<div class="article-entry" itemprop="articleBody">
-  
-	<h2 id="大数据技术体系现状"><a href="#大数据技术体系现状" class="headerlink" title="大数据技术体系现状"></a>大数据技术体系现状</h2><p><img src="/2018/09/16/bigdata-system-ch1-s4/大数据技术分类.png" alt="大数据技术分类：1.采集和集成；2.存储和管理；3.分析和挖掘；4.可视化；5.计算范式；6.隐私和安全"></p>
-<h2 id="数据质量"><a href="#数据质量" class="headerlink" title="数据质量"></a>数据质量</h2><ul>
-<li>传统数据质量<ul>
-<li>仅通过ETL（抽取、转换、加载）执行</li>
-<li>没有完全覆盖数据及质量的基本性质</li>
-</ul>
-</li>
-</ul>
-<h3 id="挑战"><a href="#挑战" class="headerlink" title="挑战"></a>挑战</h3><ul>
-<li>分布式环境中，保障全局数据的一致性，进取型，完整性</li>
-<li>流处理环境中，如何保证时效性<ul>
-<li>例如：时序一致性</li>
-</ul>
-</li>
-</ul>
-<h3 id="在大数据中保证绝对的数据质量并不现实"><a href="#在大数据中保证绝对的数据质量并不现实" class="headerlink" title="在大数据中保证绝对的数据质量并不现实"></a>在大数据中保证绝对的数据质量并不现实</h3><ul>
-<li>高纬，异质，模糊，海量，多变</li>
-</ul>
-<h2 id="数据存储和管理"><a href="#数据存储和管理" class="headerlink" title="数据存储和管理"></a>数据存储和管理</h2><h3 id="某些转变"><a href="#某些转变" class="headerlink" title="某些转变"></a>某些转变</h3><ul>
-<li>Hash大于扫描</li>
-<li>单副本转向多副本</li>
-<li>但阶段转为多阶段</li>
-<li>压缩不再解压</li>
-</ul>
-<h2 id="传统数据分析和大数据"><a href="#传统数据分析和大数据" class="headerlink" title="传统数据分析和大数据"></a>传统数据分析和大数据</h2><p><img src="/2018/09/16/bigdata-system-ch1-s4/大数据分析的特点.jpg" alt="大数据分析的特点:和传统的数据分析相比，大数据分析焦点在对未来的预测，数据多是大规模、多样化、无关联的数据，更侧重于关联分析"></p>
-<h3 id="大数据分析的特点"><a href="#大数据分析的特点" class="headerlink" title="大数据分析的特点"></a>大数据分析的特点</h3><ul>
-<li>监控动态流数据，跟踪变化趋势而非仅仅考虑静态数据</li>
-<li>数据科学家要和领域科学家一起进行分析</li>
-<li>将大数据分析集成到核心业务和运营环节</li>
-</ul>
-<h2 id="可视化挑战"><a href="#可视化挑战" class="headerlink" title="可视化挑战"></a>可视化挑战</h2><p><img src="/2018/09/16/bigdata-system-ch1-s4/可视化挑战.jpg" alt="可视化挑战：将蕴含在原始数据中的关联和因果关系可视化展示出来，并根据人的交互反馈，触发新一轮的知识发现"></p>
-<ul>
-<li>强调人的作用</li>
-<li>强调分析中的迭代</li>
-</ul>
-	
-	  <p class="article-more-link">
-		<a class="btn btn-primary" href="/2018/09/16/bigdata-system-ch1-s4/#more">Read more...</a>
-	  </p>
-	
-  
-</div>
-
-
-
-<footer class="article-footer">
-  <a data-url="https://www.blankspace.cn/2018/09/16/bigdata-system-ch1-s4/" data-id="cjm66n9fp001btofid5tolzzw" class="article-share-link">
-	<i class="fa fa-share"></i> Share
-  </a>
-  
-  
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Big-Data-Technologies/">Big Data Technologies</a></li></ul>
 
 
 </footer>
@@ -735,6 +740,10 @@ MathJax.Hub.Queue(function() {
     <ul class="sidebar-module-list">
       
         <li>
+          <a href="/2018/09/17/data-mining-ch1-s1/">数据挖掘绪论</a>
+        </li>
+      
+        <li>
           <a href="/2018/09/17/linux-shiyan3/">用户和文件权限管理</a>
         </li>
       
@@ -748,10 +757,6 @@ MathJax.Hub.Queue(function() {
       
         <li>
           <a href="/2018/09/16/bigdata-system-ch1-s5/">大数据生态系统</a>
-        </li>
-      
-        <li>
-          <a href="/2018/09/16/bigdata-system-ch1-s4/">大数据技术体系</a>
         </li>
       
     </ul>
@@ -770,7 +775,7 @@ MathJax.Hub.Queue(function() {
   
   <div class="sidebar-module">
     <h4>Categories</h4>
-    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Big-Data/">Big Data</a><span class="sidebar-module-list-count">5</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Big-Data/Big-Data-System/">Big Data System</a><span class="sidebar-module-list-count">5</span></li></ul></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Dairy/">Dairy</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/English/">English</a><span class="sidebar-module-list-count">1</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/English/Tips/">Tips</a><span class="sidebar-module-list-count">1</span></li></ul></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Languages/">Languages</a><span class="sidebar-module-list-count">1</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Languages/Python/">Python</a><span class="sidebar-module-list-count">1</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Languages/Python/Numpy/">Numpy</a><span class="sidebar-module-list-count">1</span></li></ul></li></ul></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Linux/">Linux</a><span class="sidebar-module-list-count">5</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Linux/Linux-Basic/">Linux Basic</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Linux/Ubuntu/">Ubuntu</a><span class="sidebar-module-list-count">2</span></li></ul></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Machine-Learning/">Machine Learning</a><span class="sidebar-module-list-count">10</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Machine-Learning/Algorithms/">Algorithms</a><span class="sidebar-module-list-count">2</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Machine-Learning/Algorithms/KNN/">KNN</a><span class="sidebar-module-list-count">2</span></li></ul></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Machine-Learning/TensorFlow/">TensorFlow</a><span class="sidebar-module-list-count">8</span></li></ul></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Math/">Math</a><span class="sidebar-module-list-count">1</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Math/MathJax/">MathJax</a><span class="sidebar-module-list-count">1</span></li></ul></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Projects/">Projects</a><span class="sidebar-module-list-count">19</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Projects/hexo-theme-bootstrap-blog/">hexo-theme-bootstrap-blog</a><span class="sidebar-module-list-count">19</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Projects/hexo-theme-bootstrap-blog/Tutorial/">Tutorial</a><span class="sidebar-module-list-count">19</span></li></ul></li></ul></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/现代生物学导论/">现代生物学导论</a><span class="sidebar-module-list-count">4</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/现代生物学导论/生命的化学基础/">生命的化学基础</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/现代生物学导论/绪论/">绪论</a><span class="sidebar-module-list-count">3</span></li></ul></li></ul>
+    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/AI/">AI</a><span class="sidebar-module-list-count">1</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/AI/Data-Mining/">Data Mining</a><span class="sidebar-module-list-count">1</span></li></ul></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Big-Data/">Big Data</a><span class="sidebar-module-list-count">5</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Big-Data/Big-Data-System/">Big Data System</a><span class="sidebar-module-list-count">5</span></li></ul></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Dairy/">Dairy</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/English/">English</a><span class="sidebar-module-list-count">1</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/English/Tips/">Tips</a><span class="sidebar-module-list-count">1</span></li></ul></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Languages/">Languages</a><span class="sidebar-module-list-count">1</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Languages/Python/">Python</a><span class="sidebar-module-list-count">1</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Languages/Python/Numpy/">Numpy</a><span class="sidebar-module-list-count">1</span></li></ul></li></ul></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Linux/">Linux</a><span class="sidebar-module-list-count">5</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Linux/Linux-Basic/">Linux Basic</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Linux/Ubuntu/">Ubuntu</a><span class="sidebar-module-list-count">2</span></li></ul></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Machine-Learning/">Machine Learning</a><span class="sidebar-module-list-count">10</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Machine-Learning/Algorithms/">Algorithms</a><span class="sidebar-module-list-count">2</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Machine-Learning/Algorithms/KNN/">KNN</a><span class="sidebar-module-list-count">2</span></li></ul></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Machine-Learning/TensorFlow/">TensorFlow</a><span class="sidebar-module-list-count">8</span></li></ul></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Math/">Math</a><span class="sidebar-module-list-count">1</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Math/MathJax/">MathJax</a><span class="sidebar-module-list-count">1</span></li></ul></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Projects/">Projects</a><span class="sidebar-module-list-count">19</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Projects/hexo-theme-bootstrap-blog/">hexo-theme-bootstrap-blog</a><span class="sidebar-module-list-count">19</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Projects/hexo-theme-bootstrap-blog/Tutorial/">Tutorial</a><span class="sidebar-module-list-count">19</span></li></ul></li></ul></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/现代生物学导论/">现代生物学导论</a><span class="sidebar-module-list-count">4</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/现代生物学导论/生命的化学基础/">生命的化学基础</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/现代生物学导论/绪论/">绪论</a><span class="sidebar-module-list-count">3</span></li></ul></li></ul>
   </div>
 
 
@@ -778,7 +783,7 @@ MathJax.Hub.Queue(function() {
   
   <div class="sidebar-module">
     <h4>Archives</h4>
-    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2018/09/">九月 2018</a><span class="sidebar-module-list-count">16</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2018/08/">八月 2018</a><span class="sidebar-module-list-count">30</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2013/12/">十二月 2013</a><span class="sidebar-module-list-count">1</span></li></ul>
+    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2018/09/">九月 2018</a><span class="sidebar-module-list-count">17</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2018/08/">八月 2018</a><span class="sidebar-module-list-count">30</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2013/12/">十二月 2013</a><span class="sidebar-module-list-count">1</span></li></ul>
   </div>
 
 
