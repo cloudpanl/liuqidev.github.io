@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.blankspace.cn/"/>
-  <updated>2018-09-19T03:09:21.388Z</updated>
+  <updated>2018-09-19T03:17:34.274Z</updated>
   <id>https://www.blankspace.cn/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>experiment-design-ch01</title>
+    <title>实验设计的误差分析</title>
     <link href="https://www.blankspace.cn/2018/09/19/experiment-design-ch01/"/>
     <id>https://www.blankspace.cn/2018/09/19/experiment-design-ch01/</id>
     <published>2018-09-19T01:24:18.000Z</published>
-    <updated>2018-09-19T03:09:21.388Z</updated>
+    <updated>2018-09-19T03:17:34.274Z</updated>
     
     <content type="html"><![CDATA[<h2 id="真值和误差"><a href="#真值和误差" class="headerlink" title="真值和误差"></a>真值和误差</h2><h3 id="真值（True-Value）"><a href="#真值（True-Value）" class="headerlink" title="真值（True Value）"></a>真值（True Value）</h3><p>真值，在某一时刻和某一状态下，某量的客观真实值。真值一般是未知的，相对的意义上真值是已知的。</p><h3 id="误差（Error）"><a href="#误差（Error）" class="headerlink" title="误差（Error）"></a>误差（Error）</h3><p>误差，是试验中获得的试验值和它的<strong>客观真实值</strong>在数值上的不一致。<em>试验结果都有误差，误差自始至终存在于一切科学实验过程中</em></p><h3 id="绝对误差（Absolute-Error）"><a href="#绝对误差（Absolute-Error）" class="headerlink" title="绝对误差（Absolute Error）"></a>绝对误差（Absolute Error）</h3><script type="math/tex; mode=display">\text{绝对误差=试验值-真值}</script><script type="math/tex; mode=display">\Delta x = x-x_t</script><ul><li>真值未知则绝对误差也未知</li><li>$\vert \Delta x \vert = \vert x-x_t \vert \leq \vert \Delta x|_{max} \Rightarrow x_t \approx x\pm \vert\Delta x \vert_{max}, \text{其中}  \vert\Delta x \vert_{max} \text{为绝对误差限或误差上界}$</li><li>绝对误差的估算方法：<ul><li>最小刻度的一半为绝对误差，最小刻度误最大绝对误差</li><li>根据仪表精度等级计算：$\text{绝对误差=量程*精度等级%}$</li></ul></li></ul><h3 id="相对误差"><a href="#相对误差" class="headerlink" title="相对误差"></a>相对误差</h3><p>相对误差定义：</p><script type="math/tex; mode=display">E_R=\frac{\Delta x}{x_t}</script><p>若真值未知，通常将绝对误差（$\Delta x$）与试验值（$x$）或平均值之比作为相对误差（的近似替代）：</p><script type="math/tex; mode=display">E_R\approx \frac{\Delta x}{x} \quad\text{或} \quad E_R\approx \frac{\Delta x}{\overline{x}}</script><h3 id="算数平均差异（Average-Discrepancy）"><a href="#算数平均差异（Average-Discrepancy）" class="headerlink" title="算数平均差异（Average Discrepancy）"></a>算数平均差异（Average Discrepancy）</h3><p>算数平均差异可以用来反应一组实验数据的误差大小。</p><script type="math/tex; mode=display">\Delta = \frac{\sum_{i=1}^{n} \vert x_i - \overline{x} \vert}{n}=\frac{\sum_{i=1}^{n}\vert d_i \vert}{n}</script><p>其中$d_i$表示试验值$x_i$与试验值的算数平均值$\overline{x}$的偏差。</p><h3 id="平均值（Mean）"><a href="#平均值（Mean）" class="headerlink" title="平均值（Mean）"></a>平均值（Mean）</h3><h3 id="算数平均值（Arithmetic-Mean）"><a href="#算数平均值（Arithmetic-Mean）" class="headerlink" title="算数平均值（Arithmetic Mean）"></a>算数平均值（Arithmetic Mean）</h3><script type="math/tex; mode=display">\overline{x}=(x_1+x_2+...+x_n)/n=\frac{\sum_{i=1}^{n}x_i}n</script><p>适合：</p><ul><li>等精度试验值</li><li>试验值服从正态分布</li></ul><h3 id="加权平均值（Weighted-Mean）"><a href="#加权平均值（Weighted-Mean）" class="headerlink" title="加权平均值（Weighted Mean）"></a>加权平均值（Weighted Mean）</h3><script type="math/tex; mode=display">\mathcal{\overline{x_W}=\frac{w_1x_1+w_2x_2+...+w_nx_n}{w1+w_2+...+w_n}=\frac{\sum_{i=1}^{n}w_ix_i}{\sum_{i=1}^{n}w_i}}</script><p>其中$w_i$表示权重。</p><p>适合：</p><ul><li>不同试验值的精度或可靠性不一致时，如GPA的计算</li></ul><h3 id="对数平均值（Logarithmic-Mean）"><a href="#对数平均值（Logarithmic-Mean）" class="headerlink" title="对数平均值（Logarithmic Mean）"></a>对数平均值（Logarithmic Mean）</h3><script type="math/tex; mode=display">\overline{x_L}=\frac{x_1-x_2}{\ln{x_1}-\ln{x_2}}=\frac{x_1-x_2}{\ln{\frac{x_1}{x_2}}}=\frac{x_2-x_1}{\ln{\frac{x_2}{x_1}}}</script><p>其中$x_1, x_2\gt0$。</p><p><strong>注意</strong>：</p><ul><li>若数据的分布具有对数特性，宜使用对数平均值</li><li>对数平均值$\leq$算数平均值</li><li>若$1/2\leq x_1 \leq 2$时，可用算数平均值替代对数平均值</li></ul><h3 id="几何平均值"><a href="#几何平均值" class="headerlink" title="几何平均值"></a>几何平均值</h3><script type="math/tex; mode=display">\overline{x_G}=\sqrt[n]{x_1x_2\cdots x_n}=(x_1x_2\cdots x_n)^{1/n}</script><p><strong>注意</strong>：</p><ul><li>几何平均值$\leq$算数平均值</li><li>当一组试验值取对数后所得数据的分布曲线更加对称时，宜采用几何平均值</li></ul><h3 id="调和平均值（Harmonic-Mean）"><a href="#调和平均值（Harmonic-Mean）" class="headerlink" title="调和平均值（Harmonic Mean）"></a>调和平均值（Harmonic Mean）</h3><p>假设有$n$个正试验值：$x_1, x_2, \dots ,x_n$则：</p><script type="math/tex; mode=display">\frac{1}{H}=\frac{\frac{1}{x_1}+\frac{1}{x_2}+\dots+\frac{1}{x_n}}{n}=\frac{\sum_{i=1}^{n}\frac{1}{x_i}}n</script><p>试验值倒数的算数平均值的倒数是调和平均值。</p><p><strong>注意</strong>：</p><ul><li>常用在涉及到一些量的倒数相关的场合</li><li>$\mathrm{H\leq \overline{x_G} \leq \overline{x}}$</li></ul><h2 id="误差分析（Error-Analysis）"><a href="#误差分析（Error-Analysis）" class="headerlink" title="误差分析（Error Analysis）"></a>误差分析（Error Analysis）</h2><p>目的：对原始数据的可靠性进行客观地评定。</p><h3 id="卡方检验-（-mathbf-chi-2-Test）"><a href="#卡方检验-（-mathbf-chi-2-Test）" class="headerlink" title="卡方检验 （$\mathbf{\chi^{2} }$-Test）"></a>卡方检验 （$\mathbf{\chi^{2} }$-Test）</h3><h3 id="F检验"><a href="#F检验" class="headerlink" title="F检验"></a>F检验</h3><a id="more"></a><h3 id="单尾检验和双尾检验"><a href="#单尾检验和双尾检验" class="headerlink" title="单尾检验和双尾检验"></a>单尾检验和双尾检验</h3>]]></content>
     
@@ -163,9 +163,9 @@ E_R\approx \frac{\Delta x}{x} \quad\text{或} \quad E_R\approx \frac{\Delta x}{\
     <link href="https://www.blankspace.cn/2018/09/17/linux-shiyan2/"/>
     <id>https://www.blankspace.cn/2018/09/17/linux-shiyan2/</id>
     <published>2018-09-17T02:54:24.000Z</published>
-    <updated>2018-09-17T14:17:44.500Z</updated>
+    <updated>2018-09-19T03:17:21.092Z</updated>
     
-    <content type="html"><![CDATA[<p>Unix/Linux本身没有图形界面，我们看到的是运行在其上的一套软件，类似于Windows95前运行在DOS之上的图形界面。</p><h2 id="Linux桌面环境"><a href="#Linux桌面环境" class="headerlink" title="Linux桌面环境"></a>Linux桌面环境</h2><p><img src="/2018/09/17/linux-shiyan2/Unix_Linux内核的x window图形架构.jpg" alt="Unix_Linux内核的x window图形架构:xorg实现了X协议规范提供图像系统服务。而目前的Windows图形环境是直接建立在Windows系统内核上的和Unix/Linux不同"></p><h2 id="Linux终端"><a href="#Linux终端" class="headerlink" title="Linux终端"></a>Linux终端</h2><p>终端（Terminal）本质对应着Linux上的<code>/dev/tty</code>设备，Linux多用户登录就是通过其完成的。</p><p>Linux提供了6个纯命令行界面的“terminal”（准确说是6个<code>virtual console</code>）来让用户登录。可以使用<code>Ctrl+Alt+F1~F6</code>进行切换。按下<code>Ctrl+Alt+F7</code>返回图形界面。</p><h3 id="Shell"><a href="#Shell" class="headerlink" title="Shell"></a>Shell</h3><p>在图形界面中通常使用的不是上面所说的6个终端而是各种终端模拟器，就是Shell（壳）。壳里面包裹的就是核（Kernel），核就是Unix/Linux内核。Shell是指“提供给使用者使用界面”的命令解析器，类似于DOS下的命令行和后来的cmd.exe，其隐藏了操作系统底层的细节。</p><p>Unix/Linux中比较流行的Shell有bash、zsh、ksh等。Ubuntu终端默认的是bash，默认桌面环境是GNOME或者Unity（基于GNOME）。</p><h2 id="命令行操作"><a href="#命令行操作" class="headerlink" title="命令行操作"></a>命令行操作</h2><h3 id="过程"><a href="#过程" class="headerlink" title="过程"></a>过程</h3><ul><li>输入</li><li>输出</li></ul><p><img src="/2018/09/17/linux-shiyan2/pwd-touch.gif" alt=""></p><p>例子中涉及：</p><ul><li><code>pwd</code>：当前路径</li><li><code>touch</code>：新建文件</li></ul><h3 id="重要快捷键"><a href="#重要快捷键" class="headerlink" title="重要快捷键"></a>重要快捷键</h3><div class="bs-callout bs-callout-info"><p><i class="fa fa-info-circle"></i> </p><p><code>Tap</code>：自动补齐</p><p><code>Ctrl+c</code>：强制终止当前程序</p><p><code>Ctrl+d</code>：键盘输入结束或者退出终端</p><p><code>Ctrl+s</code>：暂停当前程序，暂停后按下任意键恢复运行</p><p><code>Ctrl+z</code>：后台运行当前程序，恢复到前台使用<code>fg</code></p><p><code>Ctrl+a</code>：光标移动到行头</p><p><code>Ctrl+k</code>：删除光标位置到行末的内容</p><p><code>Alt+Backspace</code>：删除前面一个单词</p><p><code>Shift+PgUp</code>：将终端向上滚动</p><p><code>Shift+PgDn</code>：将终端向下滚动</p></div><p><img src="/2018/09/17/linux-shiyan2/shell-shortcuts-1.gif" alt="Shell常用快捷键"></p><h3 id="输入历史"><a href="#输入历史" class="headerlink" title="输入历史"></a>输入历史</h3><ul><li><code>↑</code>：恢复之前输入</li></ul><h3 id="使用通配符"><a href="#使用通配符" class="headerlink" title="使用通配符"></a>使用通配符</h3><p><img src="/2018/09/17/linux-shiyan2/shell-通配符-1.gif" alt="使用通配符来匹配字符串"></p><a id="more"></a><div class="table-container"><table><thead><tr><th>字符</th><th>含义</th></tr></thead><tbody><tr><td><code>*</code></td><td>匹配0个或者多个任意字符</td></tr><tr><td><code>?</code></td><td>匹配任意一个字符</td></tr><tr><td><code>[list]</code></td><td>匹配list中的任意单一字符</td></tr><tr><td><code>[^list]</code></td><td>匹配除了list中任意单一字符外的字符</td></tr><tr><td><code>[c1-c2]</code></td><td>匹配从c1到c2中的任意单一字符，例如：<code>[0-9]</code>、<code>[a-z]</code></td></tr><tr><td><code>{str1, str2...}</code></td><td>匹配字符串数组中的一个或者更多字符串<br><em>注：实验失败，暂时无法通配。</em></td></tr><tr><td><code>{c1..c2}</code></td><td>匹配从c1到c2中全部字符，例如：{1..10}</td></tr></tbody></table></div><p><img src="/2018/09/17/linux-shiyan2/shell-通配符-2.gif" alt="使用通配符来匹配字符串"></p><h3 id="获取帮助"><a href="#获取帮助" class="headerlink" title="获取帮助"></a>获取帮助</h3><ul><li><p><code>man &lt;command_name&gt;</code>：获取帮助，其中<code>man</code>代表<code>manual pages</code></p><ul><li>man手册分区，使用如<code>man 1 ls</code>：<ul><li>1一般命令</li><li>2系统调用</li><li>3库函数，涵盖了C标准函数库</li><li>4特殊文件（通常是/dev中的设备）和驱动程序</li><li>5文件格式和约定</li><li>6游戏和屏保</li><li>7杂项</li></ul></li><li>查找：<code>/&lt;要查找的内容&gt;</code><ul><li><code>n</code>：下一个</li><li><code>shift+n</code>：上一个</li><li><code>Space(空格键)</code>：翻页</li><li><code>Enter</code>：向下滚动一行</li></ul></li></ul></li><li><p><code>&lt;command_name&gt; --help</code>：查找具体参数和作用</p></li></ul><p><img src="/2018/09/17/linux-shiyan2/shell-帮助.gif" alt="获取帮助：man命令还有--help方式"></p><h2 id="有趣的Linux命令"><a href="#有趣的Linux命令" class="headerlink" title="有趣的Linux命令"></a>有趣的Linux命令</h2><video width="600px" max-width="600px" controls>  <source src="/2018/09/17/linux-shiyan2/homework.mp4" type="video/mp4">Your browser does not support the video tag.</video>]]></content>
+    <content type="html"><![CDATA[<p>Unix/Linux本身没有图形界面，我们看到的是运行在其上的一套软件，类似于Windows95前运行在DOS之上的图形界面。</p><h2 id="Linux桌面环境"><a href="#Linux桌面环境" class="headerlink" title="Linux桌面环境"></a>Linux桌面环境</h2><p><img src="/2018/09/17/linux-shiyan2/Unix_Linux内核的x window图形架构.jpg" alt="Unix_Linux内核的x window图形架构:xorg实现了X协议规范提供图像系统服务。而目前的Windows图形环境是直接建立在Windows系统内核上的和Unix/Linux不同"></p><h2 id="Linux终端"><a href="#Linux终端" class="headerlink" title="Linux终端"></a>Linux终端</h2><p>终端（Terminal）本质对应着Linux上的<code>/dev/tty</code>设备，Linux多用户登录就是通过其完成的。</p><p>Linux提供了6个纯命令行界面的“terminal”（准确说是6个<code>virtual console</code>）来让用户登录。可以使用<code>Ctrl+Alt+F1~F6</code>进行切换。按下<code>Ctrl+Alt+F7</code>返回图形界面。</p><h3 id="Shell"><a href="#Shell" class="headerlink" title="Shell"></a>Shell</h3><p>在图形界面中通常使用的不是上面所说的6个终端而是各种终端模拟器，就是Shell（壳）。壳里面包裹的就是核（Kernel），核就是Unix/Linux内核。Shell是指“提供给使用者使用界面”的命令解析器，类似于DOS下的命令行和后来的cmd.exe，其隐藏了操作系统底层的细节。</p><p>Unix/Linux中比较流行的Shell有bash、zsh、ksh等。Ubuntu终端默认的是bash，默认桌面环境是GNOME或者Unity（基于GNOME）。</p><h2 id="命令行操作"><a href="#命令行操作" class="headerlink" title="命令行操作"></a>命令行操作</h2><h3 id="过程"><a href="#过程" class="headerlink" title="过程"></a>过程</h3><ul><li>输入</li><li>输出</li></ul><p><img src="/2018/09/17/linux-shiyan2/pwd-touch.gif" alt=""></p><p>例子中涉及：</p><ul><li><code>pwd</code>：当前路径</li><li><code>touch</code>：新建文件</li></ul><h3 id="重要快捷键"><a href="#重要快捷键" class="headerlink" title="重要快捷键"></a>重要快捷键</h3><div class="bs-callout bs-callout-info"><p><i class="fa fa-info-circle"></i> </p><p><code>Tap</code>：自动补齐</p><p><code>Ctrl+c</code>：强制终止当前程序</p><p><code>Ctrl+d</code>：键盘输入结束或者退出终端</p><p><code>Ctrl+s</code>：暂停当前程序，暂停后按下任意键恢复运行</p><p><code>Ctrl+z</code>：后台运行当前程序，恢复到前台使用<code>fg</code></p><p><code>Ctrl+a</code>：光标移动到行头</p><p><code>Ctrl+k</code>：删除光标位置到行末的内容</p><p><code>Alt+Backspace</code>：删除前面一个单词</p><p><code>Shift+PgUp</code>：将终端向上滚动</p><p><code>Shift+PgDn</code>：将终端向下滚动</p></div><p><img src="/2018/09/17/linux-shiyan2/shell-shortcuts-1.gif" alt="Shell常用快捷键"></p><h3 id="输入历史"><a href="#输入历史" class="headerlink" title="输入历史"></a>输入历史</h3><ul><li><code>↑</code>：恢复之前输入</li></ul><h3 id="使用通配符"><a href="#使用通配符" class="headerlink" title="使用通配符"></a>使用通配符</h3><div class="table-container"><table><thead><tr><th>字符</th><th>含义</th></tr></thead><tbody><tr><td><code>*</code></td><td>匹配0个或者多个任意字符</td></tr><tr><td><code>?</code></td><td>匹配任意一个字符</td></tr><tr><td><code>[list]</code></td><td>匹配list中的任意单一字符</td></tr><tr><td><code>[^list]</code></td><td>匹配除了list中任意单一字符外的字符</td></tr><tr><td><code>[c1-c2]</code></td><td>匹配从c1到c2中的任意单一字符，例如：<code>[0-9]</code>、<code>[a-z]</code></td></tr><tr><td><code>{str1, str2...}</code></td><td>匹配字符串数组中的一个或者更多字符串<br><em>注：实验失败，暂时无法通配。</em></td></tr><tr><td><code>{c1..c2}</code></td><td>匹配从c1到c2中全部字符，例如：{1..10}</td></tr></tbody></table></div><p><img src="/2018/09/17/linux-shiyan2/shell-通配符-2.gif" alt="使用通配符来匹配字符串"></p><a id="more"></a><h3 id="获取帮助"><a href="#获取帮助" class="headerlink" title="获取帮助"></a>获取帮助</h3><ul><li><p><code>man &lt;command_name&gt;</code>：获取帮助，其中<code>man</code>代表<code>manual pages</code></p><ul><li>man手册分区，使用如<code>man 1 ls</code>：<ul><li>1一般命令</li><li>2系统调用</li><li>3库函数，涵盖了C标准函数库</li><li>4特殊文件（通常是/dev中的设备）和驱动程序</li><li>5文件格式和约定</li><li>6游戏和屏保</li><li>7杂项</li></ul></li><li>查找：<code>/&lt;要查找的内容&gt;</code><ul><li><code>n</code>：下一个</li><li><code>shift+n</code>：上一个</li><li><code>Space(空格键)</code>：翻页</li><li><code>Enter</code>：向下滚动一行</li></ul></li></ul></li><li><p><code>&lt;command_name&gt; --help</code>：查找具体参数和作用</p></li></ul><p><img src="/2018/09/17/linux-shiyan2/shell-帮助.gif" alt="获取帮助：man命令还有--help方式"></p><h2 id="有趣的Linux命令"><a href="#有趣的Linux命令" class="headerlink" title="有趣的Linux命令"></a>有趣的Linux命令</h2><video width="600px" max-width="600px" controls>  <source src="/2018/09/17/linux-shiyan2/homework.mp4" type="video/mp4">Your browser does not support the video tag.</video>]]></content>
     
     <summary type="html">
     
@@ -201,7 +201,47 @@ E_R\approx \frac{\Delta x}{x} \quad\text{或} \quad E_R\approx \frac{\Delta x}{\
 &lt;h3 id=&quot;输入历史&quot;&gt;&lt;a href=&quot;#输入历史&quot; class=&quot;headerlink&quot; title=&quot;输入历史&quot;&gt;&lt;/a&gt;输入历史&lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;&lt;code&gt;↑&lt;/code&gt;：恢复之前输入&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&quot;使用通配符&quot;&gt;&lt;a href=&quot;#使用通配符&quot; class=&quot;headerlink&quot; title=&quot;使用通配符&quot;&gt;&lt;/a&gt;使用通配符&lt;/h3&gt;&lt;p&gt;&lt;img src=&quot;/2018/09/17/linux-shiyan2/shell-通配符-1.gif&quot; alt=&quot;使用通配符来匹配字符串&quot;&gt;&lt;/p&gt;
+&lt;h3 id=&quot;使用通配符&quot;&gt;&lt;a href=&quot;#使用通配符&quot; class=&quot;headerlink&quot; title=&quot;使用通配符&quot;&gt;&lt;/a&gt;使用通配符&lt;/h3&gt;&lt;div class=&quot;table-container&quot;&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;字符&lt;/th&gt;
+&lt;th&gt;含义&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;*&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;匹配0个或者多个任意字符&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;?&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;匹配任意一个字符&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;[list]&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;匹配list中的任意单一字符&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;[^list]&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;匹配除了list中任意单一字符外的字符&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;[c1-c2]&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;匹配从c1到c2中的任意单一字符，例如：&lt;code&gt;[0-9]&lt;/code&gt;、&lt;code&gt;[a-z]&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;{str1, str2...}&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;匹配字符串数组中的一个或者更多字符串&lt;br&gt;&lt;em&gt;注：实验失败，暂时无法通配。&lt;/em&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;{c1..c2}&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;匹配从c1到c2中全部字符，例如：{1..10}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;img src=&quot;/2018/09/17/linux-shiyan2/shell-通配符-2.gif&quot; alt=&quot;使用通配符来匹配字符串&quot;&gt;&lt;/p&gt;
     
     </summary>
     
@@ -428,7 +468,7 @@ E_R\approx \frac{\Delta x}{x} \quad\text{或} \quad E_R\approx \frac{\Delta x}{\
     <link href="https://www.blankspace.cn/2018/09/16/biology-ch2-s1/"/>
     <id>https://www.blankspace.cn/2018/09/16/biology-ch2-s1/</id>
     <published>2018-09-16T01:19:48.000Z</published>
-    <updated>2018-09-16T08:29:39.464Z</updated>
+    <updated>2018-09-19T03:18:20.309Z</updated>
     
     <content type="html"><![CDATA[<p>生命的性质是由其化学性质决定的。</p><h2 id="知识点总结"><a href="#知识点总结" class="headerlink" title="知识点总结"></a>知识点总结</h2><ul><li>元素</li><li>原子</li><li>分子</li><li><p>化学键</p><ul><li><p>共价键</p><ul><li>极性共价键</li><li>非极性共价键</li></ul></li><li><p>离子键</p></li></ul></li><li>八电子规则</li><li>电负性</li><li>氢键</li><li>弱化学键</li><li>化学反应</li></ul><h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><ul><li>元素：只有一种原子组成，使用一般的化学方法不能是指分解，并且能够构成一切物质。人体中，O, C, H,N 占了绝大部分；除此之外还有很多痕量元素。</li><li>化合物：由两种或者以上元素以一定的摩尔比通过化学键的结合在一起的化学物质</li><li>原子：一种元素能够保持其化学性质最小的单位。</li><li>分子：由一个或者多个原子组成，原子间通过共价键结合而成的整体。</li></ul><p><img src="/2018/09/16/biology-ch2-s1/物质分类.png" alt=""></p><h2 id="原子结构"><a href="#原子结构" class="headerlink" title="原子结构"></a>原子结构</h2><p>次原子粒子：质子，中子，电子</p><p>原子参与物质组成和化学反应是由其最外层电子所决定的。</p><p><img src="/2018/09/16/biology-ch2-s1/原子组成.png" alt="原子组成与电子的能量吸收和释放"></p><a id="more"></a><h2 id="化学键"><a href="#化学键" class="headerlink" title="化学键"></a>化学键</h2><p>化学键是<strong>原子或者分子之间的吸引力</strong></p><h3 id="共价键"><a href="#共价键" class="headerlink" title="共价键"></a>共价键</h3><p>两个或者多个非金属原子共同使用它们的外层电子，在理想情况下达到<code>电子饱和</code>的状态，由此形成比较稳定的化学结构。</p><ol><li><p>极性共价键</p><p>共享电子不均衡。如：水。</p></li><li><p>非极性共价键</p><p>共享电子均衡。如：甲烷。</p></li></ol><p><img src="/2018/09/16/biology-ch2-s1/极性和非极性共价键" alt="极性和非极性共价键"></p><h3 id="离子键"><a href="#离子键" class="headerlink" title="离子键"></a>离子键</h3><p>在原子间转移电子，通过两个或者多个原子或化学集团市区或获得电子而形成离子后形成的。</p><p><img src="/2018/09/16/biology-ch2-s1/离子键.png" alt="离子键"></p><h3 id="八电子规则"><a href="#八电子规则" class="headerlink" title="八电子规则"></a>八电子规则</h3><ul><li>原子间组合趋向各价层都拥有8个电子</li><li>形成离子分子的组成原子最外层电子层都有8个电子——趋向稳定</li><li>当不满足8个电子——原子间会相互共享或交换电子来达到平衡状态</li></ul><h3 id="如何区分极性、非极性共价键和离子键"><a href="#如何区分极性、非极性共价键和离子键" class="headerlink" title="如何区分极性、非极性共价键和离子键"></a>如何区分极性、非极性共价键和离子键</h3><ul><li><p>电负性：</p><p>元素原子在分子中对成键电子的吸引能力.</p></li></ul><p><img src="/2018/09/16/biology-ch2-s1/电负性.png" alt="电负性差来区分极性键、非极性键和离子键"></p><p>举例：甲烷$\mathbf{CH_4}$：2.55-2.2=0.35<0.5，非极性共价键；水$\mathbf{h_2o}$：3.44-2.20=1.24<1.7&&>0.5，极性共价键。</0.5，非极性共价键；水$\mathbf{h_2o}$：3.44-2.20=1.24<1.7&&></p><p><img src="/2018/09/16/biology-ch2-s1/电负性表.jpg" alt="电负性表(Electronegativity table)"></p><h3 id="氢键"><a href="#氢键" class="headerlink" title="氢键"></a>氢键</h3><ul><li>一种分子间的吸引力，发生在已经以共价键与其他原子结合的氢原子与另一个原子之间</li></ul><p><img src="/2018/09/16/biology-ch2-s1/氢键和水的氢键.png" alt="氢键和水的氢键"></p><h2 id="生物学上的弱化学键"><a href="#生物学上的弱化学键" class="headerlink" title="生物学上的弱化学键"></a>生物学上的弱化学键</h2><ul><li>氢键</li><li>范德华力</li><li>离子键</li><li>疏水作用</li></ul><h3 id="弱化学键在生物学上的意义"><a href="#弱化学键在生物学上的意义" class="headerlink" title="弱化学键在生物学上的意义"></a>弱化学键在生物学上的意义</h3><ul><li>维持生物大分子的高级结构，如DNA双螺旋，蛋白质的二级以上结构</li><li>便于生物过程的发生，如DNA的复制</li></ul><h2 id="化学反应"><a href="#化学反应" class="headerlink" title="化学反应"></a>化学反应</h2><p>化学反应是化学键的生成和断裂，导致物质的组成发生变化。</p><p><img src="/2018/09/16/biology-ch2-s1/化学反应和化学键.png" alt="化学反应和化学键(以H2和O2生成H20为例)"></p>]]></content>
     
@@ -470,9 +510,11 @@ E_R\approx \frac{\Delta x}{x} \quad\text{或} \quad E_R\approx \frac{\Delta x}{\
     
     </summary>
     
-      <category term="现代生物学导论" scheme="https://www.blankspace.cn/categories/%E7%8E%B0%E4%BB%A3%E7%94%9F%E7%89%A9%E5%AD%A6%E5%AF%BC%E8%AE%BA/"/>
+      <category term="Biology" scheme="https://www.blankspace.cn/categories/Biology/"/>
     
-      <category term="生命的化学基础" scheme="https://www.blankspace.cn/categories/%E7%8E%B0%E4%BB%A3%E7%94%9F%E7%89%A9%E5%AD%A6%E5%AF%BC%E8%AE%BA/%E7%94%9F%E5%91%BD%E7%9A%84%E5%8C%96%E5%AD%A6%E5%9F%BA%E7%A1%80/"/>
+      <category term="现代生物学导论" scheme="https://www.blankspace.cn/categories/Biology/%E7%8E%B0%E4%BB%A3%E7%94%9F%E7%89%A9%E5%AD%A6%E5%AF%BC%E8%AE%BA/"/>
+    
+      <category term="生命的化学基础" scheme="https://www.blankspace.cn/categories/Biology/%E7%8E%B0%E4%BB%A3%E7%94%9F%E7%89%A9%E5%AD%A6%E5%AF%BC%E8%AE%BA/%E7%94%9F%E5%91%BD%E7%9A%84%E5%8C%96%E5%AD%A6%E5%9F%BA%E7%A1%80/"/>
     
     
       <category term="Chemical bond" scheme="https://www.blankspace.cn/tags/Chemical-bond/"/>
@@ -486,7 +528,7 @@ E_R\approx \frac{\Delta x}{x} \quad\text{或} \quad E_R\approx \frac{\Delta x}{\
     <link href="https://www.blankspace.cn/2018/09/16/biology-ch1-s3/"/>
     <id>https://www.blankspace.cn/2018/09/16/biology-ch1-s3/</id>
     <published>2018-09-16T00:33:54.000Z</published>
-    <updated>2018-09-16T01:18:28.371Z</updated>
+    <updated>2018-09-19T03:18:10.766Z</updated>
     
     <content type="html"><![CDATA[<p>科学家通过反复实验得出结论，通常会选择发表自己的文章。</p><p>发表文章前，同行评议。目的：正确地认识科学研究的方法，确保作者的著作水平，筛选稿件录用与否。</p><p><img src="/2018/09/16/biology-ch1-s3/peerreview.jpg" alt="同行评议"></p><h2 id="正确评价科学研究的方法"><a href="#正确评价科学研究的方法" class="headerlink" title="正确评价科学研究的方法"></a>正确评价科学研究的方法</h2><ul><li><p>没有科学的实验</p></li><li><p>商业利益驱使科学报道</p></li><li>安慰剂效应<ul><li>双盲实验</li><li>对照组实验组</li></ul></li></ul><p><strong>科学在不断的实验、证实和被证实的过程中发展</strong></p><ul><li>负面：前脑叶白质切除术：1949诺贝尔生理学奖，副总用大，现在弃用</li><li>正面：孟德尔VS混合式遗传</li></ul>]]></content>
     
@@ -501,9 +543,11 @@ E_R\approx \frac{\Delta x}{x} \quad\text{或} \quad E_R\approx \frac{\Delta x}{\
     
     </summary>
     
-      <category term="现代生物学导论" scheme="https://www.blankspace.cn/categories/%E7%8E%B0%E4%BB%A3%E7%94%9F%E7%89%A9%E5%AD%A6%E5%AF%BC%E8%AE%BA/"/>
+      <category term="Biology" scheme="https://www.blankspace.cn/categories/Biology/"/>
     
-      <category term="绪论" scheme="https://www.blankspace.cn/categories/%E7%8E%B0%E4%BB%A3%E7%94%9F%E7%89%A9%E5%AD%A6%E5%AF%BC%E8%AE%BA/%E7%BB%AA%E8%AE%BA/"/>
+      <category term="现代生物学导论" scheme="https://www.blankspace.cn/categories/Biology/%E7%8E%B0%E4%BB%A3%E7%94%9F%E7%89%A9%E5%AD%A6%E5%AF%BC%E8%AE%BA/"/>
+    
+      <category term="绪论" scheme="https://www.blankspace.cn/categories/Biology/%E7%8E%B0%E4%BB%A3%E7%94%9F%E7%89%A9%E5%AD%A6%E5%AF%BC%E8%AE%BA/%E7%BB%AA%E8%AE%BA/"/>
     
     
       <category term="Biology" scheme="https://www.blankspace.cn/tags/Biology/"/>
@@ -517,7 +561,7 @@ E_R\approx \frac{\Delta x}{x} \quad\text{或} \quad E_R\approx \frac{\Delta x}{\
     <link href="https://www.blankspace.cn/2018/09/16/biology-ch1-s2/"/>
     <id>https://www.blankspace.cn/2018/09/16/biology-ch1-s2/</id>
     <published>2018-09-16T00:00:48.000Z</published>
-    <updated>2018-09-16T00:35:15.899Z</updated>
+    <updated>2018-09-19T03:18:06.597Z</updated>
     
     <content type="html"><![CDATA[<p>科学方法是科学家为了积累了解世界所需要的知识，而采取的一些列步骤。</p><h2 id="科学方法的步骤"><a href="#科学方法的步骤" class="headerlink" title="科学方法的步骤"></a>科学方法的步骤</h2><ol><li>提出问题</li><li>建立假说</li><li>实验操作</li><li>观察</li><li>数据分析</li><li>提出结论</li></ol><p><strong>注意</strong></p><p>真正的过程并非严格按照上述过程进行，而经常出现迭代循环。</p><h2 id="实验设计时主要的3点"><a href="#实验设计时主要的3点" class="headerlink" title="实验设计时主要的3点"></a>实验设计时主要的3点</h2><ul><li>必须能够驳斥假说或者证实假说，一个单独实验无法证实或者驳斥假说</li><li>实验结果必须客观且可测量，例如使用标准一起和标准单位来测量。</li><li>实验必须能被其他科学家重复，使用同样的操作规程重复出同样的实验结果。</li></ul><h2 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h2><p>变量是实验中可变的因素。变化的因素和因素变化带来的影响在实验中都被成为变量。</p><p>分为，自变量和因变量。</p><p>实验设计中还有一种是受控变量，就是实验中条件都保持一致的量。</p><h2 id="对照实验"><a href="#对照实验" class="headerlink" title="对照实验"></a>对照实验</h2><p>在实验中设置比较对象的一种科学方法。</p><p>目的是，与实验组进行对比和减少实验中不确定变数带来的影响。</p><h2 id="模式生物"><a href="#模式生物" class="headerlink" title="模式生物"></a>模式生物</h2><p>收到广泛研究，对其生物现象有深入了解的物种。</p><p>例如：大肠杆菌、噬菌体、果蝇、线虫、海胆、拟南芥、斑马鱼、小鼠等。</p><p><img src="/2018/09/16/biology-ch1-s2/模式生物.png" alt=""></p>]]></content>
     
@@ -532,9 +576,11 @@ E_R\approx \frac{\Delta x}{x} \quad\text{或} \quad E_R\approx \frac{\Delta x}{\
     
     </summary>
     
-      <category term="现代生物学导论" scheme="https://www.blankspace.cn/categories/%E7%8E%B0%E4%BB%A3%E7%94%9F%E7%89%A9%E5%AD%A6%E5%AF%BC%E8%AE%BA/"/>
+      <category term="Biology" scheme="https://www.blankspace.cn/categories/Biology/"/>
     
-      <category term="绪论" scheme="https://www.blankspace.cn/categories/%E7%8E%B0%E4%BB%A3%E7%94%9F%E7%89%A9%E5%AD%A6%E5%AF%BC%E8%AE%BA/%E7%BB%AA%E8%AE%BA/"/>
+      <category term="现代生物学导论" scheme="https://www.blankspace.cn/categories/Biology/%E7%8E%B0%E4%BB%A3%E7%94%9F%E7%89%A9%E5%AD%A6%E5%AF%BC%E8%AE%BA/"/>
+    
+      <category term="绪论" scheme="https://www.blankspace.cn/categories/Biology/%E7%8E%B0%E4%BB%A3%E7%94%9F%E7%89%A9%E5%AD%A6%E5%AF%BC%E8%AE%BA/%E7%BB%AA%E8%AE%BA/"/>
     
     
       <category term="Biology" scheme="https://www.blankspace.cn/tags/Biology/"/>
@@ -548,7 +594,7 @@ E_R\approx \frac{\Delta x}{x} \quad\text{或} \quad E_R\approx \frac{\Delta x}{\
     <link href="https://www.blankspace.cn/2018/09/15/biology-ch1-s1/"/>
     <id>https://www.blankspace.cn/2018/09/15/biology-ch1-s1/</id>
     <published>2018-09-15T15:18:51.000Z</published>
-    <updated>2018-09-16T00:02:26.852Z</updated>
+    <updated>2018-09-19T03:18:53.440Z</updated>
     
     <content type="html"><![CDATA[<p>今天开始选修清华大学生命科学学院的杨杨（Yang Yang）老师的《现代生物学导论》课程，学习有关生命相关基础知识和原理。</p><h2 id="什么是生命"><a href="#什么是生命" class="headerlink" title="什么是生命"></a>什么是生命</h2><h3 id="生命的特征"><a href="#生命的特征" class="headerlink" title="生命的特征"></a>生命的特征</h3><ul><li>结构组织</li><li>获得&amp;转化能量</li><li>生长、发育和繁殖</li><li>对环境信号进行应答反应</li><li>各种调控</li><li>演化</li><li>…</li></ul><h2 id="生物学五大主题"><a href="#生物学五大主题" class="headerlink" title="生物学五大主题"></a>生物学五大主题</h2><ol><li>生命的逐级组成</li><li>遗传信息的表达和传递</li><li>能量和物质的交换</li><li>生物系统中的各种相互作用</li><li>生物演化</li></ol><h2 id="一-生命的逐级组成"><a href="#一-生命的逐级组成" class="headerlink" title="一.生命的逐级组成"></a>一.生命的逐级组成</h2><ol><li>原子</li><li>分子</li><li>细胞器</li><li>细胞</li><li>组织</li><li>器官</li><li>器官系统</li><li>生物体</li><li>族群</li><li>种群</li><li>生态系统</li><li>生物群系</li><li>生物圈</li></ol><h3 id="1-涌现性质（Emergent-Property）"><a href="#1-涌现性质（Emergent-Property）" class="headerlink" title="1. 涌现性质（Emergent Property）"></a>1. 涌现性质（Emergent Property）</h3><ul><li>生物的逐级组成中，每一层体现出来的特征是前一层所没有的。</li></ul><h3 id="2-结构与功能（Structure-amp-Function）"><a href="#2-结构与功能（Structure-amp-Function）" class="headerlink" title="2.结构与功能（Structure &amp; Function）"></a>2.结构与功能（Structure &amp; Function）</h3><ul><li>结构和功能相关性</li></ul><h2 id="二-遗传信息的表达和传递"><a href="#二-遗传信息的表达和传递" class="headerlink" title="二.遗传信息的表达和传递"></a>二.遗传信息的表达和传递</h2><p><img src="/2018/09/15/biology-ch1-s1/中心法则.png" alt="中心法则"></p><h2 id="三-能量和物质交换"><a href="#三-能量和物质交换" class="headerlink" title="三.能量和物质交换"></a>三.能量和物质交换</h2><p><img src="/2018/09/15/biology-ch1-s1/能量和物质循环.png" alt="能量和物质循环"></p><h2 id="四、生态系统中的相互作用"><a href="#四、生态系统中的相互作用" class="headerlink" title="四、生态系统中的相互作用"></a>四、生态系统中的相互作用</h2><h3 id="1-生物和环境相互作用"><a href="#1-生物和环境相互作用" class="headerlink" title="1.生物和环境相互作用"></a>1.生物和环境相互作用</h3><ul><li>生物和生活环境</li><li>生物间的相互作用<ul><li>互惠</li><li>捕食</li><li>竞争</li></ul></li><li>生物体内部分子间的相互作用</li></ul><p><img src="/2018/09/15/biology-ch1-s1/生物体内分子间相互作用.png" alt="生物体内分子间相互作用"></p><h2 id="五、生命的演化"><a href="#五、生命的演化" class="headerlink" title="五、生命的演化"></a>五、生命的演化</h2><h3 id="自然选择"><a href="#自然选择" class="headerlink" title="自然选择"></a>自然选择</h3><p>核心</p>]]></content>
     
@@ -562,9 +608,11 @@ E_R\approx \frac{\Delta x}{x} \quad\text{或} \quad E_R\approx \frac{\Delta x}{\
     
     </summary>
     
-      <category term="现代生物学导论" scheme="https://www.blankspace.cn/categories/%E7%8E%B0%E4%BB%A3%E7%94%9F%E7%89%A9%E5%AD%A6%E5%AF%BC%E8%AE%BA/"/>
+      <category term="Biology" scheme="https://www.blankspace.cn/categories/Biology/"/>
     
-      <category term="绪论" scheme="https://www.blankspace.cn/categories/%E7%8E%B0%E4%BB%A3%E7%94%9F%E7%89%A9%E5%AD%A6%E5%AF%BC%E8%AE%BA/%E7%BB%AA%E8%AE%BA/"/>
+      <category term="现代生物学导论" scheme="https://www.blankspace.cn/categories/Biology/%E7%8E%B0%E4%BB%A3%E7%94%9F%E7%89%A9%E5%AD%A6%E5%AF%BC%E8%AE%BA/"/>
+    
+      <category term="绪论" scheme="https://www.blankspace.cn/categories/Biology/%E7%8E%B0%E4%BB%A3%E7%94%9F%E7%89%A9%E5%AD%A6%E5%AF%BC%E8%AE%BA/%E7%BB%AA%E8%AE%BA/"/>
     
     
       <category term="Biology" scheme="https://www.blankspace.cn/tags/Biology/"/>
