@@ -9,20 +9,20 @@
 <meta name="keywords" content="Data Mining">
 <meta property="og:type" content="article">
 <meta property="og:title" content="数据挖掘绪论">
-<meta property="og:url" content="https://www.blankspace.cn/2018/09/17/data-mining-ch1-s1/index.html">
+<meta property="og:url" content="https://www.blankspace.cn/2018/09/18/data-mining-ch1-s1/index.html">
 <meta property="og:site_name" content="WizardLQ’s | 魔法师の小茶馆">
 <meta property="og:description" content="这是选修清华大学深圳研究生院袁博老师《数据挖掘》课程资料整理。 DRIP Data Rich Information Poor  学习资源教材 数据挖掘概念和技术 模式分类 Data Mining Beautiful Data  顶级会议数据挖掘顶级会议 软件工具 信息搜索：Google等 数学模拟：Matlab，Weka 3: Data Mining Software in Java等 数据集：">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="https://www.blankspace.cn/2018/09/17/data-mining-ch1-s1/大数据特点3V.png">
-<meta property="og:image" content="https://www.blankspace.cn/2018/09/17/data-mining-ch1-s1/从数据到决策.png">
+<meta property="og:image" content="https://www.blankspace.cn/2018/09/18/data-mining-ch1-s1/大数据特点3V.png">
+<meta property="og:image" content="https://www.blankspace.cn/2018/09/18/data-mining-ch1-s1/从数据到决策.png">
 <meta property="og:image" content="https://panoply.io/uploads/versions/diagram4---x----750-328x---.jpg">
-<meta property="og:image" content="https://www.blankspace.cn/2018/09/17/data-mining-ch1-s1/数据挖掘流程.png">
-<meta property="og:image" content="https://www.blankspace.cn/2018/09/17/data-mining-ch1-s1/混淆矩阵.png">
-<meta property="og:updated_time" content="2018-09-18T14:03:38.359Z">
+<meta property="og:image" content="https://www.blankspace.cn/2018/09/18/data-mining-ch1-s1/数据挖掘流程.png">
+<meta property="og:image" content="https://www.blankspace.cn/2018/09/18/data-mining-ch1-s1/混淆矩阵.png">
+<meta property="og:updated_time" content="2018-09-19T02:17:48.155Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数据挖掘绪论">
 <meta name="twitter:description" content="这是选修清华大学深圳研究生院袁博老师《数据挖掘》课程资料整理。 DRIP Data Rich Information Poor  学习资源教材 数据挖掘概念和技术 模式分类 Data Mining Beautiful Data  顶级会议数据挖掘顶级会议 软件工具 信息搜索：Google等 数学模拟：Matlab，Weka 3: Data Mining Software in Java等 数据集：">
-<meta name="twitter:image" content="https://www.blankspace.cn/2018/09/17/data-mining-ch1-s1/大数据特点3V.png">
+<meta name="twitter:image" content="https://www.blankspace.cn/2018/09/18/data-mining-ch1-s1/大数据特点3V.png">
 <link rel="publisher" href="112373242775367340000">
   
     <link rel="alternate" href="/atom.xml" title="WizardLQ’s | 魔法师の小茶馆" type="application/atom+xml">
@@ -97,7 +97,7 @@ MathJax.Hub.Queue(function() {
 	
 	</hr>
 	<div class="article-datetime">
-	  <time datetime="2018-09-17T15:15:06.000Z" itemprop="datePublished">2018-09-17</time>
+	  <time datetime="2018-09-18T15:15:06.000Z" itemprop="datePublished">2018-09-18</time>
 	</div>
 	<div class="header-divider"></div>	
 
@@ -150,16 +150,16 @@ MathJax.Hub.Queue(function() {
 <li>Varity种类</li>
 <li>Volume体量</li>
 </ul>
-<p><img src="/2018/09/17/data-mining-ch1-s1/大数据特点3V.png" alt="大数据核心特点——3V"></p>
+<p><img src="/2018/09/18/data-mining-ch1-s1/大数据特点3V.png" alt="大数据核心特点——3V"></p>
 <h2 id="数据挖掘-知识发现"><a href="#数据挖掘-知识发现" class="headerlink" title="数据挖掘==知识发现"></a>数据挖掘==知识发现</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>从大规模，不完整，有噪声的数据中，自动提取<strong>有趣</strong>，<strong>有用</strong>且原来<strong>未知</strong>的模式的过程。</p>
-<p><img src="/2018/09/17/data-mining-ch1-s1/从数据到决策.png" alt="从数据到智能：数据是最底层的"></p>
+<p><img src="/2018/09/18/data-mining-ch1-s1/从数据到决策.png" alt="从数据到智能：数据是最底层的"></p>
 <h3 id="数据整合和分析（传统方式ETL）"><a href="#数据整合和分析（传统方式ETL）" class="headerlink" title="数据整合和分析（传统方式ETL）"></a>数据整合和分析（传统方式ETL）</h3><ul>
 <li>E：Extration，提取</li>
 <li>T：Transform，转换</li>
 <li>L：Load，装载</li>
 </ul>
 <p><img src="https://panoply.io/uploads/versions/diagram4---x----750-328x---.jpg" alt="ETL：提取，转换和装载"></p>
-<h3 id="流程"><a href="#流程" class="headerlink" title="流程"></a>流程</h3><p><img src="/2018/09/17/data-mining-ch1-s1/数据挖掘流程.png" alt="数据挖掘流程：定义问题；数据收集；数据预处理；数据建模；分析评估；应用部署不断迭代"></p>
+<h3 id="流程"><a href="#流程" class="headerlink" title="流程"></a>流程</h3><p><img src="/2018/09/18/data-mining-ch1-s1/数据挖掘流程.png" alt="数据挖掘流程：定义问题；数据收集；数据预处理；数据建模；分析评估；应用部署不断迭代"></p>
 <h2 id="分类问题"><a href="#分类问题" class="headerlink" title="分类问题"></a>分类问题</h2><h3 id="定义-1"><a href="#定义-1" class="headerlink" title="定义"></a>定义</h3><p>给定一个训练集${(x_1,y_1),(x_2, y_2), …, (x_n, y_n)}$，产生一个分类器（函数）对于未知的对象$x_i$将其映射到其类别标记$y_i$上。</p>
 <h3 id="本质"><a href="#本质" class="headerlink" title="本质"></a>本质</h3><p>超平面上的分界面。</p>
 <h3 id="分界面特点"><a href="#分界面特点" class="headerlink" title="分界面特点"></a>分界面特点</h3><ul>
@@ -168,7 +168,7 @@ MathJax.Hub.Queue(function() {
 </ul>
 <h3 id="交叉验证"><a href="#交叉验证" class="headerlink" title="交叉验证"></a>交叉验证</h3><p>将数据集分成<strong>训练集</strong>，<strong>验证集</strong>和<strong>测试集</strong>。</p>
 <p>验证集用来验证模型的好坏。</p>
-<h2 id="混淆矩阵"><a href="#混淆矩阵" class="headerlink" title="混淆矩阵"></a>混淆矩阵</h2><p><img src="/2018/09/17/data-mining-ch1-s1/混淆矩阵.png" alt="混淆矩阵：TP真正例；TN真负例；FP假正例；FN假负例"></p>
+<h2 id="混淆矩阵"><a href="#混淆矩阵" class="headerlink" title="混淆矩阵"></a>混淆矩阵</h2><p><img src="/2018/09/18/data-mining-ch1-s1/混淆矩阵.png" alt="混淆矩阵：TP真正例；TN真负例；FP假正例；FN假负例"></p>
 <h3 id="Accuracy正确率，Precision查准率，Recall查全率和F1度量F1-Measure"><a href="#Accuracy正确率，Precision查准率，Recall查全率和F1度量F1-Measure" class="headerlink" title="Accuracy正确率，Precision查准率，Recall查全率和F1度量F1-Measure"></a>Accuracy正确率，Precision查准率，Recall查全率和F1度量F1-Measure</h3><ul>
 <li>Accuracy正确率/准确率</li>
 </ul>

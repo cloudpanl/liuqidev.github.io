@@ -1,12 +1,12 @@
 #calendar {
-  background-color: #eee;
+  background-color: #f8f8f8;
 }
 #calendar a {
   text-decoration: none;
 }
 .cal-head {
   position: relative;
-  height: 20px;
+  height: 30px;
   padding: 8px 6px 2px 6px;
 }
 .cal-prev,
@@ -74,7 +74,7 @@
   border-width: 0 1px 1px 0;
 }
 .cal tbody a {
-  background-color: color-link;
+  background-color: #3e7fb8;
   color: #fff;
   display: block;
   font-weight: 700;
@@ -105,9 +105,16 @@
   color: #fff;
   cursor: pointer;
 }
-.cal tbody a:hover,
+.cal tbody a:background-color #3e7fb8 {
+  color: #000;
+}
+.cal tbody a:hover {
+  background-color: #239a3b;
+  color: #fff;
+  cursor: pointer;
+}
 .cal tbody a:focus {
-  background-color: #ea6753;
+  background-color: #196127;
   color: #fff;
   cursor: pointer;
 }
