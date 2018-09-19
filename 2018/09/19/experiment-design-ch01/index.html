@@ -6,14 +6,14 @@
   <title>实验设计的误差分析 | WizardLQ’s | 魔法师の小茶馆</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="真值和误差真值（True Value）真值，在某一时刻和某一状态下，某量的客观真实值。真值一般是未知的，相对的意义上真值是已知的。 误差（Error）误差，是试验中获得的试验值和它的客观真实值在数值上的不一致。试验结果都有误差，误差自始至终存在于一切科学实验过程中 绝对误差（Absolute Error） \text{绝对误差=试验值-真值} \Delta x = x-x_t 真值未知则绝对误差也">
-<meta name="keywords" content="Error Analysis,Excel">
+<meta name="keywords" content="Error Analysis">
 <meta property="og:type" content="article">
 <meta property="og:title" content="实验设计的误差分析">
 <meta property="og:url" content="https://www.blankspace.cn/2018/09/19/experiment-design-ch01/index.html">
 <meta property="og:site_name" content="WizardLQ’s | 魔法师の小茶馆">
 <meta property="og:description" content="真值和误差真值（True Value）真值，在某一时刻和某一状态下，某量的客观真实值。真值一般是未知的，相对的意义上真值是已知的。 误差（Error）误差，是试验中获得的试验值和它的客观真实值在数值上的不一致。试验结果都有误差，误差自始至终存在于一切科学实验过程中 绝对误差（Absolute Error） \text{绝对误差=试验值-真值} \Delta x = x-x_t 真值未知则绝对误差也">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-09-19T03:17:34.274Z">
+<meta property="og:updated_time" content="2018-09-19T11:14:23.280Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="实验设计的误差分析">
 <meta name="twitter:description" content="真值和误差真值（True Value）真值，在某一时刻和某一状态下，某量的客观真实值。真值一般是未知的，相对的意义上真值是已知的。 误差（Error）误差，是试验中获得的试验值和它的客观真实值在数值上的不一致。试验结果都有误差，误差自始至终存在于一切科学实验过程中 绝对误差（Absolute Error） \text{绝对误差=试验值-真值} \Delta x = x-x_t 真值未知则绝对误差也">
@@ -109,7 +109,7 @@ MathJax.Hub.Queue(function() {
 		<div id="article-toc-inner">
 			<strong class="sidebar-title">
 			Contents</strong>
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#真值和误差"><span class="toc-text">真值和误差</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#真值（True-Value）"><span class="toc-text">真值（True Value）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#误差（Error）"><span class="toc-text">误差（Error）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#绝对误差（Absolute-Error）"><span class="toc-text">绝对误差（Absolute Error）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#相对误差"><span class="toc-text">相对误差</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#算数平均差异（Average-Discrepancy）"><span class="toc-text">算数平均差异（Average Discrepancy）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#平均值（Mean）"><span class="toc-text">平均值（Mean）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#算数平均值（Arithmetic-Mean）"><span class="toc-text">算数平均值（Arithmetic Mean）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#加权平均值（Weighted-Mean）"><span class="toc-text">加权平均值（Weighted Mean）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#对数平均值（Logarithmic-Mean）"><span class="toc-text">对数平均值（Logarithmic Mean）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#几何平均值"><span class="toc-text">几何平均值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#调和平均值（Harmonic-Mean）"><span class="toc-text">调和平均值（Harmonic Mean）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#误差分析（Error-Analysis）"><span class="toc-text">误差分析（Error Analysis）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#卡方检验-（-mathbf-chi-2-Test）"><span class="toc-text">卡方检验 （$\mathbf{\chi^{2} }$-Test）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#F检验"><span class="toc-text">F检验</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#单尾检验和双尾检验"><span class="toc-text">单尾检验和双尾检验</span></a></li></ol></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#真值和误差"><span class="toc-text">真值和误差</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#真值（True-Value）"><span class="toc-text">真值（True Value）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#误差（Error）"><span class="toc-text">误差（Error）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#绝对误差（Absolute-Error）"><span class="toc-text">绝对误差（Absolute Error）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#相对误差"><span class="toc-text">相对误差</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#算数平均差异（Average-Discrepancy）"><span class="toc-text">算数平均差异（Average Discrepancy）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#标准误差（Standard-Error）"><span class="toc-text">标准误差（Standard Error）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#误差分类"><span class="toc-text">误差分类</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#试验"><span class="toc-text">试验</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#平均值（Mean）"><span class="toc-text">平均值（Mean）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#算数平均值（Arithmetic-Mean）"><span class="toc-text">算数平均值（Arithmetic Mean）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#加权平均值（Weighted-Mean）"><span class="toc-text">加权平均值（Weighted Mean）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#对数平均值（Logarithmic-Mean）"><span class="toc-text">对数平均值（Logarithmic Mean）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#几何平均值"><span class="toc-text">几何平均值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#调和平均值（Harmonic-Mean）"><span class="toc-text">调和平均值（Harmonic Mean）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#误差分析（Error-Analysis）"><span class="toc-text">误差分析（Error Analysis）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#卡方检验-（-mathbf-chi-2-Test）"><span class="toc-text">卡方检验 （$\mathbf{\chi^{2} }$-Test）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#F检验"><span class="toc-text">F检验</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#单尾检验和双尾检验"><span class="toc-text">单尾检验和双尾检验</span></a></li></ol></li></ol>
 		</div>
 	</aside>
 
@@ -117,7 +117,7 @@ MathJax.Hub.Queue(function() {
 	
 	<h2 id="真值和误差"><a href="#真值和误差" class="headerlink" title="真值和误差"></a>真值和误差</h2><h3 id="真值（True-Value）"><a href="#真值（True-Value）" class="headerlink" title="真值（True Value）"></a>真值（True Value）</h3><p>真值，在某一时刻和某一状态下，某量的客观真实值。真值一般是未知的，相对的意义上真值是已知的。</p>
 <h3 id="误差（Error）"><a href="#误差（Error）" class="headerlink" title="误差（Error）"></a>误差（Error）</h3><p>误差，是试验中获得的试验值和它的<strong>客观真实值</strong>在数值上的不一致。<em>试验结果都有误差，误差自始至终存在于一切科学实验过程中</em></p>
-<h3 id="绝对误差（Absolute-Error）"><a href="#绝对误差（Absolute-Error）" class="headerlink" title="绝对误差（Absolute Error）"></a>绝对误差（Absolute Error）</h3><script type="math/tex; mode=display">
+<h4 id="绝对误差（Absolute-Error）"><a href="#绝对误差（Absolute-Error）" class="headerlink" title="绝对误差（Absolute Error）"></a>绝对误差（Absolute Error）</h4><script type="math/tex; mode=display">
 \text{绝对误差=试验值-真值}</script><script type="math/tex; mode=display">
 \Delta x = x-x_t</script><ul>
 <li>真值未知则绝对误差也未知</li>
@@ -128,14 +128,63 @@ MathJax.Hub.Queue(function() {
 </ul>
 </li>
 </ul>
-<h3 id="相对误差"><a href="#相对误差" class="headerlink" title="相对误差"></a>相对误差</h3><p>相对误差定义：</p>
+<h4 id="相对误差"><a href="#相对误差" class="headerlink" title="相对误差"></a>相对误差</h4><p>相对误差定义：</p>
 <script type="math/tex; mode=display">
 E_R=\frac{\Delta x}{x_t}</script><p>若真值未知，通常将绝对误差（$\Delta x$）与试验值（$x$）或平均值之比作为相对误差（的近似替代）：</p>
 <script type="math/tex; mode=display">
-E_R\approx \frac{\Delta x}{x} \quad\text{或} \quad E_R\approx \frac{\Delta x}{\overline{x}}</script><h3 id="算数平均差异（Average-Discrepancy）"><a href="#算数平均差异（Average-Discrepancy）" class="headerlink" title="算数平均差异（Average Discrepancy）"></a>算数平均差异（Average Discrepancy）</h3><p>算数平均差异可以用来反应一组实验数据的误差大小。</p>
+E_R\approx \frac{\Delta x}{x} \quad\text{或} \quad E_R\approx \frac{\Delta x}{\overline{x}}</script><h4 id="算数平均差异（Average-Discrepancy）"><a href="#算数平均差异（Average-Discrepancy）" class="headerlink" title="算数平均差异（Average Discrepancy）"></a>算数平均差异（Average Discrepancy）</h4><p>算数平均差异可以用来反应一组实验数据的误差大小。</p>
 <script type="math/tex; mode=display">
 \Delta = \frac{\sum_{i=1}^{n} \vert x_i - \overline{x} \vert}{n}=\frac{\sum_{i=1}^{n}\vert d_i \vert}{n}</script><p>其中$d_i$表示试验值$x_i$与试验值的算数平均值$\overline{x}$的偏差。</p>
-<h3 id="平均值（Mean）"><a href="#平均值（Mean）" class="headerlink" title="平均值（Mean）"></a>平均值（Mean）</h3><h3 id="算数平均值（Arithmetic-Mean）"><a href="#算数平均值（Arithmetic-Mean）" class="headerlink" title="算数平均值（Arithmetic Mean）"></a>算数平均值（Arithmetic Mean）</h3><script type="math/tex; mode=display">
+<h4 id="标准误差（Standard-Error）"><a href="#标准误差（Standard-Error）" class="headerlink" title="标准误差（Standard Error）"></a>标准误差（Standard Error）</h4><ul>
+<li>当试验次数n无穷大时，总体标准差：</li>
+</ul>
+<script type="math/tex; mode=display">
+\sigma=\sqrt{\frac{\sum_{i=1}^{n}(x_i-\overline{x})^2}{n}}=\sqrt{\frac{\sum_{i=1}^{n}x^2-(\sum_{i=1}^{n}x_i)^2/n}{n}}</script><ul>
+<li>当试验次数为有限次时，样本标准差：</li>
+</ul>
+<script type="math/tex; mode=display">
+\sigma=\sqrt{\frac{\sum_{i=1}^{n}d_i^2}{n-1}}=\sqrt{\frac{\sum_{i=1}^{n-1}(x_i-\overline{x})^2}{n-1}}=\sqrt{\frac{\sum_{i=1}^{n}x^2-(\sum_{i=1}^{n}x_i)^2/n}{n-1}}</script><p>表示试验值的精密度，标准差$\downarrow$，试验数据精度$\uparrow$</p>
+<p><strong>$\mathbb{\color{red}{\text{疑问：为什么总体标准差和样本标准差，一个是$n$一个是$n-1$? }}}$</strong></p>
+<h4 id="误差分类"><a href="#误差分类" class="headerlink" title="误差分类"></a>误差分类</h4><ul>
+<li><p>系统误差</p>
+<ul>
+<li>概念：在一定试验条件下，由某个或者某些因素按照某一确定的规律起作用而形成的误差</li>
+<li>产生原因：多方面</li>
+<li>特点：系统误差大小及其符号在同一试验中是恒定的<ul>
+<li>不能通过多次试验被发现，也不能通过取多次试验值的平局值而减小</li>
+<li>对系统误差原因有充分认识，才能进行校准或设法消除</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>随机误差</p>
+<ul>
+<li><p>概念：以不可预知的规律变化着的误差，时正时负，时大时小</p>
+</li>
+<li><p>产生原因：偶然因素</p>
+</li>
+<li><p>特点：具有统计规律</p>
+<ul>
+<li>当试验次数足够多时，误差的平均值趋向于零，可以通过增加试验次数来减小随机误差</li>
+<li>小误差比大误差出现机会多</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>过失误差</p>
+<ul>
+<li>概念：显然和事实不符合的误差</li>
+<li>产生原因：细节，试验人员粗心大意</li>
+<li>特点：<ul>
+<li>完全可以避免</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="试验"><a href="#试验" class="headerlink" title="试验"></a>试验</h3><h3 id="平均值（Mean）"><a href="#平均值（Mean）" class="headerlink" title="平均值（Mean）"></a>平均值（Mean）</h3><h3 id="算数平均值（Arithmetic-Mean）"><a href="#算数平均值（Arithmetic-Mean）" class="headerlink" title="算数平均值（Arithmetic Mean）"></a>算数平均值（Arithmetic Mean）</h3><script type="math/tex; mode=display">
 \overline{x}=(x_1+x_2+...+x_n)/n=\frac{\sum_{i=1}^{n}x_i}n</script><p>适合：</p>
 <ul>
 <li>等精度试验值</li>

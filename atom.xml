@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.blankspace.cn/"/>
-  <updated>2018-09-19T03:17:34.274Z</updated>
+  <updated>2018-09-19T15:30:06.021Z</updated>
   <id>https://www.blankspace.cn/</id>
   
   <author>
@@ -17,19 +17,87 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>水和生命</title>
+    <link href="https://www.blankspace.cn/2018/09/19/biology-ch02-s02/"/>
+    <id>https://www.blankspace.cn/2018/09/19/biology-ch02-s02/</id>
+    <published>2018-09-19T15:23:37.000Z</published>
+    <updated>2018-09-19T15:30:06.021Z</updated>
+    
+    <content type="html"><![CDATA[<p>水和生命密切相关。</p><h2 id="水的特点"><a href="#水的特点" class="headerlink" title="水的特点"></a>水的特点</h2><ol><li>内聚力和粘附力</li><li>水的热容量</li><li>固态轻于液态水</li><li>水是良好的溶剂</li></ol><h3 id="内聚力"><a href="#内聚力" class="headerlink" title="内聚力"></a>内聚力</h3><p>内聚力：氢键使物质凝聚一起的现象</p><p>水形成concave效应</p><h3 id="粘附力"><a href="#粘附力" class="headerlink" title="粘附力"></a>粘附力</h3><p>黏附在其他分子上</p><p><strong>内聚力和粘附力解释生物学想象：</strong></p><ul><li>表面张力：液体表面总是试图获得最小</li></ul><a id="more"></a>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;水和生命密切相关。&lt;/p&gt;
+&lt;h2 id=&quot;水的特点&quot;&gt;&lt;a href=&quot;#水的特点&quot; class=&quot;headerlink&quot; title=&quot;水的特点&quot;&gt;&lt;/a&gt;水的特点&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;内聚力和粘附力&lt;/li&gt;
+&lt;li&gt;水的热容量&lt;/li&gt;
+&lt;li&gt;固态轻于液态水&lt;/li&gt;
+&lt;li&gt;水是良好的溶剂&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&quot;内聚力&quot;&gt;&lt;a href=&quot;#内聚力&quot; class=&quot;headerlink&quot; title=&quot;内聚力&quot;&gt;&lt;/a&gt;内聚力&lt;/h3&gt;&lt;p&gt;内聚力：氢键使物质凝聚一起的现象&lt;/p&gt;
+&lt;p&gt;水形成concave效应&lt;/p&gt;
+&lt;h3 id=&quot;粘附力&quot;&gt;&lt;a href=&quot;#粘附力&quot; class=&quot;headerlink&quot; title=&quot;粘附力&quot;&gt;&lt;/a&gt;粘附力&lt;/h3&gt;&lt;p&gt;黏附在其他分子上&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;内聚力和粘附力解释生物学想象：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;表面张力：液体表面总是试图获得最小&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+      <category term="Biology" scheme="https://www.blankspace.cn/categories/Biology/"/>
+    
+      <category term="现代生物学导论" scheme="https://www.blankspace.cn/categories/Biology/%E7%8E%B0%E4%BB%A3%E7%94%9F%E7%89%A9%E5%AD%A6%E5%AF%BC%E8%AE%BA/"/>
+    
+      <category term="生命的化学基础" scheme="https://www.blankspace.cn/categories/Biology/%E7%8E%B0%E4%BB%A3%E7%94%9F%E7%89%A9%E5%AD%A6%E5%AF%BC%E8%AE%BA/%E7%94%9F%E5%91%BD%E7%9A%84%E5%8C%96%E5%AD%A6%E5%9F%BA%E7%A1%80/"/>
+    
+    
+      <category term="H2O" scheme="https://www.blankspace.cn/tags/H2O/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>聚类、回归等数据挖掘问题简介</title>
+    <link href="https://www.blankspace.cn/2018/09/19/data-mining-ch01-s02/"/>
+    <id>https://www.blankspace.cn/2018/09/19/data-mining-ch01-s02/</id>
+    <published>2018-09-19T14:12:43.000Z</published>
+    <updated>2018-09-19T15:20:27.048Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="聚类（Clustering）"><a href="#聚类（Clustering）" class="headerlink" title="聚类（Clustering）"></a>聚类（Clustering）</h2><h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><p>将观察到无标记项集合划分成若干子集（subsets成为clusters簇）,同一个簇中的项具有相似性。</p><blockquote><p> Clustering is the assignment of a set of observations into subsets (called clusters) so that observations in the same cluster are similar in some sense.</p></blockquote><h3 id="距离度量（Distance-Metrics）"><a href="#距离度量（Distance-Metrics）" class="headerlink" title="距离度量（Distance Metrics）"></a>距离度量（Distance Metrics）</h3><ul><li>欧氏距离（Euclidean Distance）</li><li>曼哈顿距离（Manhattan Distance）</li><li>马氏距离（Mahalanobis Distance）</li><li>…</li></ul><h3 id="层次聚类"><a href="#层次聚类" class="headerlink" title="层次聚类"></a>层次聚类</h3><p>分层分组</p><h3 id="关联分析"><a href="#关联分析" class="headerlink" title="关联分析"></a>关联分析</h3><h2 id="回归"><a href="#回归" class="headerlink" title="回归"></a>回归</h2><p>线性回归，线性是参数和变量之间是线性的。</p><h3 id="过拟合"><a href="#过拟合" class="headerlink" title="过拟合"></a>过拟合</h3><h2 id="可视化"><a href="#可视化" class="headerlink" title="可视化"></a>可视化</h2><p>可解释性</p><h2 id="数据预处理"><a href="#数据预处理" class="headerlink" title="数据预处理"></a>数据预处理</h2><p>忌讳“GIGO”，Garbage In Garbage Out。</p><p>“脏”数据：</p><ul><li>属性缺失（Missing Attribute Values）</li><li>不一致（Inconsistent Data）</li><li>不可行（Infeasible Values）</li><li>异常值（离群点，Outliers）</li><li>…</li></ul><p>所以要进行数据清洗：</p><ul><li>完备</li><li>准确</li><li>可解释</li><li>…</li></ul><p>处理：</p><ul><li>标准化</li><li>类型转化</li><li>…</li></ul><h2 id="隐私保护数据分析"><a href="#隐私保护数据分析" class="headerlink" title="隐私保护数据分析"></a>隐私保护数据分析</h2><p>举例：敏感问题问卷分析</p><h2 id="云"><a href="#云" class="headerlink" title="云"></a>云</h2><ul><li>Pay As You Go.（弹性计算）</li><li>计算就是资源。</li><li>SaaS（Software as a Service）</li></ul><h2 id="并行计算"><a href="#并行计算" class="headerlink" title="并行计算"></a>并行计算</h2><ul><li>GPU</li><li>运算集群</li><li>…</li></ul><h2 id="数据挖掘-大数据-算法-算力"><a href="#数据挖掘-大数据-算法-算力" class="headerlink" title="数据挖掘==大数据+算法+算力"></a>数据挖掘==大数据+算法+算力</h2><h3 id="“三驾马车”"><a href="#“三驾马车”" class="headerlink" title="“三驾马车”"></a>“三驾马车”</h3><div class="bs-callout bs-callout-info"><p>季向阳教授：三驾马车——数据，算法，算力。</p></div><h3 id="没有免费午餐"><a href="#没有免费午餐" class="headerlink" title="没有免费午餐"></a>没有免费午餐</h3><ul><li>针对具体问题采用合适的算法</li><li>阿卡姆剃刀</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;聚类（Clustering）&quot;&gt;&lt;a href=&quot;#聚类（Clustering）&quot; class=&quot;headerlink&quot; title=&quot;聚类（Clustering）&quot;&gt;&lt;/a&gt;聚类（Clustering）&lt;/h2&gt;&lt;h3 id=&quot;概念&quot;&gt;&lt;a href=&quot;#概念&quot;
+      
+    
+    </summary>
+    
+      <category term="AI" scheme="https://www.blankspace.cn/categories/AI/"/>
+    
+      <category term="Data Mining" scheme="https://www.blankspace.cn/categories/AI/Data-Mining/"/>
+    
+    
+      <category term="Unsupervised Learning" scheme="https://www.blankspace.cn/tags/Unsupervised-Learning/"/>
+    
+      <category term="Clustering" scheme="https://www.blankspace.cn/tags/Clustering/"/>
+    
+  </entry>
+  
+  <entry>
     <title>实验设计的误差分析</title>
     <link href="https://www.blankspace.cn/2018/09/19/experiment-design-ch01/"/>
     <id>https://www.blankspace.cn/2018/09/19/experiment-design-ch01/</id>
     <published>2018-09-19T01:24:18.000Z</published>
-    <updated>2018-09-19T03:17:34.274Z</updated>
+    <updated>2018-09-19T11:14:23.280Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="真值和误差"><a href="#真值和误差" class="headerlink" title="真值和误差"></a>真值和误差</h2><h3 id="真值（True-Value）"><a href="#真值（True-Value）" class="headerlink" title="真值（True Value）"></a>真值（True Value）</h3><p>真值，在某一时刻和某一状态下，某量的客观真实值。真值一般是未知的，相对的意义上真值是已知的。</p><h3 id="误差（Error）"><a href="#误差（Error）" class="headerlink" title="误差（Error）"></a>误差（Error）</h3><p>误差，是试验中获得的试验值和它的<strong>客观真实值</strong>在数值上的不一致。<em>试验结果都有误差，误差自始至终存在于一切科学实验过程中</em></p><h3 id="绝对误差（Absolute-Error）"><a href="#绝对误差（Absolute-Error）" class="headerlink" title="绝对误差（Absolute Error）"></a>绝对误差（Absolute Error）</h3><script type="math/tex; mode=display">\text{绝对误差=试验值-真值}</script><script type="math/tex; mode=display">\Delta x = x-x_t</script><ul><li>真值未知则绝对误差也未知</li><li>$\vert \Delta x \vert = \vert x-x_t \vert \leq \vert \Delta x|_{max} \Rightarrow x_t \approx x\pm \vert\Delta x \vert_{max}, \text{其中}  \vert\Delta x \vert_{max} \text{为绝对误差限或误差上界}$</li><li>绝对误差的估算方法：<ul><li>最小刻度的一半为绝对误差，最小刻度误最大绝对误差</li><li>根据仪表精度等级计算：$\text{绝对误差=量程*精度等级%}$</li></ul></li></ul><h3 id="相对误差"><a href="#相对误差" class="headerlink" title="相对误差"></a>相对误差</h3><p>相对误差定义：</p><script type="math/tex; mode=display">E_R=\frac{\Delta x}{x_t}</script><p>若真值未知，通常将绝对误差（$\Delta x$）与试验值（$x$）或平均值之比作为相对误差（的近似替代）：</p><script type="math/tex; mode=display">E_R\approx \frac{\Delta x}{x} \quad\text{或} \quad E_R\approx \frac{\Delta x}{\overline{x}}</script><h3 id="算数平均差异（Average-Discrepancy）"><a href="#算数平均差异（Average-Discrepancy）" class="headerlink" title="算数平均差异（Average Discrepancy）"></a>算数平均差异（Average Discrepancy）</h3><p>算数平均差异可以用来反应一组实验数据的误差大小。</p><script type="math/tex; mode=display">\Delta = \frac{\sum_{i=1}^{n} \vert x_i - \overline{x} \vert}{n}=\frac{\sum_{i=1}^{n}\vert d_i \vert}{n}</script><p>其中$d_i$表示试验值$x_i$与试验值的算数平均值$\overline{x}$的偏差。</p><h3 id="平均值（Mean）"><a href="#平均值（Mean）" class="headerlink" title="平均值（Mean）"></a>平均值（Mean）</h3><h3 id="算数平均值（Arithmetic-Mean）"><a href="#算数平均值（Arithmetic-Mean）" class="headerlink" title="算数平均值（Arithmetic Mean）"></a>算数平均值（Arithmetic Mean）</h3><script type="math/tex; mode=display">\overline{x}=(x_1+x_2+...+x_n)/n=\frac{\sum_{i=1}^{n}x_i}n</script><p>适合：</p><ul><li>等精度试验值</li><li>试验值服从正态分布</li></ul><h3 id="加权平均值（Weighted-Mean）"><a href="#加权平均值（Weighted-Mean）" class="headerlink" title="加权平均值（Weighted Mean）"></a>加权平均值（Weighted Mean）</h3><script type="math/tex; mode=display">\mathcal{\overline{x_W}=\frac{w_1x_1+w_2x_2+...+w_nx_n}{w1+w_2+...+w_n}=\frac{\sum_{i=1}^{n}w_ix_i}{\sum_{i=1}^{n}w_i}}</script><p>其中$w_i$表示权重。</p><p>适合：</p><ul><li>不同试验值的精度或可靠性不一致时，如GPA的计算</li></ul><h3 id="对数平均值（Logarithmic-Mean）"><a href="#对数平均值（Logarithmic-Mean）" class="headerlink" title="对数平均值（Logarithmic Mean）"></a>对数平均值（Logarithmic Mean）</h3><script type="math/tex; mode=display">\overline{x_L}=\frac{x_1-x_2}{\ln{x_1}-\ln{x_2}}=\frac{x_1-x_2}{\ln{\frac{x_1}{x_2}}}=\frac{x_2-x_1}{\ln{\frac{x_2}{x_1}}}</script><p>其中$x_1, x_2\gt0$。</p><p><strong>注意</strong>：</p><ul><li>若数据的分布具有对数特性，宜使用对数平均值</li><li>对数平均值$\leq$算数平均值</li><li>若$1/2\leq x_1 \leq 2$时，可用算数平均值替代对数平均值</li></ul><h3 id="几何平均值"><a href="#几何平均值" class="headerlink" title="几何平均值"></a>几何平均值</h3><script type="math/tex; mode=display">\overline{x_G}=\sqrt[n]{x_1x_2\cdots x_n}=(x_1x_2\cdots x_n)^{1/n}</script><p><strong>注意</strong>：</p><ul><li>几何平均值$\leq$算数平均值</li><li>当一组试验值取对数后所得数据的分布曲线更加对称时，宜采用几何平均值</li></ul><h3 id="调和平均值（Harmonic-Mean）"><a href="#调和平均值（Harmonic-Mean）" class="headerlink" title="调和平均值（Harmonic Mean）"></a>调和平均值（Harmonic Mean）</h3><p>假设有$n$个正试验值：$x_1, x_2, \dots ,x_n$则：</p><script type="math/tex; mode=display">\frac{1}{H}=\frac{\frac{1}{x_1}+\frac{1}{x_2}+\dots+\frac{1}{x_n}}{n}=\frac{\sum_{i=1}^{n}\frac{1}{x_i}}n</script><p>试验值倒数的算数平均值的倒数是调和平均值。</p><p><strong>注意</strong>：</p><ul><li>常用在涉及到一些量的倒数相关的场合</li><li>$\mathrm{H\leq \overline{x_G} \leq \overline{x}}$</li></ul><h2 id="误差分析（Error-Analysis）"><a href="#误差分析（Error-Analysis）" class="headerlink" title="误差分析（Error Analysis）"></a>误差分析（Error Analysis）</h2><p>目的：对原始数据的可靠性进行客观地评定。</p><h3 id="卡方检验-（-mathbf-chi-2-Test）"><a href="#卡方检验-（-mathbf-chi-2-Test）" class="headerlink" title="卡方检验 （$\mathbf{\chi^{2} }$-Test）"></a>卡方检验 （$\mathbf{\chi^{2} }$-Test）</h3><h3 id="F检验"><a href="#F检验" class="headerlink" title="F检验"></a>F检验</h3><a id="more"></a><h3 id="单尾检验和双尾检验"><a href="#单尾检验和双尾检验" class="headerlink" title="单尾检验和双尾检验"></a>单尾检验和双尾检验</h3>]]></content>
+    <content type="html"><![CDATA[<h2 id="真值和误差"><a href="#真值和误差" class="headerlink" title="真值和误差"></a>真值和误差</h2><h3 id="真值（True-Value）"><a href="#真值（True-Value）" class="headerlink" title="真值（True Value）"></a>真值（True Value）</h3><p>真值，在某一时刻和某一状态下，某量的客观真实值。真值一般是未知的，相对的意义上真值是已知的。</p><h3 id="误差（Error）"><a href="#误差（Error）" class="headerlink" title="误差（Error）"></a>误差（Error）</h3><p>误差，是试验中获得的试验值和它的<strong>客观真实值</strong>在数值上的不一致。<em>试验结果都有误差，误差自始至终存在于一切科学实验过程中</em></p><h4 id="绝对误差（Absolute-Error）"><a href="#绝对误差（Absolute-Error）" class="headerlink" title="绝对误差（Absolute Error）"></a>绝对误差（Absolute Error）</h4><script type="math/tex; mode=display">\text{绝对误差=试验值-真值}</script><script type="math/tex; mode=display">\Delta x = x-x_t</script><ul><li>真值未知则绝对误差也未知</li><li>$\vert \Delta x \vert = \vert x-x_t \vert \leq \vert \Delta x|_{max} \Rightarrow x_t \approx x\pm \vert\Delta x \vert_{max}, \text{其中}  \vert\Delta x \vert_{max} \text{为绝对误差限或误差上界}$</li><li>绝对误差的估算方法：<ul><li>最小刻度的一半为绝对误差，最小刻度误最大绝对误差</li><li>根据仪表精度等级计算：$\text{绝对误差=量程*精度等级%}$</li></ul></li></ul><h4 id="相对误差"><a href="#相对误差" class="headerlink" title="相对误差"></a>相对误差</h4><p>相对误差定义：</p><script type="math/tex; mode=display">E_R=\frac{\Delta x}{x_t}</script><p>若真值未知，通常将绝对误差（$\Delta x$）与试验值（$x$）或平均值之比作为相对误差（的近似替代）：</p><script type="math/tex; mode=display">E_R\approx \frac{\Delta x}{x} \quad\text{或} \quad E_R\approx \frac{\Delta x}{\overline{x}}</script><h4 id="算数平均差异（Average-Discrepancy）"><a href="#算数平均差异（Average-Discrepancy）" class="headerlink" title="算数平均差异（Average Discrepancy）"></a>算数平均差异（Average Discrepancy）</h4><p>算数平均差异可以用来反应一组实验数据的误差大小。</p><script type="math/tex; mode=display">\Delta = \frac{\sum_{i=1}^{n} \vert x_i - \overline{x} \vert}{n}=\frac{\sum_{i=1}^{n}\vert d_i \vert}{n}</script><p>其中$d_i$表示试验值$x_i$与试验值的算数平均值$\overline{x}$的偏差。</p><h4 id="标准误差（Standard-Error）"><a href="#标准误差（Standard-Error）" class="headerlink" title="标准误差（Standard Error）"></a>标准误差（Standard Error）</h4><ul><li>当试验次数n无穷大时，总体标准差：</li></ul><script type="math/tex; mode=display">\sigma=\sqrt{\frac{\sum_{i=1}^{n}(x_i-\overline{x})^2}{n}}=\sqrt{\frac{\sum_{i=1}^{n}x^2-(\sum_{i=1}^{n}x_i)^2/n}{n}}</script><ul><li>当试验次数为有限次时，样本标准差：</li></ul><script type="math/tex; mode=display">\sigma=\sqrt{\frac{\sum_{i=1}^{n}d_i^2}{n-1}}=\sqrt{\frac{\sum_{i=1}^{n-1}(x_i-\overline{x})^2}{n-1}}=\sqrt{\frac{\sum_{i=1}^{n}x^2-(\sum_{i=1}^{n}x_i)^2/n}{n-1}}</script><p>表示试验值的精密度，标准差$\downarrow$，试验数据精度$\uparrow$</p><p><strong>$\mathbb{\color{red}{\text{疑问：为什么总体标准差和样本标准差，一个是$n$一个是$n-1$? }}}$</strong></p><h4 id="误差分类"><a href="#误差分类" class="headerlink" title="误差分类"></a>误差分类</h4><ul><li><p>系统误差</p><ul><li>概念：在一定试验条件下，由某个或者某些因素按照某一确定的规律起作用而形成的误差</li><li>产生原因：多方面</li><li>特点：系统误差大小及其符号在同一试验中是恒定的<ul><li>不能通过多次试验被发现，也不能通过取多次试验值的平局值而减小</li><li>对系统误差原因有充分认识，才能进行校准或设法消除</li></ul></li></ul></li><li><p>随机误差</p><ul><li><p>概念：以不可预知的规律变化着的误差，时正时负，时大时小</p></li><li><p>产生原因：偶然因素</p></li><li><p>特点：具有统计规律</p><ul><li>当试验次数足够多时，误差的平均值趋向于零，可以通过增加试验次数来减小随机误差</li><li>小误差比大误差出现机会多</li></ul></li></ul></li></ul><ul><li><p>过失误差</p><ul><li>概念：显然和事实不符合的误差</li><li>产生原因：细节，试验人员粗心大意</li><li>特点：<ul><li>完全可以避免</li></ul></li></ul></li></ul><h3 id="试验"><a href="#试验" class="headerlink" title="试验"></a>试验</h3><h3 id="平均值（Mean）"><a href="#平均值（Mean）" class="headerlink" title="平均值（Mean）"></a>平均值（Mean）</h3><h3 id="算数平均值（Arithmetic-Mean）"><a href="#算数平均值（Arithmetic-Mean）" class="headerlink" title="算数平均值（Arithmetic Mean）"></a>算数平均值（Arithmetic Mean）</h3><script type="math/tex; mode=display">\overline{x}=(x_1+x_2+...+x_n)/n=\frac{\sum_{i=1}^{n}x_i}n</script><p>适合：</p><ul><li>等精度试验值</li><li>试验值服从正态分布</li></ul><h3 id="加权平均值（Weighted-Mean）"><a href="#加权平均值（Weighted-Mean）" class="headerlink" title="加权平均值（Weighted Mean）"></a>加权平均值（Weighted Mean）</h3><script type="math/tex; mode=display">\mathcal{\overline{x_W}=\frac{w_1x_1+w_2x_2+...+w_nx_n}{w1+w_2+...+w_n}=\frac{\sum_{i=1}^{n}w_ix_i}{\sum_{i=1}^{n}w_i}}</script><p>其中$w_i$表示权重。</p><p>适合：</p><ul><li>不同试验值的精度或可靠性不一致时，如GPA的计算</li></ul><h3 id="对数平均值（Logarithmic-Mean）"><a href="#对数平均值（Logarithmic-Mean）" class="headerlink" title="对数平均值（Logarithmic Mean）"></a>对数平均值（Logarithmic Mean）</h3><script type="math/tex; mode=display">\overline{x_L}=\frac{x_1-x_2}{\ln{x_1}-\ln{x_2}}=\frac{x_1-x_2}{\ln{\frac{x_1}{x_2}}}=\frac{x_2-x_1}{\ln{\frac{x_2}{x_1}}}</script><p>其中$x_1, x_2\gt0$。</p><p><strong>注意</strong>：</p><ul><li>若数据的分布具有对数特性，宜使用对数平均值</li><li>对数平均值$\leq$算数平均值</li><li>若$1/2\leq x_1 \leq 2$时，可用算数平均值替代对数平均值</li></ul><h3 id="几何平均值"><a href="#几何平均值" class="headerlink" title="几何平均值"></a>几何平均值</h3><script type="math/tex; mode=display">\overline{x_G}=\sqrt[n]{x_1x_2\cdots x_n}=(x_1x_2\cdots x_n)^{1/n}</script><p><strong>注意</strong>：</p><ul><li>几何平均值$\leq$算数平均值</li><li>当一组试验值取对数后所得数据的分布曲线更加对称时，宜采用几何平均值</li></ul><h3 id="调和平均值（Harmonic-Mean）"><a href="#调和平均值（Harmonic-Mean）" class="headerlink" title="调和平均值（Harmonic Mean）"></a>调和平均值（Harmonic Mean）</h3><p>假设有$n$个正试验值：$x_1, x_2, \dots ,x_n$则：</p><script type="math/tex; mode=display">\frac{1}{H}=\frac{\frac{1}{x_1}+\frac{1}{x_2}+\dots+\frac{1}{x_n}}{n}=\frac{\sum_{i=1}^{n}\frac{1}{x_i}}n</script><p>试验值倒数的算数平均值的倒数是调和平均值。</p><p><strong>注意</strong>：</p><ul><li>常用在涉及到一些量的倒数相关的场合</li><li>$\mathrm{H\leq \overline{x_G} \leq \overline{x}}$</li></ul><h2 id="误差分析（Error-Analysis）"><a href="#误差分析（Error-Analysis）" class="headerlink" title="误差分析（Error Analysis）"></a>误差分析（Error Analysis）</h2><p>目的：对原始数据的可靠性进行客观地评定。</p><h3 id="卡方检验-（-mathbf-chi-2-Test）"><a href="#卡方检验-（-mathbf-chi-2-Test）" class="headerlink" title="卡方检验 （$\mathbf{\chi^{2} }$-Test）"></a>卡方检验 （$\mathbf{\chi^{2} }$-Test）</h3><h3 id="F检验"><a href="#F检验" class="headerlink" title="F检验"></a>F检验</h3><a id="more"></a><h3 id="单尾检验和双尾检验"><a href="#单尾检验和双尾检验" class="headerlink" title="单尾检验和双尾检验"></a>单尾检验和双尾检验</h3>]]></content>
     
     <summary type="html">
     
       &lt;h2 id=&quot;真值和误差&quot;&gt;&lt;a href=&quot;#真值和误差&quot; class=&quot;headerlink&quot; title=&quot;真值和误差&quot;&gt;&lt;/a&gt;真值和误差&lt;/h2&gt;&lt;h3 id=&quot;真值（True-Value）&quot;&gt;&lt;a href=&quot;#真值（True-Value）&quot; class=&quot;headerlink&quot; title=&quot;真值（True Value）&quot;&gt;&lt;/a&gt;真值（True Value）&lt;/h3&gt;&lt;p&gt;真值，在某一时刻和某一状态下，某量的客观真实值。真值一般是未知的，相对的意义上真值是已知的。&lt;/p&gt;
 &lt;h3 id=&quot;误差（Error）&quot;&gt;&lt;a href=&quot;#误差（Error）&quot; class=&quot;headerlink&quot; title=&quot;误差（Error）&quot;&gt;&lt;/a&gt;误差（Error）&lt;/h3&gt;&lt;p&gt;误差，是试验中获得的试验值和它的&lt;strong&gt;客观真实值&lt;/strong&gt;在数值上的不一致。&lt;em&gt;试验结果都有误差，误差自始至终存在于一切科学实验过程中&lt;/em&gt;&lt;/p&gt;
-&lt;h3 id=&quot;绝对误差（Absolute-Error）&quot;&gt;&lt;a href=&quot;#绝对误差（Absolute-Error）&quot; class=&quot;headerlink&quot; title=&quot;绝对误差（Absolute Error）&quot;&gt;&lt;/a&gt;绝对误差（Absolute Error）&lt;/h3&gt;&lt;script type=&quot;math/tex; mode=display&quot;&gt;
+&lt;h4 id=&quot;绝对误差（Absolute-Error）&quot;&gt;&lt;a href=&quot;#绝对误差（Absolute-Error）&quot; class=&quot;headerlink&quot; title=&quot;绝对误差（Absolute Error）&quot;&gt;&lt;/a&gt;绝对误差（Absolute Error）&lt;/h4&gt;&lt;script type=&quot;math/tex; mode=display&quot;&gt;
 \text{绝对误差=试验值-真值}&lt;/script&gt;&lt;script type=&quot;math/tex; mode=display&quot;&gt;
 \Delta x = x-x_t&lt;/script&gt;&lt;ul&gt;
 &lt;li&gt;真值未知则绝对误差也未知&lt;/li&gt;
@@ -40,14 +108,63 @@
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&quot;相对误差&quot;&gt;&lt;a href=&quot;#相对误差&quot; class=&quot;headerlink&quot; title=&quot;相对误差&quot;&gt;&lt;/a&gt;相对误差&lt;/h3&gt;&lt;p&gt;相对误差定义：&lt;/p&gt;
+&lt;h4 id=&quot;相对误差&quot;&gt;&lt;a href=&quot;#相对误差&quot; class=&quot;headerlink&quot; title=&quot;相对误差&quot;&gt;&lt;/a&gt;相对误差&lt;/h4&gt;&lt;p&gt;相对误差定义：&lt;/p&gt;
 &lt;script type=&quot;math/tex; mode=display&quot;&gt;
 E_R=\frac{\Delta x}{x_t}&lt;/script&gt;&lt;p&gt;若真值未知，通常将绝对误差（$\Delta x$）与试验值（$x$）或平均值之比作为相对误差（的近似替代）：&lt;/p&gt;
 &lt;script type=&quot;math/tex; mode=display&quot;&gt;
-E_R\approx \frac{\Delta x}{x} \quad\text{或} \quad E_R\approx \frac{\Delta x}{\overline{x}}&lt;/script&gt;&lt;h3 id=&quot;算数平均差异（Average-Discrepancy）&quot;&gt;&lt;a href=&quot;#算数平均差异（Average-Discrepancy）&quot; class=&quot;headerlink&quot; title=&quot;算数平均差异（Average Discrepancy）&quot;&gt;&lt;/a&gt;算数平均差异（Average Discrepancy）&lt;/h3&gt;&lt;p&gt;算数平均差异可以用来反应一组实验数据的误差大小。&lt;/p&gt;
+E_R\approx \frac{\Delta x}{x} \quad\text{或} \quad E_R\approx \frac{\Delta x}{\overline{x}}&lt;/script&gt;&lt;h4 id=&quot;算数平均差异（Average-Discrepancy）&quot;&gt;&lt;a href=&quot;#算数平均差异（Average-Discrepancy）&quot; class=&quot;headerlink&quot; title=&quot;算数平均差异（Average Discrepancy）&quot;&gt;&lt;/a&gt;算数平均差异（Average Discrepancy）&lt;/h4&gt;&lt;p&gt;算数平均差异可以用来反应一组实验数据的误差大小。&lt;/p&gt;
 &lt;script type=&quot;math/tex; mode=display&quot;&gt;
 \Delta = \frac{\sum_{i=1}^{n} \vert x_i - \overline{x} \vert}{n}=\frac{\sum_{i=1}^{n}\vert d_i \vert}{n}&lt;/script&gt;&lt;p&gt;其中$d_i$表示试验值$x_i$与试验值的算数平均值$\overline{x}$的偏差。&lt;/p&gt;
-&lt;h3 id=&quot;平均值（Mean）&quot;&gt;&lt;a href=&quot;#平均值（Mean）&quot; class=&quot;headerlink&quot; title=&quot;平均值（Mean）&quot;&gt;&lt;/a&gt;平均值（Mean）&lt;/h3&gt;&lt;h3 id=&quot;算数平均值（Arithmetic-Mean）&quot;&gt;&lt;a href=&quot;#算数平均值（Arithmetic-Mean）&quot; class=&quot;headerlink&quot; title=&quot;算数平均值（Arithmetic Mean）&quot;&gt;&lt;/a&gt;算数平均值（Arithmetic Mean）&lt;/h3&gt;&lt;script type=&quot;math/tex; mode=display&quot;&gt;
+&lt;h4 id=&quot;标准误差（Standard-Error）&quot;&gt;&lt;a href=&quot;#标准误差（Standard-Error）&quot; class=&quot;headerlink&quot; title=&quot;标准误差（Standard Error）&quot;&gt;&lt;/a&gt;标准误差（Standard Error）&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;当试验次数n无穷大时，总体标准差：&lt;/li&gt;
+&lt;/ul&gt;
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;
+\sigma=\sqrt{\frac{\sum_{i=1}^{n}(x_i-\overline{x})^2}{n}}=\sqrt{\frac{\sum_{i=1}^{n}x^2-(\sum_{i=1}^{n}x_i)^2/n}{n}}&lt;/script&gt;&lt;ul&gt;
+&lt;li&gt;当试验次数为有限次时，样本标准差：&lt;/li&gt;
+&lt;/ul&gt;
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;
+\sigma=\sqrt{\frac{\sum_{i=1}^{n}d_i^2}{n-1}}=\sqrt{\frac{\sum_{i=1}^{n-1}(x_i-\overline{x})^2}{n-1}}=\sqrt{\frac{\sum_{i=1}^{n}x^2-(\sum_{i=1}^{n}x_i)^2/n}{n-1}}&lt;/script&gt;&lt;p&gt;表示试验值的精密度，标准差$\downarrow$，试验数据精度$\uparrow$&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;$\mathbb{\color{red}{\text{疑问：为什么总体标准差和样本标准差，一个是$n$一个是$n-1$? }}}$&lt;/strong&gt;&lt;/p&gt;
+&lt;h4 id=&quot;误差分类&quot;&gt;&lt;a href=&quot;#误差分类&quot; class=&quot;headerlink&quot; title=&quot;误差分类&quot;&gt;&lt;/a&gt;误差分类&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;系统误差&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;概念：在一定试验条件下，由某个或者某些因素按照某一确定的规律起作用而形成的误差&lt;/li&gt;
+&lt;li&gt;产生原因：多方面&lt;/li&gt;
+&lt;li&gt;特点：系统误差大小及其符号在同一试验中是恒定的&lt;ul&gt;
+&lt;li&gt;不能通过多次试验被发现，也不能通过取多次试验值的平局值而减小&lt;/li&gt;
+&lt;li&gt;对系统误差原因有充分认识，才能进行校准或设法消除&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;随机误差&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;概念：以不可预知的规律变化着的误差，时正时负，时大时小&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;产生原因：偶然因素&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;特点：具有统计规律&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;当试验次数足够多时，误差的平均值趋向于零，可以通过增加试验次数来减小随机误差&lt;/li&gt;
+&lt;li&gt;小误差比大误差出现机会多&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;过失误差&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;概念：显然和事实不符合的误差&lt;/li&gt;
+&lt;li&gt;产生原因：细节，试验人员粗心大意&lt;/li&gt;
+&lt;li&gt;特点：&lt;ul&gt;
+&lt;li&gt;完全可以避免&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;试验&quot;&gt;&lt;a href=&quot;#试验&quot; class=&quot;headerlink&quot; title=&quot;试验&quot;&gt;&lt;/a&gt;试验&lt;/h3&gt;&lt;h3 id=&quot;平均值（Mean）&quot;&gt;&lt;a href=&quot;#平均值（Mean）&quot; class=&quot;headerlink&quot; title=&quot;平均值（Mean）&quot;&gt;&lt;/a&gt;平均值（Mean）&lt;/h3&gt;&lt;h3 id=&quot;算数平均值（Arithmetic-Mean）&quot;&gt;&lt;a href=&quot;#算数平均值（Arithmetic-Mean）&quot; class=&quot;headerlink&quot; title=&quot;算数平均值（Arithmetic Mean）&quot;&gt;&lt;/a&gt;算数平均值（Arithmetic Mean）&lt;/h3&gt;&lt;script type=&quot;math/tex; mode=display&quot;&gt;
 \overline{x}=(x_1+x_2+...+x_n)/n=\frac{\sum_{i=1}^{n}x_i}n&lt;/script&gt;&lt;p&gt;适合：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;等精度试验值&lt;/li&gt;
@@ -92,8 +209,6 @@ E_R\approx \frac{\Delta x}{x} \quad\text{或} \quad E_R\approx \frac{\Delta x}{\
     
     
       <category term="Error Analysis" scheme="https://www.blankspace.cn/tags/Error-Analysis/"/>
-    
-      <category term="Excel" scheme="https://www.blankspace.cn/tags/Excel/"/>
     
   </entry>
   
@@ -785,65 +900,6 @@ classify0(inX, dataSet, labels, k)
     
     
       <category term="shorthand" scheme="https://www.blankspace.cn/tags/shorthand/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>通过SSH让Windows控制Ubuntu</title>
-    <link href="https://www.blankspace.cn/2018/08/21/let-ubuntu-be-controled-by-windows/"/>
-    <id>https://www.blankspace.cn/2018/08/21/let-ubuntu-be-controled-by-windows/</id>
-    <published>2018-08-21T05:28:47.000Z</published>
-    <updated>2018-08-21T08:20:42.256Z</updated>
-    
-    <content type="html"><![CDATA[<p>刚好手头有一台旧电脑由于硬件老化，所以安装上了Ubuntu系统，现在想通过另外一台Windows电脑来控制。</p><p>最简单的方法可以使用Teamviewer，在两台电脑上都装上，然后同时登陆，输入口令，就能远程相互控制了，而且是图像化界面，十分方便。</p><p>另外一种方法可以在局域网使用SSH来连接及控制，成功之后的操作就跟远程操作云服务供应商（比如阿里云，腾讯云，GoDaddy等）提供的云服务器或者云虚拟主机一样，相当于一台本地服务器。过程如下：</p><ol><li><p>两台电脑连接到同一局域网下</p></li><li><p>在Linux电脑安装<code>openssh-server</code>：<code>sudo apt-get install openssh-server</code></p></li><li><p>在Linux启动SSH服务：<code>sudo /etc/init.d/ssh start</code></p></li><li><p>在Windows安装相关SSH软件，推荐<code>xshell</code>还有<code>PuTTY</code>（感谢<code>xshell</code>提供学生优惠）</p></li><li><p>查看Linux的IP地址，在终端中输入：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fconfig -a</span><br></pre></td></tr></table></figure></li><li><p>连接，在<code>xshell</code>中创建新的连接，输入Linux的IP，端口号选择<code>22</code></p></li><li><p>接着输入用户名和密码，就能在xshell中进入Linux终端（黑窗口）来控制了。</p></li></ol>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;刚好手头有一台旧电脑由于硬件老化，所以安装上了Ubuntu系统，现在想通过另外一台Windows电脑来控制。&lt;/p&gt;
-&lt;p&gt;最简单的方法可以使用Teamviewer，在两台电脑上都装上，然后同时登陆，输入口令，就能远程相互控制了，而且是图像化界面，十分方便。&lt;/p&gt;
-&lt;p&gt;
-      
-    
-    </summary>
-    
-      <category term="Linux" scheme="https://www.blankspace.cn/categories/Linux/"/>
-    
-      <category term="Ubuntu" scheme="https://www.blankspace.cn/categories/Linux/Ubuntu/"/>
-    
-    
-      <category term="SSH" scheme="https://www.blankspace.cn/tags/SSH/"/>
-    
-      <category term="Ubuntu" scheme="https://www.blankspace.cn/tags/Ubuntu/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Ubuntu 18.04.1 初学遇到的部分小问题和解决方法</title>
-    <link href="https://www.blankspace.cn/2018/08/20/ubuntu-beginner/"/>
-    <id>https://www.blankspace.cn/2018/08/20/ubuntu-beginner/</id>
-    <published>2018-08-20T13:46:53.000Z</published>
-    <updated>2018-08-21T05:25:49.292Z</updated>
-    
-    <content type="html"><![CDATA[<p>由于学习和工作需要，得使用Linux系统，初学者试水，难免遇到各种各样的Bug，很莫名奇妙也很幸运的是从安装到使用都是<em>“惊喜连连, bug不断</em>, 特总结如下:</p><h2 id="查看Ubuntu版本号"><a href="#查看Ubuntu版本号" class="headerlink" title="查看Ubuntu版本号"></a>查看Ubuntu版本号</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat /etc/issue</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ubuntu 18.04.1 LTS</span><br></pre></td></tr></table></figure><p>本文的Linux版本如上。</p><h2 id="安装后出现Bug-soft-lockup"><a href="#安装后出现Bug-soft-lockup" class="headerlink" title="安装后出现Bug soft lockup"></a>安装后出现<code>Bug soft lockup</code></h2><p>也许是因为安装双系统的原因,导致Ubuntu安装后启动发现如下错误, 卡顿无比:</p><blockquote><p>kernel: xxx watchdog: Bug: soft lockup - CPU#X stuck for xxs</p></blockquote><p><strong>解决方法:</strong></p><ol><li>重启,开机时不要按<code>enter</code>,而是按<code>e</code>,进入编辑开机指令状态</li><li>在命令中的后几行,找到<code>quite splash</code>, 在后面加上<code>nomodeset</code>, 即变成<code>quite splash nomodeset</code></li><li>按下<code>Ctrl+x</code>启动系统</li><li>这下耐性等待就可以进入系统了,进入系统后打开终端(可以使用<code>Ctrl+Alt+T</code>)</li><li>在终端中输入:<code>cd /etc/default/</code>, 按下回车</li><li>接着输入<code>sudo sudo nano grub</code>, 输入管理员密码,回车</li><li>在打开的窗口中找到<code>GRUB_CMDLINE_LINUX_DEFAULT=&quot;quite splash&quot;</code>更改为<code>GRUB_CMDLINE_LINUX_DEFAULT=&quot;quite splash nomodeset&quot;</code></li><li>在相同的窗口中,找到<code>GRUB_DEFAULT=0</code>,其表示启动的序号。若要默认Windows启动则将其改为开机启动画面中Windows所代表的序号（序号从0开始），通常为2.</li><li>按下<code>Ctrl+x</code>,然后输入<code>y</code>保存编辑后的文件</li><li>再次询问，回车</li><li>然后在终端中输入<code>sudo update-grub</code>,更新grub</li><li>重启，就能正常进入Ubuntu系统了</li></ol><hr><h2 id="无法为chrome安装插件"><a href="#无法为chrome安装插件" class="headerlink" title="无法为chrome安装插件"></a>无法为chrome安装插件</h2><p>习惯使用chrome浏览器，上面有保存的很多网络书签和插件需要同步。<br>下载安装后，下载插件的<code>.crx</code>无法通过拖拽的方式安装进chrome，即使打开了<code>开发者模式</code>也不行。<br>解决方法：<br>打开终端，以命令行方式启动chrome：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">google-chrome --enable-easy-off-store-extension-install</span><br></pre></td></tr></table></figure><p>然后就可以安装插件了。</p><hr><h2 id="更换为国内源"><a href="#更换为国内源" class="headerlink" title="更换为国内源"></a>更换为国内源</h2><p>访问国内源理所应当比国外快吧，所以就换了。<br>步骤如下：</p><ol><li>备份原来的源</li></ol><blockquote><p>sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak</p></blockquote><p>2.更换源</p><blockquote><p>sudo gedit /etc/apt/sources.list</p></blockquote><p>   更换成国内源，复制粘贴即可：</p><p>   阿里源：<a href="https://opsx.alibaba.com/mirror，选择相应的LINUX系统点击查看帮助，其中有最新的源。" target="_blank" rel="noopener">https://opsx.alibaba.com/mirror，选择相应的LINUX系统点击查看帮助，其中有最新的源。</a></p><blockquote><p>deb <a href="http://mirrors.aliyun.com/ubuntu/" target="_blank" rel="noopener">http://mirrors.aliyun.com/ubuntu/</a> bionic main restricted universe multiverse<br>deb-src <a href="http://mirrors.aliyun.com/ubuntu/" target="_blank" rel="noopener">http://mirrors.aliyun.com/ubuntu/</a> bionic main restricted universe multiverse</p><p>deb <a href="http://mirrors.aliyun.com/ubuntu/" target="_blank" rel="noopener">http://mirrors.aliyun.com/ubuntu/</a> bionic-security main restricted universe multiverse<br>deb-src <a href="http://mirrors.aliyun.com/ubuntu/" target="_blank" rel="noopener">http://mirrors.aliyun.com/ubuntu/</a> bionic-security main restricted universe multiverse</p><p>deb <a href="http://mirrors.aliyun.com/ubuntu/" target="_blank" rel="noopener">http://mirrors.aliyun.com/ubuntu/</a> bionic-updates main restricted universe multiverse<br>deb-src <a href="http://mirrors.aliyun.com/ubuntu/" target="_blank" rel="noopener">http://mirrors.aliyun.com/ubuntu/</a> bionic-updates main restricted universe multiverse</p><p>deb <a href="http://mirrors.aliyun.com/ubuntu/" target="_blank" rel="noopener">http://mirrors.aliyun.com/ubuntu/</a> bionic-proposed main restricted universe multiverse<br>deb-src <a href="http://mirrors.aliyun.com/ubuntu/" target="_blank" rel="noopener">http://mirrors.aliyun.com/ubuntu/</a> bionic-proposed main restricted universe multiverse</p><p>deb <a href="http://mirrors.aliyun.com/ubuntu/" target="_blank" rel="noopener">http://mirrors.aliyun.com/ubuntu/</a> bionic-backports main restricted universe multiverse<br>deb-src <a href="http://mirrors.aliyun.com/ubuntu/" target="_blank" rel="noopener">http://mirrors.aliyun.com/ubuntu/</a> bionic-backports main restricted universe multiverse</p></blockquote><p>TUNA源：<a href="https://mirror.tuna.tsinghua.edu.cn/help/ubuntu/" target="_blank" rel="noopener">https://mirror.tuna.tsinghua.edu.cn/help/ubuntu/</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"># 默认注释了源码镜像以提高 apt update 速度，如有需要可自行取消注释</span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic main restricted universe multiverse</span><br><span class="line"># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic main restricted universe multiverse</span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-updates main restricted universe multiverse</span><br><span class="line"># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-updates main restricted universe multiverse</span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-backports main restricted universe multiverse</span><br><span class="line"># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-backports main restricted universe multiverse</span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-security main restricted universe multiverse</span><br><span class="line"># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-security main restricted universe multiverse</span><br><span class="line"></span><br><span class="line"># 预发布软件源，不建议启用</span><br><span class="line"># deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-proposed main restricted universe multiverse</span><br><span class="line"># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-proposed main restricted universe multiverse</span><br></pre></td></tr></table></figure><p>网易源：<a href="http://mirrors.163.com/.help/ubuntu.html" target="_blank" rel="noopener">http://mirrors.163.com/.help/ubuntu.html</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">deb http://mirrors.163.com/ubuntu/ wily main restricted universe multiverse</span><br><span class="line">deb http://mirrors.163.com/ubuntu/ wily-security main restricted universe multiverse</span><br><span class="line">deb http://mirrors.163.com/ubuntu/ wily-updates main restricted universe multiverse</span><br><span class="line">deb http://mirrors.163.com/ubuntu/ wily-proposed main restricted universe multiverse</span><br><span class="line">deb http://mirrors.163.com/ubuntu/ wily-backports main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.163.com/ubuntu/ wily main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.163.com/ubuntu/ wily-security main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.163.com/ubuntu/ wily-updates main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.163.com/ubuntu/ wily-proposed main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.163.com/ubuntu/ wily-backports main restricted universe multiverse</span><br></pre></td></tr></table></figure><p>等等。</p><p>3.更新</p><p>   更新源：</p><blockquote><p>sudo apt-get update</p></blockquote><p>   更新已经安装的软件：</p><blockquote><p>sudo apt-get upgrade</p></blockquote><p>4.使用。之后使用<code>apt-get install</code>命令就是从上面替换的源头，可以输入<code>sudo apt-get install sl</code>查看小火车来测试。</p><hr><h2 id="安装-卸载-搜狗-拼音输入法失败"><a href="#安装-卸载-搜狗-拼音输入法失败" class="headerlink" title="安装/卸载(搜狗)拼音输入法失败"></a>安装/卸载(搜狗)拼音输入法失败</h2><p><em>以下顺序不要搞错了,否则将会产生很多莫名其妙的错误：无法进入语言支持Language Support更改语言，右上角莫名错误气泡等</em></p><ol><li>打开设置，侧边栏进入区域和语言，点击<code>管理已安装的语言</code></li><li>语言下的<strong>键盘输入法系统选择<code>fcitx</code></strong></li><li>去<a href="https://pinyin.sogou.com/linux/?r=pinyin" target="_blank" rel="noopener">搜狗拼音</a>下载对应版本拼音输入法(貌似没有找到其他更好用的LINUX拼音输入法)</li><li>安装</li><li>注销账户后生效</li></ol><p>这是正常的操作。</p><p>假如遇到了上面所说的莫名奇妙的错误，问题就是出在安装顺序上，解决办法，先卸载搜狗拼音输入法，然后按照上面顺序操作。</p><p><strong>卸载搜狗拼音输入法</strong></p><p>在终端中输入:</p><blockquote><p>sudo dpkg -l so*</p></blockquote><p>然后输入:</p><blockquote><p>sudo dpkg —remove —force-all sogoupinyin</p></blockquote><p>注意有的教程中没有<code>--force-all</code>, 可能会卸载失败。</p><p>等待卸载完成后安装正确顺序重新操作即可正常使用搜狗拼音输入法。</p><hr><h2 id="调整屏幕分辨率"><a href="#调整屏幕分辨率" class="headerlink" title="调整屏幕分辨率"></a>调整屏幕分辨率</h2><p>默认的放大比例只有<code>100%</code>和<code>200%</code>，和我之前用过的Ubuntu麒麟相比好像缺了分辨率的调整。解决办法如下：</p><ol><li>打卡终端</li><li>下载<code>tweak</code>： <code>sudo apt-get install gnome-tweak-tool</code></li><li>在搜索栏中搜索<code>tweaks</code>中文叫做<code>优化</code></li><li>里面有很多可调整的东西</li></ol><hr><h2 id="使用pip3遇到ImportError-cannot-import-name-‘sysconfig’"><a href="#使用pip3遇到ImportError-cannot-import-name-‘sysconfig’" class="headerlink" title="使用pip3遇到ImportError: cannot import name ‘sysconfig’"></a>使用pip3遇到ImportError: cannot import name ‘sysconfig’</h2><p>自带Python3，终端输入<code>python3 --version</code>即可查看</p><p>但是没有安装pip。</p><p>输入:<code>sudo apt-get install python3-pip</code></p><p>安装后启动<code>pip3 list</code>，报错<code>ImportError: cannot import name &#39;sysconfig&#39;</code></p><p>解决方法：<a href="https://blog.csdn.net/qq_27366789/article/details/80559074" target="_blank" rel="noopener">这篇</a></p><p>在原有基础上添加源：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deb http://cn.archive.ubuntu.com/ubuntu bionic main multiverse restricted universe</span><br><span class="line">deb http://cn.archive.ubuntu.com/ubuntu bionic-updates main multiverse restricted universe</span><br><span class="line">deb http://cn.archive.ubuntu.com/ubuntu bionic-security main multiverse restricted universe</span><br><span class="line">deb http://cn.archive.ubuntu.com/ubuntu bionic-proposed main multiverse restricted universe</span><br></pre></td></tr></table></figure><p>添加源的方法和上文更改源的操作类似。</p><p>重新输入上述安装命令即可解决。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;由于学习和工作需要，得使用Linux系统，初学者试水，难免遇到各种各样的Bug，很莫名奇妙也很幸运的是从安装到使用都是&lt;em&gt;“惊喜连连, bug不断&lt;/em&gt;, 特总结如下:&lt;/p&gt;
-&lt;h2 id=&quot;查看Ubuntu版本号&quot;&gt;&lt;a href=&quot;#查看Ubuntu版本号&quot; 
-      
-    
-    </summary>
-    
-      <category term="Linux" scheme="https://www.blankspace.cn/categories/Linux/"/>
-    
-      <category term="Ubuntu" scheme="https://www.blankspace.cn/categories/Linux/Ubuntu/"/>
-    
-    
-      <category term="Ubuntu" scheme="https://www.blankspace.cn/tags/Ubuntu/"/>
     
   </entry>
   

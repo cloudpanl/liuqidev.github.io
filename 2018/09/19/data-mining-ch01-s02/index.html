@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>聚类、回归等数据挖掘问题简介 | WizardLQ’s | 魔法师の小茶馆</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="聚类（Clustering）概念将观察到无标记项集合划分成若干子集（subsets成为clusters簇）,同一个簇中的项具有相似性。   Clustering is the assignment of a set of observations into subsets (called clusters) so that observations in the same cluster are">
+<meta name="keywords" content="Unsupervised Learning,Clustering">
+<meta property="og:type" content="article">
+<meta property="og:title" content="聚类、回归等数据挖掘问题简介">
+<meta property="og:url" content="https://www.blankspace.cn/2018/09/19/data-mining-ch01-s02/index.html">
+<meta property="og:site_name" content="WizardLQ’s | 魔法师の小茶馆">
+<meta property="og:description" content="聚类（Clustering）概念将观察到无标记项集合划分成若干子集（subsets成为clusters簇）,同一个簇中的项具有相似性。   Clustering is the assignment of a set of observations into subsets (called clusters) so that observations in the same cluster are">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2018-09-19T15:20:27.048Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="聚类、回归等数据挖掘问题简介">
+<meta name="twitter:description" content="聚类（Clustering）概念将观察到无标记项集合划分成若干子集（subsets成为clusters簇）,同一个簇中的项具有相似性。   Clustering is the assignment of a set of observations into subsets (called clusters) so that observations in the same cluster are">
+<link rel="publisher" href="112373242775367340000">
+  
+    <link rel="alternate" href="/atom.xml" title="WizardLQ’s | 魔法师の小茶馆" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/images/icon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+<link href="https://cdn.bootcss.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet"><link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.slim.min.js"></script><script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<script type="text/javascript" src="//ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.3.min.js"></script>
+
+<link rel="stylesheet" href="/css/styles.css">
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+</head>
+
+<body>
+
+	
+
+	
+	<div class="container">
+	<div class="article-wrapper">
+
+
+<article id="post-data-mining-ch01-s02" class="article article-type-post" itemscope itemprop="blogPost">
+	
+
+
+<header class="article-header">
+
+  
+    <h1 class="article-title" itemprop="name">
+      聚类、回归等数据挖掘问题简介
+    </h1>
+  
+
+
+	
+
+ 
+	
+		魔法师LQ
+	
+	</hr>
+	<div class="article-datetime">
+	  <time datetime="2018-09-19T14:12:43.000Z" itemprop="datePublished">2018-09-19</time>
+	</div>
+	<div class="header-divider"></div>	
+
+	   
+
+</header>
+
+<div class="article-inner">
+<div class="article-entry" itemprop="articleBody">
+  
+  
+	<!-- Table of Contents -->
+
+	<aside id="article-toc" role="navigation" class="fixed">
+		<div id="article-toc-inner">
+			<strong class="sidebar-title">
+			Contents</strong>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#聚类（Clustering）"><span class="toc-text">聚类（Clustering）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#概念"><span class="toc-text">概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#距离度量（Distance-Metrics）"><span class="toc-text">距离度量（Distance Metrics）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#层次聚类"><span class="toc-text">层次聚类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#关联分析"><span class="toc-text">关联分析</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#回归"><span class="toc-text">回归</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#过拟合"><span class="toc-text">过拟合</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#可视化"><span class="toc-text">可视化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据预处理"><span class="toc-text">数据预处理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#隐私保护数据分析"><span class="toc-text">隐私保护数据分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#云"><span class="toc-text">云</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#并行计算"><span class="toc-text">并行计算</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据挖掘-大数据-算法-算力"><span class="toc-text">数据挖掘==大数据+算法+算力</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#“三驾马车”"><span class="toc-text">“三驾马车”</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#没有免费午餐"><span class="toc-text">没有免费午餐</span></a></li></ol></li></ol>
+		</div>
+	</aside>
+
+	
+	
+	<h2 id="聚类（Clustering）"><a href="#聚类（Clustering）" class="headerlink" title="聚类（Clustering）"></a>聚类（Clustering）</h2><h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><p>将观察到无标记项集合划分成若干子集（subsets成为clusters簇）,同一个簇中的项具有相似性。</p>
+<blockquote>
+<p> Clustering is the assignment of a set of observations into subsets (called clusters) so that observations in the same cluster are similar in some sense.</p>
+</blockquote>
+<h3 id="距离度量（Distance-Metrics）"><a href="#距离度量（Distance-Metrics）" class="headerlink" title="距离度量（Distance Metrics）"></a>距离度量（Distance Metrics）</h3><ul>
+<li>欧氏距离（Euclidean Distance）</li>
+<li>曼哈顿距离（Manhattan Distance）</li>
+<li>马氏距离（Mahalanobis Distance）</li>
+<li>…</li>
+</ul>
+<h3 id="层次聚类"><a href="#层次聚类" class="headerlink" title="层次聚类"></a>层次聚类</h3><p>分层分组</p>
+<h3 id="关联分析"><a href="#关联分析" class="headerlink" title="关联分析"></a>关联分析</h3><h2 id="回归"><a href="#回归" class="headerlink" title="回归"></a>回归</h2><p>线性回归，线性是参数和变量之间是线性的。</p>
+<h3 id="过拟合"><a href="#过拟合" class="headerlink" title="过拟合"></a>过拟合</h3><h2 id="可视化"><a href="#可视化" class="headerlink" title="可视化"></a>可视化</h2><p>可解释性</p>
+<h2 id="数据预处理"><a href="#数据预处理" class="headerlink" title="数据预处理"></a>数据预处理</h2><p>忌讳“GIGO”，Garbage In Garbage Out。</p>
+<p>“脏”数据：</p>
+<ul>
+<li>属性缺失（Missing Attribute Values）</li>
+<li>不一致（Inconsistent Data）</li>
+<li>不可行（Infeasible Values）</li>
+<li>异常值（离群点，Outliers）</li>
+<li>…</li>
+</ul>
+<p>所以要进行数据清洗：</p>
+<ul>
+<li>完备</li>
+<li>准确</li>
+<li>可解释</li>
+<li>…</li>
+</ul>
+<p>处理：</p>
+<ul>
+<li>标准化</li>
+<li>类型转化</li>
+<li>…</li>
+</ul>
+<h2 id="隐私保护数据分析"><a href="#隐私保护数据分析" class="headerlink" title="隐私保护数据分析"></a>隐私保护数据分析</h2><p>举例：敏感问题问卷分析</p>
+<h2 id="云"><a href="#云" class="headerlink" title="云"></a>云</h2><ul>
+<li>Pay As You Go.（弹性计算）</li>
+<li>计算就是资源。</li>
+<li>SaaS（Software as a Service）</li>
+</ul>
+<h2 id="并行计算"><a href="#并行计算" class="headerlink" title="并行计算"></a>并行计算</h2><ul>
+<li>GPU</li>
+<li>运算集群</li>
+<li>…</li>
+</ul>
+<h2 id="数据挖掘-大数据-算法-算力"><a href="#数据挖掘-大数据-算法-算力" class="headerlink" title="数据挖掘==大数据+算法+算力"></a>数据挖掘==大数据+算法+算力</h2><h3 id="“三驾马车”"><a href="#“三驾马车”" class="headerlink" title="“三驾马车”"></a>“三驾马车”</h3><div class="bs-callout bs-callout-info"><p>季向阳教授：三驾马车——数据，算法，算力。</p>
+</div>
+<h3 id="没有免费午餐"><a href="#没有免费午餐" class="headerlink" title="没有免费午餐"></a>没有免费午餐</h3><ul>
+<li>针对具体问题采用合适的算法</li>
+<li>阿卡姆剃刀</li>
+</ul>
+
+	
+  
+</div>
+
+
+  
+
+
+
+
+</div>
+
+</article>
+
+
+
+
+	</div><!--end of article wrapper-->
+	</div>
+
+
+
+
+
+
+	
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?70a761ba668ab8571ac79968adcf6078";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+
+
+
+
+
+
+
+<script src="https://cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+<script src="/js/script.js"></script>
+
+<!--Back to top-->
+<body id="top">
+<p id="back-to-top"><a href="#top"><span></span></a></p>
+</body>
+
+
+<script>
+$(document).ready(function() {
+    //首先将#back-to-top隐藏
+    $("#back-to-top").hide();
+ 
+    //当滚动条的位置处于距顶部3600像素以下时，跳转链接出现，否则消失
+    $(function() {
+        $(window).scroll(function() {
+            if ($(window).scrollTop() > 3600) {
+                $("#back-to-top").fadeIn(1500);
+            }
+            else {
+                $("#back-to-top").fadeOut(1500);
+            }
+        });
+        //当点击跳转链接后，回到页面顶部位置
+        $("#back-to-top").click(function() {
+            $('body,html').animate({
+                scrollTop: 0
+            },
+            500);
+			
+            return false;
+        });
+    });
+});
+</script>
+
+
+  <script src="/js/languages.js"></script>
+  <script src="/js/calendar.js"></script>
+  <script type="text/javascript">
+  $(function() {
+    $('#calendar').aCalendar('en', $.extend({"months":["January","February","March","April","May","June","July","August","September","October","November","December"],"dayOfWeekShort":["S","M","T","W","T","F","S"],"dayOfWeek":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"postsMonthTip":"Posts published in LMM yyyy","titleFormat":"yyyy LMM","titleLinkFormat":"/archives/yyyy/MM/","headArrows":{"previous":"<span class=\"cal-prev\"></span>","next":"<span class=\"cal-next\"></span>"},"footArrows":{"previous":" ","next":" "},"weekOffset":0,"single":false,"root":"/calendar/","url":"/calendar.json"}, {single:true, root:'calendar/'}));
+  });
+  </script>
+
+
+
+</body>
+</html>
