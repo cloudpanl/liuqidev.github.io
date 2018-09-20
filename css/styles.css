@@ -423,7 +423,7 @@ pre{
 .highlight pre {
   margin: 0;
   background-color: #1C1E1F;
-  color: #ffffffa8;
+  color: #ffffffcc;
   font-size:16px;
   border: none 1px #ccc;
 }
@@ -527,6 +527,8 @@ pre{
 	color:#808080;
 }
 
+
+
 /**
  * Custom Bootstrap and Theme Overrides
  *
@@ -578,7 +580,7 @@ code {
 }
 
 .table-responsive{
-	border-radius:4px;
+	border-radius:0px;
 	background-color:#1C1E1F;
 }
 .table-container .table-responsive{
@@ -955,7 +957,7 @@ nav.navbar .navbar-inverse .navbar-fixed-top{
 }
 .fixed #article-toc-inner {
 	margin-top: 130px;
-	margin-left: -32px;
+	margin-left: -40px;
     position: fixed;
 	width: 120px;
     top: 0;
@@ -963,7 +965,7 @@ nav.navbar .navbar-inverse .navbar-fixed-top{
 
 }
 #article-toc-inner ol {
-    margin-left: -16px;
+    margin-left: -28px;
 }
 
 
@@ -1171,6 +1173,22 @@ span.ping-to-top{
 .header-divider{
 	border-bottom: 1.2px dotted #b5b1b1;
 	margin: 10px auto;
+}
+
+
+@page {
+   @bottom-left {
+		content: counter(page) "/" counter(pages);
+	}
+ }
+ 
+ 
+ 
+.dataframe.table{
+	background-color: white;
+	color: black;
+	border-radius: 0px;
+	padding: 1px;
 }
 #calendar {
   background-color: #f8f8f8;

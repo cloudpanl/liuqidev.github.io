@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>数据预处理 | WizardLQ’s | 魔法师の小茶馆</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="数据清洗数据缺失 原因 Equipment malfunction Data not provide Not Application   类型 完全随机缺失 有条件的随机缺失 非随机缺失   处理 忽略/删除 填充：1.根据领域知识；2.填平均值，中位数等；3.高斯分布；    离群点（outlier）Outlier $\neq$ Anomaly LOF（Local Outlier Factor，">
+<meta name="keywords" content="Data Preprocessing">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据预处理">
+<meta property="og:url" content="https://www.blankspace.cn/2018/09/20/data-mining-ch02-s01/index.html">
+<meta property="og:site_name" content="WizardLQ’s | 魔法师の小茶馆">
+<meta property="og:description" content="数据清洗数据缺失 原因 Equipment malfunction Data not provide Not Application   类型 完全随机缺失 有条件的随机缺失 非随机缺失   处理 忽略/删除 填充：1.根据领域知识；2.填平均值，中位数等；3.高斯分布；    离群点（outlier）Outlier $\neq$ Anomaly LOF（Local Outlier Factor，">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://www.blankspace.cn/2018/09/20/data-mining-ch02-s01/Local%20Outlier%20Factor.png">
+<meta property="og:updated_time" content="2018-09-20T08:16:52.862Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="数据预处理">
+<meta name="twitter:description" content="数据清洗数据缺失 原因 Equipment malfunction Data not provide Not Application   类型 完全随机缺失 有条件的随机缺失 非随机缺失   处理 忽略/删除 填充：1.根据领域知识；2.填平均值，中位数等；3.高斯分布；    离群点（outlier）Outlier $\neq$ Anomaly LOF（Local Outlier Factor，">
+<meta name="twitter:image" content="https://www.blankspace.cn/2018/09/20/data-mining-ch02-s01/Local%20Outlier%20Factor.png">
+<link rel="publisher" href="112373242775367340000">
+  
+    <link rel="alternate" href="/atom.xml" title="WizardLQ’s | 魔法师の小茶馆" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/images/icon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+<link href="https://cdn.bootcss.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet"><link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.slim.min.js"></script><script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<script type="text/javascript" src="//ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.3.min.js"></script>
+
+<link rel="stylesheet" href="/css/styles.css">
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+</head>
+
+<body>
+
+	
+
+	
+	<div class="container">
+	<div class="article-wrapper">
+
+
+<article id="post-data-mining-ch02-s01" class="article article-type-post" itemscope itemprop="blogPost">
+	
+
+
+<header class="article-header">
+
+  
+    <h1 class="article-title" itemprop="name">
+      数据预处理
+    </h1>
+  
+
+
+	
+
+ 
+	
+		魔法师LQ
+	
+	</hr>
+	<div class="article-datetime">
+	  <time datetime="2018-09-19T23:16:05.000Z" itemprop="datePublished">2018-09-20</time>
+	</div>
+	<div class="header-divider"></div>	
+
+	   
+
+</header>
+
+<div class="article-inner">
+<div class="article-entry" itemprop="articleBody">
+  
+  
+	<!-- Table of Contents -->
+
+	<aside id="article-toc" role="navigation" class="fixed">
+		<div id="article-toc-inner">
+			<strong class="sidebar-title">
+			Contents</strong>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#数据清洗"><span class="toc-text">数据清洗</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#数据缺失"><span class="toc-text">数据缺失</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#离群点（outlier）"><span class="toc-text">离群点（outlier）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#LOF（Local-Outlier-Factor，局部异常因子方法）"><span class="toc-text">LOF（Local Outlier Factor，局部异常因子方法）</span></a></li></ol></li></ol></li></ol>
+		</div>
+	</aside>
+
+	
+	
+	<h2 id="数据清洗"><a href="#数据清洗" class="headerlink" title="数据清洗"></a>数据清洗</h2><h3 id="数据缺失"><a href="#数据缺失" class="headerlink" title="数据缺失"></a>数据缺失</h3><ul>
+<li>原因<ul>
+<li>Equipment malfunction</li>
+<li>Data not provide</li>
+<li>Not Application</li>
+</ul>
+</li>
+<li>类型<ul>
+<li>完全随机缺失</li>
+<li>有条件的随机缺失</li>
+<li>非随机缺失</li>
+</ul>
+</li>
+<li>处理<ul>
+<li>忽略/删除</li>
+<li>填充：1.根据领域知识；2.填平均值，中位数等；3.高斯分布；</li>
+</ul>
+</li>
+</ul>
+<h3 id="离群点（outlier）"><a href="#离群点（outlier）" class="headerlink" title="离群点（outlier）"></a>离群点（outlier）</h3><p>Outlier $\neq$ Anomaly</p>
+<h4 id="LOF（Local-Outlier-Factor，局部异常因子方法）"><a href="#LOF（Local-Outlier-Factor，局部异常因子方法）" class="headerlink" title="LOF（Local Outlier Factor，局部异常因子方法）"></a>LOF（Local Outlier Factor，局部异常因子方法）</h4><p><img src="/2018/09/20/data-mining-ch02-s01/Local Outlier Factor.png" alt="LOF方法"></p>
+<p>其中，</p>
+<ul>
+<li><p>$d(A, B)$表示A, B间的距离（例如欧氏距离）；</p>
+</li>
+<li><p>$distance_k(B)$表示点B到周围点（不包括B自身）中第k远的距离，即图示右上角虚线圆圈的半径，称为k-distance；</p>
+</li>
+<li>$distance_k(A, B)$表示A到B的距离和B的k-distance中的较大者，称为可达距离；</li>
+<li>$N_k(A)$表示A的k-distance邻域，即A周边k个点组成的集合，N即Neighbor，$\vert N_k(A) \vert$是A的k-distance领域点的个数，$\vert N_k(A) \vert \geq k$；</li>
+<li>$ldr_k(A)$为A的local reachability density（局部可达密度），是指<strong>$N_k(A)$到A的平均可达距离的倒数</strong>，密度越高，越可能是属于同一个簇；密度越低（平均可达距离越远），越可能是离群点；</li>
+<li>$LOF_k(A)$为A的local outlier factor（局部离群因子），表示$N_k(A)$的$ldr$与点A的$ldr$之比的平均值，约大于1越可能是离群点。</li>
+</ul>
+<p><a href="https://blog.csdn.net/wangyibo0201/article/details/51705966/" target="_blank" rel="noopener">阅读</a></p>
+<a id="more"></a>
+	
+  
+</div>
+
+
+  
+
+
+
+
+</div>
+
+</article>
+
+
+
+
+	</div><!--end of article wrapper-->
+	</div>
+
+
+
+
+
+
+	
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?70a761ba668ab8571ac79968adcf6078";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+
+
+
+
+
+
+
+<script src="https://cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+<script src="/js/script.js"></script>
+
+<!--Back to top-->
+<body id="top">
+<p id="back-to-top"><a href="#top"><span></span></a></p>
+</body>
+
+
+<script>
+$(document).ready(function() {
+    //首先将#back-to-top隐藏
+    $("#back-to-top").hide();
+ 
+    //当滚动条的位置处于距顶部3600像素以下时，跳转链接出现，否则消失
+    $(function() {
+        $(window).scroll(function() {
+            if ($(window).scrollTop() > 3600) {
+                $("#back-to-top").fadeIn(1500);
+            }
+            else {
+                $("#back-to-top").fadeOut(1500);
+            }
+        });
+        //当点击跳转链接后，回到页面顶部位置
+        $("#back-to-top").click(function() {
+            $('body,html').animate({
+                scrollTop: 0
+            },
+            500);
+			
+            return false;
+        });
+    });
+});
+</script>
+
+
+  <script src="/js/languages.js"></script>
+  <script src="/js/calendar.js"></script>
+  <script type="text/javascript">
+  $(function() {
+    $('#calendar').aCalendar('en', $.extend({"months":["January","February","March","April","May","June","July","August","September","October","November","December"],"dayOfWeekShort":["S","M","T","W","T","F","S"],"dayOfWeek":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"postsMonthTip":"Posts published in LMM yyyy","titleFormat":"yyyy LMM","titleLinkFormat":"/archives/yyyy/MM/","headArrows":{"previous":"<span class=\"cal-prev\"></span>","next":"<span class=\"cal-next\"></span>"},"footArrows":{"previous":" ","next":" "},"weekOffset":0,"single":false,"root":"/calendar/","url":"/calendar.json"}, {single:true, root:'calendar/'}));
+  });
+  </script>
+
+
+
+</body>
+</html>

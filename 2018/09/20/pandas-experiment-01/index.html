@@ -1,0 +1,2064 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Frequency Analysis | WizardLQ’s | 魔法师の小茶馆</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="最关键的就一句代码，直接跳到最后即可。 数据挖掘课程作业貌似要用到MATLAB以及SPSS，而 实验设计和数据分析课程主要使用Excel。除了SPSS之外其余两个都接触过，今天安装了SPSS，安装后的新手指引很贴心，给了一个收入分析的例子，全程不到5分钟，最后出来了很棒的统计以及可视化结果，长成下面这样。感觉Pandas，NumPy，Matplotlib也能做，试着复现一下，同时回顾一下Panda">
+<meta name="keywords" content="Pandas,Frequency Analysis">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Frequency Analysis">
+<meta property="og:url" content="https://www.blankspace.cn/2018/09/20/pandas-experiment-01/index.html">
+<meta property="og:site_name" content="WizardLQ’s | 魔法师の小茶馆">
+<meta property="og:description" content="最关键的就一句代码，直接跳到最后即可。 数据挖掘课程作业貌似要用到MATLAB以及SPSS，而 实验设计和数据分析课程主要使用Excel。除了SPSS之外其余两个都接触过，今天安装了SPSS，安装后的新手指引很贴心，给了一个收入分析的例子，全程不到5分钟，最后出来了很棒的统计以及可视化结果，长成下面这样。感觉Pandas，NumPy，Matplotlib也能做，试着复现一下，同时回顾一下Panda">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://www.blankspace.cn/2018/09/20/pandas-experiment-01/spss示例结果.png">
+<meta property="og:image" content="https://www.blankspace.cn/2018/09/20/pandas-experiment-01/output_25_1.png">
+<meta property="og:image" content="https://www.blankspace.cn/2018/09/20/pandas-experiment-01/output_27_1.png">
+<meta property="og:image" content="https://www.blankspace.cn/2018/09/20/pandas-experiment-01/output_29_1.png">
+<meta property="og:image" content="https://www.blankspace.cn/2018/09/20/pandas-experiment-01/output_30_1.png">
+<meta property="og:image" content="https://www.blankspace.cn/2018/09/20/pandas-experiment-01/output_31_1.png">
+<meta property="og:image" content="https://www.blankspace.cn/2018/09/20/pandas-experiment-01/output_32_0.png">
+<meta property="og:image" content="https://www.blankspace.cn/2018/09/20/pandas-experiment-01/output_35_0.png">
+<meta property="og:updated_time" content="2018-09-20T09:06:35.824Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Frequency Analysis">
+<meta name="twitter:description" content="最关键的就一句代码，直接跳到最后即可。 数据挖掘课程作业貌似要用到MATLAB以及SPSS，而 实验设计和数据分析课程主要使用Excel。除了SPSS之外其余两个都接触过，今天安装了SPSS，安装后的新手指引很贴心，给了一个收入分析的例子，全程不到5分钟，最后出来了很棒的统计以及可视化结果，长成下面这样。感觉Pandas，NumPy，Matplotlib也能做，试着复现一下，同时回顾一下Panda">
+<meta name="twitter:image" content="https://www.blankspace.cn/2018/09/20/pandas-experiment-01/spss示例结果.png">
+<link rel="publisher" href="112373242775367340000">
+  
+    <link rel="alternate" href="/atom.xml" title="WizardLQ’s | 魔法师の小茶馆" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/images/icon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+<link href="https://cdn.bootcss.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet"><link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.slim.min.js"></script><script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<script type="text/javascript" src="//ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.3.min.js"></script>
+
+<link rel="stylesheet" href="/css/styles.css">
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+</head>
+
+<body>
+
+	
+
+	
+	<div class="container">
+	<div class="article-wrapper">
+
+
+<article id="post-pandas-experiment-01" class="article article-type-post" itemscope itemprop="blogPost">
+	
+
+
+<header class="article-header">
+
+  
+    <h1 class="article-title" itemprop="name">
+      Frequency Analysis
+    </h1>
+  
+
+
+	
+
+ 
+	
+		魔法师LQ
+	
+	</hr>
+	<div class="article-datetime">
+	  <time datetime="2018-09-20T08:12:36.000Z" itemprop="datePublished">2018-09-20</time>
+	</div>
+	<div class="header-divider"></div>	
+
+	   
+
+</header>
+
+<div class="article-inner">
+<div class="article-entry" itemprop="articleBody">
+  
+  
+	<!-- Table of Contents -->
+
+	<aside id="article-toc" role="navigation" class="fixed">
+		<div id="article-toc-inner">
+			<strong class="sidebar-title">
+			Contents</strong>
+			
+		</div>
+	</aside>
+
+	
+	
+	<p><strong>最关键的就一句代码，直接跳到最后即可。</strong></p>
+<p>数据挖掘课程作业貌似要用到MATLAB以及SPSS，而 实验设计和数据分析课程主要使用Excel。除了SPSS之外其余两个都接触过，今天安装了SPSS，安装后的新手指引很贴心，给了一个收入分析的例子，全程不到5分钟，最后出来了很棒的统计以及可视化结果，长成下面这样。感觉Pandas，NumPy，Matplotlib也能做，试着复现一下，同时回顾一下Pandas的操作。</p>
+<p><img src="/2018/09/20/pandas-experiment-01/spss示例结果.png" alt=""></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 导入数据，../DataSets/demoFreq1.csv</span></span><br><span class="line">demoFreq_path = <span class="string">"../DataSets/demoFreq1.csv"</span></span><br><span class="line">df = pd.read_csv(demoFreq_path)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df</span><br></pre></td></tr></table></figure>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>id</th>
+      <th>gender</th>
+      <th>bdate</th>
+      <th>age</th>
+      <th>educ</th>
+      <th>jobcat</th>
+      <th>salbegin</th>
+      <th>salary</th>
+      <th>service</th>
+      <th>prevexp</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>m</td>
+      <td>7/26/1981</td>
+      <td>36</td>
+      <td>15</td>
+      <td>4</td>
+      <td>44010.0</td>
+      <td>98799.81000</td>
+      <td>98</td>
+      <td>144</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>m</td>
+      <td>11/13/1987</td>
+      <td>30</td>
+      <td>16</td>
+      <td>5</td>
+      <td>30562.5</td>
+      <td>69679.86600</td>
+      <td>98</td>
+      <td>36</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>f</td>
+      <td>1/16/1959</td>
+      <td>58</td>
+      <td>12</td>
+      <td>2</td>
+      <td>19560.0</td>
+      <td>37179.92850</td>
+      <td>98</td>
+      <td>381</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>f</td>
+      <td>10/6/1994</td>
+      <td>23</td>
+      <td>8</td>
+      <td>1</td>
+      <td>21516.0</td>
+      <td>37959.92700</td>
+      <td>98</td>
+      <td>190</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>m</td>
+      <td>8/1/1984</td>
+      <td>33</td>
+      <td>15</td>
+      <td>5</td>
+      <td>34230.0</td>
+      <td>77999.85000</td>
+      <td>98</td>
+      <td>138</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>6</td>
+      <td>m</td>
+      <td>2/12/1988</td>
+      <td>29</td>
+      <td>15</td>
+      <td>5</td>
+      <td>22005.0</td>
+      <td>55639.89300</td>
+      <td>98</td>
+      <td>67</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>7</td>
+      <td>m</td>
+      <td>10/17/1985</td>
+      <td>32</td>
+      <td>15</td>
+      <td>5</td>
+      <td>30562.5</td>
+      <td>62399.88000</td>
+      <td>98</td>
+      <td>114</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>8</td>
+      <td>f</td>
+      <td>10/27/1995</td>
+      <td>22</td>
+      <td>12</td>
+      <td>2</td>
+      <td>15892.5</td>
+      <td>37959.92700</td>
+      <td>98</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>9</td>
+      <td>f</td>
+      <td>7/16/1975</td>
+      <td>42</td>
+      <td>15</td>
+      <td>5</td>
+      <td>20782.5</td>
+      <td>48359.90700</td>
+      <td>98</td>
+      <td>115</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>10</td>
+      <td>f</td>
+      <td>8/6/1975</td>
+      <td>42</td>
+      <td>12</td>
+      <td>2</td>
+      <td>22005.0</td>
+      <td>41599.92000</td>
+      <td>98</td>
+      <td>244</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>11</td>
+      <td>f</td>
+      <td>7/31/1979</td>
+      <td>38</td>
+      <td>16</td>
+      <td>5</td>
+      <td>26895.0</td>
+      <td>52519.89900</td>
+      <td>98</td>
+      <td>143</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>12</td>
+      <td>m</td>
+      <td>7/3/1993</td>
+      <td>24</td>
+      <td>8</td>
+      <td>1</td>
+      <td>19560.0</td>
+      <td>49139.90550</td>
+      <td>98</td>
+      <td>26</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>13</td>
+      <td>m</td>
+      <td>1/7/1990</td>
+      <td>27</td>
+      <td>15</td>
+      <td>5</td>
+      <td>23227.5</td>
+      <td>48099.90750</td>
+      <td>98</td>
+      <td>34</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>14</td>
+      <td>f</td>
+      <td>8/19/1978</td>
+      <td>39</td>
+      <td>15</td>
+      <td>5</td>
+      <td>27384.0</td>
+      <td>60839.88300</td>
+      <td>98</td>
+      <td>137</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>15</td>
+      <td>m</td>
+      <td>2/19/1992</td>
+      <td>25</td>
+      <td>12</td>
+      <td>2</td>
+      <td>22005.0</td>
+      <td>47319.90900</td>
+      <td>97</td>
+      <td>66</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>16</td>
+      <td>m</td>
+      <td>5/10/1994</td>
+      <td>23</td>
+      <td>12</td>
+      <td>2</td>
+      <td>24450.0</td>
+      <td>70719.86400</td>
+      <td>97</td>
+      <td>24</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>17</td>
+      <td>m</td>
+      <td>1/8/1992</td>
+      <td>25</td>
+      <td>15</td>
+      <td>5</td>
+      <td>23227.5</td>
+      <td>79733.18000</td>
+      <td>97</td>
+      <td>48</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>18</td>
+      <td>m</td>
+      <td>9/10/1985</td>
+      <td>32</td>
+      <td>16</td>
+      <td>4</td>
+      <td>44841.3</td>
+      <td>179832.98750</td>
+      <td>97</td>
+      <td>70</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>19</td>
+      <td>m</td>
+      <td>2/9/1992</td>
+      <td>25</td>
+      <td>12</td>
+      <td>2</td>
+      <td>23227.5</td>
+      <td>73319.85900</td>
+      <td>97</td>
+      <td>103</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>20</td>
+      <td>f</td>
+      <td>7/15/1969</td>
+      <td>48</td>
+      <td>12</td>
+      <td>2</td>
+      <td>18826.5</td>
+      <td>45499.91250</td>
+      <td>97</td>
+      <td>48</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>21</td>
+      <td>f</td>
+      <td>8/11/1992</td>
+      <td>25</td>
+      <td>16</td>
+      <td>5</td>
+      <td>24450.0</td>
+      <td>67339.87050</td>
+      <td>97</td>
+      <td>17</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>22</td>
+      <td>m</td>
+      <td>3/17/1970</td>
+      <td>47</td>
+      <td>12</td>
+      <td>2</td>
+      <td>20782.5</td>
+      <td>37699.92750</td>
+      <td>97</td>
+      <td>315</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>23</td>
+      <td>f</td>
+      <td>9/5/1994</td>
+      <td>23</td>
+      <td>15</td>
+      <td>5</td>
+      <td>18093.0</td>
+      <td>41599.92000</td>
+      <td>97</td>
+      <td>75</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>24</td>
+      <td>f</td>
+      <td>9/17/1962</td>
+      <td>55</td>
+      <td>12</td>
+      <td>2</td>
+      <td>14670.0</td>
+      <td>29379.94350</td>
+      <td>97</td>
+      <td>124</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>25</td>
+      <td>f</td>
+      <td>12/22/1971</td>
+      <td>45</td>
+      <td>15</td>
+      <td>5</td>
+      <td>14670.0</td>
+      <td>36659.92950</td>
+      <td>97</td>
+      <td>171</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>26</td>
+      <td>m</td>
+      <td>4/30/1996</td>
+      <td>21</td>
+      <td>15</td>
+      <td>5</td>
+      <td>20538.0</td>
+      <td>53819.89650</td>
+      <td>96</td>
+      <td>14</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>27</td>
+      <td>m</td>
+      <td>9/9/1983</td>
+      <td>34</td>
+      <td>19</td>
+      <td>4</td>
+      <td>44792.4</td>
+      <td>104649.79875</td>
+      <td>96</td>
+      <td>96</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>28</td>
+      <td>m</td>
+      <td>10/1/1992</td>
+      <td>25</td>
+      <td>15</td>
+      <td>5</td>
+      <td>23227.5</td>
+      <td>56419.89150</td>
+      <td>96</td>
+      <td>43</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>29</td>
+      <td>m</td>
+      <td>7/20/1973</td>
+      <td>44</td>
+      <td>19</td>
+      <td>6</td>
+      <td>130367.4</td>
+      <td>233999.55000</td>
+      <td>96</td>
+      <td>199</td>
+    </tr>
+    <tr>
+      <th>29</th>
+      <td>30</td>
+      <td>m</td>
+      <td>3/10/1991</td>
+      <td>26</td>
+      <td>15</td>
+      <td>5</td>
+      <td>23227.5</td>
+      <td>54079.89600</td>
+      <td>96</td>
+      <td>54</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>444</th>
+      <td>445</td>
+      <td>m</td>
+      <td>1/24/1993</td>
+      <td>24</td>
+      <td>15</td>
+      <td>5</td>
+      <td>26895.0</td>
+      <td>48619.90650</td>
+      <td>66</td>
+      <td>84</td>
+    </tr>
+    <tr>
+      <th>445</th>
+      <td>446</td>
+      <td>m</td>
+      <td>1/24/1988</td>
+      <td>29</td>
+      <td>16</td>
+      <td>4</td>
+      <td>71883.0</td>
+      <td>173333.00000</td>
+      <td>66</td>
+      <td>128</td>
+    </tr>
+    <tr>
+      <th>446</th>
+      <td>447</td>
+      <td>m</td>
+      <td>12/23/1990</td>
+      <td>26</td>
+      <td>15</td>
+      <td>5</td>
+      <td>33496.5</td>
+      <td>84933.17000</td>
+      <td>66</td>
+      <td>86</td>
+    </tr>
+    <tr>
+      <th>447</th>
+      <td>448</td>
+      <td>f</td>
+      <td>11/26/1962</td>
+      <td>54</td>
+      <td>12</td>
+      <td>2</td>
+      <td>16626.0</td>
+      <td>28339.94550</td>
+      <td>66</td>
+      <td>163</td>
+    </tr>
+    <tr>
+      <th>448</th>
+      <td>449</td>
+      <td>m</td>
+      <td>6/25/1995</td>
+      <td>22</td>
+      <td>16</td>
+      <td>4</td>
+      <td>35452.5</td>
+      <td>121333.10000</td>
+      <td>65</td>
+      <td>19</td>
+    </tr>
+    <tr>
+      <th>449</th>
+      <td>450</td>
+      <td>m</td>
+      <td>1/11/1984</td>
+      <td>33</td>
+      <td>19</td>
+      <td>4</td>
+      <td>57017.4</td>
+      <td>95333.15000</td>
+      <td>65</td>
+      <td>129</td>
+    </tr>
+    <tr>
+      <th>450</th>
+      <td>451</td>
+      <td>m</td>
+      <td>1/9/1999</td>
+      <td>18</td>
+      <td>15</td>
+      <td>5</td>
+      <td>23227.5</td>
+      <td>49399.90500</td>
+      <td>65</td>
+      <td>20</td>
+    </tr>
+    <tr>
+      <th>451</th>
+      <td>452</td>
+      <td>m</td>
+      <td>2/3/1983</td>
+      <td>34</td>
+      <td>12</td>
+      <td>2</td>
+      <td>29340.0</td>
+      <td>49919.90400</td>
+      <td>65</td>
+      <td>210</td>
+    </tr>
+    <tr>
+      <th>452</th>
+      <td>453</td>
+      <td>m</td>
+      <td>1/28/1960</td>
+      <td>57</td>
+      <td>15</td>
+      <td>5</td>
+      <td>25672.5</td>
+      <td>42379.91850</td>
+      <td>65</td>
+      <td>338</td>
+    </tr>
+    <tr>
+      <th>453</th>
+      <td>454</td>
+      <td>m</td>
+      <td>1/18/1995</td>
+      <td>22</td>
+      <td>19</td>
+      <td>4</td>
+      <td>50937.5</td>
+      <td>157083.03125</td>
+      <td>65</td>
+      <td>18</td>
+    </tr>
+    <tr>
+      <th>454</th>
+      <td>455</td>
+      <td>m</td>
+      <td>7/9/1993</td>
+      <td>24</td>
+      <td>16</td>
+      <td>4</td>
+      <td>31785.0</td>
+      <td>75659.85450</td>
+      <td>65</td>
+      <td>19</td>
+    </tr>
+    <tr>
+      <th>455</th>
+      <td>456</td>
+      <td>m</td>
+      <td>4/8/1989</td>
+      <td>28</td>
+      <td>19</td>
+      <td>4</td>
+      <td>69291.3</td>
+      <td>129999.75000</td>
+      <td>65</td>
+      <td>54</td>
+    </tr>
+    <tr>
+      <th>456</th>
+      <td>457</td>
+      <td>m</td>
+      <td>11/17/1997</td>
+      <td>19</td>
+      <td>15</td>
+      <td>5</td>
+      <td>23227.5</td>
+      <td>54859.89450</td>
+      <td>65</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <th>457</th>
+      <td>458</td>
+      <td>m</td>
+      <td>12/27/1994</td>
+      <td>22</td>
+      <td>19</td>
+      <td>4</td>
+      <td>46846.2</td>
+      <td>107249.79375</td>
+      <td>65</td>
+      <td>26</td>
+    </tr>
+    <tr>
+      <th>458</th>
+      <td>459</td>
+      <td>f</td>
+      <td>8/2/2000</td>
+      <td>17</td>
+      <td>12</td>
+      <td>2</td>
+      <td>18337.5</td>
+      <td>37699.92750</td>
+      <td>65</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>459</th>
+      <td>460</td>
+      <td>f</td>
+      <td>2/2/1999</td>
+      <td>18</td>
+      <td>12</td>
+      <td>2</td>
+      <td>20782.5</td>
+      <td>38999.92500</td>
+      <td>65</td>
+      <td>24</td>
+    </tr>
+    <tr>
+      <th>460</th>
+      <td>461</td>
+      <td>f</td>
+      <td>5/1/1995</td>
+      <td>22</td>
+      <td>8</td>
+      <td>1</td>
+      <td>22005.0</td>
+      <td>37439.92800</td>
+      <td>65</td>
+      <td>173</td>
+    </tr>
+    <tr>
+      <th>461</th>
+      <td>462</td>
+      <td>f</td>
+      <td>4/9/1993</td>
+      <td>24</td>
+      <td>16</td>
+      <td>4</td>
+      <td>31785.0</td>
+      <td>59643.88530</td>
+      <td>65</td>
+      <td>79</td>
+    </tr>
+    <tr>
+      <th>462</th>
+      <td>463</td>
+      <td>f</td>
+      <td>4/6/1964</td>
+      <td>53</td>
+      <td>15</td>
+      <td>5</td>
+      <td>23227.5</td>
+      <td>35879.93100</td>
+      <td>65</td>
+      <td>241</td>
+    </tr>
+    <tr>
+      <th>463</th>
+      <td>464</td>
+      <td>m</td>
+      <td>9/10/1991</td>
+      <td>26</td>
+      <td>19</td>
+      <td>4</td>
+      <td>53790.0</td>
+      <td>82419.84150</td>
+      <td>64</td>
+      <td>27</td>
+    </tr>
+    <tr>
+      <th>464</th>
+      <td>465</td>
+      <td>m</td>
+      <td>1/10/1992</td>
+      <td>25</td>
+      <td>12</td>
+      <td>2</td>
+      <td>26895.0</td>
+      <td>58759.88700</td>
+      <td>64</td>
+      <td>106</td>
+    </tr>
+    <tr>
+      <th>465</th>
+      <td>466</td>
+      <td>f</td>
+      <td>12/6/1977</td>
+      <td>39</td>
+      <td>12</td>
+      <td>2</td>
+      <td>22005.0</td>
+      <td>40559.92200</td>
+      <td>64</td>
+      <td>198</td>
+    </tr>
+    <tr>
+      <th>466</th>
+      <td>467</td>
+      <td>f</td>
+      <td>2/7/1997</td>
+      <td>20</td>
+      <td>16</td>
+      <td>5</td>
+      <td>31785.0</td>
+      <td>56939.89050</td>
+      <td>64</td>
+      <td>20</td>
+    </tr>
+    <tr>
+      <th>467</th>
+      <td>468</td>
+      <td>f</td>
+      <td>5/21/1995</td>
+      <td>22</td>
+      <td>16</td>
+      <td>4</td>
+      <td>32567.4</td>
+      <td>96633.14750</td>
+      <td>64</td>
+      <td>36</td>
+    </tr>
+    <tr>
+      <th>468</th>
+      <td>469</td>
+      <td>f</td>
+      <td>11/22/1993</td>
+      <td>23</td>
+      <td>15</td>
+      <td>5</td>
+      <td>22738.5</td>
+      <td>43679.91600</td>
+      <td>64</td>
+      <td>57</td>
+    </tr>
+    <tr>
+      <th>469</th>
+      <td>470</td>
+      <td>m</td>
+      <td>7/14/1993</td>
+      <td>24</td>
+      <td>12</td>
+      <td>2</td>
+      <td>25672.5</td>
+      <td>45499.91250</td>
+      <td>64</td>
+      <td>69</td>
+    </tr>
+    <tr>
+      <th>470</th>
+      <td>471</td>
+      <td>m</td>
+      <td>1/24/1996</td>
+      <td>21</td>
+      <td>15</td>
+      <td>5</td>
+      <td>25672.5</td>
+      <td>45759.91200</td>
+      <td>64</td>
+      <td>32</td>
+    </tr>
+    <tr>
+      <th>471</th>
+      <td>472</td>
+      <td>m</td>
+      <td>8/14/1995</td>
+      <td>22</td>
+      <td>15</td>
+      <td>5</td>
+      <td>25672.5</td>
+      <td>67859.86950</td>
+      <td>63</td>
+      <td>46</td>
+    </tr>
+    <tr>
+      <th>472</th>
+      <td>473</td>
+      <td>f</td>
+      <td>5/18/1967</td>
+      <td>50</td>
+      <td>12</td>
+      <td>2</td>
+      <td>20782.5</td>
+      <td>37179.92850</td>
+      <td>63</td>
+      <td>139</td>
+    </tr>
+    <tr>
+      <th>473</th>
+      <td>474</td>
+      <td>f</td>
+      <td>4/28/1998</td>
+      <td>19</td>
+      <td>12</td>
+      <td>2</td>
+      <td>23227.5</td>
+      <td>50959.90200</td>
+      <td>63</td>
+      <td>9</td>
+    </tr>
+  </tbody>
+</table>
+<p>474 rows × 10 columns</p>
+</div>
+
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(df[<span class="string">'salary'</span>])</span><br></pre></td></tr></table></figure>
+<pre><code>0       98799.81000
+1       69679.86600
+2       37179.92850
+3       37959.92700
+4       77999.85000
+5       55639.89300
+6       62399.88000
+7       37959.92700
+8       48359.90700
+9       41599.92000
+10      52519.89900
+11      49139.90550
+12      48099.90750
+13      60839.88300
+14      47319.90900
+15      70719.86400
+16      79733.18000
+17     179832.98750
+18      73319.85900
+19      45499.91250
+20      67339.87050
+21      37699.92750
+22      41599.92000
+23      29379.94350
+24      36659.92950
+25      53819.89650
+26     104649.79875
+27      56419.89150
+28     233999.55000
+29      54079.89600
+           ...     
+444     48619.90650
+445    173333.00000
+446     84933.17000
+447     28339.94550
+448    121333.10000
+449     95333.15000
+450     49399.90500
+451     49919.90400
+452     42379.91850
+453    157083.03125
+454     75659.85450
+455    129999.75000
+456     54859.89450
+457    107249.79375
+458     37699.92750
+459     38999.92500
+460     37439.92800
+461     59643.88530
+462     35879.93100
+463     82419.84150
+464     58759.88700
+465     40559.92200
+466     56939.89050
+467     96633.14750
+468     43679.91600
+469     45499.91250
+470     45759.91200
+471     67859.86950
+472     37179.92850
+473     50959.90200
+Name: salary, Length: 474, dtype: float64
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(type(df[<span class="string">'salary'</span>])) <span class="comment"># 每一列就是一个Series，相当于SPSS中的变量值</span></span><br></pre></td></tr></table></figure>
+<pre><code>&lt;class &#39;pandas.core.series.Series&#39;&gt;
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df.head(<span class="number">10</span>) <span class="comment"># 查看前n条记录</span></span><br></pre></td></tr></table></figure>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>id</th>
+      <th>gender</th>
+      <th>bdate</th>
+      <th>age</th>
+      <th>educ</th>
+      <th>jobcat</th>
+      <th>salbegin</th>
+      <th>salary</th>
+      <th>service</th>
+      <th>prevexp</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>m</td>
+      <td>7/26/1981</td>
+      <td>36</td>
+      <td>15</td>
+      <td>4</td>
+      <td>44010.0</td>
+      <td>98799.8100</td>
+      <td>98</td>
+      <td>144</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>m</td>
+      <td>11/13/1987</td>
+      <td>30</td>
+      <td>16</td>
+      <td>5</td>
+      <td>30562.5</td>
+      <td>69679.8660</td>
+      <td>98</td>
+      <td>36</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>f</td>
+      <td>1/16/1959</td>
+      <td>58</td>
+      <td>12</td>
+      <td>2</td>
+      <td>19560.0</td>
+      <td>37179.9285</td>
+      <td>98</td>
+      <td>381</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>f</td>
+      <td>10/6/1994</td>
+      <td>23</td>
+      <td>8</td>
+      <td>1</td>
+      <td>21516.0</td>
+      <td>37959.9270</td>
+      <td>98</td>
+      <td>190</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>m</td>
+      <td>8/1/1984</td>
+      <td>33</td>
+      <td>15</td>
+      <td>5</td>
+      <td>34230.0</td>
+      <td>77999.8500</td>
+      <td>98</td>
+      <td>138</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>6</td>
+      <td>m</td>
+      <td>2/12/1988</td>
+      <td>29</td>
+      <td>15</td>
+      <td>5</td>
+      <td>22005.0</td>
+      <td>55639.8930</td>
+      <td>98</td>
+      <td>67</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>7</td>
+      <td>m</td>
+      <td>10/17/1985</td>
+      <td>32</td>
+      <td>15</td>
+      <td>5</td>
+      <td>30562.5</td>
+      <td>62399.8800</td>
+      <td>98</td>
+      <td>114</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>8</td>
+      <td>f</td>
+      <td>10/27/1995</td>
+      <td>22</td>
+      <td>12</td>
+      <td>2</td>
+      <td>15892.5</td>
+      <td>37959.9270</td>
+      <td>98</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>9</td>
+      <td>f</td>
+      <td>7/16/1975</td>
+      <td>42</td>
+      <td>15</td>
+      <td>5</td>
+      <td>20782.5</td>
+      <td>48359.9070</td>
+      <td>98</td>
+      <td>115</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>10</td>
+      <td>f</td>
+      <td>8/6/1975</td>
+      <td>42</td>
+      <td>12</td>
+      <td>2</td>
+      <td>22005.0</td>
+      <td>41599.9200</td>
+      <td>98</td>
+      <td>244</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df[<span class="number">0</span>:<span class="number">10</span>] <span class="comment"># 类似于数组的形式来操作</span></span><br></pre></td></tr></table></figure>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>id</th>
+      <th>gender</th>
+      <th>bdate</th>
+      <th>age</th>
+      <th>educ</th>
+      <th>jobcat</th>
+      <th>salbegin</th>
+      <th>salary</th>
+      <th>service</th>
+      <th>prevexp</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>m</td>
+      <td>7/26/1981</td>
+      <td>36</td>
+      <td>15</td>
+      <td>4</td>
+      <td>44010.0</td>
+      <td>98799.8100</td>
+      <td>98</td>
+      <td>144</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>m</td>
+      <td>11/13/1987</td>
+      <td>30</td>
+      <td>16</td>
+      <td>5</td>
+      <td>30562.5</td>
+      <td>69679.8660</td>
+      <td>98</td>
+      <td>36</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>f</td>
+      <td>1/16/1959</td>
+      <td>58</td>
+      <td>12</td>
+      <td>2</td>
+      <td>19560.0</td>
+      <td>37179.9285</td>
+      <td>98</td>
+      <td>381</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>f</td>
+      <td>10/6/1994</td>
+      <td>23</td>
+      <td>8</td>
+      <td>1</td>
+      <td>21516.0</td>
+      <td>37959.9270</td>
+      <td>98</td>
+      <td>190</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>m</td>
+      <td>8/1/1984</td>
+      <td>33</td>
+      <td>15</td>
+      <td>5</td>
+      <td>34230.0</td>
+      <td>77999.8500</td>
+      <td>98</td>
+      <td>138</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>6</td>
+      <td>m</td>
+      <td>2/12/1988</td>
+      <td>29</td>
+      <td>15</td>
+      <td>5</td>
+      <td>22005.0</td>
+      <td>55639.8930</td>
+      <td>98</td>
+      <td>67</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>7</td>
+      <td>m</td>
+      <td>10/17/1985</td>
+      <td>32</td>
+      <td>15</td>
+      <td>5</td>
+      <td>30562.5</td>
+      <td>62399.8800</td>
+      <td>98</td>
+      <td>114</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>8</td>
+      <td>f</td>
+      <td>10/27/1995</td>
+      <td>22</td>
+      <td>12</td>
+      <td>2</td>
+      <td>15892.5</td>
+      <td>37959.9270</td>
+      <td>98</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>9</td>
+      <td>f</td>
+      <td>7/16/1975</td>
+      <td>42</td>
+      <td>15</td>
+      <td>5</td>
+      <td>20782.5</td>
+      <td>48359.9070</td>
+      <td>98</td>
+      <td>115</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>10</td>
+      <td>f</td>
+      <td>8/6/1975</td>
+      <td>42</td>
+      <td>12</td>
+      <td>2</td>
+      <td>22005.0</td>
+      <td>41599.9200</td>
+      <td>98</td>
+      <td>244</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df[<span class="string">'age'</span>]  <span class="comment"># 根据变量名（关键码）来查看</span></span><br></pre></td></tr></table></figure>
+<pre><code>0      36
+1      30
+2      58
+3      23
+4      33
+5      29
+6      32
+7      22
+8      42
+9      42
+10     38
+11     24
+12     27
+13     39
+14     25
+15     23
+16     25
+17     32
+18     25
+19     48
+20     25
+21     47
+22     23
+23     55
+24     45
+25     21
+26     34
+27     25
+28     44
+29     26
+       ..
+444    24
+445    29
+446    26
+447    54
+448    22
+449    33
+450    18
+451    34
+452    57
+453    22
+454    24
+455    28
+456    19
+457    22
+458    17
+459    18
+460    22
+461    24
+462    53
+463    26
+464    25
+465    39
+466    20
+467    22
+468    23
+469    24
+470    21
+471    22
+472    50
+473    19
+Name: age, Length: 474, dtype: object
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(df.columns)  <span class="comment"># 查看所有变量名</span></span><br></pre></td></tr></table></figure>
+<pre><code>Index([&#39;id&#39;, &#39;gender&#39;, &#39;bdate&#39;, &#39;age&#39;, &#39;educ&#39;, &#39;jobcat&#39;, &#39;salbegin&#39;, &#39;salary&#39;,
+       &#39;service&#39;, &#39;prevexp&#39;],
+      dtype=&#39;object&#39;)
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var_names = df.columns.tolist() <span class="comment"># 转换为list</span></span><br><span class="line">print(var_names)</span><br></pre></td></tr></table></figure>
+<pre><code>[&#39;id&#39;, &#39;gender&#39;, &#39;bdate&#39;, &#39;age&#39;, &#39;educ&#39;, &#39;jobcat&#39;, &#39;salbegin&#39;, &#39;salary&#39;, &#39;service&#39;, &#39;prevexp&#39;]
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df.describe()  <span class="comment"># 基本统计信息</span></span><br></pre></td></tr></table></figure>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>id</th>
+      <th>educ</th>
+      <th>jobcat</th>
+      <th>salbegin</th>
+      <th>salary</th>
+      <th>service</th>
+      <th>prevexp</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>474.000000</td>
+      <td>474.000000</td>
+      <td>474.000000</td>
+      <td>474.000000</td>
+      <td>474.000000</td>
+      <td>474.000000</td>
+      <td>474.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>237.500000</td>
+      <td>13.491561</td>
+      <td>3.278481</td>
+      <td>27736.220992</td>
+      <td>59660.468953</td>
+      <td>81.109705</td>
+      <td>95.860759</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>136.976275</td>
+      <td>2.884846</td>
+      <td>1.462166</td>
+      <td>12829.140192</td>
+      <td>29597.756286</td>
+      <td>10.060945</td>
+      <td>104.586236</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>1.000000</td>
+      <td>8.000000</td>
+      <td>1.000000</td>
+      <td>14670.000000</td>
+      <td>27299.947500</td>
+      <td>63.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>119.250000</td>
+      <td>12.000000</td>
+      <td>2.000000</td>
+      <td>20354.625000</td>
+      <td>41599.920000</td>
+      <td>72.000000</td>
+      <td>19.250000</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>237.500000</td>
+      <td>12.000000</td>
+      <td>3.000000</td>
+      <td>24450.000000</td>
+      <td>50049.903750</td>
+      <td>81.000000</td>
+      <td>55.000000</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>355.750000</td>
+      <td>15.000000</td>
+      <td>5.000000</td>
+      <td>28508.700000</td>
+      <td>64024.876875</td>
+      <td>90.000000</td>
+      <td>138.750000</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>474.000000</td>
+      <td>21.000000</td>
+      <td>6.000000</td>
+      <td>130367.400000</td>
+      <td>233999.550000</td>
+      <td>98.000000</td>
+      <td>476.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df.describe(include=[np.number])  <span class="comment"># 只统计数值型的内容</span></span><br></pre></td></tr></table></figure>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>id</th>
+      <th>educ</th>
+      <th>jobcat</th>
+      <th>salbegin</th>
+      <th>salary</th>
+      <th>service</th>
+      <th>prevexp</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>474.000000</td>
+      <td>474.000000</td>
+      <td>474.000000</td>
+      <td>474.000000</td>
+      <td>474.000000</td>
+      <td>474.000000</td>
+      <td>474.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>237.500000</td>
+      <td>13.491561</td>
+      <td>3.278481</td>
+      <td>27736.220992</td>
+      <td>59660.468953</td>
+      <td>81.109705</td>
+      <td>95.860759</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>136.976275</td>
+      <td>2.884846</td>
+      <td>1.462166</td>
+      <td>12829.140192</td>
+      <td>29597.756286</td>
+      <td>10.060945</td>
+      <td>104.586236</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>1.000000</td>
+      <td>8.000000</td>
+      <td>1.000000</td>
+      <td>14670.000000</td>
+      <td>27299.947500</td>
+      <td>63.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>119.250000</td>
+      <td>12.000000</td>
+      <td>2.000000</td>
+      <td>20354.625000</td>
+      <td>41599.920000</td>
+      <td>72.000000</td>
+      <td>19.250000</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>237.500000</td>
+      <td>12.000000</td>
+      <td>3.000000</td>
+      <td>24450.000000</td>
+      <td>50049.903750</td>
+      <td>81.000000</td>
+      <td>55.000000</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>355.750000</td>
+      <td>15.000000</td>
+      <td>5.000000</td>
+      <td>28508.700000</td>
+      <td>64024.876875</td>
+      <td>90.000000</td>
+      <td>138.750000</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>474.000000</td>
+      <td>21.000000</td>
+      <td>6.000000</td>
+      <td>130367.400000</td>
+      <td>233999.550000</td>
+      <td>98.000000</td>
+      <td>476.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df[<span class="string">'salary'</span>].describe()  <span class="comment"># 没有统计missing的数量，当其余信息比spss丰富</span></span><br></pre></td></tr></table></figure>
+<pre><code>count       474.000000
+mean      59660.468953
+std       29597.756286
+min       27299.947500
+25%       41599.920000
+50%       50049.903750
+75%       64024.876875
+max      233999.550000
+Name: salary, dtype: float64
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df.describe(include=[np.object])  <span class="comment"># 只统计字符串类型的内容</span></span><br></pre></td></tr></table></figure>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>gender</th>
+      <th>bdate</th>
+      <th>age</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>474</td>
+      <td>474</td>
+      <td>474</td>
+    </tr>
+    <tr>
+      <th>unique</th>
+      <td>2</td>
+      <td>458</td>
+      <td>44</td>
+    </tr>
+    <tr>
+      <th>top</th>
+      <td>m</td>
+      <td>5/3/1995</td>
+      <td>24</td>
+    </tr>
+    <tr>
+      <th>freq</th>
+      <td>258</td>
+      <td>3</td>
+      <td>44</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">问题1    收入分布</span></span><br><span class="line"><span class="string">'''</span></span><br></pre></td></tr></table></figure>
+<pre><code>&#39;\n问题1    收入分布\n&#39;
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 纵坐标，数量；横坐标，收入</span></span><br><span class="line">salary = df[<span class="string">'salary'</span>].unique()</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">len(salary)</span><br></pre></td></tr></table></figure>
+<pre><code>221
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">min(salary), max(salary)  <span class="comment"># 收入差距上下限</span></span><br></pre></td></tr></table></figure>
+<pre><code>(27299.9475, 233999.55)
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df.salary</span><br></pre></td></tr></table></figure>
+<pre><code>0       98799.81000
+1       69679.86600
+2       37179.92850
+3       37959.92700
+4       77999.85000
+5       55639.89300
+6       62399.88000
+7       37959.92700
+8       48359.90700
+9       41599.92000
+10      52519.89900
+11      49139.90550
+12      48099.90750
+13      60839.88300
+14      47319.90900
+15      70719.86400
+16      79733.18000
+17     179832.98750
+18      73319.85900
+19      45499.91250
+20      67339.87050
+21      37699.92750
+22      41599.92000
+23      29379.94350
+24      36659.92950
+25      53819.89650
+26     104649.79875
+27      56419.89150
+28     233999.55000
+29      54079.89600
+           ...     
+444     48619.90650
+445    173333.00000
+446     84933.17000
+447     28339.94550
+448    121333.10000
+449     95333.15000
+450     49399.90500
+451     49919.90400
+452     42379.91850
+453    157083.03125
+454     75659.85450
+455    129999.75000
+456     54859.89450
+457    107249.79375
+458     37699.92750
+459     38999.92500
+460     37439.92800
+461     59643.88530
+462     35879.93100
+463     82419.84150
+464     58759.88700
+465     40559.92200
+466     56939.89050
+467     96633.14750
+468     43679.91600
+469     45499.91250
+470     45759.91200
+471     67859.86950
+472     37179.92850
+473     50959.90200
+Name: salary, Length: 474, dtype: float64
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df.iloc[<span class="number">0</span>, <span class="number">0</span>]  <span class="comment"># 控制其中任意位置</span></span><br></pre></td></tr></table></figure>
+<pre><code>1
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df.loc[<span class="number">0</span>, <span class="string">'id'</span>]  <span class="comment"># 这种方式也可以为DataFrame添加行 https://blog.csdn.net/tanzuozhev/article/details/76735660</span></span><br></pre></td></tr></table></figure>
+<pre><code>1
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 收入，计数，占比，累计占比  salary, frequency, percent, cumulative percent</span></span><br><span class="line">df_new = pd.DataFrame(columns=[<span class="string">'Salary'</span>, <span class="string">'Frequency'</span>, <span class="string">'Percent'</span>, <span class="string">'CumulativePercent'</span>])</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">counts = df.salary.value_counts()</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">print(type(counts))</span><br><span class="line">print(counts)</span><br></pre></td></tr></table></figure>
+<pre><code>&lt;class &#39;pandas.core.series.Series&#39;&gt;
+53299.89750     13
+41599.92000      8
+42379.91850      8
+45499.91250      7
+46279.91100      7
+48099.90750      7
+38999.92500      7
+38739.92550      6
+58759.88700      6
+34059.93450      6
+49399.90500      6
+59799.88500      5
+46019.91150      5
+50959.90200      5
+47579.90850      5
+50439.90300      5
+43679.91600      5
+36139.93050      5
+47319.90900      5
+51999.90000      5
+37959.92700      5
+52519.89900      4
+55379.89350      4
+69679.86600      4
+39779.92350      4
+42899.91750      4
+36919.92900      4
+51739.90050      4
+62399.88000      4
+44979.91350      4
+                ..
+60007.88460      1
+91259.82450      1
+68119.86900      1
+145166.38750     1
+31979.93850      1
+127833.08750     1
+50855.90220      1
+83199.84000      1
+34319.93400      1
+27299.94750      1
+71239.86300      1
+96199.81500      1
+49659.90450      1
+64999.87500      1
+50179.90350      1
+28339.94550      1
+102959.80200     1
+179399.65500     1
+52779.89850      1
+94249.81875      1
+173333.00000     1
+72799.86000      1
+92083.15625      1
+75243.85530      1
+191749.63125     1
+149499.71250     1
+98019.81150      1
+88833.16250      1
+77999.85000      1
+69419.86650      1
+Name: salary, Length: 221, dtype: int64
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## 绘制柱状图</span></span><br><span class="line"></span><br><span class="line">p = counts.plot(kind=<span class="string">'bar'</span>).get_figure()</span><br><span class="line">p.show()</span><br></pre></td></tr></table></figure>
+<pre><code>D:\Anaconda3\Anaconda3_py36\lib\site-packages\matplotlib\figure.py:459: UserWarning: matplotlib is currently using a non-GUI backend, so cannot show the figure
+  &quot;matplotlib is currently using a non-GUI backend, &quot;
+</code></pre><p><img src="/2018/09/20/pandas-experiment-01/output_25_1.png" alt="png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">p.savefig(<span class="string">'demo_01.png'</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 分段累积，绘制柱状图</span></span><br><span class="line">counts.plot.hist()  <span class="comment"># 注意，使用counts来绘制柱状图显然是错误的</span></span><br></pre></td></tr></table></figure>
+<pre><code>&lt;matplotlib.axes._subplots.AxesSubplot at 0x1742a430588&gt;
+</code></pre><p><img src="/2018/09/20/pandas-experiment-01/output_27_1.png" alt="png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">counts.sort_index()</span><br></pre></td></tr></table></figure>
+<pre><code>27299.94750     1
+27559.94700     1
+28079.94600     3
+28339.94550     1
+28599.94500     1
+28859.94450     1
+29119.94400     1
+29379.94350     3
+29639.94300     2
+29899.94250     1
+30159.94200     2
+30679.94100     1
+31459.93950     2
+31979.93850     1
+32499.93750     1
+33279.93600     2
+34059.93450     6
+34319.93400     1
+34579.93350     2
+34839.93300     2
+35359.93200     3
+35619.93150     1
+35879.93100     2
+36139.93050     5
+36399.93000     2
+36659.92950     2
+36919.92900     4
+37179.92850     3
+37439.92800     3
+37699.92750     3
+               ..
+114833.11250    1
+115699.77750    1
+115916.44375    2
+116999.77500    1
+118083.10625    2
+119166.43750    2
+120033.10250    1
+121333.10000    2
+122849.76375    1
+125666.42500    1
+127399.75500    1
+127833.08750    1
+129999.75000    2
+135416.40625    1
+135633.07250    1
+136066.40500    1
+138666.40000    1
+140833.06250    1
+142999.72500    1
+145166.38750    1
+149499.71250    1
+157083.03125    1
+158166.36250    1
+159466.36000    1
+168133.01000    1
+173333.00000    1
+179399.65500    1
+179832.98750    1
+191749.63125    1
+233999.55000    1
+Name: salary, Length: 221, dtype: int64
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">counts.plot.hist(color=<span class="string">'k'</span>, alpha=<span class="number">0.5</span>, bins=<span class="number">30</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>&lt;matplotlib.axes._subplots.AxesSubplot at 0x17429f56710&gt;
+</code></pre><p><img src="/2018/09/20/pandas-experiment-01/output_29_1.png" alt="png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">counts.plot.hist(color=<span class="string">'g'</span>, alpha=<span class="number">0.6</span>, bins=<span class="number">18</span>, figsize=(<span class="number">16</span>, <span class="number">9</span>))</span><br></pre></td></tr></table></figure>
+<pre><code>&lt;matplotlib.axes._subplots.AxesSubplot at 0x17424e1db38&gt;
+</code></pre><p><img src="/2018/09/20/pandas-experiment-01/output_30_1.png" alt="png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">counts.diff().hist(color=<span class="string">'k'</span>, alpha=<span class="number">0.5</span>, bins=<span class="number">50</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>&lt;matplotlib.axes._subplots.AxesSubplot at 0x174257b5748&gt;
+</code></pre><p><img src="/2018/09/20/pandas-experiment-01/output_31_1.png" alt="png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">plt_hist = df[<span class="string">'salary'</span>].plot.hist(alpha=<span class="number">0.8</span>, bins=<span class="number">28</span>, figsize=(<span class="number">16</span>, <span class="number">9</span>))</span><br></pre></td></tr></table></figure>
+<p><img src="/2018/09/20/pandas-experiment-01/output_32_0.png" alt="png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">plt_hist.set_xlabel(<span class="string">'Current Salary($)'</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>Text(0.5,3.2,&#39;Current Salary($)&#39;)
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">plt_hist</span><br></pre></td></tr></table></figure>
+<pre><code>&lt;matplotlib.axes._subplots.AxesSubplot at 0x17429117390&gt;
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line">plt_hist = df[<span class="string">'salary'</span>].plot.hist(alpha=<span class="number">0.8</span>, bins=<span class="number">28</span>, figsize=(<span class="number">16</span>, <span class="number">9</span>)).set_title(<span class="string">'Histogram'</span>)</span><br></pre></td></tr></table></figure>
+<p><img src="/2018/09/20/pandas-experiment-01/output_35_0.png" alt="收入分析柱状图(待完善)"></p>
+
+	
+  
+</div>
+
+
+  
+
+
+
+
+</div>
+
+</article>
+
+
+
+
+	</div><!--end of article wrapper-->
+	</div>
+
+
+
+
+
+
+	
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?70a761ba668ab8571ac79968adcf6078";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+
+
+
+
+
+
+
+<script src="https://cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+<script src="/js/script.js"></script>
+
+<!--Back to top-->
+<body id="top">
+<p id="back-to-top"><a href="#top"><span></span></a></p>
+</body>
+
+
+<script>
+$(document).ready(function() {
+    //首先将#back-to-top隐藏
+    $("#back-to-top").hide();
+ 
+    //当滚动条的位置处于距顶部3600像素以下时，跳转链接出现，否则消失
+    $(function() {
+        $(window).scroll(function() {
+            if ($(window).scrollTop() > 3600) {
+                $("#back-to-top").fadeIn(1500);
+            }
+            else {
+                $("#back-to-top").fadeOut(1500);
+            }
+        });
+        //当点击跳转链接后，回到页面顶部位置
+        $("#back-to-top").click(function() {
+            $('body,html').animate({
+                scrollTop: 0
+            },
+            500);
+			
+            return false;
+        });
+    });
+});
+</script>
+
+
+  <script src="/js/languages.js"></script>
+  <script src="/js/calendar.js"></script>
+  <script type="text/javascript">
+  $(function() {
+    $('#calendar').aCalendar('en', $.extend({"months":["January","February","March","April","May","June","July","August","September","October","November","December"],"dayOfWeekShort":["S","M","T","W","T","F","S"],"dayOfWeek":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"postsMonthTip":"Posts published in LMM yyyy","titleFormat":"yyyy LMM","titleLinkFormat":"/archives/yyyy/MM/","headArrows":{"previous":"<span class=\"cal-prev\"></span>","next":"<span class=\"cal-next\"></span>"},"footArrows":{"previous":" ","next":" "},"weekOffset":0,"single":false,"root":"/calendar/","url":"/calendar.json"}, {single:true, root:'calendar/'}));
+  });
+  </script>
+
+
+
+</body>
+</html>

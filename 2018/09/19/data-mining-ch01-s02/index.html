@@ -13,7 +13,7 @@
 <meta property="og:site_name" content="WizardLQ’s | 魔法师の小茶馆">
 <meta property="og:description" content="聚类（Clustering）概念将观察到无标记项集合划分成若干子集（subsets成为clusters簇）,同一个簇中的项具有相似性。   Clustering is the assignment of a set of observations into subsets (called clusters) so that observations in the same cluster are">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-09-19T15:20:27.048Z">
+<meta property="og:updated_time" content="2018-09-20T08:16:42.661Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="聚类、回归等数据挖掘问题简介">
 <meta name="twitter:description" content="聚类（Clustering）概念将观察到无标记项集合划分成若干子集（subsets成为clusters簇）,同一个簇中的项具有相似性。   Clustering is the assignment of a set of observations into subsets (called clusters) so that observations in the same cluster are">
@@ -109,7 +109,7 @@ MathJax.Hub.Queue(function() {
 		<div id="article-toc-inner">
 			<strong class="sidebar-title">
 			Contents</strong>
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#聚类（Clustering）"><span class="toc-text">聚类（Clustering）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#概念"><span class="toc-text">概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#距离度量（Distance-Metrics）"><span class="toc-text">距离度量（Distance Metrics）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#层次聚类"><span class="toc-text">层次聚类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#关联分析"><span class="toc-text">关联分析</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#回归"><span class="toc-text">回归</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#过拟合"><span class="toc-text">过拟合</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#可视化"><span class="toc-text">可视化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据预处理"><span class="toc-text">数据预处理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#隐私保护数据分析"><span class="toc-text">隐私保护数据分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#云"><span class="toc-text">云</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#并行计算"><span class="toc-text">并行计算</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据挖掘-大数据-算法-算力"><span class="toc-text">数据挖掘==大数据+算法+算力</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#“三驾马车”"><span class="toc-text">“三驾马车”</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#没有免费午餐"><span class="toc-text">没有免费午餐</span></a></li></ol></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#聚类（Clustering）"><span class="toc-text">聚类（Clustering）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#概念"><span class="toc-text">概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#距离度量（Distance-Metrics）"><span class="toc-text">距离度量（Distance Metrics）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#层次聚类"><span class="toc-text">层次聚类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#关联分析"><span class="toc-text">关联分析</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#回归"><span class="toc-text">回归</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#过拟合"><span class="toc-text">过拟合</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#可视化"><span class="toc-text">可视化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据预处理"><span class="toc-text">数据预处理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#隐私保护数据分析"><span class="toc-text">隐私保护数据分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#云"><span class="toc-text">云</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#并行计算"><span class="toc-text">并行计算</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据挖掘-大数据-算法-算力"><span class="toc-text">数据挖掘==大数据+算法+算力</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#“三驾马车”"><span class="toc-text">“三驾马车”</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#没有免费午餐"><span class="toc-text">没有免费午餐</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据挖掘的“陷阱”"><span class="toc-text">数据挖掘的“陷阱”</span></a></li></ol>
 		</div>
 	</aside>
 
@@ -166,6 +166,13 @@ MathJax.Hub.Queue(function() {
 <h3 id="没有免费午餐"><a href="#没有免费午餐" class="headerlink" title="没有免费午餐"></a>没有免费午餐</h3><ul>
 <li>针对具体问题采用合适的算法</li>
 <li>阿卡姆剃刀</li>
+</ul>
+<h2 id="数据挖掘的“陷阱”"><a href="#数据挖掘的“陷阱”" class="headerlink" title="数据挖掘的“陷阱”"></a>数据挖掘的“陷阱”</h2><ul>
+<li>幸存者偏差</li>
+<li>数据本身的随机性</li>
+<li>相关并不代表因果</li>
+<li>宏观和微观</li>
+<li>…</li>
 </ul>
 
 	

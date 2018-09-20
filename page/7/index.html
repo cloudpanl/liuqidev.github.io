@@ -129,6 +129,249 @@ MathJax.Hub.Queue(function() {
 	  
 		
 
+<article id="post-Session" class="article article-type-post" itemscope itemprop="blogPost">
+	
+
+
+<header class="article-header">
+
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/12/Session/">Session</a>
+    </h1>
+  
+
+
+	
+
+
+	<div class="article-meta"> 
+		
+		
+
+		  <div class="article-datetime">
+  <a href="/2018/08/12/Session/" class="article-date"><time datetime="2018-08-12T14:28:06.000Z" itemprop="datePublished">2018-08-12</time></a>
+</div>
+
+
+
+			
+
+		  
+		   
+      <div class="post-meta">
+            <span class="glyphicon glyphicon-pencil"></span>
+            <span class="post-meta-item-text">&nbsp;Total&nbsp;</span>
+            <span class="post-count">465&nbsp;words</span>
+      </div>
+
+
+ 
+		  
+		  
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Machine-Learning/">Machine Learning</a> / <a class="article-category-link" href="/categories/Machine-Learning/TensorFlow/">TensorFlow</a>
+  </div>
+
+	
+		  </div>
+
+	   
+
+</header>
+
+<div class="article-inner">
+<div class="article-entry" itemprop="articleBody">
+  
+  
+	<!-- Table of Contents -->
+
+	
+	
+	<p>举两个例子。</p>
+<h3 id="Hello-World"><a href="#Hello-World" class="headerlink" title="Hello World"></a>Hello World</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"></span><br><span class="line">node = tf.constant(<span class="string">"Hello, world!"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># method 1</span></span><br><span class="line">sess = tf.Session()</span><br><span class="line">print(sess.run(node))</span><br><span class="line">sess.close</span><br><span class="line"></span><br><span class="line"><span class="comment"># method 2</span></span><br><span class="line"><span class="keyword">with</span> tf.Session() <span class="keyword">as</span> tf:</span><br><span class="line">    print(sess.run(node))</span><br></pre></td></tr></table></figure>
+<pre><code>D:\Anaconda3\Anaconda3_py36\lib\site-packages\h5py\__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
+  from ._conv import register_converters as _register_converters
+
+
+b&#39;Hello, world!&#39;
+b&#39;Hello, world!&#39;
+</code></pre><h3 id="矩阵乘法"><a href="#矩阵乘法" class="headerlink" title="矩阵乘法"></a>矩阵乘法</h3><p>理解Session会话，并使用TensorFlow来解决买菜问题（矩阵乘法）。素材来自<a href="https://mp.weixin.qq.com/s?__biz=MjM5MDE3OTk2Ng==&amp;mid=2657440935&amp;idx=1&amp;sn=5b968c80fb07df3005039ca1466cb0c5&amp;chksm=bdd943b68aaecaa0420e1f3f9a576b1b0256ac7165a2fcf9b0c84080a5b0b53250418be594c8&amp;mpshare=1&amp;scene=1&amp;srcid=0812pRYblN0eJVNurGxLbC4F#rd" target="_blank" rel="noopener">《如何让11岁表妹知道矩阵乘法的本质是什么？》</a>.</p>
+<p>假设买肉和菜，农贸市场一斤肉25元，一斤菜3元。<br>第一天我去农贸买了1斤肉，3斤菜，问计算用了多少钱：答：$25\times1+3\times3=34$。表示成向量乘法：</p>
+<script type="math/tex; mode=display">
+\begin{bmatrix}
+ 25&3 \\
+\end{bmatrix} 
+\times 
+\begin{bmatrix}
+ 1 \\
+ 3 \\
+\end{bmatrix} 
+= 34</script><p>第二天，又去农贸市场买了2斤肉，1斤菜,则两天的花销可以表示为：</p>
+<script type="math/tex; mode=display">
+\begin{bmatrix}
+ 25&3 \\
+\end{bmatrix} 
+\times 
+\begin{bmatrix}
+ 1&2 \\
+ 3&1 \\
+\end{bmatrix} 
+= 
+\begin{bmatrix}
+34 & 53
+\end{bmatrix}</script><p>左边矩阵形状为1x2，行就表示<code>农贸市场</code>，两列分别表示<code>肉的单价和菜的单价</code>.右边矩阵，第一列表示第一天，第二列表示第二天，依次类推。第一行表示买的肉的数量，第二行表示买的菜的数量。两者进行矩阵相乘，得到的就是农贸市场，第n天，买肉和菜的总和。</p>
+<p>听说王大妈哪里肉一斤20，菜一斤2元，假如这两天在王大妈哪里买菜，表示成矩阵：</p>
+<script type="math/tex; mode=display">
+\begin{bmatrix}
+25&3\\
+20&2\\
+\end{bmatrix}
+\begin{bmatrix}
+1&2\\
+3&1\\
+\end{bmatrix}
+=
+\begin{bmatrix}
+34&53\\
+26&42\\
+\end{bmatrix}</script><p><img src="https://mmbiz.qpic.cn/mmbiz_png/pojyAtdhQhNM8WaSdOWGtLciaHKXKs4DrOkXwemKzA7p3AuHKhht3em8mV0hXDyNQeBU6geAQIGoFa3WX0ThoZg/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1" alt=""></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="comment"># 创建计算图</span></span><br><span class="line"></span><br><span class="line">mat1 = tf.constant(np.array([[<span class="number">25</span>, <span class="number">3</span>], [<span class="number">20</span>, <span class="number">2</span>]]))</span><br><span class="line">mat2 = tf.constant(np.array([[<span class="number">1</span>, <span class="number">2</span>], [<span class="number">3</span>, <span class="number">1</span>]]))</span><br><span class="line">product = tf.matmul(mat1, mat2)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建会话和运行</span></span><br><span class="line"><span class="comment"># method 1</span></span><br><span class="line">sess = tf.Session()</span><br><span class="line">money = sess.run(product)</span><br><span class="line">print(money)</span><br><span class="line">sess.close()</span><br><span class="line"></span><br><span class="line"><span class="comment"># method 2</span></span><br><span class="line"><span class="keyword">with</span> tf.Session() <span class="keyword">as</span> sess:</span><br><span class="line">    money = sess.run(product)</span><br><span class="line">    print(money)</span><br></pre></td></tr></table></figure>
+<pre><code>[[34 53]
+ [26 42]]
+[[34 53]
+ [26 42]]
+</code></pre>
+	
+  
+</div>
+
+
+  
+
+
+
+<footer class="article-footer">
+  <a data-url="https://www.blankspace.cn/2018/08/12/Session/" data-id="cjmaj0vaj000kc0fi5l1yp2sp" class="article-share-link">
+	<i class="fa fa-share"></i> Share
+  </a>
+  
+  
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/TensorFlow/">TensorFlow</a></li></ul>
+
+
+</footer>
+
+
+</div>
+
+</article>
+
+
+
+
+
+	  
+		
+
+<article id="post-MNIST-pros" class="article article-type-post" itemscope itemprop="blogPost">
+	
+
+
+<header class="article-header">
+
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/12/MNIST-pros/">MNIST pros</a>
+    </h1>
+  
+
+
+	
+
+
+	<div class="article-meta"> 
+		
+		
+
+		  <div class="article-datetime">
+  <a href="/2018/08/12/MNIST-pros/" class="article-date"><time datetime="2018-08-12T02:11:47.000Z" itemprop="datePublished">2018-08-12</time></a>
+</div>
+
+
+
+			
+
+		  
+		   
+      <div class="post-meta">
+            <span class="glyphicon glyphicon-pencil"></span>
+            <span class="post-meta-item-text">&nbsp;Total&nbsp;</span>
+            <span class="post-count">2,554&nbsp;words</span>
+      </div>
+
+
+ 
+		  
+		  
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Machine-Learning/">Machine Learning</a> / <a class="article-category-link" href="/categories/Machine-Learning/TensorFlow/">TensorFlow</a>
+  </div>
+
+	
+		  </div>
+
+	   
+
+</header>
+
+<div class="article-inner">
+<div class="article-entry" itemprop="articleBody">
+  
+	<h3 id="运行TensorFlow的InteractiveSession-交互式会话"><a href="#运行TensorFlow的InteractiveSession-交互式会话" class="headerlink" title="运行TensorFlow的InteractiveSession/交互式会话"></a>运行TensorFlow的InteractiveSession/交互式会话</h3><p><code>sess = tf.InteractiveSession()</code>用来创建交互式的会话，其余使用同Session</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br></pre></td></tr></table></figure>
+<pre><code>D:\Anaconda3\Anaconda3_py36\lib\site-packages\h5py\__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
+  from ._conv import register_converters as _register_converters
+</code></pre><h3 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h3><p>和上一节类似</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># http://yann.lecun.com/exdb/mnist/  to download mnist dataset</span></span><br><span class="line"><span class="comment"># https://github.com/tensorflow/tensorflow/blob/master/tensorflow/examples/tutorials/mnist/input_data.py</span></span><br><span class="line"><span class="comment"># to read dataset</span></span><br><span class="line"><span class="keyword">from</span> load_mnist <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">import</span> tensorflow.examples.tutorials.mnist.input_data <span class="keyword">as</span> input_data</span><br><span class="line">minst_dir = <span class="string">"MNIST_data/"</span></span><br><span class="line">mnist = input_data.read_data_sets(minst_dir, one_hot=<span class="keyword">True</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">x = tf.placeholder(<span class="string">"float"</span>, shape=[<span class="keyword">None</span>, <span class="number">784</span>]) </span><br><span class="line">y_ = tf.placeholder(<span class="string">"float"</span>, shape=[<span class="keyword">None</span>, <span class="number">10</span>]) <span class="comment"># true label</span></span><br></pre></td></tr></table></figure>
+<h2 id="构建一个多层卷积网络"><a href="#构建一个多层卷积网络" class="headerlink" title="构建一个多层卷积网络"></a>构建一个多层卷积网络</h2><h3 id="权重初始化"><a href="#权重初始化" class="headerlink" title="权重初始化"></a>权重初始化</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">weight_variable</span><span class="params">(shape)</span>:</span></span><br><span class="line">    initial = tf.truncated_normal(shape, stddev=<span class="number">0.1</span>) <span class="comment">#  The generated values follow a normal distribution with specified mean and</span></span><br><span class="line">    <span class="comment"># standard deviation.从截断的正态分布中输出随机值，中如果x的取值在区间（μ-2σ，μ+2σ）之外则重新进行选择</span></span><br><span class="line">    <span class="keyword">return</span> tf.Variable(initial)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">bias_variable</span><span class="params">(shape)</span>:</span></span><br><span class="line">    initial = tf.constant(<span class="number">0.1</span>, shape=shape) <span class="comment"># Constant 2-D tensor populated with scalar value 0.1. 初始值为0.1，广播到shape形状的二维数组</span></span><br><span class="line">    <span class="keyword">return</span> tf.Variable(initial)</span><br></pre></td></tr></table></figure>
+<h3 id="卷积和汇聚（池化）"><a href="#卷积和汇聚（池化）" class="headerlink" title="卷积和汇聚（池化）"></a>卷积和汇聚（<del>池化</del>）</h3><p><em>由于Pooling翻译成池化让人不明所以，个人习惯依据其作用，而称之为汇聚。</em></p>
+<p>简单起见，卷积使用1步长（stride size），0边距（padding size）的模板，保证输出和输入是同一个大小。我们的池化用简单传统的2x2大小的模板做max pooling.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">conv2d</span><span class="params">(x, W)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> tf.nn.conv2d(x, W, strides=[<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>], padding=<span class="string">'SAME'</span>)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">max_pool_2x2</span><span class="params">(x)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> tf.nn.max_pool(x, ksize=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">2</span>,<span class="number">1</span>], strides=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">2</span>,<span class="number">1</span>], padding=<span class="string">'SAME'</span>)</span><br></pre></td></tr></table></figure>
+	
+	  <p class="article-more-link">
+		<a class="btn btn-primary" href="/2018/08/12/MNIST-pros/#more">Read more...</a>
+	  </p>
+	
+  
+</div>
+
+
+
+<footer class="article-footer">
+  <a data-url="https://www.blankspace.cn/2018/08/12/MNIST-pros/" data-id="cjmaj0vat000oc0fizyf04chi" class="article-share-link">
+	<i class="fa fa-share"></i> Share
+  </a>
+  
+  
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/TensorFlow/">TensorFlow</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mnist/">mnist</a></li></ul>
+
+
+</footer>
+
+
+</div>
+
+</article>
+
+
+
+
+
+	  
+		
+
 <article id="post-TensorFlow-tutorial-mnist-beginners" class="article article-type-post" itemscope itemprop="blogPost">
 	
 
@@ -262,7 +505,7 @@ Please use alternatives such as official/mnist/dataset.py from tensorflow/models
 
 
 <footer class="article-footer">
-  <a data-url="https://www.blankspace.cn/2018/08/11/TensorFlow-tutorial-mnist-beginners/" data-id="cjm9b0ky0000z7kfixyussh8r" class="article-share-link">
+  <a data-url="https://www.blankspace.cn/2018/08/11/TensorFlow-tutorial-mnist-beginners/" data-id="cjmaj0vb4000yc0fityqby0g2" class="article-share-link">
 	<i class="fa fa-share"></i> Share
   </a>
   
@@ -354,7 +597,7 @@ Please use alternatives such as official/mnist/dataset.py from tensorflow/models
 
 
 <footer class="article-footer">
-  <a data-url="https://www.blankspace.cn/2018/08/11/code-hightlight/" data-id="cjm9b0kyr00217kfis9gycffd" class="article-share-link">
+  <a data-url="https://www.blankspace.cn/2018/08/11/code-hightlight/" data-id="cjmaj0wi7003rc0fip7votq2a" class="article-share-link">
 	<i class="fa fa-share"></i> Share
   </a>
   
@@ -556,7 +799,7 @@ Please use alternatives such as official/mnist/dataset.py from tensorflow/models
 
 
 <footer class="article-footer">
-  <a data-url="https://www.blankspace.cn/2018/08/11/Numpy随机数/" data-id="cjm9b0kxi000p7kfildhfm7dt" class="article-share-link">
+  <a data-url="https://www.blankspace.cn/2018/08/11/Numpy随机数/" data-id="cjmaj0vaz000tc0fi57i2o72d" class="article-share-link">
 	<i class="fa fa-share"></i> Share
   </a>
   
@@ -576,229 +819,11 @@ Please use alternatives such as official/mnist/dataset.py from tensorflow/models
 
 
 	  
-		
-
-<article id="post-emoji-text" class="article article-type-post" itemscope itemprop="blogPost">
-	
-
-
-<header class="article-header">
-
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/10/emoji-text/">Emoji</a>
-    </h1>
-  
-
-
-	
-
-
-	<div class="article-meta"> 
-		
-		
-
-		  <div class="article-datetime">
-  <a href="/2018/08/10/emoji-text/" class="article-date"><time datetime="2018-08-10T12:20:02.000Z" itemprop="datePublished">2018-08-10</time></a>
-</div>
-
-
-
-			
-
-		  
-		   
-      <div class="post-meta">
-            <span class="glyphicon glyphicon-pencil"></span>
-            <span class="post-meta-item-text">&nbsp;Total&nbsp;</span>
-            <span class="post-count">29&nbsp;words</span>
-      </div>
-
-
- 
-		  
-		  
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Projects/">Projects</a> / <a class="article-category-link" href="/categories/Projects/hexo-theme-bootstrap-blog/">hexo-theme-bootstrap-blog</a> / <a class="article-category-link" href="/categories/Projects/hexo-theme-bootstrap-blog/Tutorial/">Tutorial</a>
-  </div>
-
-	
-		  </div>
-
-	   
-
-</header>
-
-<div class="article-inner">
-<div class="article-entry" itemprop="articleBody">
-  
-  
-	<!-- Table of Contents -->
-
-	
-	
-	<p>Input emoji with syntax <code>:smile:</code>.  Sad, it is failed.</p>
-<p>😂😁</p>
-<p>Use inputs(eg. MS default input) which can input emoji directly, this is the easiest way.</p>
-<p><a href="https://www.webfx.com/tools/emoji-cheat-sheet/" target="_blank" rel="noopener">Here</a> to know more.</p>
-
-	
-  
-</div>
-
-
-  
-
-
-
-<footer class="article-footer">
-  <a data-url="https://www.blankspace.cn/2018/08/10/emoji-text/" data-id="cjm9b0kz2002k7kfidv89kcwc" class="article-share-link">
-	<i class="fa fa-share"></i> Share
-  </a>
-  
-  
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Emoji/">Emoji</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/">Hexo</a></li></ul>
-
-
-</footer>
-
-
-</div>
-
-</article>
-
-
-
-
-
-	  
-		
-
-<article id="post-mathjax-test" class="article article-type-post" itemscope itemprop="blogPost">
-	
-
-
-<header class="article-header">
-
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/10/mathjax-test/">Mathjax</a>
-    </h1>
-  
-
-
-	
-
-
-	<div class="article-meta"> 
-		
-		
-
-		  <div class="article-datetime">
-  <a href="/2018/08/10/mathjax-test/" class="article-date"><time datetime="2018-08-10T11:53:22.000Z" itemprop="datePublished">2018-08-10</time></a>
-</div>
-
-
-
-			
-
-		  
-		   
-      <div class="post-meta">
-            <span class="glyphicon glyphicon-pencil"></span>
-            <span class="post-meta-item-text">&nbsp;Total&nbsp;</span>
-            <span class="post-count">185&nbsp;words</span>
-      </div>
-
-
- 
-		  
-		  
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Projects/">Projects</a> / <a class="article-category-link" href="/categories/Projects/hexo-theme-bootstrap-blog/">hexo-theme-bootstrap-blog</a> / <a class="article-category-link" href="/categories/Projects/hexo-theme-bootstrap-blog/Tutorial/">Tutorial</a>
-  </div>
-
-	
-		  </div>
-
-	   
-
-</header>
-
-<div class="article-inner">
-<div class="article-entry" itemprop="articleBody">
-  
-  
-	<!-- Table of Contents -->
-
-	
-	
-	<p>This post is used for testing mathjax(latex) support.</p>
-<h2 id="Inline-math"><a href="#Inline-math" class="headerlink" title="Inline math"></a>Inline math</h2><p><strong>Use <code>$...$</code></strong>, example:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$\lim_&#123;x \to \infty&#125; \exp(-x) = 0$</span><br></pre></td></tr></table></figure>
-<p>Writing LaTex like: <script type="math/tex">\lim_{x \to \infty} \exp(-x) = 0</script></p>
-<h2 id="Displayed-formulas"><a href="#Displayed-formulas" class="headerlink" title="Displayed formulas"></a><strong>Displayed formulas</strong></h2><p><strong>Use <code>$$...$$</code></strong> , example:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$$\sum_&#123;i=0&#125;^n i^2 = \frac&#123;(n^2+n)(2n+1)&#125;&#123;6&#125;$$</span><br></pre></td></tr></table></figure>
-<script type="math/tex; mode=display">\sum_{i=0}^n i^2 = \frac{(n^2+n)(2n+1)}{6}</script><figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$$</span><br><span class="line">    \begin&#123;matrix&#125;</span><br><span class="line">    <span class="number">1</span> &amp; x &amp; x^<span class="number">2</span> \\</span><br><span class="line">    <span class="number">1</span> &amp; y &amp; y^<span class="number">2</span> \\</span><br><span class="line">    <span class="number">1</span> &amp; z &amp; z^<span class="number">2</span> \\</span><br><span class="line">    \end&#123;matrix&#125;</span><br><span class="line">$$</span><br></pre></td></tr></table></figure>
-<script type="math/tex; mode=display">
-\begin{matrix}
-    1 & x & x^2 \\
-    1 & y & y^2 \\
-    1 & z & z^2 \\
-    \end{matrix}</script><figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">\begin&#123;align&#125;</span><br><span class="line">\sqrt&#123;37&#125; &amp; = \sqrt&#123;\frac&#123;73^2-1&#125;&#123;12^2&#125;&#125; \\</span><br><span class="line"> &amp; = \sqrt&#123;\frac&#123;73^2&#125;&#123;12^2&#125;\cdot\frac&#123;73^2-1&#125;&#123;73^2&#125;&#125; \\ </span><br><span class="line"> &amp; = \sqrt&#123;\frac&#123;73^2&#125;&#123;12^2&#125;&#125;\sqrt&#123;\frac&#123;73^2-1&#125;&#123;73^2&#125;&#125; \\</span><br><span class="line"> &amp; = \frac&#123;73&#125;&#123;12&#125;\sqrt&#123;1 - \frac&#123;1&#125;&#123;73^2&#125;&#125; \\ </span><br><span class="line"> &amp; \approx \frac&#123;73&#125;&#123;12&#125;\left(<span class="number">1</span> - \frac&#123;1&#125;&#123;2\cdot73^2&#125;\right)</span><br><span class="line">\end&#123;align&#125;</span><br></pre></td></tr></table></figure>
-<script type="math/tex; mode=display">
-\begin{align}
-\sqrt{37} & = \sqrt{\frac{73^2-1}{12^2}} \\
- & = \sqrt{\frac{73^2}{12^2}\cdot\frac{73^2-1}{73^2}} \\ 
- & = \sqrt{\frac{73^2}{12^2}}\sqrt{\frac{73^2-1}{73^2}} \\
- & = \frac{73}{12}\sqrt{1 - \frac{1}{73^2}} \\ 
- & \approx \frac{73}{12}\left(1 - \frac{1}{2\cdot73^2}\right)
-\end{align}</script><figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">\begin&#123;array&#125;&#123;c|lcr&#125;</span><br><span class="line">n &amp; \text&#123;Left&#125; &amp; \text&#123;Center&#125; &amp; \text&#123;Right&#125; \\</span><br><span class="line">\hline</span><br><span class="line"><span class="number">1</span> &amp; <span class="number">0.24</span> &amp; <span class="number">1</span> &amp; <span class="number">125</span> \\</span><br><span class="line"><span class="number">2</span> &amp; <span class="number">-1</span> &amp; <span class="number">189</span> &amp; <span class="number">-8</span> \\</span><br><span class="line"><span class="number">3</span> &amp; <span class="number">-20</span> &amp; <span class="number">2000</span> &amp; <span class="number">1</span>+<span class="number">10</span>i</span><br><span class="line">\end&#123;array&#125;</span><br></pre></td></tr></table></figure>
-<script type="math/tex; mode=display">
-\begin{array}{c|lcr}
-n & \text{Left} & \text{Center} & \text{Right} \\
-\hline
-1 & 0.24 & 1 & 125 \\
-2 & -1 & 189 & -8 \\
-3 & -20 & 2000 & 1+10i
-\end{array}</script><p>More information can be found <a href="https://math.meta.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference" target="_blank" rel="noopener">Here</a>.</p>
-<p>To know how to let hexo support Matjax, you can read <a href="https://ranmaosong.github.io/2017/11/29/hexo-support-mathjax/" target="_blank" rel="noopener">this</a>.</p>
-
-	
-  
-</div>
-
-
-  
-
-
-
-<footer class="article-footer">
-  <a data-url="https://www.blankspace.cn/2018/08/10/mathjax-test/" data-id="cjm9b0kzn003i7kfivgt0ty43" class="article-share-link">
-	<i class="fa fa-share"></i> Share
-  </a>
-  
-  
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/">Hexo</a></li></ul>
-
-
-</footer>
-
-
-</div>
-
-</article>
-
-
-
-
-
-	  
 	
 	
 	
 	  <div id="page-nav">
-		<nav><ul class="pagination"><li><a class="page-prev" rel="prev" href="/page/6/"><i class="fa fa-chevron-left"></i> Prev</a></li><li><a class="page-number" href="/">1</a></li><li class="disabled"><span class="page-space">&hellip;</span></li><li><a class="page-number" href="/page/5/">5</a></li><li><a class="page-number" href="/page/6/">6</a></li><li class="active"><span class="page-number">7</span></li><li><a class="page-number" href="/page/8/">8</a></li><li><a class="page-number" href="/page/9/">9</a></li><li><a class="page-number" href="/page/10/">10</a></li><li><a class="page-next" rel="next" href="/page/8/">Next <i class="fa fa-chevron-right"></i></a></li></ul></nav>
+		<nav><ul class="pagination"><li><a class="page-prev" rel="prev" href="/page/6/"><i class="fa fa-chevron-left"></i> Prev</a></li><li><a class="page-number" href="/">1</a></li><li class="disabled"><span class="page-space">&hellip;</span></li><li><a class="page-number" href="/page/5/">5</a></li><li><a class="page-number" href="/page/6/">6</a></li><li class="active"><span class="page-number">7</span></li><li><a class="page-number" href="/page/8/">8</a></li><li><a class="page-number" href="/page/9/">9</a></li><li class="disabled"><span class="page-space">&hellip;</span></li><li><a class="page-number" href="/page/11/">11</a></li><li><a class="page-next" rel="next" href="/page/8/">Next <i class="fa fa-chevron-right"></i></a></li></ul></nav>
 	  </div>
 	
 
@@ -820,6 +845,14 @@ n & \text{Left} & \text{Center} & \text{Right} \\
     <ul class="sidebar-module-list">
       
         <li>
+          <a href="/2018/09/20/pandas-experiment-01/">Frequency Analysis</a>
+        </li>
+      
+        <li>
+          <a href="/2018/09/20/data-mining-ch02-s01/">数据预处理</a>
+        </li>
+      
+        <li>
           <a href="/2018/09/19/biology-ch02-s02/">水和生命</a>
         </li>
       
@@ -829,14 +862,6 @@ n & \text{Left} & \text{Center} & \text{Right} \\
       
         <li>
           <a href="/2018/09/19/experiment-design-ch01/">实验设计的误差分析</a>
-        </li>
-      
-        <li>
-          <a href="/2018/09/18/data-mining-ch1-s1/">数据挖掘绪论</a>
-        </li>
-      
-        <li>
-          <a href="/2018/09/17/linux-shiyan3/">用户和文件权限管理</a>
         </li>
       
     </ul>
@@ -855,7 +880,7 @@ n & \text{Left} & \text{Center} & \text{Right} \\
   
   <div class="sidebar-module">
     <h4>Categories</h4>
-    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/AI/">AI</a><span class="sidebar-module-list-count">2</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/AI/Data-Mining/">Data Mining</a><span class="sidebar-module-list-count">2</span></li></ul></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Big-Data/">Big Data</a><span class="sidebar-module-list-count">5</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Big-Data/Big-Data-System/">Big Data System</a><span class="sidebar-module-list-count">5</span></li></ul></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Biology/">Biology</a><span class="sidebar-module-list-count">5</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Biology/现代生物学导论/">现代生物学导论</a><span class="sidebar-module-list-count">5</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Biology/现代生物学导论/生命的化学基础/">生命的化学基础</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Biology/现代生物学导论/绪论/">绪论</a><span class="sidebar-module-list-count">3</span></li></ul></li></ul></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Dairy/">Dairy</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/English/">English</a><span class="sidebar-module-list-count">1</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/English/Tips/">Tips</a><span class="sidebar-module-list-count">1</span></li></ul></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Languages/">Languages</a><span class="sidebar-module-list-count">1</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Languages/Python/">Python</a><span class="sidebar-module-list-count">1</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Languages/Python/Numpy/">Numpy</a><span class="sidebar-module-list-count">1</span></li></ul></li></ul></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Linux/">Linux</a><span class="sidebar-module-list-count">5</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Linux/Linux-Basic/">Linux Basic</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Linux/Ubuntu/">Ubuntu</a><span class="sidebar-module-list-count">2</span></li></ul></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Machine-Learning/">Machine Learning</a><span class="sidebar-module-list-count">10</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Machine-Learning/Algorithms/">Algorithms</a><span class="sidebar-module-list-count">2</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Machine-Learning/Algorithms/KNN/">KNN</a><span class="sidebar-module-list-count">2</span></li></ul></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Machine-Learning/TensorFlow/">TensorFlow</a><span class="sidebar-module-list-count">8</span></li></ul></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Math/">Math</a><span class="sidebar-module-list-count">2</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Math/Experiment-Design-Data-Processing/">Experiment Design & Data Processing</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Math/MathJax/">MathJax</a><span class="sidebar-module-list-count">1</span></li></ul></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Projects/">Projects</a><span class="sidebar-module-list-count">18</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Projects/hexo-theme-bootstrap-blog/">hexo-theme-bootstrap-blog</a><span class="sidebar-module-list-count">18</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Projects/hexo-theme-bootstrap-blog/Tutorial/">Tutorial</a><span class="sidebar-module-list-count">18</span></li></ul></li></ul></li></ul>
+    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Biology/">Biology</a><span class="sidebar-module-list-count">5</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Biology/现代生物学导论/">现代生物学导论</a><span class="sidebar-module-list-count">5</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Biology/现代生物学导论/生命的化学基础/">生命的化学基础</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Biology/现代生物学导论/绪论/">绪论</a><span class="sidebar-module-list-count">3</span></li></ul></li></ul></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Dairy/">Dairy</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Data-Science/">Data Science</a><span class="sidebar-module-list-count">8</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Data-Science/Big-Data/">Big Data</a><span class="sidebar-module-list-count">5</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Data-Science/Big-Data/Big-Data-System/">Big Data System</a><span class="sidebar-module-list-count">5</span></li></ul></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Data-Science/Data-Mining/">Data Mining</a><span class="sidebar-module-list-count">3</span></li></ul></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/English/">English</a><span class="sidebar-module-list-count">1</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/English/Tips/">Tips</a><span class="sidebar-module-list-count">1</span></li></ul></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Languages/">Languages</a><span class="sidebar-module-list-count">2</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Languages/Python/">Python</a><span class="sidebar-module-list-count">2</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Languages/Python/Numpy/">Numpy</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Languages/Python/Pandas/">Pandas</a><span class="sidebar-module-list-count">1</span></li></ul></li></ul></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Linux/">Linux</a><span class="sidebar-module-list-count">5</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Linux/Linux-Basic/">Linux Basic</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Linux/Ubuntu/">Ubuntu</a><span class="sidebar-module-list-count">2</span></li></ul></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Machine-Learning/">Machine Learning</a><span class="sidebar-module-list-count">10</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Machine-Learning/Algorithms/">Algorithms</a><span class="sidebar-module-list-count">2</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Machine-Learning/Algorithms/KNN/">KNN</a><span class="sidebar-module-list-count">2</span></li></ul></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Machine-Learning/TensorFlow/">TensorFlow</a><span class="sidebar-module-list-count">8</span></li></ul></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Math/">Math</a><span class="sidebar-module-list-count">2</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Math/Experiment-Design-Data-Processing/">Experiment Design & Data Processing</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Math/MathJax/">MathJax</a><span class="sidebar-module-list-count">1</span></li></ul></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Projects/">Projects</a><span class="sidebar-module-list-count">18</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Projects/hexo-theme-bootstrap-blog/">hexo-theme-bootstrap-blog</a><span class="sidebar-module-list-count">18</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Projects/hexo-theme-bootstrap-blog/Tutorial/">Tutorial</a><span class="sidebar-module-list-count">18</span></li></ul></li></ul></li></ul>
   </div>
 
 
@@ -863,7 +888,7 @@ n & \text{Left} & \text{Center} & \text{Right} \\
   
   <div class="sidebar-module">
     <h4>Archives</h4>
-    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2018/09/">September 2018</a><span class="sidebar-module-list-count">20</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2018/08/">August 2018</a><span class="sidebar-module-list-count">30</span></li></ul>
+    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2018/09/">September 2018</a><span class="sidebar-module-list-count">22</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2018/08/">August 2018</a><span class="sidebar-module-list-count">30</span></li></ul>
   </div>
 
 
