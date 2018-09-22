@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>GitHub关键概念 | WizardLQ’s | 魔法师の小茶馆</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Git &amp;amp; GitHubGit是有一个版本控制软件： 读作[gɪt],拼音读作gē yì te。  Git is a free and open source distributed version control system designed to handle everything from small to very large projects with speed and ef">
+<meta name="keywords" content="GitHub">
+<meta property="og:type" content="article">
+<meta property="og:title" content="GitHub关键概念">
+<meta property="og:url" content="https://www.blankspace.cn/2018/09/22/github-keywords/index.html">
+<meta property="og:site_name" content="WizardLQ’s | 魔法师の小茶馆">
+<meta property="og:description" content="Git &amp;amp; GitHubGit是有一个版本控制软件： 读作[gɪt],拼音读作gē yì te。  Git is a free and open source distributed version control system designed to handle everything from small to very large projects with speed and ef">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://www.blankspace.cn/2018/09/22/github-keywords/关键词示意.png">
+<meta property="og:updated_time" content="2018-09-22T06:19:48.530Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="GitHub关键概念">
+<meta name="twitter:description" content="Git &amp;amp; GitHubGit是有一个版本控制软件： 读作[gɪt],拼音读作gē yì te。  Git is a free and open source distributed version control system designed to handle everything from small to very large projects with speed and ef">
+<meta name="twitter:image" content="https://www.blankspace.cn/2018/09/22/github-keywords/关键词示意.png">
+<link rel="publisher" href="112373242775367340000">
+  
+    <link rel="alternate" href="/atom.xml" title="WizardLQ’s | 魔法师の小茶馆" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/images/icon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+<link href="https://cdn.bootcss.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet"><link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.slim.min.js"></script><script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<script type="text/javascript" src="//ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.3.min.js"></script>
+
+<link rel="stylesheet" href="/css/styles.css">
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+</head>
+
+<body>
+
+	
+
+	
+	<div class="container">
+	<div class="article-wrapper">
+
+
+<article id="post-github-keywords" class="article article-type-post" itemscope itemprop="blogPost">
+	
+
+
+<header class="article-header">
+
+  
+    <h1 class="article-title" itemprop="name">
+      GitHub关键概念
+    </h1>
+  
+
+
+	
+
+ 
+	
+		魔法师LQ
+	
+	</hr>
+	<div class="article-datetime">
+	  <time datetime="2018-09-22T01:50:06.000Z" itemprop="datePublished">2018-09-22</time>
+	</div>
+	<div class="header-divider"></div>	
+
+	   
+
+</header>
+
+<div class="article-inner">
+<div class="article-entry" itemprop="articleBody">
+  
+  
+	<!-- Table of Contents -->
+
+	<aside id="article-toc" role="navigation" class="fixed">
+		<div id="article-toc-inner">
+			<strong class="sidebar-title">
+			Contents</strong>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Git-amp-GitHub"><span class="toc-text">Git &amp; GitHub</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#关键概念-术语"><span class="toc-text">关键概念/术语</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#repository（仓库）"><span class="toc-text">repository（仓库）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#watch（关注）"><span class="toc-text">watch（关注）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#star（收藏）"><span class="toc-text">star（收藏）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#fork（分叉）"><span class="toc-text">fork（分叉）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#issue（提出问题）"><span class="toc-text">issue（提出问题）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#pull-request（拉请求）"><span class="toc-text">pull request（拉请求）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#clone（克隆）"><span class="toc-text">clone（克隆）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#wiki（维基文档记录）"><span class="toc-text">wiki（维基文档记录）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#commit（提交）"><span class="toc-text">commit（提交）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#branch（分支）"><span class="toc-text">branch（分支）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#merge（合并）"><span class="toc-text">merge（合并）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#release（发布）"><span class="toc-text">release（发布）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GitHub学习资源"><span class="toc-text">GitHub学习资源</span></a></li></ol>
+		</div>
+	</aside>
+
+	
+	
+	<h2 id="Git-amp-GitHub"><a href="#Git-amp-GitHub" class="headerlink" title="Git &amp; GitHub"></a>Git &amp; GitHub</h2><p><a href="https://git-scm.com/" target="_blank" rel="noopener">Git</a>是有一个版本控制软件：</p>
+<p>读作<code>[gɪt]</code>,拼音读作<code>gē yì te</code>。</p>
+<blockquote>
+<p>Git is a <a href="https://git-scm.com/about/free-and-open-source" target="_blank" rel="noopener">free and open source</a> distributed version control system designed to handle everything from small to very large projects with speed and efficiency. </p>
+</blockquote>
+<p><a href="https://github.com" target="_blank" rel="noopener">GitHub</a>是一个网站：</p>
+<p>读作<code>[gɪt hʌb]</code>，拼音读作<code>gē yì te hà bo</code></p>
+<blockquote>
+<p>GitHub is a code hosting platform for version control and collaboration. It lets you and others work together on projects from anywhere. </p>
+</blockquote>
+<p>通常自己一个人开发时使用Git有助于对代码版本进行控制，返回到之前任意时间点，能够合并多个分支流，解决或查看冲突。假如有协作开发作用更大。</p>
+<p>而使用GitHub不仅能够用来存储Git库，其还会提供以下操作：</p>
+<ul>
+<li>文档需求：使用提出问题（issues），可以提出新的功能需求，记录缺陷，从而让团队进行开发</li>
+<li>独立分支流记录：使用分支（branches）和拉请求（pull requests）,可以在不同的分支或功能下进行合作。</li>
+<li>评估工作进展：通过查看拉请求（pull requests）列表，可以查看目前工作状态下的所有不同功能，通过单击列出的任何一个拉请求命令，可以看到最新变化以及所有关于该动的讨论。</li>
+<li>看到团队的进展：通过使用Insights，可以看到团队的工作进展和脉冲（pulse）。</li>
+</ul>
+<h2 id="关键概念-术语"><a href="#关键概念-术语" class="headerlink" title="关键概念/术语"></a>关键概念/术语</h2><p>由于目前GitHub还是英文的，所以刚开始学习时不是很明白其中的某些概念，可能会觉得有点不明所以，经过一段时间的摸索，特整理如下：</p>
+<h3 id="repository（仓库）"><a href="#repository（仓库）" class="headerlink" title="repository（仓库）"></a>repository（仓库）</h3><p>单数，a repository；复数，repositories。概念：</p>
+<blockquote>
+<p>a place, building, or receptacle where things are or may be stored. </p>
+</blockquote>
+<p>相当于一个项目（Project）文件夹，仓库名也就是项目文件夹名称，可以在里面存放代码，各种和项目有关的文档等。</p>
+<p><img src="/2018/09/22/github-keywords/关键词示意.png" alt="1537585381087"></p>
+<h3 id="watch（关注）"><a href="#watch（关注）" class="headerlink" title="watch（关注）"></a>watch（关注）</h3><p>长期关注某个项目的进展，设置在情况下发送提醒（到邮箱）。</p>
+<h3 id="star（收藏）"><a href="#star（收藏）" class="headerlink" title="star（收藏）"></a>star（收藏）</h3><p>觉得某个项目不错，收藏一下，给个小星星，方便以后查看，同时也是对项目开发者的赞赏。</p>
+<h3 id="fork（分叉）"><a href="#fork（分叉）" class="headerlink" title="fork（分叉）"></a>fork（分叉）</h3><p>有时候我没有直接改变某个项目的许可，或者我想参与一个你不知道的人或者团队的开源项目，就可以克隆，修改，并使用拉请求的方式将其提交到最初的项目中。</p>
+<h3 id="issue（提出问题）"><a href="#issue（提出问题）" class="headerlink" title="issue（提出问题）"></a>issue（提出问题）</h3><p>用来讨论功能/需求，跟踪缺陷，或者两者兼备。比如我发现某个项目在PC上没问题，但移植到手机上就出现了位置的错误，就可以开一个issue来记录错误的过程。</p>
+<h3 id="pull-request（拉请求）"><a href="#pull-request（拉请求）" class="headerlink" title="pull request（拉请求）"></a>pull request（拉请求）</h3><p>原先拉请求是用来请求别人复查自己已经完成的工作，并将它们合并到主分支上。现在，拉请求常用在一个流程的早期阶段，可以讨论可能的功能。</p>
+<h3 id="clone（克隆）"><a href="#clone（克隆）" class="headerlink" title="clone（克隆）"></a>clone（克隆）</h3><p>将项目库复制到本地。例如我下载一个项目的副本，在本地将其中的某个bug修复，然后再提交回GitHub。</p>
+<h3 id="wiki（维基文档记录）"><a href="#wiki（维基文档记录）" class="headerlink" title="wiki（维基文档记录）"></a>wiki（维基文档记录）</h3><p>当Readme比较长了，可以使用wiki进行文档记录，各个章节页面用简单的链接关系想联系。（通常我看好像没多少中国开发者选择使用wiki，有的readme相当长）。</p>
+<h3 id="commit（提交）"><a href="#commit（提交）" class="headerlink" title="commit（提交）"></a>commit（提交）</h3><p>将一个或者多个文件的修改保存到Git历史记录中，都会创建一个新的提交。</p>
+<h3 id="branch（分支）"><a href="#branch（分支）" class="headerlink" title="branch（分支）"></a>branch（分支）</h3><ul>
+<li>主分支（master branch）</li>
+<li>功能分支（feature branch）</li>
+</ul>
+<h3 id="merge（合并）"><a href="#merge（合并）" class="headerlink" title="merge（合并）"></a>merge（合并）</h3><p>将一个分支的全部工作合并到另一个分支，GitHub会在合并前检查是否有冲突并给出修改意见。</p>
+<h3 id="release（发布）"><a href="#release（发布）" class="headerlink" title="release（发布）"></a>release（发布）</h3><p>到了一定阶段，项目已经差不多了，就可以新建release，版本x.xx，来发布正式版供别人打包下载。</p>
+<h2 id="GitHub学习资源"><a href="#GitHub学习资源" class="headerlink" title="GitHub学习资源"></a>GitHub学习资源</h2><ul>
+<li>初级：<a href="https://services.github.com/" target="_blank" rel="noopener">https://services.github.com/</a></li>
+<li>高级：<a href="https://developer.github.com/" target="_blank" rel="noopener">https://developer.github.com/</a></li>
+</ul>
+
+	
+  
+</div>
+
+
+  
+
+
+
+
+</div>
+
+</article>
+
+
+
+
+	</div><!--end of article wrapper-->
+	</div>
+
+
+
+
+
+
+	
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?70a761ba668ab8571ac79968adcf6078";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+
+
+
+
+
+
+
+<script src="https://cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+<script src="/js/script.js"></script>
+
+<!--Back to top-->
+<body id="top">
+<p id="back-to-top"><a href="#top"><span></span></a></p>
+</body>
+
+
+<script>
+$(document).ready(function() {
+    //首先将#back-to-top隐藏
+    $("#back-to-top").hide();
+ 
+    //当滚动条的位置处于距顶部3600像素以下时，跳转链接出现，否则消失
+    $(function() {
+        $(window).scroll(function() {
+            if ($(window).scrollTop() > 3600) {
+                $("#back-to-top").fadeIn(1500);
+            }
+            else {
+                $("#back-to-top").fadeOut(1500);
+            }
+        });
+        //当点击跳转链接后，回到页面顶部位置
+        $("#back-to-top").click(function() {
+            $('body,html').animate({
+                scrollTop: 0
+            },
+            500);
+			
+            return false;
+        });
+    });
+});
+</script>
+
+
+  <script src="/js/languages.js"></script>
+  <script src="/js/calendar.js"></script>
+  <script type="text/javascript">
+  $(function() {
+    $('#calendar').aCalendar('en', $.extend({"months":["January","February","March","April","May","June","July","August","September","October","November","December"],"dayOfWeekShort":["S","M","T","W","T","F","S"],"dayOfWeek":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"postsMonthTip":"Posts published in LMM yyyy","titleFormat":"yyyy LMM","titleLinkFormat":"/archives/yyyy/MM/","headArrows":{"previous":"<span class=\"cal-prev\"></span>","next":"<span class=\"cal-next\"></span>"},"footArrows":{"previous":" ","next":" "},"weekOffset":0,"single":false,"root":"/calendar/","url":"/calendar.json"}, {single:true, root:'calendar/'}));
+  });
+  </script>
+
+
+
+</body>
+</html>

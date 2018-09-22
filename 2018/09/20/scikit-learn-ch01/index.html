@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>使用Scikit-learn进行机器学习 | WizardLQ’s | 魔法师の小茶馆</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="我发现使用scikit-learn上手简单，设计合理，接口统一，内置了很多机器学习算法，所以使用其来进行机器学习数据分析是一种极好的选择。根据一些经典的例子，复现和演示，来加深对于机器学习算法的理解。 线性回归一元线性回归多元线性回归监督学习基于支持向量机（SVM）的图像分类基于朴素贝叶斯（Naïve Bayes）的文本分类决策树房价预测无监督学习主成分分析聚类高级特征Grid Search…">
+<meta name="keywords" content="Blog">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用Scikit-learn进行机器学习">
+<meta property="og:url" content="https://www.blankspace.cn/2018/09/20/scikit-learn-ch01/index.html">
+<meta property="og:site_name" content="WizardLQ’s | 魔法师の小茶馆">
+<meta property="og:description" content="我发现使用scikit-learn上手简单，设计合理，接口统一，内置了很多机器学习算法，所以使用其来进行机器学习数据分析是一种极好的选择。根据一些经典的例子，复现和演示，来加深对于机器学习算法的理解。 线性回归一元线性回归多元线性回归监督学习基于支持向量机（SVM）的图像分类基于朴素贝叶斯（Naïve Bayes）的文本分类决策树房价预测无监督学习主成分分析聚类高级特征Grid Search…">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2018-09-22T06:40:19.373Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="使用Scikit-learn进行机器学习">
+<meta name="twitter:description" content="我发现使用scikit-learn上手简单，设计合理，接口统一，内置了很多机器学习算法，所以使用其来进行机器学习数据分析是一种极好的选择。根据一些经典的例子，复现和演示，来加深对于机器学习算法的理解。 线性回归一元线性回归多元线性回归监督学习基于支持向量机（SVM）的图像分类基于朴素贝叶斯（Naïve Bayes）的文本分类决策树房价预测无监督学习主成分分析聚类高级特征Grid Search…">
+<link rel="publisher" href="112373242775367340000">
+  
+    <link rel="alternate" href="/atom.xml" title="WizardLQ’s | 魔法师の小茶馆" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/images/icon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+<link href="https://cdn.bootcss.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet"><link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.slim.min.js"></script><script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<script type="text/javascript" src="//ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.3.min.js"></script>
+
+<link rel="stylesheet" href="/css/styles.css">
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+</head>
+
+<body>
+
+	
+
+	
+	<div class="container">
+	<div class="article-wrapper">
+
+
+<article id="post-scikit-learn-ch01" class="article article-type-post" itemscope itemprop="blogPost">
+	
+
+
+<header class="article-header">
+
+  
+    <h1 class="article-title" itemprop="name">
+      使用Scikit-learn进行机器学习
+    </h1>
+  
+
+
+	
+
+ 
+	
+		魔法师LQ
+	
+	</hr>
+	<div class="article-datetime">
+	  <time datetime="2018-09-20T12:57:03.000Z" itemprop="datePublished">2018-09-20</time>
+	</div>
+	<div class="header-divider"></div>	
+
+	   
+
+</header>
+
+<div class="article-inner">
+<div class="article-entry" itemprop="articleBody">
+  
+  
+	<!-- Table of Contents -->
+
+	<aside id="article-toc" role="navigation" class="fixed">
+		<div id="article-toc-inner">
+			<strong class="sidebar-title">
+			Contents</strong>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#线性回归"><span class="toc-text">线性回归</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#一元线性回归"><span class="toc-text">一元线性回归</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#多元线性回归"><span class="toc-text">多元线性回归</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#监督学习"><span class="toc-text">监督学习</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#基于支持向量机（SVM）的图像分类"><span class="toc-text">基于支持向量机（SVM）的图像分类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#基于朴素贝叶斯（Naive-Bayes）的文本分类"><span class="toc-text">基于朴素贝叶斯（Naïve Bayes）的文本分类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#决策树"><span class="toc-text">决策树</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#房价预测"><span class="toc-text">房价预测</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#无监督学习"><span class="toc-text">无监督学习</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#主成分分析"><span class="toc-text">主成分分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#聚类"><span class="toc-text">聚类</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#高级特征"><span class="toc-text">高级特征</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Grid-Search"><span class="toc-text">Grid Search</span></a></li></ol></li></ol>
+		</div>
+	</aside>
+
+	
+	
+	<p>我发现使用scikit-learn上手简单，设计合理，接口统一，内置了很多机器学习算法，所以使用其来进行机器学习数据分析是一种极好的选择。根据一些经典的例子，复现和演示，来加深对于机器学习算法的理解。</p>
+<h2 id="线性回归"><a href="#线性回归" class="headerlink" title="线性回归"></a>线性回归</h2><h3 id="一元线性回归"><a href="#一元线性回归" class="headerlink" title="一元线性回归"></a>一元线性回归</h3><h3 id="多元线性回归"><a href="#多元线性回归" class="headerlink" title="多元线性回归"></a>多元线性回归</h3><h2 id="监督学习"><a href="#监督学习" class="headerlink" title="监督学习"></a>监督学习</h2><h3 id="基于支持向量机（SVM）的图像分类"><a href="#基于支持向量机（SVM）的图像分类" class="headerlink" title="基于支持向量机（SVM）的图像分类"></a>基于支持向量机（SVM）的图像分类</h3><h3 id="基于朴素贝叶斯（Naive-Bayes）的文本分类"><a href="#基于朴素贝叶斯（Naive-Bayes）的文本分类" class="headerlink" title="基于朴素贝叶斯（Naïve Bayes）的文本分类"></a>基于朴素贝叶斯（Naïve Bayes）的文本分类</h3><h3 id="决策树"><a href="#决策树" class="headerlink" title="决策树"></a>决策树</h3><h3 id="房价预测"><a href="#房价预测" class="headerlink" title="房价预测"></a>房价预测</h3><h2 id="无监督学习"><a href="#无监督学习" class="headerlink" title="无监督学习"></a>无监督学习</h2><h3 id="主成分分析"><a href="#主成分分析" class="headerlink" title="主成分分析"></a>主成分分析</h3><h3 id="聚类"><a href="#聚类" class="headerlink" title="聚类"></a>聚类</h3><h2 id="高级特征"><a href="#高级特征" class="headerlink" title="高级特征"></a>高级特征</h2><h3 id="Grid-Search"><a href="#Grid-Search" class="headerlink" title="Grid Search"></a>Grid Search</h3><p>…</p>
+
+	
+  
+</div>
+
+
+  
+
+
+
+
+</div>
+
+</article>
+
+
+
+
+	</div><!--end of article wrapper-->
+	</div>
+
+
+
+
+
+
+	
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?70a761ba668ab8571ac79968adcf6078";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+
+
+
+
+
+
+
+<script src="https://cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+<script src="/js/script.js"></script>
+
+<!--Back to top-->
+<body id="top">
+<p id="back-to-top"><a href="#top"><span></span></a></p>
+</body>
+
+
+<script>
+$(document).ready(function() {
+    //首先将#back-to-top隐藏
+    $("#back-to-top").hide();
+ 
+    //当滚动条的位置处于距顶部3600像素以下时，跳转链接出现，否则消失
+    $(function() {
+        $(window).scroll(function() {
+            if ($(window).scrollTop() > 3600) {
+                $("#back-to-top").fadeIn(1500);
+            }
+            else {
+                $("#back-to-top").fadeOut(1500);
+            }
+        });
+        //当点击跳转链接后，回到页面顶部位置
+        $("#back-to-top").click(function() {
+            $('body,html').animate({
+                scrollTop: 0
+            },
+            500);
+			
+            return false;
+        });
+    });
+});
+</script>
+
+
+  <script src="/js/languages.js"></script>
+  <script src="/js/calendar.js"></script>
+  <script type="text/javascript">
+  $(function() {
+    $('#calendar').aCalendar('en', $.extend({"months":["January","February","March","April","May","June","July","August","September","October","November","December"],"dayOfWeekShort":["S","M","T","W","T","F","S"],"dayOfWeek":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"postsMonthTip":"Posts published in LMM yyyy","titleFormat":"yyyy LMM","titleLinkFormat":"/archives/yyyy/MM/","headArrows":{"previous":"<span class=\"cal-prev\"></span>","next":"<span class=\"cal-next\"></span>"},"footArrows":{"previous":" ","next":" "},"weekOffset":0,"single":false,"root":"/calendar/","url":"/calendar.json"}, {single:true, root:'calendar/'}));
+  });
+  </script>
+
+
+
+</body>
+</html>
