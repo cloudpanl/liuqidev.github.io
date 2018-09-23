@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.blankspace.cn/"/>
-  <updated>2018-09-22T06:19:48.530Z</updated>
+  <updated>2018-09-23T03:23:18.233Z</updated>
   <id>https://www.blankspace.cn/</id>
   
   <author>
@@ -17,13 +17,56 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>LaTeX笔记</title>
+    <link href="https://www.blankspace.cn/2018/09/23/latex-notes-01/"/>
+    <id>https://www.blankspace.cn/2018/09/23/latex-notes-01/</id>
+    <published>2018-09-23T02:14:46.000Z</published>
+    <updated>2018-09-23T03:23:18.233Z</updated>
+    
+    <content type="html"><![CDATA[<p>&#160; &#160; &#160; &#160;为什么要学习$\LaTeX$？原因很简单，“虽说气质为王，但往往也还是看脸”，所以相当多的高质量的论文，书籍都会使用这种精确控制，外行看起来狂拽酷炫，不明嚼栗的排版工具，所以想发论文，这种排版神器的使用是圈子里必备且默认你会的技能。另外，我个人觉得Word十分好用，十分良心，所见即所得，功能十分强大。有人会褒一个贬一个，我觉得Word和$\LaTeX$都很好。现在有的期刊，会议也接受Word格式的论文，在有必要的时候学习也是极好的。</p><p>&#160; &#160; &#160; &#160;看过一些介绍$\LaTeX$ 的文章和书籍,很多作者写的很好，总体上也是从易到难，由浅入深。但是我看完之后，或者边看边学的过程中，总感觉缺了点什么，那就是这么多的规则，这么多符号，这么多宏包，什么时候才能用 $\LaTeX$ 写一篇像样的文章，什么时候才能写书，写论文呀！</p><p>&#160; &#160; &#160; &#160;我个人不想对$\LaTeX$ 做太深的研究，也不想向别人炫耀这种看似困难的工具的使用，只想发挥其该有的功用——更好地书写排版。所以在这里记下学习时的简单实用的笔记，尽快上手，同样也是边学习边练习边回顾，希望最终写出专业的论文以及其他优雅的出版物还有演示文稿，以掌握一个科研人员基本的素质。</p><h2 id="学习资源"><a href="#学习资源" class="headerlink" title="学习资源"></a>学习资源</h2><ul><li><a href="http://www.latexstudio.net/" target="_blank" rel="noopener">$\LaTeX$开源小屋</a>：很不错的中文$\LaTeX$社区，几乎应有尽有，资料很全</li><li><a href="https://cn.sharelatex.com/" target="_blank" rel="noopener">ShareLaTeX</a>：有丰富的模板，可以用来模仿</li><li>GitHub，简书，CSDN等，上面都已一些相关的模板，文章等</li><li><a href="https://tex.stackexchange.com/" target="_blank" rel="noopener">TeX StackExchange</a>还有Stack Overflow：遇到问题可以去上面查询</li></ul><h2 id="基础结构"><a href="#基础结构" class="headerlink" title="基础结构"></a>基础结构</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">\documentclass&#123;article&#125;</span><br><span class="line"></span><br><span class="line">\usepackage&#123;ctex&#125;  %引入中文支持</span><br><span class="line"></span><br><span class="line">\begin&#123;document&#125;</span><br><span class="line">\LaTeX&#123;&#125; 你好  </span><br><span class="line">\end&#123;document&#125;</span><br></pre></td></tr></table></figure><p><img src="/2018/09/23/latex-notes-01/图1-latex最基础模板.png" alt="图1-latex最基础模板：\begin{environment\}...\end{environment} 中为内容，上面为导言区"></p><div class="bs-callout bs-callout-info"><h3 id="用法"><a href="#用法" class="headerlink" title="   用法"></a><i class="fa fa-info-circle"></i>   用法</h3><ul><li><code>\命令名称[备选参数]{（必选）参数}</code>：叫做命令。个人感觉类似于HTML中的<code>&lt;!DOCTYPE html&gt;</code>。例如，<code>\documentclass[a4paper]{ctexart}</code>，花括号中为必选参数，设置文档类型为<code>ctexart</code>。中括号里备选参数<code>a4paper</code>，将文档大小设置为A4纸大小。</li><li><code>\begin[...]{environment} ...\end{environment}</code>：叫做环境，用于控制<code>\begin[...]{environment}</code>和<code>\end{environment}</code>之间的内容。</li></ul></div><a id="more"></a>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&amp;#160; &amp;#160; &amp;#160; &amp;#160;为什么要学习$\LaTeX$？原因很简单，“虽说气质为王，但往往也还是看脸”，所以相当多的高质量的论文，书籍都会使用这种精确控制，外行看起来狂拽酷炫，不明嚼栗的排版工具，所以想发论文，这种排版神器的使用是圈子里必备且默认你会的技能。另外，我个人觉得Word十分好用，十分良心，所见即所得，功能十分强大。有人会褒一个贬一个，我觉得Word和$\LaTeX$都很好。现在有的期刊，会议也接受Word格式的论文，在有必要的时候学习也是极好的。&lt;/p&gt;
+&lt;p&gt;&amp;#160; &amp;#160; &amp;#160; &amp;#160;看过一些介绍$\LaTeX$ 的文章和书籍,很多作者写的很好，总体上也是从易到难，由浅入深。但是我看完之后，或者边看边学的过程中，总感觉缺了点什么，那就是这么多的规则，这么多符号，这么多宏包，什么时候才能用 $\LaTeX$ 写一篇像样的文章，什么时候才能写书，写论文呀！&lt;/p&gt;
+&lt;p&gt;&amp;#160; &amp;#160; &amp;#160; &amp;#160;我个人不想对$\LaTeX$ 做太深的研究，也不想向别人炫耀这种看似困难的工具的使用，只想发挥其该有的功用——更好地书写排版。所以在这里记下学习时的简单实用的笔记，尽快上手，同样也是边学习边练习边回顾，希望最终写出专业的论文以及其他优雅的出版物还有演示文稿，以掌握一个科研人员基本的素质。&lt;/p&gt;
+&lt;h2 id=&quot;学习资源&quot;&gt;&lt;a href=&quot;#学习资源&quot; class=&quot;headerlink&quot; title=&quot;学习资源&quot;&gt;&lt;/a&gt;学习资源&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.latexstudio.net/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;$\LaTeX$开源小屋&lt;/a&gt;：很不错的中文$\LaTeX$社区，几乎应有尽有，资料很全&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://cn.sharelatex.com/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;ShareLaTeX&lt;/a&gt;：有丰富的模板，可以用来模仿&lt;/li&gt;
+&lt;li&gt;GitHub，简书，CSDN等，上面都已一些相关的模板，文章等&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://tex.stackexchange.com/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;TeX StackExchange&lt;/a&gt;还有Stack Overflow：遇到问题可以去上面查询&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;基础结构&quot;&gt;&lt;a href=&quot;#基础结构&quot; class=&quot;headerlink&quot; title=&quot;基础结构&quot;&gt;&lt;/a&gt;基础结构&lt;/h2&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;\documentclass&amp;#123;article&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;\usepackage&amp;#123;ctex&amp;#125;  %引入中文支持&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;\begin&amp;#123;document&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	\LaTeX&amp;#123;&amp;#125; 你好  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;\end&amp;#123;document&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;&lt;img src=&quot;/2018/09/23/latex-notes-01/图1-latex最基础模板.png&quot; alt=&quot;图1-latex最基础模板：\begin{environment\}...\end{environment} 中为内容，上面为导言区&quot;&gt;&lt;/p&gt;
+&lt;div class=&quot;bs-callout bs-callout-info&quot;&gt;&lt;h3 id=&quot;用法&quot;&gt;&lt;a href=&quot;#用法&quot; class=&quot;headerlink&quot; title=&quot;   用法&quot;&gt;&lt;/a&gt;&lt;i class=&quot;fa fa-info-circle&quot;&gt;&lt;/i&gt;   用法&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;\命令名称[备选参数]{（必选）参数}&lt;/code&gt;：叫做命令。个人感觉类似于HTML中的&lt;code&gt;&amp;lt;!DOCTYPE html&amp;gt;&lt;/code&gt;。例如，&lt;code&gt;\documentclass[a4paper]{ctexart}&lt;/code&gt;，花括号中为必选参数，设置文档类型为&lt;code&gt;ctexart&lt;/code&gt;。中括号里备选参数&lt;code&gt;a4paper&lt;/code&gt;，将文档大小设置为A4纸大小。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;\begin[...]{environment} ...\end{environment}&lt;/code&gt;：叫做环境，用于控制&lt;code&gt;\begin[...]{environment}&lt;/code&gt;和&lt;code&gt;\end{environment}&lt;/code&gt;之间的内容。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+    
+    </summary>
+    
+      <category term="Typesetting" scheme="https://www.blankspace.cn/categories/Typesetting/"/>
+    
+      <category term="TeX" scheme="https://www.blankspace.cn/categories/Typesetting/TeX/"/>
+    
+      <category term="LaTex" scheme="https://www.blankspace.cn/categories/Typesetting/TeX/LaTex/"/>
+    
+    
+      <category term="TeX" scheme="https://www.blankspace.cn/tags/TeX/"/>
+    
+      <category term="LaTex" scheme="https://www.blankspace.cn/tags/LaTex/"/>
+    
+  </entry>
+  
+  <entry>
     <title>GitHub关键概念</title>
     <link href="https://www.blankspace.cn/2018/09/22/github-keywords/"/>
     <id>https://www.blankspace.cn/2018/09/22/github-keywords/</id>
     <published>2018-09-22T01:50:06.000Z</published>
-    <updated>2018-09-22T06:19:48.530Z</updated>
+    <updated>2018-09-22T06:49:43.352Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="Git-amp-GitHub"><a href="#Git-amp-GitHub" class="headerlink" title="Git &amp; GitHub"></a>Git &amp; GitHub</h2><p><a href="https://git-scm.com/" target="_blank" rel="noopener">Git</a>是有一个版本控制软件：</p><p>读作<code>[gɪt]</code>,拼音读作<code>gē yì te</code>。</p><blockquote><p>Git is a <a href="https://git-scm.com/about/free-and-open-source" target="_blank" rel="noopener">free and open source</a> distributed version control system designed to handle everything from small to very large projects with speed and efficiency. </p></blockquote><p><a href="https://github.com" target="_blank" rel="noopener">GitHub</a>是一个网站：</p><p>读作<code>[gɪt hʌb]</code>，拼音读作<code>gē yì te hà bo</code></p><blockquote><p>GitHub is a code hosting platform for version control and collaboration. It lets you and others work together on projects from anywhere. </p></blockquote><p>通常自己一个人开发时使用Git有助于对代码版本进行控制，返回到之前任意时间点，能够合并多个分支流，解决或查看冲突。假如有协作开发作用更大。</p><p>而使用GitHub不仅能够用来存储Git库，其还会提供以下操作：</p><ul><li>文档需求：使用提出问题（issues），可以提出新的功能需求，记录缺陷，从而让团队进行开发</li><li>独立分支流记录：使用分支（branches）和拉请求（pull requests）,可以在不同的分支或功能下进行合作。</li><li>评估工作进展：通过查看拉请求（pull requests）列表，可以查看目前工作状态下的所有不同功能，通过单击列出的任何一个拉请求命令，可以看到最新变化以及所有关于该动的讨论。</li><li>看到团队的进展：通过使用Insights，可以看到团队的工作进展和脉冲（pulse）。</li></ul><h2 id="关键概念-术语"><a href="#关键概念-术语" class="headerlink" title="关键概念/术语"></a>关键概念/术语</h2><p>由于目前GitHub还是英文的，所以刚开始学习时不是很明白其中的某些概念，可能会觉得有点不明所以，经过一段时间的摸索，特整理如下：</p><h3 id="repository（仓库）"><a href="#repository（仓库）" class="headerlink" title="repository（仓库）"></a>repository（仓库）</h3><p>单数，a repository；复数，repositories。概念：</p><blockquote><p>a place, building, or receptacle where things are or may be stored. </p></blockquote><p>相当于一个项目（Project）文件夹，仓库名也就是项目文件夹名称，可以在里面存放代码，各种和项目有关的文档等。</p><p><img src="/2018/09/22/github-keywords/关键词示意.png" alt="1537585381087"></p><h3 id="watch（关注）"><a href="#watch（关注）" class="headerlink" title="watch（关注）"></a>watch（关注）</h3><p>长期关注某个项目的进展，设置在情况下发送提醒（到邮箱）。</p><h3 id="star（收藏）"><a href="#star（收藏）" class="headerlink" title="star（收藏）"></a>star（收藏）</h3><p>觉得某个项目不错，收藏一下，给个小星星，方便以后查看，同时也是对项目开发者的赞赏。</p><h3 id="fork（分叉）"><a href="#fork（分叉）" class="headerlink" title="fork（分叉）"></a>fork（分叉）</h3><p>有时候我没有直接改变某个项目的许可，或者我想参与一个你不知道的人或者团队的开源项目，就可以克隆，修改，并使用拉请求的方式将其提交到最初的项目中。</p><h3 id="issue（提出问题）"><a href="#issue（提出问题）" class="headerlink" title="issue（提出问题）"></a>issue（提出问题）</h3><p>用来讨论功能/需求，跟踪缺陷，或者两者兼备。比如我发现某个项目在PC上没问题，但移植到手机上就出现了位置的错误，就可以开一个issue来记录错误的过程。</p><h3 id="pull-request（拉请求）"><a href="#pull-request（拉请求）" class="headerlink" title="pull request（拉请求）"></a>pull request（拉请求）</h3><p>原先拉请求是用来请求别人复查自己已经完成的工作，并将它们合并到主分支上。现在，拉请求常用在一个流程的早期阶段，可以讨论可能的功能。</p><h3 id="clone（克隆）"><a href="#clone（克隆）" class="headerlink" title="clone（克隆）"></a>clone（克隆）</h3><p>将项目库复制到本地。例如我下载一个项目的副本，在本地将其中的某个bug修复，然后再提交回GitHub。</p><h3 id="wiki（维基文档记录）"><a href="#wiki（维基文档记录）" class="headerlink" title="wiki（维基文档记录）"></a>wiki（维基文档记录）</h3><p>当Readme比较长了，可以使用wiki进行文档记录，各个章节页面用简单的链接关系想联系。（通常我看好像没多少中国开发者选择使用wiki，有的readme相当长）。</p><h3 id="commit（提交）"><a href="#commit（提交）" class="headerlink" title="commit（提交）"></a>commit（提交）</h3><p>将一个或者多个文件的修改保存到Git历史记录中，都会创建一个新的提交。</p><h3 id="branch（分支）"><a href="#branch（分支）" class="headerlink" title="branch（分支）"></a>branch（分支）</h3><ul><li>主分支（master branch）</li><li>功能分支（feature branch）</li></ul><h3 id="merge（合并）"><a href="#merge（合并）" class="headerlink" title="merge（合并）"></a>merge（合并）</h3><p>将一个分支的全部工作合并到另一个分支，GitHub会在合并前检查是否有冲突并给出修改意见。</p><h3 id="release（发布）"><a href="#release（发布）" class="headerlink" title="release（发布）"></a>release（发布）</h3><p>到了一定阶段，项目已经差不多了，就可以新建release，版本x.xx，来发布正式版供别人打包下载。</p><h2 id="GitHub学习资源"><a href="#GitHub学习资源" class="headerlink" title="GitHub学习资源"></a>GitHub学习资源</h2><ul><li>初级：<a href="https://services.github.com/" target="_blank" rel="noopener">https://services.github.com/</a></li><li>高级：<a href="https://developer.github.com/" target="_blank" rel="noopener">https://developer.github.com/</a></li></ul>]]></content>
+    <content type="html"><![CDATA[<h2 id="Git-amp-GitHub"><a href="#Git-amp-GitHub" class="headerlink" title="Git &amp; GitHub"></a>Git &amp; GitHub</h2><p><a href="https://git-scm.com/" target="_blank" rel="noopener">Git</a>是一个版本控制软件：</p><p>读作<code>[gɪt]</code>,拼音读作<code>gē yì te</code>。</p><blockquote><p>Git is a <a href="https://git-scm.com/about/free-and-open-source" target="_blank" rel="noopener">free and open source</a> distributed version control system designed to handle everything from small to very large projects with speed and efficiency. </p></blockquote><p><a href="https://github.com" target="_blank" rel="noopener">GitHub</a>是一个网站：</p><p>读作<code>[gɪt hʌb]</code>，拼音读作<code>gē yì te hà bo</code></p><blockquote><p>GitHub is a code hosting platform for version control and collaboration. It lets you and others work together on projects from anywhere. </p></blockquote><p>通常自己一个人开发时使用Git有助于对代码版本进行控制，返回到之前任意时间点，能够合并多个分支流，解决或查看冲突。假如有协作开发作用更大。</p><p>而使用GitHub不仅能够用来存储Git库，其还会提供以下操作：</p><ul><li>文档需求：使用提出问题（issues），可以提出新的功能需求，记录缺陷，从而让团队进行开发</li><li>独立分支流记录：使用分支（branches）和拉请求（pull requests）,可以在不同的分支或功能下进行合作。</li><li>评估工作进展：通过查看拉请求（pull requests）列表，可以查看目前工作状态下的所有不同功能，通过单击列出的任何一个拉请求命令，可以看到最新变化以及所有关于该动的讨论。</li><li>看到团队的进展：通过使用Insights，可以看到团队的工作进展和脉冲（pulse）。</li></ul><h2 id="关键概念-术语"><a href="#关键概念-术语" class="headerlink" title="关键概念/术语"></a>关键概念/术语</h2><p>由于目前GitHub还是英文的，所以刚开始学习时不是很明白其中的某些概念，可能会觉得有点不明所以，经过一段时间的摸索，特整理如下：</p><h3 id="repository（仓库）"><a href="#repository（仓库）" class="headerlink" title="repository（仓库）"></a>repository（仓库）</h3><p>单数，a repository；复数，repositories。概念：</p><blockquote><p>a place, building, or receptacle where things are or may be stored. </p></blockquote><p>相当于一个项目（Project）文件夹，仓库名也就是项目文件夹名称，可以在里面存放代码，各种和项目有关的文档等。</p><p><img src="/2018/09/22/github-keywords/关键词示意.png" alt="1537585381087"></p><h3 id="watch（关注）"><a href="#watch（关注）" class="headerlink" title="watch（关注）"></a>watch（关注）</h3><p>长期关注某个项目的进展，设置在某些情况下发送提醒（到邮箱）。</p><h3 id="star（收藏）"><a href="#star（收藏）" class="headerlink" title="star（收藏）"></a>star（收藏）</h3><p>觉得某个项目不错，收藏一下，给个小星星，方便以后查看，同时也是对项目开发者的赞赏。</p><h3 id="fork（分叉）"><a href="#fork（分叉）" class="headerlink" title="fork（分叉）"></a>fork（分叉）</h3><p>有时候我没有直接改变某个项目的许可，或者我想参与一个你不知道的人或者团队的开源项目，就可以克隆，修改，并使用拉请求的方式将其提交到最初的项目中。</p><h3 id="issue（提出问题）"><a href="#issue（提出问题）" class="headerlink" title="issue（提出问题）"></a>issue（提出问题）</h3><p>用来讨论功能/需求，跟踪缺陷，或者两者兼备。比如我发现某个项目在PC上没问题，但移植到手机上就出现了位置的错误，就可以开一个issue来记录错误的过程。</p><h3 id="pull-request（拉请求）"><a href="#pull-request（拉请求）" class="headerlink" title="pull request（拉请求）"></a>pull request（拉请求）</h3><p>原先拉请求是用来请求别人复查自己已经完成的工作，并将它们合并到主分支上。现在，拉请求常用在一个流程的早期阶段，可以讨论可能的功能。</p><h3 id="clone（克隆）"><a href="#clone（克隆）" class="headerlink" title="clone（克隆）"></a>clone（克隆）</h3><p>将项目库复制到本地。例如我下载一个项目的副本，在本地将其中的某个bug修复，然后再提交回GitHub。</p><h3 id="wiki（维基文档记录）"><a href="#wiki（维基文档记录）" class="headerlink" title="wiki（维基文档记录）"></a>wiki（维基文档记录）</h3><p>当Readme比较长了，可以使用wiki进行文档记录，各个章节页面用简单的链接关系相联系。（通常我看好像没多少中国开发者选择使用wiki，有的readme相当长）。</p><h3 id="commit（提交）"><a href="#commit（提交）" class="headerlink" title="commit（提交）"></a>commit（提交）</h3><p>将一个或者多个文件的修改保存到Git历史记录中，都会创建一个新的提交。</p><h3 id="branch（分支）"><a href="#branch（分支）" class="headerlink" title="branch（分支）"></a>branch（分支）</h3><ul><li>主分支（master branch）</li><li>功能分支（feature branch）</li></ul><h3 id="merge（合并）"><a href="#merge（合并）" class="headerlink" title="merge（合并）"></a>merge（合并）</h3><p>将一个分支的全部工作合并到另一个分支，GitHub会在合并前检查是否有冲突并给出修改意见。</p><h3 id="release（发布）"><a href="#release（发布）" class="headerlink" title="release（发布）"></a>release（发布）</h3><p>到了一定阶段，项目已经差不多了，就可以新建release，版本x.xx，来发布正式版供别人打包下载。</p><h2 id="GitHub学习资源"><a href="#GitHub学习资源" class="headerlink" title="GitHub学习资源"></a>GitHub学习资源</h2><ul><li>初级：<a href="https://services.github.com/" target="_blank" rel="noopener">https://services.github.com/</a></li><li>高级：<a href="https://developer.github.com/" target="_blank" rel="noopener">https://developer.github.com/</a></li></ul>]]></content>
     
     <summary type="html">
     
@@ -850,36 +893,6 @@ E_R\approx \frac{\Delta x}{x} \quad\text{或} \quad E_R\approx \frac{\Delta x}{\
       <category term="Biology" scheme="https://www.blankspace.cn/tags/Biology/"/>
     
       <category term="Scientific Method" scheme="https://www.blankspace.cn/tags/Scientific-Method/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>生物学的基本主题</title>
-    <link href="https://www.blankspace.cn/2018/09/15/biology-ch1-s1/"/>
-    <id>https://www.blankspace.cn/2018/09/15/biology-ch1-s1/</id>
-    <published>2018-09-15T15:18:51.000Z</published>
-    <updated>2018-09-19T03:18:53.440Z</updated>
-    
-    <content type="html"><![CDATA[<p>今天开始选修清华大学生命科学学院的杨杨（Yang Yang）老师的《现代生物学导论》课程，学习有关生命相关基础知识和原理。</p><h2 id="什么是生命"><a href="#什么是生命" class="headerlink" title="什么是生命"></a>什么是生命</h2><h3 id="生命的特征"><a href="#生命的特征" class="headerlink" title="生命的特征"></a>生命的特征</h3><ul><li>结构组织</li><li>获得&amp;转化能量</li><li>生长、发育和繁殖</li><li>对环境信号进行应答反应</li><li>各种调控</li><li>演化</li><li>…</li></ul><h2 id="生物学五大主题"><a href="#生物学五大主题" class="headerlink" title="生物学五大主题"></a>生物学五大主题</h2><ol><li>生命的逐级组成</li><li>遗传信息的表达和传递</li><li>能量和物质的交换</li><li>生物系统中的各种相互作用</li><li>生物演化</li></ol><h2 id="一-生命的逐级组成"><a href="#一-生命的逐级组成" class="headerlink" title="一.生命的逐级组成"></a>一.生命的逐级组成</h2><ol><li>原子</li><li>分子</li><li>细胞器</li><li>细胞</li><li>组织</li><li>器官</li><li>器官系统</li><li>生物体</li><li>族群</li><li>种群</li><li>生态系统</li><li>生物群系</li><li>生物圈</li></ol><h3 id="1-涌现性质（Emergent-Property）"><a href="#1-涌现性质（Emergent-Property）" class="headerlink" title="1. 涌现性质（Emergent Property）"></a>1. 涌现性质（Emergent Property）</h3><ul><li>生物的逐级组成中，每一层体现出来的特征是前一层所没有的。</li></ul><h3 id="2-结构与功能（Structure-amp-Function）"><a href="#2-结构与功能（Structure-amp-Function）" class="headerlink" title="2.结构与功能（Structure &amp; Function）"></a>2.结构与功能（Structure &amp; Function）</h3><ul><li>结构和功能相关性</li></ul><h2 id="二-遗传信息的表达和传递"><a href="#二-遗传信息的表达和传递" class="headerlink" title="二.遗传信息的表达和传递"></a>二.遗传信息的表达和传递</h2><p><img src="/2018/09/15/biology-ch1-s1/中心法则.png" alt="中心法则"></p><h2 id="三-能量和物质交换"><a href="#三-能量和物质交换" class="headerlink" title="三.能量和物质交换"></a>三.能量和物质交换</h2><p><img src="/2018/09/15/biology-ch1-s1/能量和物质循环.png" alt="能量和物质循环"></p><h2 id="四、生态系统中的相互作用"><a href="#四、生态系统中的相互作用" class="headerlink" title="四、生态系统中的相互作用"></a>四、生态系统中的相互作用</h2><h3 id="1-生物和环境相互作用"><a href="#1-生物和环境相互作用" class="headerlink" title="1.生物和环境相互作用"></a>1.生物和环境相互作用</h3><ul><li>生物和生活环境</li><li>生物间的相互作用<ul><li>互惠</li><li>捕食</li><li>竞争</li></ul></li><li>生物体内部分子间的相互作用</li></ul><p><img src="/2018/09/15/biology-ch1-s1/生物体内分子间相互作用.png" alt="生物体内分子间相互作用"></p><h2 id="五、生命的演化"><a href="#五、生命的演化" class="headerlink" title="五、生命的演化"></a>五、生命的演化</h2><h3 id="自然选择"><a href="#自然选择" class="headerlink" title="自然选择"></a>自然选择</h3><p>核心</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;今天开始选修清华大学生命科学学院的杨杨（Yang Yang）老师的《现代生物学导论》课程，学习有关生命相关基础知识和原理。&lt;/p&gt;
-&lt;h2 id=&quot;什么是生命&quot;&gt;&lt;a href=&quot;#什么是生命&quot; class=&quot;headerlink&quot; title=&quot;什么是生命&quot;&gt;&lt;/a&gt;什么
-      
-    
-    </summary>
-    
-      <category term="Biology" scheme="https://www.blankspace.cn/categories/Biology/"/>
-    
-      <category term="现代生物学导论" scheme="https://www.blankspace.cn/categories/Biology/%E7%8E%B0%E4%BB%A3%E7%94%9F%E7%89%A9%E5%AD%A6%E5%AF%BC%E8%AE%BA/"/>
-    
-      <category term="绪论" scheme="https://www.blankspace.cn/categories/Biology/%E7%8E%B0%E4%BB%A3%E7%94%9F%E7%89%A9%E5%AD%A6%E5%AF%BC%E8%AE%BA/%E7%BB%AA%E8%AE%BA/"/>
-    
-    
-      <category term="Biology" scheme="https://www.blankspace.cn/tags/Biology/"/>
     
   </entry>
   

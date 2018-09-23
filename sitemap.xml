@@ -2,16 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://www.blankspace.cn/2018/09/20/scikit-learn-ch01/</loc>
+    <loc>https://www.blankspace.cn/2018/09/23/latex-notes-01/</loc>
     
-    <lastmod>2018-09-22T06:40:19.373Z</lastmod>
+    <lastmod>2018-09-23T03:23:18.233Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://www.blankspace.cn/2018/09/22/github-keywords/</loc>
     
-    <lastmod>2018-09-22T06:19:48.530Z</lastmod>
+    <lastmod>2018-09-22T06:49:43.352Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.blankspace.cn/2018/09/20/scikit-learn-ch01/</loc>
+    
+    <lastmod>2018-09-22T06:40:19.373Z</lastmod>
     
   </url>
   
