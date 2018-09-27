@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.blankspace.cn/"/>
-  <updated>2018-09-23T03:23:18.233Z</updated>
+  <updated>2018-09-27T09:00:47.524Z</updated>
   <id>https://www.blankspace.cn/</id>
   
   <author>
@@ -17,17 +17,95 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>聚类分析</title>
+    <link href="https://www.blankspace.cn/2018/09/27/data-mining-ch01-s02-01/"/>
+    <id>https://www.blankspace.cn/2018/09/27/data-mining-ch01-s02-01/</id>
+    <published>2018-09-27T00:59:31.000Z</published>
+    <updated>2018-09-27T09:00:47.524Z</updated>
+    
+    <content type="html"><![CDATA[<p>　　学习不应当机械重复和记忆，要善于将现有的知识和理论用自己的方式进行理解和转化，就是用自己的话说出来。</p><h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><p>　　人类（但不仅仅是人类）通常很擅长也很喜欢聚类。在对世界的观察和理解中，要将特定的对象指派到特定的组中，“物以类聚，人以群分”，我感觉其实也就是分类啦，只不过为了和原始数据提供标记的分类任务区分开来，没有提供标记的任务就是聚类啦，组也不叫组了，就叫做簇cluster，聚类就叫做clustering。聚类不是终点而是起点，为很多工作做下铺垫，比如说数据分析。</p><p>　　聚类有为了理解的，也有为了建立高层的抽象的，前一种比如生物学中的层次分类，界门纲目科属种（kingdom，phylum，class，order，family，genus，species）；信息检索中搜索结果返回若干簇；心理学和医学研究等。后一种如某些算法为了减小分析复杂度，对于数据集的簇使用而不是整个数据集，能够得到和使用所有数据相媲美的结果；还有如压缩，如向量量化，将数据对象使用所在簇的序索引来表示；发现最近邻等。</p><h3 id="簇的定义"><a href="#簇的定义" class="headerlink" title="簇的定义"></a>簇的定义</h3><p>　　可以说是一个个的分组，组内之间相互之间是相似的（相关的），而不同组之间的对象是不同的（不想关的）。组内的相似性（同质性）越大越好，组间差别越大越好。分组依赖于数据的特性以及期望的结果，所以实际上是需求驱动的。</p><h3 id="聚类类型"><a href="#聚类类型" class="headerlink" title="聚类类型"></a>聚类类型</h3><ul><li>划分 VS 层次：划分聚类（partitional clustering）使不同簇之间不能重叠，每个对象恰在一个簇中。层次聚类（hierarchical clustering），按层次嵌套组成一棵树，除叶子节点之外，所有的簇都是其子簇的并。</li><li>互斥，重叠和模糊：重叠（overlapping）/非互斥（non-exclusive）聚类反映一个对象属于多个类。模糊聚类（fuzzy clustering）将属于某个簇给定一个权重系数，介于0和1之间，0代表绝对不属于，1代表确定一定加肯定，每个兑现的权重之和等于1。同理的概率聚类也是计算一个对象属于每个簇的概率，所有概率之和等于1。实践中通常将最大系数，最高概率的对象指派到对应的类上，从而转换成为互斥聚类。</li><li>完全 VS 部分：完全聚类将每个对象指派到一个簇。而部分聚类选取感兴趣的点，而忽略一些噪声或者背景，离群点等，“找主要矛盾”。</li></ul><h3 id="簇的分类"><a href="#簇的分类" class="headerlink" title="簇的分类"></a>簇的分类</h3><ul><li>明显分离的：簇与簇一看就有明显的分界</li><li>基于原型：原型通常是质心/中心点或者其他最具代表性的点，而簇中每个对象到原型的距离（相似度）都要到其他簇的距离更近（更相似）。</li><li>基于图的：图就有边和点，点通常是对象，边就是对象之间的联系，簇可以定义成联通分量，也就是相互联通单数不和分量外的对象联通。还有基于邻近的簇（contiguity-based cluster），也就是两点点只有距离大于一定的阈值，才算作它们是联通的。此外还有比如基于团（clique）的基于图的其他聚类，团也就是集合之间所有的点完全连接。</li><li>基于密度：可以和噪声区分</li><li>概念簇：通常是很具体的簇中对象的共同性质</li><li>…</li></ul><h3 id="学习路径"><a href="#学习路径" class="headerlink" title="学习路径"></a>学习路径</h3><ul><li>K均值：其实基于原型的，划分的，聚类技术，将数据聚成你所指定的K个簇</li><li>凝聚的层次聚类：基于层次的聚类：开始每个点就是一个簇，然后，重复合并最相靠近的簇，直到产生包含所有点的簇，就形成了整个层次聚类的树。其中某些技术可能是基于图的聚类。</li><li>DBSCAN：产生于划分聚类的基于密度的聚类算法，簇的个数由算法自动确定，低密度的区域中的点被视为噪声而忽略，即DBSCAN不产生完全聚类。</li></ul><h2 id="K均值"><a href="#K均值" class="headerlink" title="K均值"></a>K均值</h2><h3 id="基本K均值"><a href="#基本K均值" class="headerlink" title="基本K均值"></a>基本K均值</h3><p>使用伪代码的形式进行描述：</p><div class="table-container"><table><thead><tr><th>算法：基本K均值算法</th></tr></thead><tbody><tr><td>1.选择(一般是随机选)K个点作为初始质心<br>2.repeat<br>3.　对每个点求其到K个质心的距离，离谁最近则指派到哪个质心，从而所有点最终形成K个簇<br>4.　对每个簇重新计算质心<br>5.until  每个簇的质心不在发生变化</td></tr></tbody></table></div><h3 id="K均值：附加问题"><a href="#K均值：附加问题" class="headerlink" title="K均值：附加问题"></a>K均值：附加问题</h3><p>我的问题：</p><ol><li>$\color{\red}{为啥收敛？}$</li></ol><p>　　首先预热一下：</p><p>　　给定m个点组成的点集$X=\{x_1, x_2, \dots, x_m\}$，满足$C, x_i \in \mathbb{R^n}$：</p><script type="math/tex; mode=display">E(X)=\operatorname*{argmin}_{x_i \in X} \Vert x_i - C \Vert_2</script><p>　　则C为X的几何中心。比方说二维平面上的三个点，连接在一起组成一个三角形，则到三个点欧氏距离最短的点是 它们的重心，即$C=( (x_1+x_2+x_3)/3, (y_1, y_2, y_3)/3 )$。</p><p>　　直观上来讲是这样的，但是如何证明呢？“实际上很困难，其没有确定的表达式。但是可以采用迭代的过程每次求一个近似值来逼近”<a href="https://en.wikipedia.org/wiki/Geometric_median" target="_blank" rel="noopener">[1]</a>，而且能够确定一定能够找到其全局最优解，而不会陷入到局部最优解中，原因就在于其实一个凸函数，为什么呢？原因是“每个样本点到到特定点的距离是一个凸函数，凸函数相加也是凸函数”。具体的算法有<a href="https://en.wikipedia.org/wiki/Geometric_median#Computation" target="_blank" rel="noopener"><strong>Weiszfeld法</strong> </a>：</p><p><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/b3fb215363358f12687100710caff0e86cd9d26b" alt="Weiszfeld算法"></p><p>当其估计点落在给定点上时可能无法收敛，可以通过修改来使其收敛。</p><p>　　为什么k-means是收敛的，本质原因在于<strong>其属于EM算法的范畴，而EM算法是收敛的</strong>。</p><p>　　什么是EM算法，全称叫做Expectation Maximum，也就是期望最大，属于高斯混合模型（混合高斯模型）中讲到的内容。</p><p>之所以使用混合高斯模型，原因就在于聚类划分太“一刀切（hard）”，也就是说是“hard assignment”，然而现实情况存在一些“灰色地带”。由上面几何中心的推导可以得知，使用k均值算法，形成的簇都是基于中心的簇，</p><p>所以就要引入概率来衡量采样所归属的簇。</p><h3 id="二分K均值"><a href="#二分K均值" class="headerlink" title="二分K均值"></a>二分K均值</h3><a id="more"></a>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;　　学习不应当机械重复和记忆，要善于将现有的知识和理论用自己的方式进行理解和转化，就是用自己的话说出来。&lt;/p&gt;
+&lt;h2 id=&quot;基本概念&quot;&gt;&lt;a href=&quot;#基本概念&quot; class=&quot;headerlink&quot; title=&quot;基本概念&quot;&gt;&lt;/a&gt;基本概念&lt;/h2&gt;&lt;p&gt;　　人类（但不仅仅是人类）通常很擅长也很喜欢聚类。在对世界的观察和理解中，要将特定的对象指派到特定的组中，“物以类聚，人以群分”，我感觉其实也就是分类啦，只不过为了和原始数据提供标记的分类任务区分开来，没有提供标记的任务就是聚类啦，组也不叫组了，就叫做簇cluster，聚类就叫做clustering。聚类不是终点而是起点，为很多工作做下铺垫，比如说数据分析。&lt;/p&gt;
+&lt;p&gt;　　聚类有为了理解的，也有为了建立高层的抽象的，前一种比如生物学中的层次分类，界门纲目科属种（kingdom，phylum，class，order，family，genus，species）；信息检索中搜索结果返回若干簇；心理学和医学研究等。后一种如某些算法为了减小分析复杂度，对于数据集的簇使用而不是整个数据集，能够得到和使用所有数据相媲美的结果；还有如压缩，如向量量化，将数据对象使用所在簇的序索引来表示；发现最近邻等。&lt;/p&gt;
+&lt;h3 id=&quot;簇的定义&quot;&gt;&lt;a href=&quot;#簇的定义&quot; class=&quot;headerlink&quot; title=&quot;簇的定义&quot;&gt;&lt;/a&gt;簇的定义&lt;/h3&gt;&lt;p&gt;　　可以说是一个个的分组，组内之间相互之间是相似的（相关的），而不同组之间的对象是不同的（不想关的）。组内的相似性（同质性）越大越好，组间差别越大越好。分组依赖于数据的特性以及期望的结果，所以实际上是需求驱动的。&lt;/p&gt;
+&lt;h3 id=&quot;聚类类型&quot;&gt;&lt;a href=&quot;#聚类类型&quot; class=&quot;headerlink&quot; title=&quot;聚类类型&quot;&gt;&lt;/a&gt;聚类类型&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;划分 VS 层次：划分聚类（partitional clustering）使不同簇之间不能重叠，每个对象恰在一个簇中。层次聚类（hierarchical clustering），按层次嵌套组成一棵树，除叶子节点之外，所有的簇都是其子簇的并。&lt;/li&gt;
+&lt;li&gt;互斥，重叠和模糊：重叠（overlapping）/非互斥（non-exclusive）聚类反映一个对象属于多个类。模糊聚类（fuzzy clustering）将属于某个簇给定一个权重系数，介于0和1之间，0代表绝对不属于，1代表确定一定加肯定，每个兑现的权重之和等于1。同理的概率聚类也是计算一个对象属于每个簇的概率，所有概率之和等于1。实践中通常将最大系数，最高概率的对象指派到对应的类上，从而转换成为互斥聚类。&lt;/li&gt;
+&lt;li&gt;完全 VS 部分：完全聚类将每个对象指派到一个簇。而部分聚类选取感兴趣的点，而忽略一些噪声或者背景，离群点等，“找主要矛盾”。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;簇的分类&quot;&gt;&lt;a href=&quot;#簇的分类&quot; class=&quot;headerlink&quot; title=&quot;簇的分类&quot;&gt;&lt;/a&gt;簇的分类&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;明显分离的：簇与簇一看就有明显的分界&lt;/li&gt;
+&lt;li&gt;基于原型：原型通常是质心/中心点或者其他最具代表性的点，而簇中每个对象到原型的距离（相似度）都要到其他簇的距离更近（更相似）。&lt;/li&gt;
+&lt;li&gt;基于图的：图就有边和点，点通常是对象，边就是对象之间的联系，簇可以定义成联通分量，也就是相互联通单数不和分量外的对象联通。还有基于邻近的簇（contiguity-based cluster），也就是两点点只有距离大于一定的阈值，才算作它们是联通的。此外还有比如基于团（clique）的基于图的其他聚类，团也就是集合之间所有的点完全连接。&lt;/li&gt;
+&lt;li&gt;基于密度：可以和噪声区分&lt;/li&gt;
+&lt;li&gt;概念簇：通常是很具体的簇中对象的共同性质&lt;/li&gt;
+&lt;li&gt;…&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;学习路径&quot;&gt;&lt;a href=&quot;#学习路径&quot; class=&quot;headerlink&quot; title=&quot;学习路径&quot;&gt;&lt;/a&gt;学习路径&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;K均值：其实基于原型的，划分的，聚类技术，将数据聚成你所指定的K个簇&lt;/li&gt;
+&lt;li&gt;凝聚的层次聚类：基于层次的聚类：开始每个点就是一个簇，然后，重复合并最相靠近的簇，直到产生包含所有点的簇，就形成了整个层次聚类的树。其中某些技术可能是基于图的聚类。&lt;/li&gt;
+&lt;li&gt;DBSCAN：产生于划分聚类的基于密度的聚类算法，簇的个数由算法自动确定，低密度的区域中的点被视为噪声而忽略，即DBSCAN不产生完全聚类。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;K均值&quot;&gt;&lt;a href=&quot;#K均值&quot; class=&quot;headerlink&quot; title=&quot;K均值&quot;&gt;&lt;/a&gt;K均值&lt;/h2&gt;&lt;h3 id=&quot;基本K均值&quot;&gt;&lt;a href=&quot;#基本K均值&quot; class=&quot;headerlink&quot; title=&quot;基本K均值&quot;&gt;&lt;/a&gt;基本K均值&lt;/h3&gt;&lt;p&gt;使用伪代码的形式进行描述：&lt;/p&gt;
+&lt;div class=&quot;table-container&quot;&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;算法：基本K均值算法&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;1.选择(一般是随机选)K个点作为初始质心&lt;br&gt;2.repeat&lt;br&gt;3.　对每个点求其到K个质心的距离，离谁最近则指派到哪个质心，从而所有点最终形成K个簇&lt;br&gt;4.　对每个簇重新计算质心&lt;br&gt;5.until  每个簇的质心不在发生变化&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+&lt;h3 id=&quot;K均值：附加问题&quot;&gt;&lt;a href=&quot;#K均值：附加问题&quot; class=&quot;headerlink&quot; title=&quot;K均值：附加问题&quot;&gt;&lt;/a&gt;K均值：附加问题&lt;/h3&gt;&lt;p&gt;我的问题：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;$\color{\red}{为啥收敛？}$&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;　　首先预热一下：&lt;/p&gt;
+&lt;p&gt;　　给定m个点组成的点集$X=\{x_1, x_2, \dots, x_m\}$，满足$C, x_i \in \mathbb{R^n}$：&lt;/p&gt;
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;
+E(X)=\operatorname*{argmin}_{x_i \in X} \Vert x_i - C \Vert_2&lt;/script&gt;&lt;p&gt;　　则C为X的几何中心。比方说二维平面上的三个点，连接在一起组成一个三角形，则到三个点欧氏距离最短的点是 它们的重心，即$C=( (x_1+x_2+x_3)/3, (y_1, y_2, y_3)/3 )$。&lt;/p&gt;
+&lt;p&gt;　　直观上来讲是这样的，但是如何证明呢？“实际上很困难，其没有确定的表达式。但是可以采用迭代的过程每次求一个近似值来逼近”&lt;a href=&quot;https://en.wikipedia.org/wiki/Geometric_median&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;[1]&lt;/a&gt;，而且能够确定一定能够找到其全局最优解，而不会陷入到局部最优解中，原因就在于其实一个凸函数，为什么呢？原因是“每个样本点到到特定点的距离是一个凸函数，凸函数相加也是凸函数”。具体的算法有&lt;a href=&quot;https://en.wikipedia.org/wiki/Geometric_median#Computation&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;&lt;strong&gt;Weiszfeld法&lt;/strong&gt; &lt;/a&gt;：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://wikimedia.org/api/rest_v1/media/math/render/svg/b3fb215363358f12687100710caff0e86cd9d26b&quot; alt=&quot;Weiszfeld算法&quot;&gt;&lt;/p&gt;
+&lt;p&gt;当其估计点落在给定点上时可能无法收敛，可以通过修改来使其收敛。&lt;/p&gt;
+&lt;p&gt;　　为什么k-means是收敛的，本质原因在于&lt;strong&gt;其属于EM算法的范畴，而EM算法是收敛的&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;　　什么是EM算法，全称叫做Expectation Maximum，也就是期望最大，属于高斯混合模型（混合高斯模型）中讲到的内容。&lt;/p&gt;
+&lt;p&gt;之所以使用混合高斯模型，原因就在于聚类划分太“一刀切（hard）”，也就是说是“hard assignment”，然而现实情况存在一些“灰色地带”。由上面几何中心的推导可以得知，使用k均值算法，形成的簇都是基于中心的簇，&lt;/p&gt;
+&lt;p&gt;所以就要引入概率来衡量采样所归属的簇。&lt;/p&gt;
+&lt;h3 id=&quot;二分K均值&quot;&gt;&lt;a href=&quot;#二分K均值&quot; class=&quot;headerlink&quot; title=&quot;二分K均值&quot;&gt;&lt;/a&gt;二分K均值&lt;/h3&gt;
+    
+    </summary>
+    
+      <category term="Data Science" scheme="https://www.blankspace.cn/categories/Data-Science/"/>
+    
+      <category term="Data Mining" scheme="https://www.blankspace.cn/categories/Data-Science/Data-Mining/"/>
+    
+    
+      <category term="Unsupervised Learning" scheme="https://www.blankspace.cn/tags/Unsupervised-Learning/"/>
+    
+      <category term="Clustering" scheme="https://www.blankspace.cn/tags/Clustering/"/>
+    
+  </entry>
+  
+  <entry>
     <title>LaTeX笔记</title>
     <link href="https://www.blankspace.cn/2018/09/23/latex-notes-01/"/>
     <id>https://www.blankspace.cn/2018/09/23/latex-notes-01/</id>
     <published>2018-09-23T02:14:46.000Z</published>
-    <updated>2018-09-23T03:23:18.233Z</updated>
+    <updated>2018-09-23T03:29:02.273Z</updated>
     
-    <content type="html"><![CDATA[<p>&#160; &#160; &#160; &#160;为什么要学习$\LaTeX$？原因很简单，“虽说气质为王，但往往也还是看脸”，所以相当多的高质量的论文，书籍都会使用这种精确控制，外行看起来狂拽酷炫，不明嚼栗的排版工具，所以想发论文，这种排版神器的使用是圈子里必备且默认你会的技能。另外，我个人觉得Word十分好用，十分良心，所见即所得，功能十分强大。有人会褒一个贬一个，我觉得Word和$\LaTeX$都很好。现在有的期刊，会议也接受Word格式的论文，在有必要的时候学习也是极好的。</p><p>&#160; &#160; &#160; &#160;看过一些介绍$\LaTeX$ 的文章和书籍,很多作者写的很好，总体上也是从易到难，由浅入深。但是我看完之后，或者边看边学的过程中，总感觉缺了点什么，那就是这么多的规则，这么多符号，这么多宏包，什么时候才能用 $\LaTeX$ 写一篇像样的文章，什么时候才能写书，写论文呀！</p><p>&#160; &#160; &#160; &#160;我个人不想对$\LaTeX$ 做太深的研究，也不想向别人炫耀这种看似困难的工具的使用，只想发挥其该有的功用——更好地书写排版。所以在这里记下学习时的简单实用的笔记，尽快上手，同样也是边学习边练习边回顾，希望最终写出专业的论文以及其他优雅的出版物还有演示文稿，以掌握一个科研人员基本的素质。</p><h2 id="学习资源"><a href="#学习资源" class="headerlink" title="学习资源"></a>学习资源</h2><ul><li><a href="http://www.latexstudio.net/" target="_blank" rel="noopener">$\LaTeX$开源小屋</a>：很不错的中文$\LaTeX$社区，几乎应有尽有，资料很全</li><li><a href="https://cn.sharelatex.com/" target="_blank" rel="noopener">ShareLaTeX</a>：有丰富的模板，可以用来模仿</li><li>GitHub，简书，CSDN等，上面都已一些相关的模板，文章等</li><li><a href="https://tex.stackexchange.com/" target="_blank" rel="noopener">TeX StackExchange</a>还有Stack Overflow：遇到问题可以去上面查询</li></ul><h2 id="基础结构"><a href="#基础结构" class="headerlink" title="基础结构"></a>基础结构</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">\documentclass&#123;article&#125;</span><br><span class="line"></span><br><span class="line">\usepackage&#123;ctex&#125;  %引入中文支持</span><br><span class="line"></span><br><span class="line">\begin&#123;document&#125;</span><br><span class="line">\LaTeX&#123;&#125; 你好  </span><br><span class="line">\end&#123;document&#125;</span><br></pre></td></tr></table></figure><p><img src="/2018/09/23/latex-notes-01/图1-latex最基础模板.png" alt="图1-latex最基础模板：\begin{environment\}...\end{environment} 中为内容，上面为导言区"></p><div class="bs-callout bs-callout-info"><h3 id="用法"><a href="#用法" class="headerlink" title="   用法"></a><i class="fa fa-info-circle"></i>   用法</h3><ul><li><code>\命令名称[备选参数]{（必选）参数}</code>：叫做命令。个人感觉类似于HTML中的<code>&lt;!DOCTYPE html&gt;</code>。例如，<code>\documentclass[a4paper]{ctexart}</code>，花括号中为必选参数，设置文档类型为<code>ctexart</code>。中括号里备选参数<code>a4paper</code>，将文档大小设置为A4纸大小。</li><li><code>\begin[...]{environment} ...\end{environment}</code>：叫做环境，用于控制<code>\begin[...]{environment}</code>和<code>\end{environment}</code>之间的内容。</li></ul></div><a id="more"></a>]]></content>
+    <content type="html"><![CDATA[<p>&#160; &#160; &#160; &#160;为什么要学习$\LaTeX$？原因很简单，“虽说气质为王，但往往也要看脸”，所以相当多的高质量的论文，书籍都会使用这种精确控制，外行看起来狂拽酷炫，不明嚼栗的排版工具，所以想发论文，这种排版神器的使用是圈子里必备且默认你会的技能。另外，我个人觉得Word十分好用，十分良心，所见即所得，功能十分强大。有人会褒一个贬一个，我觉得Word和$\LaTeX$都很好。现在有的期刊，会议也接受Word格式的论文，在有必要的时候学习也是极好的。</p><p>&#160; &#160; &#160; &#160;看过一些介绍$\LaTeX$ 的文章和书籍,很多作者写的很好，总体上也是从易到难，由浅入深。但是我看完之后，或者边看边学的过程中，总感觉缺了点什么，那就是这么多的规则，这么多符号，这么多宏包，什么时候才能用 $\LaTeX$ 写一篇像样的文章，什么时候才能写书，写论文呀！</p><p>&#160; &#160; &#160; &#160;我个人不想对$\LaTeX$ 做太深的研究，也不想向别人炫耀这种看似困难的工具的使用，只想发挥其该有的功用——更好地书写排版。所以在这里记下学习时的简单实用的笔记，尽快上手，同样也是边学习边练习边回顾，希望最终写出专业的论文以及其他优雅的出版物还有演示文稿，以掌握一个科研人员基本的素质。</p><h2 id="学习资源"><a href="#学习资源" class="headerlink" title="学习资源"></a>学习资源</h2><ul><li><a href="http://www.latexstudio.net/" target="_blank" rel="noopener">$\LaTeX$开源小屋</a>：很不错的中文$\LaTeX$社区，几乎应有尽有，资料很全</li><li><a href="https://cn.sharelatex.com/" target="_blank" rel="noopener">ShareLaTeX</a>：有丰富的模板，可以用来模仿</li><li>GitHub，简书，CSDN等，上面都已一些相关的模板，文章等</li><li><a href="https://tex.stackexchange.com/" target="_blank" rel="noopener">TeX StackExchange</a>还有Stack Overflow：遇到问题可以去上面查询</li></ul><h2 id="基础结构"><a href="#基础结构" class="headerlink" title="基础结构"></a>基础结构</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">\documentclass&#123;article&#125;</span><br><span class="line"></span><br><span class="line">\usepackage&#123;ctex&#125;  %引入中文支持</span><br><span class="line"></span><br><span class="line">\begin&#123;document&#125;</span><br><span class="line">\LaTeX&#123;&#125; 你好  </span><br><span class="line">\end&#123;document&#125;</span><br></pre></td></tr></table></figure><p><img src="/2018/09/23/latex-notes-01/图1-latex最基础模板.png" alt="图1-latex最基础模板：\begin{environment\}...\end{environment} 中为内容，上面为导言区"></p><div class="bs-callout bs-callout-info"><h3 id="用法"><a href="#用法" class="headerlink" title="   用法"></a><i class="fa fa-info-circle"></i>   用法</h3><ul><li><code>\命令名称[备选参数]{（必选）参数}</code>：叫做命令。个人感觉类似于HTML中的<code>&lt;!DOCTYPE html&gt;</code>。例如，<code>\documentclass[a4paper]{ctexart}</code>，花括号中为必选参数，设置文档类型为<code>ctexart</code>。中括号里备选参数<code>a4paper</code>，将文档大小设置为A4纸大小。</li><li><code>\begin[...]{environment} ...\end{environment}</code>：叫做环境，用于控制<code>\begin[...]{environment}</code>和<code>\end{environment}</code>之间的内容。</li></ul></div><a id="more"></a>]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;&amp;#160; &amp;#160; &amp;#160; &amp;#160;为什么要学习$\LaTeX$？原因很简单，“虽说气质为王，但往往也还是看脸”，所以相当多的高质量的论文，书籍都会使用这种精确控制，外行看起来狂拽酷炫，不明嚼栗的排版工具，所以想发论文，这种排版神器的使用是圈子里必备且默认你会的技能。另外，我个人觉得Word十分好用，十分良心，所见即所得，功能十分强大。有人会褒一个贬一个，我觉得Word和$\LaTeX$都很好。现在有的期刊，会议也接受Word格式的论文，在有必要的时候学习也是极好的。&lt;/p&gt;
+      &lt;p&gt;&amp;#160; &amp;#160; &amp;#160; &amp;#160;为什么要学习$\LaTeX$？原因很简单，“虽说气质为王，但往往也要看脸”，所以相当多的高质量的论文，书籍都会使用这种精确控制，外行看起来狂拽酷炫，不明嚼栗的排版工具，所以想发论文，这种排版神器的使用是圈子里必备且默认你会的技能。另外，我个人觉得Word十分好用，十分良心，所见即所得，功能十分强大。有人会褒一个贬一个，我觉得Word和$\LaTeX$都很好。现在有的期刊，会议也接受Word格式的论文，在有必要的时候学习也是极好的。&lt;/p&gt;
 &lt;p&gt;&amp;#160; &amp;#160; &amp;#160; &amp;#160;看过一些介绍$\LaTeX$ 的文章和书籍,很多作者写的很好，总体上也是从易到难，由浅入深。但是我看完之后，或者边看边学的过程中，总感觉缺了点什么，那就是这么多的规则，这么多符号，这么多宏包，什么时候才能用 $\LaTeX$ 写一篇像样的文章，什么时候才能写书，写论文呀！&lt;/p&gt;
 &lt;p&gt;&amp;#160; &amp;#160; &amp;#160; &amp;#160;我个人不想对$\LaTeX$ 做太深的研究，也不想向别人炫耀这种看似困难的工具的使用，只想发挥其该有的功用——更好地书写排版。所以在这里记下学习时的简单实用的笔记，尽快上手，同样也是边学习边练习边回顾，希望最终写出专业的论文以及其他优雅的出版物还有演示文稿，以掌握一个科研人员基本的素质。&lt;/p&gt;
 &lt;h2 id=&quot;学习资源&quot;&gt;&lt;a href=&quot;#学习资源&quot; class=&quot;headerlink&quot; title=&quot;学习资源&quot;&gt;&lt;/a&gt;学习资源&lt;/h2&gt;&lt;ul&gt;
@@ -846,39 +924,6 @@ E_R\approx \frac{\Delta x}{x} \quad\text{或} \quad E_R\approx \frac{\Delta x}{\
         &lt;p&gt;科学家通过反复实验得出结论，通常会选择发表自己的文章。&lt;/p&gt;
 &lt;p&gt;发表文章前，同行评议。目的：正确地认识科学研究的方法，确保作者的著作水平，筛选稿件录用与否。&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;/2018/09/16/biology-ch1-s3/peerreview.
-      
-    
-    </summary>
-    
-      <category term="Biology" scheme="https://www.blankspace.cn/categories/Biology/"/>
-    
-      <category term="现代生物学导论" scheme="https://www.blankspace.cn/categories/Biology/%E7%8E%B0%E4%BB%A3%E7%94%9F%E7%89%A9%E5%AD%A6%E5%AF%BC%E8%AE%BA/"/>
-    
-      <category term="绪论" scheme="https://www.blankspace.cn/categories/Biology/%E7%8E%B0%E4%BB%A3%E7%94%9F%E7%89%A9%E5%AD%A6%E5%AF%BC%E8%AE%BA/%E7%BB%AA%E8%AE%BA/"/>
-    
-    
-      <category term="Biology" scheme="https://www.blankspace.cn/tags/Biology/"/>
-    
-      <category term="Scientific Method" scheme="https://www.blankspace.cn/tags/Scientific-Method/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>科学方法</title>
-    <link href="https://www.blankspace.cn/2018/09/16/biology-ch1-s2/"/>
-    <id>https://www.blankspace.cn/2018/09/16/biology-ch1-s2/</id>
-    <published>2018-09-16T00:00:48.000Z</published>
-    <updated>2018-09-19T03:18:06.597Z</updated>
-    
-    <content type="html"><![CDATA[<p>科学方法是科学家为了积累了解世界所需要的知识，而采取的一些列步骤。</p><h2 id="科学方法的步骤"><a href="#科学方法的步骤" class="headerlink" title="科学方法的步骤"></a>科学方法的步骤</h2><ol><li>提出问题</li><li>建立假说</li><li>实验操作</li><li>观察</li><li>数据分析</li><li>提出结论</li></ol><p><strong>注意</strong></p><p>真正的过程并非严格按照上述过程进行，而经常出现迭代循环。</p><h2 id="实验设计时主要的3点"><a href="#实验设计时主要的3点" class="headerlink" title="实验设计时主要的3点"></a>实验设计时主要的3点</h2><ul><li>必须能够驳斥假说或者证实假说，一个单独实验无法证实或者驳斥假说</li><li>实验结果必须客观且可测量，例如使用标准一起和标准单位来测量。</li><li>实验必须能被其他科学家重复，使用同样的操作规程重复出同样的实验结果。</li></ul><h2 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h2><p>变量是实验中可变的因素。变化的因素和因素变化带来的影响在实验中都被成为变量。</p><p>分为，自变量和因变量。</p><p>实验设计中还有一种是受控变量，就是实验中条件都保持一致的量。</p><h2 id="对照实验"><a href="#对照实验" class="headerlink" title="对照实验"></a>对照实验</h2><p>在实验中设置比较对象的一种科学方法。</p><p>目的是，与实验组进行对比和减少实验中不确定变数带来的影响。</p><h2 id="模式生物"><a href="#模式生物" class="headerlink" title="模式生物"></a>模式生物</h2><p>收到广泛研究，对其生物现象有深入了解的物种。</p><p>例如：大肠杆菌、噬菌体、果蝇、线虫、海胆、拟南芥、斑马鱼、小鼠等。</p><p><img src="/2018/09/16/biology-ch1-s2/模式生物.png" alt=""></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;科学方法是科学家为了积累了解世界所需要的知识，而采取的一些列步骤。&lt;/p&gt;
-&lt;h2 id=&quot;科学方法的步骤&quot;&gt;&lt;a href=&quot;#科学方法的步骤&quot; class=&quot;headerlink&quot; title=&quot;科学方法的步骤&quot;&gt;&lt;/a&gt;科学方法的步骤&lt;/h2&gt;&lt;ol&gt;
-&lt;li&gt;提出问
       
     
     </summary>

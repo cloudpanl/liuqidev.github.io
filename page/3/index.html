@@ -129,6 +129,157 @@ MathJax.Hub.Queue(function() {
 	  
 		
 
+<article id="post-linux-shiyan3" class="article article-type-post" itemscope itemprop="blogPost">
+	
+
+
+<header class="article-header">
+
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/09/17/linux-shiyan3/">用户和文件权限管理</a>
+    </h1>
+  
+
+
+	
+
+
+	<div class="article-meta"> 
+		
+		
+
+		  <div class="article-datetime">
+  <a href="/2018/09/17/linux-shiyan3/" class="article-date"><time datetime="2018-09-17T08:10:46.000Z" itemprop="datePublished">2018-09-17</time></a>
+</div>
+
+
+
+			
+			<div class="article-author">魔法师LQ</div>
+		  
+
+		  
+		   
+      <div class="post-meta">
+            <span class="glyphicon glyphicon-pencil"></span>
+            <span class="post-meta-item-text">&nbsp;Total&nbsp;</span>
+            <span class="post-count">333&nbsp;words</span>
+      </div>
+
+
+ 
+		  
+		  
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Linux/">Linux</a> / <a class="article-category-link" href="/categories/Linux/Linux-Basic/">Linux Basic</a>
+  </div>
+
+	
+		  </div>
+
+	   
+
+</header>
+
+<div class="article-inner">
+<div class="article-entry" itemprop="articleBody">
+  
+  
+	<!-- Table of Contents -->
+
+	
+	
+	<h2 id="查看用户"><a href="#查看用户" class="headerlink" title="查看用户"></a>查看用户</h2><p>打开终端输入：<code>who am i</code>或<code>who mom likes</code>：</p>
+<p><img src="/2018/09/17/linux-shiyan3/shell-who.gif" alt="查看用户：who am i &amp; who mom likes"></p>
+<p>输出：</p>
+<ul>
+<li>第一列：打开当前终端用户用户名（只查看用户名使用<code>whoami</code>即可）</li>
+<li>第二列：<code>pts/0</code>中<code>pts</code>表示伪终端，伪是相对于<code>dev/tty</code>而言的，上一节中使用<code>Ctrl+Alt+F1~F7</code>切换的是真终端，伪终端是在图形用户界面使用<code>/dev/tty[0-7]</code>时打开的一个终端，<code>pts/0</code>中数字就是打开的伪终端号</li>
+<li>第三列：启动时间</li>
+</ul>
+<p><code>who</code> 命令其它常用参数</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>-a</code></td>
+<td>打印能打印的全部</td>
+</tr>
+<tr>
+<td><code>-d</code></td>
+<td>打印死掉的进程</td>
+</tr>
+<tr>
+<td><code>-m</code></td>
+<td>同<code>am i</code>,<code>mom likes</code></td>
+</tr>
+<tr>
+<td><code>-q</code></td>
+<td>打印当前登录用户数及用户名</td>
+</tr>
+<tr>
+<td><code>-u</code></td>
+<td>打印当前登录用户登录信息</td>
+</tr>
+<tr>
+<td><code>-r</code></td>
+<td>打印运行等级</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="创建用户"><a href="#创建用户" class="headerlink" title="创建用户"></a>创建用户</h2><p>一般登录时使用普通账户身份登录的，创建用户需要用到<strong>root权限<sup><a href="#fn_1" id="reffn_1">1</a></sup></strong>，此时需要使用<code>sudo</code>命令。</p>
+<p>使用<code>sudo</code>前提:</p>
+<ol>
+<li>要知道当前登录用户的密码</li>
+<li>当前用户必须要在<code>sudo</code>用户组</li>
+</ol>
+<p>命令：</p>
+<p><code>sudo adduser &lt;username&gt;</code></p>
+<h2 id="删除用户"><a href="#删除用户" class="headerlink" title="删除用户"></a>删除用户</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo deluser &lt;username&gt; --remove-home</span><br></pre></td></tr></table></figure>
+<blockquote id="fn_ 1">
+<sup> 1</sup>. root权限是系统权限的一种，与SYSTEM权限可以理解为一个概念，但高于Administrator权限，root是Unix/Linux中的超级管理员账户，可以操作所有对象。<a href="#reffn_ 1" title="Jump back to footnote [ 1] in the text."> &#8617;</a>
+</blockquote>
+
+	
+  
+</div>
+
+
+  
+
+
+
+<footer class="article-footer">
+  <a data-url="https://www.blankspace.cn/2018/09/17/linux-shiyan3/" data-id="cjmjycldx0037vgficoyzqetu" class="article-share-link">
+	<i class="fa fa-share"></i> Share
+  </a>
+  
+  
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Priority/">Priority</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Shell/">Shell</a></li></ul>
+
+
+</footer>
+
+
+</div>
+
+</article>
+
+
+
+
+
+	  
+		
+
 <article id="post-linux-shiyan2" class="article article-type-post" itemscope itemprop="blogPost">
 	
 
@@ -269,7 +420,7 @@ MathJax.Hub.Queue(function() {
 
 
 <footer class="article-footer">
-  <a data-url="https://www.blankspace.cn/2018/09/17/linux-shiyan2/" data-id="cjmeacit5004yywfil2dedqy5" class="article-share-link">
+  <a data-url="https://www.blankspace.cn/2018/09/17/linux-shiyan2/" data-id="cjmjycle7003ivgfii5f1yhf9" class="article-share-link">
 	<i class="fa fa-share"></i> Share
   </a>
   
@@ -365,7 +516,7 @@ MathJax.Hub.Queue(function() {
 
 
 <footer class="article-footer">
-  <a data-url="https://www.blankspace.cn/2018/09/17/linux-shiyan1/" data-id="cjmeacit3004uywfi5jc1i92b" class="article-share-link">
+  <a data-url="https://www.blankspace.cn/2018/09/17/linux-shiyan1/" data-id="cjmjycldu0033vgfi79jnepf0" class="article-share-link">
 	<i class="fa fa-share"></i> Share
   </a>
   
@@ -463,7 +614,7 @@ MathJax.Hub.Queue(function() {
 
 
 <footer class="article-footer">
-  <a data-url="https://www.blankspace.cn/2018/09/16/bigdata-system-ch1-s5/" data-id="cjmeacirr0034ywfib8n9ym1b" class="article-share-link">
+  <a data-url="https://www.blankspace.cn/2018/09/16/bigdata-system-ch1-s5/" data-id="cjmjyclce000yvgfiapo0n58d" class="article-share-link">
 	<i class="fa fa-share"></i> Share
   </a>
   
@@ -587,7 +738,7 @@ MathJax.Hub.Queue(function() {
 
 
 <footer class="article-footer">
-  <a data-url="https://www.blankspace.cn/2018/09/16/bigdata-system-ch1-s4/" data-id="cjmeaciqk002oywfi6fkuhzbo" class="article-share-link">
+  <a data-url="https://www.blankspace.cn/2018/09/16/bigdata-system-ch1-s4/" data-id="cjmjyclcc000vvgfieo28eyov" class="article-share-link">
 	<i class="fa fa-share"></i> Share
   </a>
   
@@ -607,140 +758,11 @@ MathJax.Hub.Queue(function() {
 
 
 	  
-		
-
-<article id="post-bigdata-system-ch1-s3" class="article article-type-post" itemscope itemprop="blogPost">
-	
-
-
-<header class="article-header">
-
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/09/16/bigdata-system-ch1-s3/">大数据的特点</a>
-    </h1>
-  
-
-
-	
-
-
-	<div class="article-meta"> 
-		
-		
-
-		  <div class="article-datetime">
-  <a href="/2018/09/16/bigdata-system-ch1-s3/" class="article-date"><time datetime="2018-09-16T12:02:41.000Z" itemprop="datePublished">2018-09-16</time></a>
-</div>
-
-
-
-			
-			<div class="article-author">魔法师LQ</div>
-		  
-
-		  
-		   
-      <div class="post-meta">
-            <span class="glyphicon glyphicon-pencil"></span>
-            <span class="post-meta-item-text">&nbsp;Total&nbsp;</span>
-            <span class="post-count">95&nbsp;words</span>
-      </div>
-
-
- 
-		  
-		  
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Data-Science/">Data Science</a> / <a class="article-category-link" href="/categories/Data-Science/Big-Data/">Big Data</a> / <a class="article-category-link" href="/categories/Data-Science/Big-Data/Big-Data-System/">Big Data System</a>
-  </div>
-
-	
-		  </div>
-
-	   
-
-</header>
-
-<div class="article-inner">
-<div class="article-entry" itemprop="articleBody">
-  
-  
-	<!-- Table of Contents -->
-
-	
-	
-	<h2 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h2><ul>
-<li>数据的规模</li>
-</ul>
-<p>TB$\to$PB$\to$EB$\to$ZB$\to$$\to$…</p>
-<ul>
-<li>数据类型</li>
-</ul>
-<p><img src="/2018/09/16/bigdata-system-ch1-s3/数据的规模.jpg" alt="数据的类型：结构化+半结构化+非结构化"></p>
-<ul>
-<li>生命周期</li>
-</ul>
-<p><img src="/2018/09/16/bigdata-system-ch1-s3/数据生命周期.jpg" alt="数据处理生命周期(获取记录，抽取清洗，集成聚合，分析建模，解释展示)以及面临的共同问题(异构，规模，时效，隐私，协同)"></p>
-<ul>
-<li>加工深度</li>
-</ul>
-<p><img src="/2018/09/16/bigdata-system-ch1-s3/加工深度.jpg" alt="数据加工深度：从数据，信息，知识，到智慧"></p>
-<ul>
-<li>处理方式</li>
-</ul>
-<p>批量（Batch）$\to$在线（Online）$\to$实时（In time）</p>
-<ul>
-<li>用户</li>
-</ul>
-<p>内部用户+外部用户号</p>
-<ul>
-<li>数据质量</li>
-</ul>
-<p><img src="/2018/09/16/bigdata-system-ch1-s3/数据质量.jpg" alt="数据质量：精确性；完整性；一致性；时效性"></p>
-<ul>
-<li>数据价值<ul>
-<li>价值稀疏：大部分的数据都是“辣鸡”或者无人问津。例如微博和红楼梦。</li>
-<li>长尾效应</li>
-</ul>
-</li>
-</ul>
-
-	
-  
-</div>
-
-
-  
-
-
-
-<footer class="article-footer">
-  <a data-url="https://www.blankspace.cn/2018/09/16/bigdata-system-ch1-s3/" data-id="cjmeaciqn002qywfiv1x0i025" class="article-share-link">
-	<i class="fa fa-share"></i> Share
-  </a>
-  
-  
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Big-Data-Applications/">Big Data Applications</a></li></ul>
-
-
-</footer>
-
-
-</div>
-
-</article>
-
-
-
-
-
-	  
 	
 	
 	
 	  <div id="page-nav">
-		<nav><ul class="pagination"><li><a class="page-prev" rel="prev" href="/page/2/"><i class="fa fa-chevron-left"></i> Prev</a></li><li><a class="page-number" href="/">1</a></li><li><a class="page-number" href="/page/2/">2</a></li><li class="active"><span class="page-number">3</span></li><li><a class="page-number" href="/page/4/">4</a></li><li><a class="page-number" href="/page/5/">5</a></li><li class="disabled"><span class="page-space">&hellip;</span></li><li><a class="page-number" href="/page/11/">11</a></li><li><a class="page-next" rel="next" href="/page/4/">Next <i class="fa fa-chevron-right"></i></a></li></ul></nav>
+		<nav><ul class="pagination"><li><a class="page-prev" rel="prev" href="/page/2/"><i class="fa fa-chevron-left"></i> Prev</a></li><li><a class="page-number" href="/">1</a></li><li><a class="page-number" href="/page/2/">2</a></li><li class="active"><span class="page-number">3</span></li><li><a class="page-number" href="/page/4/">4</a></li><li><a class="page-number" href="/page/5/">5</a></li><li class="disabled"><span class="page-space">&hellip;</span></li><li><a class="page-number" href="/page/12/">12</a></li><li><a class="page-next" rel="next" href="/page/4/">Next <i class="fa fa-chevron-right"></i></a></li></ul></nav>
 	  </div>
 	
 
@@ -762,6 +784,10 @@ MathJax.Hub.Queue(function() {
     <ul class="sidebar-module-list">
       
         <li>
+          <a href="/2018/09/27/data-mining-ch01-s02-01/">聚类分析</a>
+        </li>
+      
+        <li>
           <a href="/2018/09/23/latex-notes-01/">LaTeX笔记</a>
         </li>
       
@@ -775,10 +801,6 @@ MathJax.Hub.Queue(function() {
       
         <li>
           <a href="/2018/09/20/pandas-experiment-01/">Frequency Analysis</a>
-        </li>
-      
-        <li>
-          <a href="/2018/09/20/data-mining-ch02-s01/">数据预处理</a>
         </li>
       
     </ul>
@@ -797,7 +819,7 @@ MathJax.Hub.Queue(function() {
   
   <div class="sidebar-module">
     <h4>Categories</h4>
-    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Biology/">Biology</a><span class="sidebar-module-list-count">5</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Biology/现代生物学导论/">现代生物学导论</a><span class="sidebar-module-list-count">5</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Biology/现代生物学导论/生命的化学基础/">生命的化学基础</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Biology/现代生物学导论/绪论/">绪论</a><span class="sidebar-module-list-count">3</span></li></ul></li></ul></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Dairy/">Dairy</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Data-Science/">Data Science</a><span class="sidebar-module-list-count">8</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Data-Science/Big-Data/">Big Data</a><span class="sidebar-module-list-count">5</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Data-Science/Big-Data/Big-Data-System/">Big Data System</a><span class="sidebar-module-list-count">5</span></li></ul></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Data-Science/Data-Mining/">Data Mining</a><span class="sidebar-module-list-count">3</span></li></ul></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/English/">English</a><span class="sidebar-module-list-count">1</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/English/Tips/">Tips</a><span class="sidebar-module-list-count">1</span></li></ul></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Languages/">Languages</a><span class="sidebar-module-list-count">2</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Languages/Python/">Python</a><span class="sidebar-module-list-count">2</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Languages/Python/Numpy/">Numpy</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Languages/Python/Pandas/">Pandas</a><span class="sidebar-module-list-count">1</span></li></ul></li></ul></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Linux/">Linux</a><span class="sidebar-module-list-count">5</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Linux/Linux-Basic/">Linux Basic</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Linux/Ubuntu/">Ubuntu</a><span class="sidebar-module-list-count">2</span></li></ul></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Machine-Learning/">Machine Learning</a><span class="sidebar-module-list-count">10</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Machine-Learning/Algorithms/">Algorithms</a><span class="sidebar-module-list-count">2</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Machine-Learning/Algorithms/KNN/">KNN</a><span class="sidebar-module-list-count">2</span></li></ul></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Machine-Learning/TensorFlow/">TensorFlow</a><span class="sidebar-module-list-count">8</span></li></ul></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Math/">Math</a><span class="sidebar-module-list-count">2</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Math/Experiment-Design-Data-Processing/">Experiment Design & Data Processing</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Math/MathJax/">MathJax</a><span class="sidebar-module-list-count">1</span></li></ul></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Projects/">Projects</a><span class="sidebar-module-list-count">18</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Projects/hexo-theme-bootstrap-blog/">hexo-theme-bootstrap-blog</a><span class="sidebar-module-list-count">18</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Projects/hexo-theme-bootstrap-blog/Tutorial/">Tutorial</a><span class="sidebar-module-list-count">18</span></li></ul></li></ul></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Typesetting/">Typesetting</a><span class="sidebar-module-list-count">1</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Typesetting/TeX/">TeX</a><span class="sidebar-module-list-count">1</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Typesetting/TeX/LaTex/">LaTex</a><span class="sidebar-module-list-count">1</span></li></ul></li></ul></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Version-Control/">Version Control</a><span class="sidebar-module-list-count">1</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Version-Control/Git/">Git</a><span class="sidebar-module-list-count">1</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Version-Control/Git/GitHub/">GitHub</a><span class="sidebar-module-list-count">1</span></li></ul></li></ul></li></ul>
+    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Biology/">Biology</a><span class="sidebar-module-list-count">5</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Biology/现代生物学导论/">现代生物学导论</a><span class="sidebar-module-list-count">5</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Biology/现代生物学导论/生命的化学基础/">生命的化学基础</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Biology/现代生物学导论/绪论/">绪论</a><span class="sidebar-module-list-count">3</span></li></ul></li></ul></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Dairy/">Dairy</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Data-Science/">Data Science</a><span class="sidebar-module-list-count">9</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Data-Science/Big-Data/">Big Data</a><span class="sidebar-module-list-count">5</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Data-Science/Big-Data/Big-Data-System/">Big Data System</a><span class="sidebar-module-list-count">5</span></li></ul></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Data-Science/Data-Mining/">Data Mining</a><span class="sidebar-module-list-count">4</span></li></ul></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/English/">English</a><span class="sidebar-module-list-count">1</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/English/Tips/">Tips</a><span class="sidebar-module-list-count">1</span></li></ul></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Languages/">Languages</a><span class="sidebar-module-list-count">2</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Languages/Python/">Python</a><span class="sidebar-module-list-count">2</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Languages/Python/Numpy/">Numpy</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Languages/Python/Pandas/">Pandas</a><span class="sidebar-module-list-count">1</span></li></ul></li></ul></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Linux/">Linux</a><span class="sidebar-module-list-count">5</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Linux/Linux-Basic/">Linux Basic</a><span class="sidebar-module-list-count">3</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Linux/Ubuntu/">Ubuntu</a><span class="sidebar-module-list-count">2</span></li></ul></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Machine-Learning/">Machine Learning</a><span class="sidebar-module-list-count">10</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Machine-Learning/Algorithms/">Algorithms</a><span class="sidebar-module-list-count">2</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Machine-Learning/Algorithms/KNN/">KNN</a><span class="sidebar-module-list-count">2</span></li></ul></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Machine-Learning/TensorFlow/">TensorFlow</a><span class="sidebar-module-list-count">8</span></li></ul></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Math/">Math</a><span class="sidebar-module-list-count">2</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Math/Experiment-Design-Data-Processing/">Experiment Design & Data Processing</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Math/MathJax/">MathJax</a><span class="sidebar-module-list-count">1</span></li></ul></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Projects/">Projects</a><span class="sidebar-module-list-count">18</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Projects/hexo-theme-bootstrap-blog/">hexo-theme-bootstrap-blog</a><span class="sidebar-module-list-count">18</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Projects/hexo-theme-bootstrap-blog/Tutorial/">Tutorial</a><span class="sidebar-module-list-count">18</span></li></ul></li></ul></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Typesetting/">Typesetting</a><span class="sidebar-module-list-count">1</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Typesetting/TeX/">TeX</a><span class="sidebar-module-list-count">1</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Typesetting/TeX/LaTex/">LaTex</a><span class="sidebar-module-list-count">1</span></li></ul></li></ul></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Version-Control/">Version Control</a><span class="sidebar-module-list-count">1</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Version-Control/Git/">Git</a><span class="sidebar-module-list-count">1</span><ul class="sidebar-module-list-child"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/categories/Version-Control/Git/GitHub/">GitHub</a><span class="sidebar-module-list-count">1</span></li></ul></li></ul></li></ul>
   </div>
 
 
@@ -805,7 +827,7 @@ MathJax.Hub.Queue(function() {
   
   <div class="sidebar-module">
     <h4>Archives</h4>
-    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2018/09/">September 2018</a><span class="sidebar-module-list-count">25</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2018/08/">August 2018</a><span class="sidebar-module-list-count">30</span></li></ul>
+    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2018/09/">September 2018</a><span class="sidebar-module-list-count">26</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2018/08/">August 2018</a><span class="sidebar-module-list-count">30</span></li></ul>
   </div>
 
 
