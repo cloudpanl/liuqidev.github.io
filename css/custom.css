@@ -36,6 +36,11 @@ h6, .h6 {
 	font-family: Comic Sans MS, Helvetica;
 }
 
+img{
+	vertical-align: middle;
+	max-width: 100%;
+}
+
 p {
   margin: 0 0 15px;
 }
