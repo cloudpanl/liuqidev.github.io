@@ -29,9 +29,20 @@
 
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+<!--
 <link href="https://cdn.bootcss.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet"><link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
-<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.slim.min.js"></script><script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+-->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+<!--
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.slim.min.js"></script>
+-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.slim.min.js"></script>
 
+<!--
+<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+-->
+<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 <script type="text/javascript" src="//ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.3.min.js"></script>
 
 <link rel="stylesheet" href="/css/styles.css">
@@ -54,8 +65,10 @@ MathJax.Hub.Queue(function() {
     }
 });
 </script>
-
+<!--
 <script src="https://cdn.bootcss.com/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js"></script>
 
 
 </head>
@@ -236,7 +249,7 @@ MathJax.Hub.Queue(function() {
 
 
 <footer class="article-footer">
-  <a data-url="https://www.blankspace.cn/2018/09/16/bigdata-system-ch1-s3/" data-id="cjmjyclcb000tvgfi3emrbyjt" class="article-share-link">
+  <a data-url="https://www.blankspace.cn/2018/09/16/bigdata-system-ch1-s3/" data-id="cjmr2xbib0019xsfihog1ahlx" class="article-share-link">
 	<i class="fa fa-share"></i> Share
   </a>
   
@@ -293,7 +306,7 @@ MathJax.Hub.Queue(function() {
       <div class="post-meta">
             <span class="glyphicon glyphicon-pencil"></span>
             <span class="post-meta-item-text">&nbsp;Total&nbsp;</span>
-            <span class="post-count">47&nbsp;words</span>
+            <span class="post-count">242&nbsp;words</span>
       </div>
 
 
@@ -319,7 +332,18 @@ MathJax.Hub.Queue(function() {
 
 	
 	
-	<h2 id="驱动"><a href="#驱动" class="headerlink" title="驱动"></a>驱动</h2><ul>
+	<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><ul>
+<li>存储 </li>
+<li>分析</li>
+<li>利用</li>
+</ul>
+<h2 id="原则"><a href="#原则" class="headerlink" title="原则"></a>原则</h2><ul>
+<li>所有的东西都是不可靠的，包括用户的需求</li>
+<li>Greedy：make full use of all the resources</li>
+<li>adaptable</li>
+<li>…</li>
+</ul>
+<h2 id="驱动"><a href="#驱动" class="headerlink" title="驱动"></a>驱动</h2><ul>
 <li>问题驱动</li>
 <li>价值驱动</li>
 <li>应用驱动</li>
@@ -332,6 +356,71 @@ MathJax.Hub.Queue(function() {
 <li>林彪查找司令部</li>
 <li>…</li>
 </ul>
+<h2 id="What-do-we-do-with-the-data"><a href="#What-do-we-do-with-the-data" class="headerlink" title="What do we do with the data"></a>What do we do with the data</h2><ul>
+<li>Aggregation and Statistics<ul>
+<li>Data warehouse</li>
+</ul>
+</li>
+<li>Indexing, Searching and Querying<ul>
+<li>Keyword based search</li>
+<li>Pattern matching</li>
+</ul>
+</li>
+<li>Knowledge discovery<ul>
+<li>Data Mining, Statistical Modeling</li>
+</ul>
+</li>
+<li>Intelligence<ul>
+<li>Data-driven AI</li>
+</ul>
+</li>
+</ul>
+<h3 id="不讲和讲的东西"><a href="#不讲和讲的东西" class="headerlink" title="不讲和讲的东西"></a>不讲和讲的东西</h3><p>不讲：</p>
+<ul>
+<li>数学理论和基础</li>
+<li>算法设计和数据结构</li>
+</ul>
+<p>要讲的</p>
+<ul>
+<li>数据采集，组织（处理丢失）</li>
+<li>数据转换</li>
+<li>数据存储</li>
+<li>数据处理：并行计算</li>
+<li>…</li>
+</ul>
+<p>收获：</p>
+<ul>
+<li>知道<ul>
+<li>大数据系统如何工作</li>
+<li>局限性</li>
+<li>性能评估</li>
+<li>潜在的性能提升</li>
+</ul>
+</li>
+<li>工程：<ul>
+<li>实现</li>
+<li>应用</li>
+</ul>
+</li>
+</ul>
+<p>实验</p>
+<ul>
+<li>阿里云</li>
+<li>AWS</li>
+<li>实验室集群</li>
+</ul>
+<p>作业</p>
+<ul>
+<li><p>x4编程作业</p>
+</li>
+<li><p>期末大作业和报告</p>
+</li>
+<li>Paper Survey<ul>
+<li>和助教讨论</li>
+<li>调查和论文阅读</li>
+</ul>
+</li>
+</ul>
 
 	
   
@@ -343,7 +432,7 @@ MathJax.Hub.Queue(function() {
 
 
 <footer class="article-footer">
-  <a data-url="https://www.blankspace.cn/2018/09/16/bigdata-system-ch1-s2/" data-id="cjmjyclc8000pvgfi2ky01i0o" class="article-share-link">
+  <a data-url="https://www.blankspace.cn/2018/09/16/bigdata-system-ch1-s2/" data-id="cjmr2xbi90017xsfisuk7q1kb" class="article-share-link">
 	<i class="fa fa-share"></i> Share
   </a>
   
@@ -400,7 +489,7 @@ MathJax.Hub.Queue(function() {
       <div class="post-meta">
             <span class="glyphicon glyphicon-pencil"></span>
             <span class="post-meta-item-text">&nbsp;Total&nbsp;</span>
-            <span class="post-count">368&nbsp;words</span>
+            <span class="post-count">395&nbsp;words</span>
       </div>
 
 
@@ -431,6 +520,15 @@ MathJax.Hub.Queue(function() {
 <h3 id="来源"><a href="#来源" class="headerlink" title="来源"></a>来源</h3><p>个人、工业设备、传感器、仪表等</p>
 <h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>从数据资源中获取数据的价值</p>
 <h3 id="多大"><a href="#多大" class="headerlink" title="多大"></a>多大</h3><p>现在一天数据==以前几个世纪产生的数据。</p>
+<h3 id="类型"><a href="#类型" class="headerlink" title="类型"></a>类型</h3><ul>
+<li>关系型（Tables/Transaction）</li>
+<li>文本</li>
+<li>半结构（HTML）</li>
+<li>多媒体</li>
+<li>图</li>
+<li>社交网络/知识图谱（RDF）</li>
+<li>流</li>
+</ul>
 <h2 id="大数据系统"><a href="#大数据系统" class="headerlink" title="大数据系统"></a>大数据系统</h2><p>大数据系统，用于大数据分析处理的软件系统。</p>
 <p>大数据系统基础目的：</p>
 <ul>
@@ -471,7 +569,7 @@ MathJax.Hub.Queue(function() {
 
 
 <footer class="article-footer">
-  <a data-url="https://www.blankspace.cn/2018/09/16/bigdata-system-ch1/" data-id="cjmjyclci0014vgfieakoc7pg" class="article-share-link">
+  <a data-url="https://www.blankspace.cn/2018/09/16/bigdata-system-ch1/" data-id="cjmr2xbii001ixsfildgivrjf" class="article-share-link">
 	<i class="fa fa-share"></i> Share
   </a>
   
@@ -593,7 +691,7 @@ MathJax.Hub.Queue(function() {
 
 
 <footer class="article-footer">
-  <a data-url="https://www.blankspace.cn/2018/09/16/biology-ch2-s1/" data-id="cjmjyclcu001lvgfi9gbyiwue" class="article-share-link">
+  <a data-url="https://www.blankspace.cn/2018/09/16/biology-ch2-s1/" data-id="cjmr2xbip001sxsfit7b51hw9" class="article-share-link">
 	<i class="fa fa-share"></i> Share
   </a>
   
@@ -706,7 +804,7 @@ MathJax.Hub.Queue(function() {
 
 
 <footer class="article-footer">
-  <a data-url="https://www.blankspace.cn/2018/09/16/biology-ch1-s3/" data-id="cjmjyclcp001fvgfizjdbmrsp" class="article-share-link">
+  <a data-url="https://www.blankspace.cn/2018/09/16/biology-ch1-s3/" data-id="cjmr2xbin001oxsfiihp2xkjh" class="article-share-link">
 	<i class="fa fa-share"></i> Share
   </a>
   
@@ -990,8 +1088,11 @@ var _hmt = _hmt || [];
 
 
 
-
+<!--
 <script src="https://cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
   <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
   <script src="/fancybox/jquery.fancybox.pack.js"></script>
 
