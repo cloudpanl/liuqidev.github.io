@@ -3,13 +3,13 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Tag: mnist | WizardLQ’s | 魔法师の小茶馆</title>
+  <title>Tag: MNIST | WizardLQ’s | 魔法师の小茶馆</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="远不止魔法......">
 <meta name="keywords" content="Blog">
 <meta property="og:type" content="website">
 <meta property="og:title" content="WizardLQ’s | 魔法师の小茶馆">
-<meta property="og:url" content="https://www.blankspace.cn/tags/mnist/index.html">
+<meta property="og:url" content="https://www.blankspace.cn/tags/MNIST/index.html">
 <meta property="og:site_name" content="WizardLQ’s | 魔法师の小茶馆">
 <meta property="og:description" content="远不止魔法......">
 <meta property="og:locale" content="en">
@@ -196,7 +196,7 @@ MathJax.Hub.Queue(function() {
 		   <!--<article class="archive-article archive-type-post"><header class="archive-article-header">-->
 			<tr>
 			<td style="vertical-align: middle;"><div class="article-datetime">
-  <a href="/2018/08/12/MNIST-pros/" class="archive-article-date"><time datetime="2018-08-12T02:11:47.000Z" itemprop="datePublished">08-12-Sunday</time></a>
+  <a href="/2018/09/12/KNN-MNIST/" class="archive-article-date"><time datetime="2018-09-12T10:16:56.000Z" itemprop="datePublished">09-12-Wednesday</time></a>
 </div>
 
 
@@ -204,45 +204,16 @@ MathJax.Hub.Queue(function() {
 <!--			<td>
   
     <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/08/12/MNIST-pros/">MNIST pros</a>
+      <a class="archive-article-title" href="/2018/09/12/KNN-MNIST/">K-近邻手写体识别</a>
     </h1>
   
 
 </td>-->
 			 <td>
 			 <h4 itemprop="name">
-			  <a class="'archive-article-title'" href="/2018/08/12/MNIST-pros/">MNIST pros</a>
+			  <a class="'archive-article-title'" href="/2018/09/12/KNN-MNIST/">K-近邻手写体识别</a>
 			</h4>
-			  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/TensorFlow/">TensorFlow</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mnist/">mnist</a></li></ul>
-			</td>
-		</tr>
- <!-- </header></article>-->
-	
-	  
-	  
-			
-			
-		   <!--<article class="archive-article archive-type-post"><header class="archive-article-header">-->
-			<tr>
-			<td style="vertical-align: middle;"><div class="article-datetime">
-  <a href="/2018/08/11/TensorFlow-tutorial-mnist-beginners/" class="archive-article-date"><time datetime="2018-08-11T09:25:06.000Z" itemprop="datePublished">08-11-Saturday</time></a>
-</div>
-
-
-</td>
-<!--			<td>
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/08/11/TensorFlow-tutorial-mnist-beginners/">TensorFlow tutorial mnist beginners</a>
-    </h1>
-  
-
-</td>-->
-			 <td>
-			 <h4 itemprop="name">
-			  <a class="'archive-article-title'" href="/2018/08/11/TensorFlow-tutorial-mnist-beginners/">TensorFlow tutorial mnist beginners</a>
-			</h4>
-			  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/TensorFlow/">TensorFlow</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mnist/">mnist</a></li></ul>
+			  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/KNN/">KNN</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MNIST/">MNIST</a></li></ul>
 			</td>
 		</tr>
  <!-- </header></article>-->
@@ -540,6 +511,32 @@ $(document).ready(function() {
             }
         });
         //当点击跳转链接后，回到页面顶部位置
+        $("#back-to-top").click(function() {
+            $('body,html').animate({
+                scrollTop: 0
+            },
+            500);
+			
+            return false;
+        });
+    });
+});
+</script>
+
+
+  <script src="/js/languages.js"></script>
+  <script src="/js/calendar.js"></script>
+  <script type="text/javascript">
+  $(function() {
+    $('#calendar').aCalendar('en', $.extend({"months":["January","February","March","April","May","June","July","August","September","October","November","December"],"dayOfWeekShort":["S","M","T","W","T","F","S"],"dayOfWeek":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"postsMonthTip":"Posts published in LMM yyyy","titleFormat":"yyyy LMM","titleLinkFormat":"/archives/yyyy/MM/","headArrows":{"previous":"<span class=\"cal-prev\"></span>","next":"<span class=\"cal-next\"></span>"},"footArrows":{"previous":" ","next":" "},"weekOffset":0,"single":false,"root":"/calendar/","url":"/calendar.json"}, {single:true, root:'calendar/'}));
+  });
+  </script>
+
+
+
+</body>
+</html>
+��顶部位置
         $("#back-to-top").click(function() {
             $('body,html').animate({
                 scrollTop: 0
