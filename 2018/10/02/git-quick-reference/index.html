@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Git快速参考 | WizardLQ’s | 魔法师の小茶馆</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Git进行版本控制，管理的是修改而非文件。分清楚工作区，版本库，暂存区(stage)就能很好地理解其工作原理。 基本概念工作区（Working Directory）：顾名思义是工作的地方，对文件的创建，修改，添加，删除等都会对其造成影响。比方说我创建的一个项目工程就是一个工作区。版本库(Repository)：工作区中有一个隐藏的目录.git，不算工作区而是Git版本库。Git版本库最终的就是st">
+<meta name="keywords" content="Git">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Git快速参考">
+<meta property="og:url" content="https://www.blankspace.cn/2018/10/02/git-quick-reference/index.html">
+<meta property="og:site_name" content="WizardLQ’s | 魔法师の小茶馆">
+<meta property="og:description" content="Git进行版本控制，管理的是修改而非文件。分清楚工作区，版本库，暂存区(stage)就能很好地理解其工作原理。 基本概念工作区（Working Directory）：顾名思义是工作的地方，对文件的创建，修改，添加，删除等都会对其造成影响。比方说我创建的一个项目工程就是一个工作区。版本库(Repository)：工作区中有一个隐藏的目录.git，不算工作区而是Git版本库。Git版本库最终的就是st">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2018-10-03T12:02:19.474Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Git快速参考">
+<meta name="twitter:description" content="Git进行版本控制，管理的是修改而非文件。分清楚工作区，版本库，暂存区(stage)就能很好地理解其工作原理。 基本概念工作区（Working Directory）：顾名思义是工作的地方，对文件的创建，修改，添加，删除等都会对其造成影响。比方说我创建的一个项目工程就是一个工作区。版本库(Repository)：工作区中有一个隐藏的目录.git，不算工作区而是Git版本库。Git版本库最终的就是st">
+<link rel="publisher" href="112373242775367340000">
+  
+    <link rel="alternate" href="/atom.xml" title="WizardLQ’s | 魔法师の小茶馆" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/images/icon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+<!--
+<link href="https://cdn.bootcss.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet"><link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
+-->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+<!--
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.slim.min.js"></script>
+-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.slim.min.js"></script>
+
+<!--
+<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+-->
+<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script type="text/javascript" src="//ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.3.min.js"></script>
+
+<link rel="stylesheet" href="/css/styles.css">
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+<!--
+<script src="https://cdn.bootcss.com/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+</head>
+
+<body>
+
+	
+
+	
+	<div class="container">
+	<div class="article-wrapper">
+
+
+<article id="post-git-quick-reference" class="article article-type-post" itemscope itemprop="blogPost">
+	
+
+
+<header class="article-header">
+
+  
+    <h1 class="article-title" itemprop="name">
+      Git快速参考
+    </h1>
+  
+
+
+	
+
+ 
+	
+		魔法师LQ
+	
+	</hr>
+	<div class="article-datetime">
+	  <time datetime="2018-10-02T12:00:53.000Z" itemprop="datePublished">2018-10-02</time>
+	</div>
+	<div class="header-divider"></div>	
+
+	   
+
+</header>
+
+<div class="article-inner">
+<div class="article-entry" itemprop="articleBody">
+  
+  
+	<!-- Table of Contents -->
+
+	<aside id="article-toc" role="navigation" class="fixed">
+		<div id="article-toc-inner">
+			<strong class="sidebar-title">
+			Contents</strong>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#基本概念"><span class="toc-text">基本概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#文件修改和“时光穿梭”"><span class="toc-text">文件修改和“时光穿梭”</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#删除文件"><span class="toc-text">删除文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#分支管理"><span class="toc-text">分支管理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#冲突解决"><span class="toc-text">冲突解决</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#分支管理策略"><span class="toc-text">分支管理策略</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#保存和恢复现场"><span class="toc-text">保存和恢复现场</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#删除未合并过的分支"><span class="toc-text">删除未合并过的分支</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#远程分支操作"><span class="toc-text">远程分支操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#rebase整理push历史"><span class="toc-text">rebase整理push历史</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#tag"><span class="toc-text">tag</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#为commit打上标签"><span class="toc-text">为commit打上标签</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#标签操作"><span class="toc-text">标签操作</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#自定义Git"><span class="toc-text">自定义Git</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#设置忽略规则"><span class="toc-text">设置忽略规则</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置命令别名"><span class="toc-text">配置命令别名</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#架设Git服务器"><span class="toc-text">架设Git服务器</span></a></li></ol>
+		</div>
+	</aside>
+
+	
+	
+	<p>Git进行版本控制，管理的是修改而非文件。<br>分清楚工作区，版本库，暂存区(stage)就能很好地理解其工作原理。</p>
+<h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><p>工作区（Working Directory）：顾名思义是工作的地方，对文件的创建，修改，添加，删除等都会对其造成影响。比方说我创建的一个项目工程就是一个工作区。<br>版本库(Repository)：工作区中有一个隐藏的目录.git，不算工作区而是Git版本库。<br>Git版本库最终的就是stage（或者叫index）的暂存区，还有Git默认创建的master分支，以及指向master分支的HEAD指针。<br>文件的增删变更直接作用在工作区，第一步，变更后add，就添加到了版本库的暂存区。<br>第二步，git commit提交更改，就是将暂存区的所有内容提交到当前分支。<br>简单的理解就是，需要提交的文件修改都放在暂存区，然后一次性提交暂存区中的内容到到当前分支。</p>
+<h2 id="文件修改和“时光穿梭”"><a href="#文件修改和“时光穿梭”" class="headerlink" title="文件修改和“时光穿梭”"></a>文件修改和“时光穿梭”</h2><ul>
+<li>场景1：当修改了工作区的文件内容，觉得不合适，想直接丢弃工作区的修改，使用命令：<code>git checkout -- filenname</code></li>
+<li>场景2：当修改了工作区的文件内容，觉得不合适，但是已经通过<code>git add</code>添加修改到了暂存区，想直接丢弃工作区的修改，分两步，第一步，使用命令<code>git reset HEAD filename</code>，就回到了场景1；第二步按照场景1来操作。</li>
+<li>场景3：已经通过<code>git commit</code>提交了不合适的修改到版本库中，想要撤销本次提交，就执行版本退回命令，<code>git reset --hard commid_id</code>进行时光穿梭。穿梭前可以使用<code>git log</code>查看历史版本；当还需要重返未来的时候，使用<code>git reflog</code>查看历史命令。</li>
+</ul>
+<h2 id="删除文件"><a href="#删除文件" class="headerlink" title="删除文件"></a>删除文件</h2><p>使用<code>rm filename</code>来在工作区删除文件，现在工作区和版本库就不一致了。</p>
+<ul>
+<li>场景1：确认删除该文件，使用<code>git rm filename</code>命令，然后<code>git commit</code></li>
+<li>场景2：属于误删操作，但是还没有提交到版本库，使用命令<code>git checkout -- filename</code>，使用版本库中的版本替换到工作区的版本。</li>
+<li>场景3：已经提交到版本库，发现属于误删操作，执行版本回退来时光穿梭。</li>
+</ul>
+<h2 id="分支管理"><a href="#分支管理" class="headerlink" title="分支管理"></a>分支管理</h2><ul>
+<li>创建和切换分支：<code>git checkout -b branch_name</code>.相当于两句指令：<code>git branch branch_name</code>, 随后<code>git checkout branch_name</code></li>
+</ul>
+<p>ps: 关于Vim重命名文件，在退出之前输入<code>:sav new_file_name</code>即可，会保存一个相同内容的副本，而不是在当前修改文件中修改，要想这样需要安装特定的插件。</p>
+<ul>
+<li>查看分支：<code>git branch</code></li>
+<li>创建分支：<code>git branch &lt;branch_name&gt;</code></li>
+<li>切换到分支：<code>git checkout &lt;branch_name&gt;</code></li>
+<li>创建加切换：<code>git checkout -b &lt;branch_name&gt;</code></li>
+<li>合并到当前：<code>git merge &lt;branch_name&gt;</code></li>
+<li>删除分支：<code>git branch -d &lt;branch_name&gt;</code></li>
+</ul>
+<h3 id="冲突解决"><a href="#冲突解决" class="headerlink" title="冲突解决"></a>冲突解决</h3><p>新建分支在上面修改后，add, commit，然后切换到要汇入的分支上，假如此时在当前分支上也做了修改，执行<code>git merge &lt;branch_to_be_merged&gt;</code>时发现无法合并，使用<code>git status</code>查看冲突位置，然后修改冲突（就是文件中标注的位置，通常就是同一行内容不一致导致的）,修改完毕后重新add，commit，以及merge就行了。<br>可以使用<code>git log --graph &lt;--abbrev-comit&gt; 查看分支合并情况图</code>。</p>
+<h3 id="分支管理策略"><a href="#分支管理策略" class="headerlink" title="分支管理策略"></a>分支管理策略</h3><p>通常合并分支使用的都是<code>Fast forward</code>模式，在合并的时候加上<code>--no-ff</code>参数就可以采用普通模式合并，历史记录中会有分支的信息，而<code>Fast forward</code>在合并后删除分支日志历史中就没有关于此分支的记录，也就看不出来曾经做过合并。</p>
+<h3 id="保存和恢复现场"><a href="#保存和恢复现场" class="headerlink" title="保存和恢复现场"></a>保存和恢复现场</h3><p>场景：当手头正在多某项工作，突然接到任务需要马上处理，手头的工作不得不停下，但是还没有完善到能够提交的程度。该怎么办？<br>相当于打断点，保存现场，使用<code>git stach</code>保存当前的工作。然后去处理临时或者紧急的任务（比如说修复某个bug）。当临时或者紧急任务处理完毕后，返回来恢复现场继续原来的工作。<br>恢复现场使用,<code>git stash list</code>查看有哪些存档，然后使用<code>git stash apply &lt;stash@{xxx}&gt;</code>来恢复，参数是可选的用于多次stash之后选择要恢复的那个。这种方式恢复后stash的内容不删除，需要输入<code>git stash drop</code>来删除。<br>另一种方式能够恢复的同时删除stash，即使用<code>git stash pop</code>。</p>
+<h3 id="删除未合并过的分支"><a href="#删除未合并过的分支" class="headerlink" title="删除未合并过的分支"></a>删除未合并过的分支</h3><p>场景：导师给了个新需求要做，做完了却悲催地听说不需要了，现在要删除这个分支。<code>git brach -d &lt;feature&gt;</code>，会提示<code>The branch &#39;&lt;feature&gt;&#39; is note fully merged. If you are sure you want to delete it , run&#39;git branch -D &lt;feature&gt;&#39;</code>。</p>
+<p>所以<code>git branch -D &lt;branch_name&gt;</code>就是强制删除未曾合并过的分支的命令。</p>
+<h2 id="远程分支操作"><a href="#远程分支操作" class="headerlink" title="远程分支操作"></a>远程分支操作</h2><ul>
+<li>场景1：在本地创建了一个分支，但是远程没有，commit之后希望push到远程比方说Github上，但是不是master分支，而是一个目前还没有创建的分支上。使用<code>git push -u origin &lt;local_branch_name&gt;</code>,这样就在远程创建了和<code>local_branch_name</code>同名分支。</li>
+<li><p>场景2：远端已经存在和本地同名或者不同名的分支，希望这时将本地的分支推到远端上，<code>git push &lt;remote_name&gt; &lt;local_branch_name&gt;:&lt;remote_branch_name&gt;</code></p>
+</li>
+<li><p>场景3：当有多人同时提交到一个分支，自己的提交和他人的有冲突，这时按照提交的提示来做，一般会提示<code>git pull ...</code>，将远程的提交pul下来。pull下来后再次提交，若发现push有冲突，则需要手动解决冲突，解决方法和上文的冲突解决一致。解决后再进行push即可。</p>
+</li>
+<li>场景4：远程已经存在某个分支，想在本地创建一个分支和远程的分支对应起来。使用<code>git checkout -b local_branch_name origin/remote_branch_name</code></li>
+<li>场景5：远程已经存在某个分支，本地同时存在某个分支，现在要把两个关联起来，使用<code>git branch --set-upstream-to=origin/remote_branch_name local_branch_name</code>,制定本地分支和远程分支的关联。这样就能解决某些时候pull失败的问题，比如<code>no tracking information</code>。</li>
+</ul>
+<h2 id="rebase整理push历史"><a href="#rebase整理push历史" class="headerlink" title="rebase整理push历史"></a>rebase整理push历史</h2><ul>
+<li>场景：本地版本历史过多，有的commit并没有push到远程，所以再查看历史的时候希望只查看push过的提交，使用<code>git rebase</code>命令实现。</li>
+</ul>
+<h2 id="tag"><a href="#tag" class="headerlink" title="tag"></a>tag</h2><h3 id="为commit打上标签"><a href="#为commit打上标签" class="headerlink" title="为commit打上标签"></a>为commit打上标签</h3><ul>
+<li><p>场景1：某个工作已经进行了多次的编辑和提交。过了一阵子，导师或者其他人说，请把之前的某次提交打包一下。这时选择查找<code>commit_id</code>显得就不是很方便。<code>tag</code>就相当于是对于commit的起的别名，使用<code>git tag &lt;tag_name&gt;</code>默认为最近的一次提交打上标签，在产看log的时候，就会出现相应的标签提示。使用<code>git show tag_name</code>来查看<code>tag_name</code>对应的那次提交。</p>
+</li>
+<li><p>场景2：之前的提交忘记打标签，现在需要对历史中某个版本打上标签。使用<code>git tag tag_name commit_id</code>。使用<code>git tag</code>查看所有标签。</p>
+</li>
+<li><p>场景3：创建某个标签的同时，还提供一些说明信息。使用<code>git tag -a tag_name -m &quot;balala enengy... commit_id</code>。使用<code>git show tag_name</code>就能查看到相应说明文字。</p>
+</li>
+</ul>
+<h3 id="标签操作"><a href="#标签操作" class="headerlink" title="标签操作"></a>标签操作</h3><ul>
+<li>场景1，打错了，在本地删除：<code>git tag -d tag_name</code></li>
+<li>场景2，推送某次提交的标签到远程：<code>git push origin tag_name</code></li>
+<li>场景3，推送全部尚未推送到远程的标签：<code>git push origin --tags</code></li>
+<li>场景4，删除远程的标签：先要删除本地的要删除的标签。然后执行，<code>git push origin :refs/tags/tag_name</code>，然后去远程查看标签是否被删除。</li>
+</ul>
+<h2 id="自定义Git"><a href="#自定义Git" class="headerlink" title="自定义Git"></a>自定义Git</h2><p>除了配置<code>user.name</code>, <code>user.email</code>之外还可以配置一些东西。</p>
+<ul>
+<li>场景，命令行工作颜色单调：配置显示ui, <code>git config --global color.ui true</code>，使文件名也被不同的颜色标注。（我使用git bash本身就是有颜色的）。</li>
+</ul>
+<h2 id="设置忽略规则"><a href="#设置忽略规则" class="headerlink" title="设置忽略规则"></a>设置忽略规则</h2><p>这个功能非常有必要，特别是在一些项目中有比较大或者涉及敏感信息的文件时（比如密码，很大很大的数据集等）。编写<code>.gitignore</code>文件来屏蔽某些类型的文件。文件每行表示一个屏蔽规则，一个规则可以屏蔽某个具体的文件或者某一类或几类文件的提交。可以使用通配符来编写规则，<code>#</code>作为注释。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 要忽略提交什么文件</span></span><br><span class="line">file_name</span><br><span class="line">*.dat</span><br><span class="line">*.py[cod]</span><br><span class="line">db.ini</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>当发现某个在屏蔽规则中文件恰好必须要提交上去，使用<code>git add -f file_name.file_type</code></li>
+<li>使用<code>git check-ignore</code>来检查屏蔽规则</li>
+</ul>
+<h2 id="配置命令别名"><a href="#配置命令别名" class="headerlink" title="配置命令别名"></a>配置命令别名</h2><ul>
+<li>通常使用缩写来给某个长的命令或者组合当做别名，来提高生产效率。使用<code>git config --global alias.s_name &#39;long_command_name&#39;</code>,比如：<code>git config --global alias.br branch</code>，就可以使用<code>git br</code>代替<code>git branch</code>操作了。</li>
+</ul>
+<p>例如：</p>
+<blockquote>
+<p>git config —global alias.lg “log —color —graph —pretty=format:’%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)&lt;%an&gt;%Creset’ —abbrev-commit”</p>
+</blockquote>
+<ul>
+<li>删除某个别名：别名放在隐藏文件<code>.git/congif</code>的<code>[alias]</code>后，删除别名直接把对应的行删除即可。也可以在用户主目录下的隐藏文件<code>.gitconfig</code>中也存放了当前用户的Git配置，可以删除文件重新配置命令。</li>
+</ul>
+<h2 id="架设Git服务器"><a href="#架设Git服务器" class="headerlink" title="架设Git服务器"></a>架设Git服务器</h2><p><a href="https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/00137583770360579bc4b458f044ce7afed3df579123eca000" target="_blank" rel="noopener">参考1</a><br><a href="https://git-scm.com/book/en/v2/Git-on-the-Server-Getting-Git-on-a-Server" target="_blank" rel="noopener">参考2</a></p>
+<p>总的来说基于Linux系统，在裸Git仓库上配置协议，就能搭建成功。有相关工具来完善和方便管理,<code>Gitosis</code>管理公钥，使用<code>Gitolite</code>进行权限管理。</p>
+<p>当然还有<code>GitLab</code>方便搭建私有Git仓库，进行团队管理。</p>
+
+	
+  
+</div>
+
+
+  
+
+
+
+
+</div>
+
+</article>
+
+
+
+
+	</div><!--end of article wrapper-->
+	</div>
+
+
+
+
+
+
+	
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?70a761ba668ab8571ac79968adcf6078";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+
+
+
+
+
+
+<!--
+<script src="https://cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+<script src="/js/script.js"></script>
+
+<!--Back to top-->
+<body id="top">
+<p id="back-to-top"><a href="#top"><span></span></a></p>
+</body>
+
+
+<script>
+$(document).ready(function() {
+    //首先将#back-to-top隐藏
+    $("#back-to-top").hide();
+ 
+    //当滚动条的位置处于距顶部3600像素以下时，跳转链接出现，否则消失
+    $(function() {
+        $(window).scroll(function() {
+            if ($(window).scrollTop() > 3600) {
+                $("#back-to-top").fadeIn(1500);
+            }
+            else {
+                $("#back-to-top").fadeOut(1500);
+            }
+        });
+        //当点击跳转链接后，回到页面顶部位置
+        $("#back-to-top").click(function() {
+            $('body,html').animate({
+                scrollTop: 0
+            },
+            500);
+			
+            return false;
+        });
+    });
+});
+</script>
+
+
+  <script src="/js/languages.js"></script>
+  <script src="/js/calendar.js"></script>
+  <script type="text/javascript">
+  $(function() {
+    $('#calendar').aCalendar('en', $.extend({"months":["January","February","March","April","May","June","July","August","September","October","November","December"],"dayOfWeekShort":["S","M","T","W","T","F","S"],"dayOfWeek":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"postsMonthTip":"Posts published in LMM yyyy","titleFormat":"yyyy LMM","titleLinkFormat":"/archives/yyyy/MM/","headArrows":{"previous":"<span class=\"cal-prev\"></span>","next":"<span class=\"cal-next\"></span>"},"footArrows":{"previous":" ","next":" "},"weekOffset":0,"single":false,"root":"/calendar/","url":"/calendar.json"}, {single:true, root:'calendar/'}));
+  });
+  </script>
+
+
+
+
+</body>
+</html>
