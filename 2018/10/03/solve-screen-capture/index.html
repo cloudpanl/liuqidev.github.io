@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>解决SPX截图时屏幕无故放大的问题 | WizardLQ’s | 魔法师の小茶馆</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="SPX是个非常好用的截图工具，特色就是其撕边功能，虽然有时候只是看上去很酷而已，但是很有趣。  　　此外其也提供了模糊，注释，标号，箭头，保存到文件，发送到打印机等功能。  　　在使用的过程中我发现其存在的几个BUG，第一个，在Windows 10上当我的屏幕分辨率调成最高，同时文字缩放调成推荐的125%，截图的时候程序就会莫名放大，导致只能截取屏幕一部分区域；第二个，中文注释存在问题，设置字">
+<meta name="keywords" content="Windows,SPX">
+<meta property="og:type" content="article">
+<meta property="og:title" content="解决SPX截图时屏幕无故放大的问题">
+<meta property="og:url" content="https://www.blankspace.cn/2018/10/03/solve-screen-capture/index.html">
+<meta property="og:site_name" content="WizardLQ’s | 魔法师の小茶馆">
+<meta property="og:description" content="SPX是个非常好用的截图工具，特色就是其撕边功能，虽然有时候只是看上去很酷而已，但是很有趣。  　　此外其也提供了模糊，注释，标号，箭头，保存到文件，发送到打印机等功能。  　　在使用的过程中我发现其存在的几个BUG，第一个，在Windows 10上当我的屏幕分辨率调成最高，同时文字缩放调成推荐的125%，截图的时候程序就会莫名放大，导致只能截取屏幕一部分区域；第二个，中文注释存在问题，设置字">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://www.blankspace.cn/2018/10/03/solve-screen-capture/SPX.png">
+<meta property="og:image" content="https://www.blankspace.cn/2018/10/03/solve-screen-capture/SPX-editor.png">
+<meta property="og:updated_time" content="2018-10-03T06:42:20.074Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="解决SPX截图时屏幕无故放大的问题">
+<meta name="twitter:description" content="SPX是个非常好用的截图工具，特色就是其撕边功能，虽然有时候只是看上去很酷而已，但是很有趣。  　　此外其也提供了模糊，注释，标号，箭头，保存到文件，发送到打印机等功能。  　　在使用的过程中我发现其存在的几个BUG，第一个，在Windows 10上当我的屏幕分辨率调成最高，同时文字缩放调成推荐的125%，截图的时候程序就会莫名放大，导致只能截取屏幕一部分区域；第二个，中文注释存在问题，设置字">
+<meta name="twitter:image" content="https://www.blankspace.cn/2018/10/03/solve-screen-capture/SPX.png">
+<link rel="publisher" href="112373242775367340000">
+  
+    <link rel="alternate" href="/atom.xml" title="WizardLQ’s | 魔法师の小茶馆" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/images/icon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+<!--
+<link href="https://cdn.bootcss.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet"><link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
+-->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+<!--
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.slim.min.js"></script>
+-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.slim.min.js"></script>
+
+<!--
+<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+-->
+<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script type="text/javascript" src="//ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.3.min.js"></script>
+
+<link rel="stylesheet" href="/css/styles.css">
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+<!--
+<script src="https://cdn.bootcss.com/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+</head>
+
+<body>
+
+	
+
+	
+	<div class="container">
+	<div class="article-wrapper">
+
+
+<article id="post-solve-screen-capture" class="article article-type-post" itemscope itemprop="blogPost">
+	
+
+
+<header class="article-header">
+
+  
+    <h1 class="article-title" itemprop="name">
+      解决SPX截图时屏幕无故放大的问题
+    </h1>
+  
+
+
+	
+
+ 
+	
+		魔法师LQ
+	
+	</hr>
+	<div class="article-datetime">
+	  <time datetime="2018-10-03T05:53:21.000Z" itemprop="datePublished">2018-10-03</time>
+	</div>
+	<div class="header-divider"></div>	
+
+	   
+
+</header>
+
+<div class="article-inner">
+<div class="article-entry" itemprop="articleBody">
+  
+  
+	<!-- Table of Contents -->
+
+	<aside id="article-toc" role="navigation" class="fixed">
+		<div id="article-toc-inner">
+			<strong class="sidebar-title">
+			Contents</strong>
+			
+		</div>
+	</aside>
+
+	
+	
+	<p>　　<a href="http://www.instant-screen-capture.com/" target="_blank" rel="noopener">SPX</a>是个非常好用的截图工具，特色就是其撕边功能，虽然有时候只是看上去很酷而已，但是很有趣。</p>
+<p><img src="/2018/10/03/solve-screen-capture/SPX.png" alt="SPX截图效果"></p>
+<p>　　此外其也提供了模糊，注释，标号，箭头，保存到文件，发送到打印机等功能。</p>
+<p><img src="/2018/10/03/solve-screen-capture/SPX-editor.png" alt="SPX-editor"></p>
+<p>　　在使用的过程中我发现其存在的几个BUG，第一个，在Windows 10上当我的屏幕分辨率调成最高，同时文字缩放调成推荐的125%，截图的时候程序就会莫名放大，导致只能截取屏幕一部分区域；第二个，中文注释存在问题，设置字符集为GB2312能够显示中文，但是注释后面总会跟奇怪的字符，有的时候是<code>a</code>有的时候是<code>\1</code>，而西文字符不存在这个问题。</p>
+<p>　　对于第一个问题，一种解决方案就是文字缩放调成100%，这样就不会莫名放大了，但是电脑的图标还有文字就会显得很小，这样对视力不好。</p>
+<p>　　后来经过摸索，应该是程序兼容性导致的，关于Windows程序兼容性的调整，看<a href="https://support.microsoft.com/zh-cn/help/15078/windows-make-older-programs-compatible" target="_blank" rel="noopener">使旧版程序与此版本的 Windows 兼容</a>，于是就将程序的属性中的兼容性改成Windows7就一切正常了（找到应用程序图标，鼠标右键属性）。</p>
+<p>　　对于第二个问题，应该就是软件自身的BUG了，只能尽量使用英文注释了。</p>
+<hr>
+<p>　　想起浙大的<a href="https://www.icourse163.org/u/wengkai" target="_blank" rel="noopener">翁恺</a>老师所说的话：</p>
+<div class="bs-callout bs-callout-info"><p>获取资料能获取第一手的资料就不要获取第二手甚至更多手的资料。</p>
+</div>
+<p>我深以为然。</p>
+
+	
+  
+</div>
+
+
+  
+
+
+
+
+</div>
+
+</article>
+
+
+
+
+	</div><!--end of article wrapper-->
+	</div>
+
+
+
+
+
+
+	
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?70a761ba668ab8571ac79968adcf6078";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+
+
+
+
+
+
+<!--
+<script src="https://cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+<script src="/js/script.js"></script>
+
+<!--Back to top-->
+<body id="top">
+<p id="back-to-top"><a href="#top"><span></span></a></p>
+</body>
+
+
+<script>
+$(document).ready(function() {
+    //首先将#back-to-top隐藏
+    $("#back-to-top").hide();
+ 
+    //当滚动条的位置处于距顶部3600像素以下时，跳转链接出现，否则消失
+    $(function() {
+        $(window).scroll(function() {
+            if ($(window).scrollTop() > 3600) {
+                $("#back-to-top").fadeIn(1500);
+            }
+            else {
+                $("#back-to-top").fadeOut(1500);
+            }
+        });
+        //当点击跳转链接后，回到页面顶部位置
+        $("#back-to-top").click(function() {
+            $('body,html').animate({
+                scrollTop: 0
+            },
+            500);
+			
+            return false;
+        });
+    });
+});
+</script>
+
+
+  <script src="/js/languages.js"></script>
+  <script src="/js/calendar.js"></script>
+  <script type="text/javascript">
+  $(function() {
+    $('#calendar').aCalendar('en', $.extend({"months":["January","February","March","April","May","June","July","August","September","October","November","December"],"dayOfWeekShort":["S","M","T","W","T","F","S"],"dayOfWeek":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"postsMonthTip":"Posts published in LMM yyyy","titleFormat":"yyyy LMM","titleLinkFormat":"/archives/yyyy/MM/","headArrows":{"previous":"<span class=\"cal-prev\"></span>","next":"<span class=\"cal-next\"></span>"},"footArrows":{"previous":" ","next":" "},"weekOffset":0,"single":false,"root":"/calendar/","url":"/calendar.json"}, {single:true, root:'calendar/'}));
+  });
+  </script>
+
+
+
+</body>
+</html>

@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.blankspace.cn/"/>
-  <updated>2018-09-27T09:00:47.524Z</updated>
+  <updated>2018-10-03T06:42:20.074Z</updated>
   <id>https://www.blankspace.cn/</id>
   
   <author>
@@ -15,6 +15,38 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>解决SPX截图时屏幕无故放大的问题</title>
+    <link href="https://www.blankspace.cn/2018/10/03/solve-screen-capture/"/>
+    <id>https://www.blankspace.cn/2018/10/03/solve-screen-capture/</id>
+    <published>2018-10-03T05:53:21.000Z</published>
+    <updated>2018-10-03T06:42:20.074Z</updated>
+    
+    <content type="html"><![CDATA[<p>　　<a href="http://www.instant-screen-capture.com/" target="_blank" rel="noopener">SPX</a>是个非常好用的截图工具，特色就是其撕边功能，虽然有时候只是看上去很酷而已，但是很有趣。</p><p><img src="/2018/10/03/solve-screen-capture/SPX.png" alt="SPX截图效果"></p><p>　　此外其也提供了模糊，注释，标号，箭头，保存到文件，发送到打印机等功能。</p><p><img src="/2018/10/03/solve-screen-capture/SPX-editor.png" alt="SPX-editor"></p><p>　　在使用的过程中我发现其存在的几个BUG，第一个，在Windows 10上当我的屏幕分辨率调成最高，同时文字缩放调成推荐的125%，截图的时候程序就会莫名放大，导致只能截取屏幕一部分区域；第二个，中文注释存在问题，设置字符集为GB2312能够显示中文，但是注释后面总会跟奇怪的字符，有的时候是<code>a</code>有的时候是<code>\1</code>，而西文字符不存在这个问题。</p><p>　　对于第一个问题，一种解决方案就是文字缩放调成100%，这样就不会莫名放大了，但是电脑的图标还有文字就会显得很小，这样对视力不好。</p><p>　　后来经过摸索，应该是程序兼容性导致的，关于Windows程序兼容性的调整，看<a href="https://support.microsoft.com/zh-cn/help/15078/windows-make-older-programs-compatible" target="_blank" rel="noopener">使旧版程序与此版本的 Windows 兼容</a>，于是就将程序的属性中的兼容性改成Windows7就一切正常了（找到应用程序图标，鼠标右键属性）。</p><p>　　对于第二个问题，应该就是软件自身的BUG了，只能尽量使用英文注释了。</p><hr><p>　　想起浙大的<a href="https://www.icourse163.org/u/wengkai" target="_blank" rel="noopener">翁恺</a>老师所说的话：</p><div class="bs-callout bs-callout-info"><p>获取资料能获取第一手的资料就不要获取第二手甚至更多手的资料。</p></div><p>我深以为然。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;　　&lt;a href=&quot;http://www.instant-screen-capture.com/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;SPX&lt;/a&gt;是个非常好用的截图工具，特色就是其撕边功能，虽然有时候只是看上去很酷而已，但是很有趣。&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+      <category term="Misc" scheme="https://www.blankspace.cn/categories/Misc/"/>
+    
+      <category term="Bugs" scheme="https://www.blankspace.cn/categories/Misc/Bugs/"/>
+    
+      <category term="OS" scheme="https://www.blankspace.cn/categories/Misc/Bugs/OS/"/>
+    
+    
+      <category term="Windows" scheme="https://www.blankspace.cn/tags/Windows/"/>
+    
+      <category term="SPX" scheme="https://www.blankspace.cn/tags/SPX/"/>
+    
+  </entry>
   
   <entry>
     <title>聚类分析</title>
@@ -823,7 +855,7 @@ E_R\approx \frac{\Delta x}{x} \quad\text{或} \quad E_R\approx \frac{\Delta x}{\
     <link href="https://www.blankspace.cn/2018/09/16/bigdata-system-ch1/"/>
     <id>https://www.blankspace.cn/2018/09/16/bigdata-system-ch1/</id>
     <published>2018-09-16T10:58:07.000Z</published>
-    <updated>2018-10-02T05:53:53.904Z</updated>
+    <updated>2018-10-02T14:08:59.315Z</updated>
     
     <content type="html"><![CDATA[<p>今天开始学习清华大学王建民教授等人开设的《大数据系统基础》课程。</p><h2 id="什么是大数据"><a href="#什么是大数据" class="headerlink" title="什么是大数据"></a>什么是大数据</h2><p>BigData是一个保罗万象的概念，又称海量资料，巨量资料，指资料规模巨大和复杂到当前主流处理方式无法在短时间内进行有效截取、存储、管理并帮助企业经营决策。</p><h3 id="来源"><a href="#来源" class="headerlink" title="来源"></a>来源</h3><p>个人、工业设备、传感器、仪表等</p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>从数据资源中获取数据的价值</p><h3 id="多大"><a href="#多大" class="headerlink" title="多大"></a>多大</h3><p>现在一天数据==以前几个世纪产生的数据。</p><h3 id="类型"><a href="#类型" class="headerlink" title="类型"></a>类型</h3><ul><li>关系型（Tables/Transaction）</li><li>文本</li><li>半结构（HTML）</li><li>多媒体</li><li>图</li><li>社交网络/知识图谱（RDF）</li><li>流</li></ul><h2 id="大数据系统"><a href="#大数据系统" class="headerlink" title="大数据系统"></a>大数据系统</h2><p>大数据系统，用于大数据分析处理的软件系统。</p><p>大数据系统基础目的：</p><ul><li>大数据系统的构建、开发、运维</li><li>技术</li><li>使用方法</li></ul><h2 id="大是相对的"><a href="#大是相对的" class="headerlink" title="大是相对的"></a>大是相对的</h2><ul><li>给定有限资源c,或成本</li><li>给定问题输入x</li><li>在一定时间t内</li><li>计算出结果f(x)</li></ul><p>当输入数据大到超过一定的计算能力或者可以容忍的时间t，就成为大数据问题</p><h2 id="产业界看大数据"><a href="#产业界看大数据" class="headerlink" title="产业界看大数据"></a>产业界看大数据</h2><h3 id="数据治理的无政府组"><a href="#数据治理的无政府组" class="headerlink" title="数据治理的无政府组"></a>数据治理的无政府组</h3><ul><li>结构化和非结构化</li><li>数据的产生和使用过程相分离</li></ul><h2 id="学术界看大数据"><a href="#学术界看大数据" class="headerlink" title="学术界看大数据"></a>学术界看大数据</h2><div class="bs-callout bs-callout-info"><p><i class="fa fa-info-circle"></i> Michael Stonebraker@MIT<br>大数据是计算机科学中的一个旗帜。</p></div><ul><li>Stanford: Stanford Network Analysis Project</li><li>CMU: Pegasus and GraphLab</li><li>MIT: Intel Science &amp; Technology Centre(ISTC) for Big Data</li></ul><p>最火的实验室: SNAP</p><p><img src="/2018/09/16/bigdata-system-ch1/SNAP.jpg" alt="SNAP:三个维度，分别是数据库，机器学习以及操作系统"></p><h2 id="数据科学"><a href="#数据科学" class="headerlink" title="数据科学"></a>数据科学</h2><p><img src="/2018/09/16/bigdata-system-ch1/数据科学.jpg" alt="数据科学：从数据中获取知道人们行动的知识"></p><h2 id="从数据到大数据"><a href="#从数据到大数据" class="headerlink" title="从数据到大数据"></a>从数据到大数据</h2><p><img src="/2018/09/16/bigdata-system-ch1/从数据到大数据.jpg" alt="从数据到大数据"></p>]]></content>
     
@@ -905,39 +937,6 @@ E_R\approx \frac{\Delta x}{x} \quad\text{或} \quad E_R\approx \frac{\Delta x}{\
       <category term="Chemical bond" scheme="https://www.blankspace.cn/tags/Chemical-bond/"/>
     
       <category term="Chemical element" scheme="https://www.blankspace.cn/tags/Chemical-element/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>如何正确地评价科学结果</title>
-    <link href="https://www.blankspace.cn/2018/09/16/biology-ch1-s3/"/>
-    <id>https://www.blankspace.cn/2018/09/16/biology-ch1-s3/</id>
-    <published>2018-09-16T00:33:54.000Z</published>
-    <updated>2018-09-19T03:18:10.766Z</updated>
-    
-    <content type="html"><![CDATA[<p>科学家通过反复实验得出结论，通常会选择发表自己的文章。</p><p>发表文章前，同行评议。目的：正确地认识科学研究的方法，确保作者的著作水平，筛选稿件录用与否。</p><p><img src="/2018/09/16/biology-ch1-s3/peerreview.jpg" alt="同行评议"></p><h2 id="正确评价科学研究的方法"><a href="#正确评价科学研究的方法" class="headerlink" title="正确评价科学研究的方法"></a>正确评价科学研究的方法</h2><ul><li><p>没有科学的实验</p></li><li><p>商业利益驱使科学报道</p></li><li>安慰剂效应<ul><li>双盲实验</li><li>对照组实验组</li></ul></li></ul><p><strong>科学在不断的实验、证实和被证实的过程中发展</strong></p><ul><li>负面：前脑叶白质切除术：1949诺贝尔生理学奖，副总用大，现在弃用</li><li>正面：孟德尔VS混合式遗传</li></ul>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;科学家通过反复实验得出结论，通常会选择发表自己的文章。&lt;/p&gt;
-&lt;p&gt;发表文章前，同行评议。目的：正确地认识科学研究的方法，确保作者的著作水平，筛选稿件录用与否。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;/2018/09/16/biology-ch1-s3/peerreview.
-      
-    
-    </summary>
-    
-      <category term="Biology" scheme="https://www.blankspace.cn/categories/Biology/"/>
-    
-      <category term="现代生物学导论" scheme="https://www.blankspace.cn/categories/Biology/%E7%8E%B0%E4%BB%A3%E7%94%9F%E7%89%A9%E5%AD%A6%E5%AF%BC%E8%AE%BA/"/>
-    
-      <category term="绪论" scheme="https://www.blankspace.cn/categories/Biology/%E7%8E%B0%E4%BB%A3%E7%94%9F%E7%89%A9%E5%AD%A6%E5%AF%BC%E8%AE%BA/%E7%BB%AA%E8%AE%BA/"/>
-    
-    
-      <category term="Biology" scheme="https://www.blankspace.cn/tags/Biology/"/>
-    
-      <category term="Scientific Method" scheme="https://www.blankspace.cn/tags/Scientific-Method/"/>
     
   </entry>
   
