@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://www.blankspace.cn/moments/index.html</loc>
+    
+    <lastmod>2018-10-05T15:34:52.388Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://www.blankspace.cn/2018/10/05/vector-matrix-derivatives/</loc>
     
-    <lastmod>2018-10-05T10:15:15.004Z</lastmod>
+    <lastmod>2018-10-05T15:21:46.509Z</lastmod>
     
   </url>
   
@@ -19,13 +26,6 @@
     <loc>https://www.blankspace.cn/2018/09/20/scikit-learn-ch01/</loc>
     
     <lastmod>2018-10-05T04:29:16.481Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.blankspace.cn/moments/index.html</loc>
-    
-    <lastmod>2018-10-04T15:54:28.624Z</lastmod>
     
   </url>
   

@@ -13,7 +13,7 @@
 <meta property="og:site_name" content="WizardLQ’s | 魔法师の小茶馆">
 <meta property="og:description" content="声明：本文部分内容引用自James E. Gentle所著的《Matrix Algebra: Theory, Computations, and Applications in Statistics》。  向量（Vector）和矩阵（Matrix）对于表达多变量数据很有用，特别是处理线性方程或者表达对象间的线性关系，使用向量和矩阵是很自然的表示。 向量，矩阵概念和符号表示向量和矩阵有很多种不同的">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-10-05T10:15:15.004Z">
+<meta property="og:updated_time" content="2018-10-05T15:21:46.509Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="（待完善...）向量&#x2F;矩阵微分">
 <meta name="twitter:description" content="声明：本文部分内容引用自James E. Gentle所著的《Matrix Algebra: Theory, Computations, and Applications in Statistics》。  向量（Vector）和矩阵（Matrix）对于表达多变量数据很有用，特别是处理线性方程或者表达对象间的线性关系，使用向量和矩阵是很自然的表示。 向量，矩阵概念和符号表示向量和矩阵有很多种不同的">
@@ -200,6 +200,9 @@ a_{n1}&\cdots&a_{nm} \\
 </blockquote>
 <h3 id="关于标量变量的微分"><a href="#关于标量变量的微分" class="headerlink" title="关于标量变量的微分"></a>关于标量变量的微分</h3><h4 id="向量关于标量的导数"><a href="#向量关于标量的导数" class="headerlink" title="向量关于标量的导数"></a>向量关于标量的导数</h4><script type="math/tex; mode=display">
 \frac{\partial{y}}{\partial{x}}=\left(\frac{\partial{y_1}}{\partial{x}}, \frac{\partial{y_2}}{\partial{x}}, \dots,  \frac{\partial{y_n}}{\partial{x}} \right)^T \tag{6}</script><p>其中$y(x)=(y_1(x), y_2(x), \dots, y_n(x))^T$。向量关于标量的二阶导还有高阶导是同样是一个向量，其中每个元素是对应元素关于标量的二阶导还有高阶导。</p>
+<p>这是怎么得来的呢？</p>
+<p>“万事开头难”，虽然有的人能够一眼看出来，但是动手验证一遍还是蛮好的。先从具体计算$\partial y_5/\partial x$，由于$y_5(x)$是关于标量$x$的函数，所以直接计算出$\partial y_5/\partial x$就好了。而$y$是关于$x$函数组成的向量，因此同理，$\partial y_i/\partial x$都能直接求出来，因此就有式(6)的结论。</p>
+<p>之后的情况总体也是采用这种“把草稿纸捡起来”的推导过程，从而最后完成对于对向量，矩阵的求导。</p>
 <h4 id="矩阵关于标量的导数"><a href="#矩阵关于标量的导数" class="headerlink" title="矩阵关于标量的导数"></a>矩阵关于标量的导数</h4><p>（待完善…）</p>
 <h4 id="函数关于标量的导数"><a href="#函数关于标量的导数" class="headerlink" title="函数关于标量的导数"></a>函数关于标量的导数</h4><h4 id="关于标量的高阶导"><a href="#关于标量的高阶导" class="headerlink" title="关于标量的高阶导"></a>关于标量的高阶导</h4><h3 id="关于向量变量的微分"><a href="#关于向量变量的微分" class="headerlink" title="关于向量变量的微分"></a>关于向量变量的微分</h3><h3 id="关于矩阵变量的微分"><a href="#关于矩阵变量的微分" class="headerlink" title="关于矩阵变量的微分"></a>关于矩阵变量的微分</h3><p>（待完善…）</p>
 
