@@ -3,6 +3,35 @@
   
     
     <entry>
+      <title>（待完善...）向量/矩阵微分</title>
+      <link href="/2018/10/05/vector-matrix-derivatives/"/>
+      <url>/2018/10/05/vector-matrix-derivatives/</url>
+      <content type="html"><![CDATA[<blockquote><p>声明：本文部分内容引用自James E. Gentle所著的《Matrix Algebra: Theory, Computations, and Applications in Statistics》。</p></blockquote><p>向量（Vector）和矩阵（Matrix）对于表达多变量数据很有用，特别是处理线性方程或者表达对象间的线性关系，使用向量和矩阵是很自然的表示。</p><h2 id="向量，矩阵概念和符号表示"><a href="#向量，矩阵概念和符号表示" class="headerlink" title="向量，矩阵概念和符号表示"></a>向量，矩阵概念和符号表示</h2><p>向量和矩阵有很多种不同的精确定义，但是我们通常认为<strong>向量</strong>就是排成直线的数组（或者说标量数组），而<strong>矩阵</strong>就是排成矩形的数组。</p><p>“通常没有特别说明，<strong>标量（Scalar）</strong>通常认为是实数（Real Number，注：实数是有理数 <strong>rational number</strong>  和无理数 <strong>irrational number</strong> 的总称，也就是能够在一条直线上标注出来的连续的数值。实数是和<a href="https://en.wikipedia.org/wiki/Imaginary_number" target="_blank" rel="noopener">虚数 Imaginary Number </a>相对的概念，“虚实结合”共同构成了<a href="https://en.wikipedia.org/wiki/Complex_number" target="_blank" rel="noopener">复数 Complex Number</a>。)。我们将实数组成的集合以及实数域记作$\mathbb{R}$（域field，包含集合以及操作数operator）。则我们将$\mathbb{R}$之中的元素称之为标量”</p><p>有时候，也可以从几何的角度看待向量和矩阵，在平冈和幸所著的《プログラミングのための線形代数 （用于编程的线性代数）》（卢晓南中译本叫做《程序员的数学：线性代数》）就反复强调了<strong>矩阵就是几何变换</strong>的概念。</p><h3 id="Vectors"><a href="#Vectors" class="headerlink" title="Vectors"></a>Vectors</h3><h3 id="Arrays"><a href="#Arrays" class="headerlink" title="Arrays"></a>Arrays</h3><h3 id="Matrices"><a href="#Matrices" class="headerlink" title="Matrices"></a>Matrices</h3><h3 id="数据的表示"><a href="#数据的表示" class="headerlink" title="数据的表示"></a>数据的表示</h3><h2 id="微分概念和符号表示"><a href="#微分概念和符号表示" class="headerlink" title="微分概念和符号表示"></a>微分概念和符号表示</h2><h3 id="对于标量变量的微分"><a href="#对于标量变量的微分" class="headerlink" title="对于标量变量的微分"></a>对于标量变量的微分</h3><h3 id="对于向量变量的微分"><a href="#对于向量变量的微分" class="headerlink" title="对于向量变量的微分"></a>对于向量变量的微分</h3><h3 id="对于矩阵变量的微分"><a href="#对于矩阵变量的微分" class="headerlink" title="对于矩阵变量的微分"></a>对于矩阵变量的微分</h3><p>待完善…</p>]]></content>
+      
+      <categories>
+          
+          <category> Math </category>
+          
+          <category> Algebra </category>
+          
+          <category> Matrix Algebra </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Vector </tag>
+            
+            <tag> Matrix </tag>
+            
+            <tag> Derivative </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
       <title>解决SPX截图时屏幕无故放大的问题</title>
       <link href="/2018/10/03/solve-screen-capture/"/>
       <url>/2018/10/03/solve-screen-capture/</url>
@@ -78,7 +107,7 @@
     </entry>
     
     <entry>
-      <title>LaTeX笔记</title>
+      <title>（待完善...）LaTeX笔记</title>
       <link href="/2018/09/23/latex-notes-01/"/>
       <url>/2018/09/23/latex-notes-01/</url>
       <content type="html"><![CDATA[<p>&#160; &#160; &#160; &#160;为什么要学习$\LaTeX$？原因很简单，“虽说气质为王，但往往也要看脸”，所以相当多的高质量的论文，书籍都会使用这种精确控制，外行看起来狂拽酷炫，不明嚼栗的排版工具，所以想发论文，这种排版神器的使用是圈子里必备且默认你会的技能。另外，我个人觉得Word十分好用，十分良心，所见即所得，功能十分强大。有人会褒一个贬一个，我觉得Word和$\LaTeX$都很好。现在有的期刊，会议也接受Word格式的论文，在有必要的时候学习也是极好的。</p><p>&#160; &#160; &#160; &#160;看过一些介绍$\LaTeX$ 的文章和书籍,很多作者写的很好，总体上也是从易到难，由浅入深。但是我看完之后，或者边看边学的过程中，总感觉缺了点什么，那就是这么多的规则，这么多符号，这么多宏包，什么时候才能用 $\LaTeX$ 写一篇像样的文章，什么时候才能写书，写论文呀！</p><p>&#160; &#160; &#160; &#160;我个人不想对$\LaTeX$ 做太深的研究，也不想向别人炫耀这种看似困难的工具的使用，只想发挥其该有的功用——更好地书写排版。所以在这里记下学习时的简单实用的笔记，尽快上手，同样也是边学习边练习边回顾，希望最终写出专业的论文以及其他优雅的出版物还有演示文稿，以掌握一个科研人员基本的素质。</p><h2 id="学习资源"><a href="#学习资源" class="headerlink" title="学习资源"></a>学习资源</h2><ul><li><a href="http://www.latexstudio.net/" target="_blank" rel="noopener">$\LaTeX$开源小屋</a>：很不错的中文$\LaTeX$社区，几乎应有尽有，资料很全</li><li><a href="https://cn.sharelatex.com/" target="_blank" rel="noopener">ShareLaTeX</a>：有丰富的模板，可以用来模仿</li><li>GitHub，简书，CSDN等，上面都已一些相关的模板，文章等</li><li><a href="https://tex.stackexchange.com/" target="_blank" rel="noopener">TeX StackExchange</a>还有Stack Overflow：遇到问题可以去上面查询</li></ul><h2 id="基础结构"><a href="#基础结构" class="headerlink" title="基础结构"></a>基础结构</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">\documentclass&#123;article&#125;</span><br><span class="line"></span><br><span class="line">\usepackage&#123;ctex&#125;  %引入中文支持</span><br><span class="line"></span><br><span class="line">\begin&#123;document&#125;</span><br><span class="line">\LaTeX&#123;&#125; 你好  </span><br><span class="line">\end&#123;document&#125;</span><br></pre></td></tr></table></figure><p><img src="/2018/09/23/latex-notes-01/图1-latex最基础模板.png" alt="图1-latex最基础模板：\begin{environment\}...\end{environment} 中为内容，上面为导言区"></p><div class="bs-callout bs-callout-info"><h3 id="用法"><a href="#用法" class="headerlink" title="   用法"></a><i class="fa fa-info-circle"></i>   用法</h3><ul><li><code>\命令名称[备选参数]{（必选）参数}</code>：叫做命令。个人感觉类似于HTML中的<code>&lt;!DOCTYPE html&gt;</code>。例如，<code>\documentclass[a4paper]{ctexart}</code>，花括号中为必选参数，设置文档类型为<code>ctexart</code>。中括号里备选参数<code>a4paper</code>，将文档大小设置为A4纸大小。</li><li><code>\begin[...]{environment} ...\end{environment}</code>：叫做环境，用于控制<code>\begin[...]{environment}</code>和<code>\end{environment}</code>之间的内容。</li></ul></div><a id="more"></a>]]></content>
@@ -130,7 +159,7 @@
     </entry>
     
     <entry>
-      <title>使用Scikit-learn进行机器学习</title>
+      <title>（待完善...）使用Scikit-learn进行机器学习</title>
       <link href="/2018/09/20/scikit-learn-ch01/"/>
       <url>/2018/09/20/scikit-learn-ch01/</url>
       <content type="html"><![CDATA[<p>我发现使用scikit-learn上手简单，设计合理，接口统一，内置了很多机器学习算法，所以使用其来进行机器学习数据分析是一种极好的选择。根据一些经典的例子，复现和演示，来加深对于机器学习算法的理解。</p><h2 id="线性回归"><a href="#线性回归" class="headerlink" title="线性回归"></a>线性回归</h2><h3 id="一元线性回归"><a href="#一元线性回归" class="headerlink" title="一元线性回归"></a>一元线性回归</h3><h3 id="多元线性回归"><a href="#多元线性回归" class="headerlink" title="多元线性回归"></a>多元线性回归</h3><h2 id="监督学习"><a href="#监督学习" class="headerlink" title="监督学习"></a>监督学习</h2><h3 id="基于支持向量机（SVM）的图像分类"><a href="#基于支持向量机（SVM）的图像分类" class="headerlink" title="基于支持向量机（SVM）的图像分类"></a>基于支持向量机（SVM）的图像分类</h3><h3 id="基于朴素贝叶斯（Naive-Bayes）的文本分类"><a href="#基于朴素贝叶斯（Naive-Bayes）的文本分类" class="headerlink" title="基于朴素贝叶斯（Naïve Bayes）的文本分类"></a>基于朴素贝叶斯（Naïve Bayes）的文本分类</h3><h3 id="决策树"><a href="#决策树" class="headerlink" title="决策树"></a>决策树</h3><h3 id="房价预测"><a href="#房价预测" class="headerlink" title="房价预测"></a>房价预测</h3><h2 id="无监督学习"><a href="#无监督学习" class="headerlink" title="无监督学习"></a>无监督学习</h2><h3 id="主成分分析"><a href="#主成分分析" class="headerlink" title="主成分分析"></a>主成分分析</h3><h3 id="聚类"><a href="#聚类" class="headerlink" title="聚类"></a>聚类</h3><h2 id="高级特征"><a href="#高级特征" class="headerlink" title="高级特征"></a>高级特征</h2><h3 id="Grid-Search"><a href="#Grid-Search" class="headerlink" title="Grid Search"></a>Grid Search</h3><p>…</p>]]></content>

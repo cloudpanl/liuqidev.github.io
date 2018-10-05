@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>（待完善...）向量/矩阵微分 | WizardLQ’s | 魔法师の小茶馆</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="声明：本文部分内容引用自James E. Gentle所著的《Matrix Algebra: Theory, Computations, and Applications in Statistics》。  向量（Vector）和矩阵（Matrix）对于表达多变量数据很有用，特别是处理线性方程或者表达对象间的线性关系，使用向量和矩阵是很自然的表示。 向量，矩阵概念和符号表示向量和矩阵有很多种不同的">
+<meta name="keywords" content="Vector,Matrix,Derivative">
+<meta property="og:type" content="article">
+<meta property="og:title" content="（待完善...）向量&#x2F;矩阵微分">
+<meta property="og:url" content="https://www.blankspace.cn/2018/10/05/vector-matrix-derivatives/index.html">
+<meta property="og:site_name" content="WizardLQ’s | 魔法师の小茶馆">
+<meta property="og:description" content="声明：本文部分内容引用自James E. Gentle所著的《Matrix Algebra: Theory, Computations, and Applications in Statistics》。  向量（Vector）和矩阵（Matrix）对于表达多变量数据很有用，特别是处理线性方程或者表达对象间的线性关系，使用向量和矩阵是很自然的表示。 向量，矩阵概念和符号表示向量和矩阵有很多种不同的">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2018-10-05T04:28:26.365Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="（待完善...）向量&#x2F;矩阵微分">
+<meta name="twitter:description" content="声明：本文部分内容引用自James E. Gentle所著的《Matrix Algebra: Theory, Computations, and Applications in Statistics》。  向量（Vector）和矩阵（Matrix）对于表达多变量数据很有用，特别是处理线性方程或者表达对象间的线性关系，使用向量和矩阵是很自然的表示。 向量，矩阵概念和符号表示向量和矩阵有很多种不同的">
+<link rel="publisher" href="112373242775367340000">
+  
+    <link rel="alternate" href="/atom.xml" title="WizardLQ’s | 魔法师の小茶馆" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/images/icon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+<!--
+<link href="https://cdn.bootcss.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet"><link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
+-->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+<!--
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.slim.min.js"></script>
+-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.slim.min.js"></script>
+
+<!--
+<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+-->
+<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script type="text/javascript" src="//ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.3.min.js"></script>
+
+<link rel="stylesheet" href="/css/styles.css">
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+<!--
+<script src="https://cdn.bootcss.com/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+</head>
+
+<body>
+
+	
+
+	
+	<div class="container">
+	<div class="article-wrapper">
+
+
+<article id="post-vector-matrix-derivatives" class="article article-type-post" itemscope itemprop="blogPost">
+	
+
+
+<header class="article-header">
+
+  
+    <h1 class="article-title" itemprop="name">
+      （待完善...）向量/矩阵微分
+    </h1>
+  
+
+
+	
+
+ 
+	
+		魔法师LQ
+	
+	</hr>
+	<div class="article-datetime">
+	  <time datetime="2018-10-05T02:44:32.000Z" itemprop="datePublished">2018-10-05</time>
+	</div>
+	<div class="header-divider"></div>	
+
+	   
+
+</header>
+
+<div class="article-inner">
+<div class="article-entry" itemprop="articleBody">
+  
+  
+	<!-- Table of Contents -->
+
+	<aside id="article-toc" role="navigation" class="fixed">
+		<div id="article-toc-inner">
+			<strong class="sidebar-title">
+			Contents</strong>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#向量，矩阵概念和符号表示"><span class="toc-text">向量，矩阵概念和符号表示</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Vectors"><span class="toc-text">Vectors</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Arrays"><span class="toc-text">Arrays</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Matrices"><span class="toc-text">Matrices</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数据的表示"><span class="toc-text">数据的表示</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#微分概念和符号表示"><span class="toc-text">微分概念和符号表示</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#对于标量变量的微分"><span class="toc-text">对于标量变量的微分</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#对于向量变量的微分"><span class="toc-text">对于向量变量的微分</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#对于矩阵变量的微分"><span class="toc-text">对于矩阵变量的微分</span></a></li></ol></li></ol>
+		</div>
+	</aside>
+
+	
+	
+	<blockquote>
+<p>声明：本文部分内容引用自James E. Gentle所著的《Matrix Algebra: Theory, Computations, and Applications in Statistics》。</p>
+</blockquote>
+<p>向量（Vector）和矩阵（Matrix）对于表达多变量数据很有用，特别是处理线性方程或者表达对象间的线性关系，使用向量和矩阵是很自然的表示。</p>
+<h2 id="向量，矩阵概念和符号表示"><a href="#向量，矩阵概念和符号表示" class="headerlink" title="向量，矩阵概念和符号表示"></a>向量，矩阵概念和符号表示</h2><p>向量和矩阵有很多种不同的精确定义，但是我们通常认为<strong>向量</strong>就是排成直线的数组（或者说标量数组），而<strong>矩阵</strong>就是排成矩形的数组。</p>
+<p>“通常没有特别说明，<strong>标量（Scalar）</strong>通常认为是实数（Real Number，注：实数是有理数 <strong>rational number</strong>  和无理数 <strong>irrational number</strong> 的总称，也就是能够在一条直线上标注出来的连续的数值。实数是和<a href="https://en.wikipedia.org/wiki/Imaginary_number" target="_blank" rel="noopener">虚数 Imaginary Number </a>相对的概念，“虚实结合”共同构成了<a href="https://en.wikipedia.org/wiki/Complex_number" target="_blank" rel="noopener">复数 Complex Number</a>。)。我们将实数组成的集合以及实数域记作$\mathbb{R}$（域field，包含集合以及操作数operator）。则我们将$\mathbb{R}$之中的元素称之为标量”</p>
+<p>有时候，也可以从几何的角度看待向量和矩阵，在平冈和幸所著的《プログラミングのための線形代数 （用于编程的线性代数）》（卢晓南中译本叫做《程序员的数学：线性代数》）就反复强调了<strong>矩阵就是几何变换</strong>的概念。</p>
+<h3 id="Vectors"><a href="#Vectors" class="headerlink" title="Vectors"></a>Vectors</h3><h3 id="Arrays"><a href="#Arrays" class="headerlink" title="Arrays"></a>Arrays</h3><h3 id="Matrices"><a href="#Matrices" class="headerlink" title="Matrices"></a>Matrices</h3><h3 id="数据的表示"><a href="#数据的表示" class="headerlink" title="数据的表示"></a>数据的表示</h3><h2 id="微分概念和符号表示"><a href="#微分概念和符号表示" class="headerlink" title="微分概念和符号表示"></a>微分概念和符号表示</h2><h3 id="对于标量变量的微分"><a href="#对于标量变量的微分" class="headerlink" title="对于标量变量的微分"></a>对于标量变量的微分</h3><h3 id="对于向量变量的微分"><a href="#对于向量变量的微分" class="headerlink" title="对于向量变量的微分"></a>对于向量变量的微分</h3><h3 id="对于矩阵变量的微分"><a href="#对于矩阵变量的微分" class="headerlink" title="对于矩阵变量的微分"></a>对于矩阵变量的微分</h3><p>待完善…</p>
+
+	
+  
+</div>
+
+
+  
+
+
+
+
+</div>
+
+</article>
+
+
+
+
+	</div><!--end of article wrapper-->
+	</div>
+
+
+
+
+
+
+	
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?70a761ba668ab8571ac79968adcf6078";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+
+
+
+
+
+
+<!--
+<script src="https://cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+<script src="/js/script.js"></script>
+
+<!--Back to top-->
+<body id="top">
+<p id="back-to-top"><a href="#top"><span></span></a></p>
+</body>
+
+
+<script>
+$(document).ready(function() {
+    //首先将#back-to-top隐藏
+    $("#back-to-top").hide();
+ 
+    //当滚动条的位置处于距顶部3600像素以下时，跳转链接出现，否则消失
+    $(function() {
+        $(window).scroll(function() {
+            if ($(window).scrollTop() > 3600) {
+                $("#back-to-top").fadeIn(1500);
+            }
+            else {
+                $("#back-to-top").fadeOut(1500);
+            }
+        });
+        //当点击跳转链接后，回到页面顶部位置
+        $("#back-to-top").click(function() {
+            $('body,html').animate({
+                scrollTop: 0
+            },
+            500);
+			
+            return false;
+        });
+    });
+});
+</script>
+
+
+  <script src="/js/languages.js"></script>
+  <script src="/js/calendar.js"></script>
+  <script type="text/javascript">
+  $(function() {
+    $('#calendar').aCalendar('en', $.extend({"months":["January","February","March","April","May","June","July","August","September","October","November","December"],"dayOfWeekShort":["S","M","T","W","T","F","S"],"dayOfWeek":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"postsMonthTip":"Posts published in LMM yyyy","titleFormat":"yyyy LMM","titleLinkFormat":"/archives/yyyy/MM/","headArrows":{"previous":"<span class=\"cal-prev\"></span>","next":"<span class=\"cal-next\"></span>"},"footArrows":{"previous":" ","next":" "},"weekOffset":0,"single":false,"root":"/calendar/","url":"/calendar.json"}, {single:true, root:'calendar/'}));
+  });
+  </script>
+
+
+
+
+</body>
+</html>

@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.blankspace.cn/"/>
-  <updated>2018-10-03T08:17:57.835Z</updated>
+  <updated>2018-10-05T04:28:26.365Z</updated>
   <id>https://www.blankspace.cn/</id>
   
   <author>
@@ -15,6 +15,42 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>（待完善...）向量/矩阵微分</title>
+    <link href="https://www.blankspace.cn/2018/10/05/vector-matrix-derivatives/"/>
+    <id>https://www.blankspace.cn/2018/10/05/vector-matrix-derivatives/</id>
+    <published>2018-10-05T02:44:32.000Z</published>
+    <updated>2018-10-05T04:28:26.365Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>声明：本文部分内容引用自James E. Gentle所著的《Matrix Algebra: Theory, Computations, and Applications in Statistics》。</p></blockquote><p>向量（Vector）和矩阵（Matrix）对于表达多变量数据很有用，特别是处理线性方程或者表达对象间的线性关系，使用向量和矩阵是很自然的表示。</p><h2 id="向量，矩阵概念和符号表示"><a href="#向量，矩阵概念和符号表示" class="headerlink" title="向量，矩阵概念和符号表示"></a>向量，矩阵概念和符号表示</h2><p>向量和矩阵有很多种不同的精确定义，但是我们通常认为<strong>向量</strong>就是排成直线的数组（或者说标量数组），而<strong>矩阵</strong>就是排成矩形的数组。</p><p>“通常没有特别说明，<strong>标量（Scalar）</strong>通常认为是实数（Real Number，注：实数是有理数 <strong>rational number</strong>  和无理数 <strong>irrational number</strong> 的总称，也就是能够在一条直线上标注出来的连续的数值。实数是和<a href="https://en.wikipedia.org/wiki/Imaginary_number" target="_blank" rel="noopener">虚数 Imaginary Number </a>相对的概念，“虚实结合”共同构成了<a href="https://en.wikipedia.org/wiki/Complex_number" target="_blank" rel="noopener">复数 Complex Number</a>。)。我们将实数组成的集合以及实数域记作$\mathbb{R}$（域field，包含集合以及操作数operator）。则我们将$\mathbb{R}$之中的元素称之为标量”</p><p>有时候，也可以从几何的角度看待向量和矩阵，在平冈和幸所著的《プログラミングのための線形代数 （用于编程的线性代数）》（卢晓南中译本叫做《程序员的数学：线性代数》）就反复强调了<strong>矩阵就是几何变换</strong>的概念。</p><h3 id="Vectors"><a href="#Vectors" class="headerlink" title="Vectors"></a>Vectors</h3><h3 id="Arrays"><a href="#Arrays" class="headerlink" title="Arrays"></a>Arrays</h3><h3 id="Matrices"><a href="#Matrices" class="headerlink" title="Matrices"></a>Matrices</h3><h3 id="数据的表示"><a href="#数据的表示" class="headerlink" title="数据的表示"></a>数据的表示</h3><h2 id="微分概念和符号表示"><a href="#微分概念和符号表示" class="headerlink" title="微分概念和符号表示"></a>微分概念和符号表示</h2><h3 id="对于标量变量的微分"><a href="#对于标量变量的微分" class="headerlink" title="对于标量变量的微分"></a>对于标量变量的微分</h3><h3 id="对于向量变量的微分"><a href="#对于向量变量的微分" class="headerlink" title="对于向量变量的微分"></a>对于向量变量的微分</h3><h3 id="对于矩阵变量的微分"><a href="#对于矩阵变量的微分" class="headerlink" title="对于矩阵变量的微分"></a>对于矩阵变量的微分</h3><p>待完善…</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;blockquote&gt;
+&lt;p&gt;声明：本文部分内容引用自James E. Gentle所著的《Matrix Algebra: Theory, Computations, and Applications in Statistics》。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;向
+      
+    
+    </summary>
+    
+      <category term="Math" scheme="https://www.blankspace.cn/categories/Math/"/>
+    
+      <category term="Algebra" scheme="https://www.blankspace.cn/categories/Math/Algebra/"/>
+    
+      <category term="Matrix Algebra" scheme="https://www.blankspace.cn/categories/Math/Algebra/Matrix-Algebra/"/>
+    
+    
+      <category term="Vector" scheme="https://www.blankspace.cn/tags/Vector/"/>
+    
+      <category term="Matrix" scheme="https://www.blankspace.cn/tags/Matrix/"/>
+    
+      <category term="Derivative" scheme="https://www.blankspace.cn/tags/Derivative/"/>
+    
+  </entry>
   
   <entry>
     <title>解决SPX截图时屏幕无故放大的问题</title>
@@ -155,11 +191,11 @@ E(X)=\operatorname*{argmin}_{x_i \in X} \Vert x_i - C \Vert_2&lt;/script&gt;&lt;
   </entry>
   
   <entry>
-    <title>LaTeX笔记</title>
+    <title>（待完善...）LaTeX笔记</title>
     <link href="https://www.blankspace.cn/2018/09/23/latex-notes-01/"/>
     <id>https://www.blankspace.cn/2018/09/23/latex-notes-01/</id>
     <published>2018-09-23T02:14:46.000Z</published>
-    <updated>2018-09-23T03:29:02.273Z</updated>
+    <updated>2018-10-05T04:29:41.882Z</updated>
     
     <content type="html"><![CDATA[<p>&#160; &#160; &#160; &#160;为什么要学习$\LaTeX$？原因很简单，“虽说气质为王，但往往也要看脸”，所以相当多的高质量的论文，书籍都会使用这种精确控制，外行看起来狂拽酷炫，不明嚼栗的排版工具，所以想发论文，这种排版神器的使用是圈子里必备且默认你会的技能。另外，我个人觉得Word十分好用，十分良心，所见即所得，功能十分强大。有人会褒一个贬一个，我觉得Word和$\LaTeX$都很好。现在有的期刊，会议也接受Word格式的论文，在有必要的时候学习也是极好的。</p><p>&#160; &#160; &#160; &#160;看过一些介绍$\LaTeX$ 的文章和书籍,很多作者写的很好，总体上也是从易到难，由浅入深。但是我看完之后，或者边看边学的过程中，总感觉缺了点什么，那就是这么多的规则，这么多符号，这么多宏包，什么时候才能用 $\LaTeX$ 写一篇像样的文章，什么时候才能写书，写论文呀！</p><p>&#160; &#160; &#160; &#160;我个人不想对$\LaTeX$ 做太深的研究，也不想向别人炫耀这种看似困难的工具的使用，只想发挥其该有的功用——更好地书写排版。所以在这里记下学习时的简单实用的笔记，尽快上手，同样也是边学习边练习边回顾，希望最终写出专业的论文以及其他优雅的出版物还有演示文稿，以掌握一个科研人员基本的素质。</p><h2 id="学习资源"><a href="#学习资源" class="headerlink" title="学习资源"></a>学习资源</h2><ul><li><a href="http://www.latexstudio.net/" target="_blank" rel="noopener">$\LaTeX$开源小屋</a>：很不错的中文$\LaTeX$社区，几乎应有尽有，资料很全</li><li><a href="https://cn.sharelatex.com/" target="_blank" rel="noopener">ShareLaTeX</a>：有丰富的模板，可以用来模仿</li><li>GitHub，简书，CSDN等，上面都已一些相关的模板，文章等</li><li><a href="https://tex.stackexchange.com/" target="_blank" rel="noopener">TeX StackExchange</a>还有Stack Overflow：遇到问题可以去上面查询</li></ul><h2 id="基础结构"><a href="#基础结构" class="headerlink" title="基础结构"></a>基础结构</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">\documentclass&#123;article&#125;</span><br><span class="line"></span><br><span class="line">\usepackage&#123;ctex&#125;  %引入中文支持</span><br><span class="line"></span><br><span class="line">\begin&#123;document&#125;</span><br><span class="line">\LaTeX&#123;&#125; 你好  </span><br><span class="line">\end&#123;document&#125;</span><br></pre></td></tr></table></figure><p><img src="/2018/09/23/latex-notes-01/图1-latex最基础模板.png" alt="图1-latex最基础模板：\begin{environment\}...\end{environment} 中为内容，上面为导言区"></p><div class="bs-callout bs-callout-info"><h3 id="用法"><a href="#用法" class="headerlink" title="   用法"></a><i class="fa fa-info-circle"></i>   用法</h3><ul><li><code>\命令名称[备选参数]{（必选）参数}</code>：叫做命令。个人感觉类似于HTML中的<code>&lt;!DOCTYPE html&gt;</code>。例如，<code>\documentclass[a4paper]{ctexart}</code>，花括号中为必选参数，设置文档类型为<code>ctexart</code>。中括号里备选参数<code>a4paper</code>，将文档大小设置为A4纸大小。</li><li><code>\begin[...]{environment} ...\end{environment}</code>：叫做环境，用于控制<code>\begin[...]{environment}</code>和<code>\end{environment}</code>之间的内容。</li></ul></div><a id="more"></a>]]></content>
     
@@ -227,11 +263,11 @@ E(X)=\operatorname*{argmin}_{x_i \in X} \Vert x_i - C \Vert_2&lt;/script&gt;&lt;
   </entry>
   
   <entry>
-    <title>使用Scikit-learn进行机器学习</title>
+    <title>（待完善...）使用Scikit-learn进行机器学习</title>
     <link href="https://www.blankspace.cn/2018/09/20/scikit-learn-ch01/"/>
     <id>https://www.blankspace.cn/2018/09/20/scikit-learn-ch01/</id>
     <published>2018-09-20T12:57:03.000Z</published>
-    <updated>2018-09-22T06:40:19.373Z</updated>
+    <updated>2018-10-05T04:29:16.481Z</updated>
     
     <content type="html"><![CDATA[<p>我发现使用scikit-learn上手简单，设计合理，接口统一，内置了很多机器学习算法，所以使用其来进行机器学习数据分析是一种极好的选择。根据一些经典的例子，复现和演示，来加深对于机器学习算法的理解。</p><h2 id="线性回归"><a href="#线性回归" class="headerlink" title="线性回归"></a>线性回归</h2><h3 id="一元线性回归"><a href="#一元线性回归" class="headerlink" title="一元线性回归"></a>一元线性回归</h3><h3 id="多元线性回归"><a href="#多元线性回归" class="headerlink" title="多元线性回归"></a>多元线性回归</h3><h2 id="监督学习"><a href="#监督学习" class="headerlink" title="监督学习"></a>监督学习</h2><h3 id="基于支持向量机（SVM）的图像分类"><a href="#基于支持向量机（SVM）的图像分类" class="headerlink" title="基于支持向量机（SVM）的图像分类"></a>基于支持向量机（SVM）的图像分类</h3><h3 id="基于朴素贝叶斯（Naive-Bayes）的文本分类"><a href="#基于朴素贝叶斯（Naive-Bayes）的文本分类" class="headerlink" title="基于朴素贝叶斯（Naïve Bayes）的文本分类"></a>基于朴素贝叶斯（Naïve Bayes）的文本分类</h3><h3 id="决策树"><a href="#决策树" class="headerlink" title="决策树"></a>决策树</h3><h3 id="房价预测"><a href="#房价预测" class="headerlink" title="房价预测"></a>房价预测</h3><h2 id="无监督学习"><a href="#无监督学习" class="headerlink" title="无监督学习"></a>无监督学习</h2><h3 id="主成分分析"><a href="#主成分分析" class="headerlink" title="主成分分析"></a>主成分分析</h3><h3 id="聚类"><a href="#聚类" class="headerlink" title="聚类"></a>聚类</h3><h2 id="高级特征"><a href="#高级特征" class="headerlink" title="高级特征"></a>高级特征</h2><h3 id="Grid-Search"><a href="#Grid-Search" class="headerlink" title="Grid Search"></a>Grid Search</h3><p>…</p>]]></content>
     
@@ -875,36 +911,6 @@ E_R\approx \frac{\Delta x}{x} \quad\text{或} \quad E_R\approx \frac{\Delta x}{\
     
     
       <category term="Big Data Applications" scheme="https://www.blankspace.cn/tags/Big-Data-Applications/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>大数据系统基础绪论</title>
-    <link href="https://www.blankspace.cn/2018/09/16/bigdata-system-ch1/"/>
-    <id>https://www.blankspace.cn/2018/09/16/bigdata-system-ch1/</id>
-    <published>2018-09-16T10:58:07.000Z</published>
-    <updated>2018-10-02T14:08:59.315Z</updated>
-    
-    <content type="html"><![CDATA[<p>今天开始学习清华大学王建民教授等人开设的《大数据系统基础》课程。</p><h2 id="什么是大数据"><a href="#什么是大数据" class="headerlink" title="什么是大数据"></a>什么是大数据</h2><p>BigData是一个保罗万象的概念，又称海量资料，巨量资料，指资料规模巨大和复杂到当前主流处理方式无法在短时间内进行有效截取、存储、管理并帮助企业经营决策。</p><h3 id="来源"><a href="#来源" class="headerlink" title="来源"></a>来源</h3><p>个人、工业设备、传感器、仪表等</p><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>从数据资源中获取数据的价值</p><h3 id="多大"><a href="#多大" class="headerlink" title="多大"></a>多大</h3><p>现在一天数据==以前几个世纪产生的数据。</p><h3 id="类型"><a href="#类型" class="headerlink" title="类型"></a>类型</h3><ul><li>关系型（Tables/Transaction）</li><li>文本</li><li>半结构（HTML）</li><li>多媒体</li><li>图</li><li>社交网络/知识图谱（RDF）</li><li>流</li></ul><h2 id="大数据系统"><a href="#大数据系统" class="headerlink" title="大数据系统"></a>大数据系统</h2><p>大数据系统，用于大数据分析处理的软件系统。</p><p>大数据系统基础目的：</p><ul><li>大数据系统的构建、开发、运维</li><li>技术</li><li>使用方法</li></ul><h2 id="大是相对的"><a href="#大是相对的" class="headerlink" title="大是相对的"></a>大是相对的</h2><ul><li>给定有限资源c,或成本</li><li>给定问题输入x</li><li>在一定时间t内</li><li>计算出结果f(x)</li></ul><p>当输入数据大到超过一定的计算能力或者可以容忍的时间t，就成为大数据问题</p><h2 id="产业界看大数据"><a href="#产业界看大数据" class="headerlink" title="产业界看大数据"></a>产业界看大数据</h2><h3 id="数据治理的无政府组"><a href="#数据治理的无政府组" class="headerlink" title="数据治理的无政府组"></a>数据治理的无政府组</h3><ul><li>结构化和非结构化</li><li>数据的产生和使用过程相分离</li></ul><h2 id="学术界看大数据"><a href="#学术界看大数据" class="headerlink" title="学术界看大数据"></a>学术界看大数据</h2><div class="bs-callout bs-callout-info"><p><i class="fa fa-info-circle"></i> Michael Stonebraker@MIT<br>大数据是计算机科学中的一个旗帜。</p></div><ul><li>Stanford: Stanford Network Analysis Project</li><li>CMU: Pegasus and GraphLab</li><li>MIT: Intel Science &amp; Technology Centre(ISTC) for Big Data</li></ul><p>最火的实验室: SNAP</p><p><img src="/2018/09/16/bigdata-system-ch1/SNAP.jpg" alt="SNAP:三个维度，分别是数据库，机器学习以及操作系统"></p><h2 id="数据科学"><a href="#数据科学" class="headerlink" title="数据科学"></a>数据科学</h2><p><img src="/2018/09/16/bigdata-system-ch1/数据科学.jpg" alt="数据科学：从数据中获取知道人们行动的知识"></p><h2 id="从数据到大数据"><a href="#从数据到大数据" class="headerlink" title="从数据到大数据"></a>从数据到大数据</h2><p><img src="/2018/09/16/bigdata-system-ch1/从数据到大数据.jpg" alt="从数据到大数据"></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;今天开始学习清华大学王建民教授等人开设的《大数据系统基础》课程。&lt;/p&gt;
-&lt;h2 id=&quot;什么是大数据&quot;&gt;&lt;a href=&quot;#什么是大数据&quot; class=&quot;headerlink&quot; title=&quot;什么是大数据&quot;&gt;&lt;/a&gt;什么是大数据&lt;/h2&gt;&lt;p&gt;BigData是一个保罗万象
-      
-    
-    </summary>
-    
-      <category term="Data Science" scheme="https://www.blankspace.cn/categories/Data-Science/"/>
-    
-      <category term="Big Data" scheme="https://www.blankspace.cn/categories/Data-Science/Big-Data/"/>
-    
-      <category term="Big Data System" scheme="https://www.blankspace.cn/categories/Data-Science/Big-Data/Big-Data-System/"/>
-    
-    
-      <category term="Big Data" scheme="https://www.blankspace.cn/tags/Big-Data/"/>
     
   </entry>
   
