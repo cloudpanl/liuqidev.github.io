@@ -3,6 +3,35 @@
   
     
     <entry>
+      <title>Kaggle机器学习入门教程笔记</title>
+      <link href="/2018/10/06/kaggle-learnm-ml-lv1/"/>
+      <url>/2018/10/06/kaggle-learnm-ml-lv1/</url>
+      <content type="html"><![CDATA[<p>原教程，看<a href="https://www.kaggle.com/learn/machine-learning" target="_blank" rel="noopener">这里</a>。</p><p>课次：19。预计花费时长：4小时（实际我花了不止这么多时间）。</p><h2 id="Level-1"><a href="#Level-1" class="headerlink" title="Level 1"></a>Level 1</h2><h2 id="Level-2"><a href="#Level-2" class="headerlink" title="Level 2"></a>Level 2</h2><a id="more"></a>]]></content>
+      
+      <categories>
+          
+          <category> Data Science </category>
+          
+          <category> Competition </category>
+          
+          <category> Kaggle </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Kaggle </tag>
+            
+            <tag> Skit-learn </tag>
+            
+            <tag> Python </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
       <title>（待完善...）向量/矩阵微分</title>
       <link href="/2018/10/05/vector-matrix-derivatives/"/>
       <url>/2018/10/05/vector-matrix-derivatives/</url>
@@ -857,9 +886,9 @@
       
         <tags>
             
-            <tag> TensorFlow </tag>
-            
             <tag> Tensor </tag>
+            
+            <tag> TensorFlow </tag>
             
         </tags>
       
@@ -882,9 +911,9 @@
       
         <tags>
             
-            <tag> TensorFlow </tag>
-            
             <tag> Tensor </tag>
+            
+            <tag> TensorFlow </tag>
             
         </tags>
       
@@ -953,9 +982,9 @@
       
         <tags>
             
-            <tag> mnist </tag>
-            
             <tag> TensorFlow </tag>
+            
+            <tag> mnist </tag>
             
         </tags>
       
@@ -978,9 +1007,9 @@
       
         <tags>
             
-            <tag> mnist </tag>
-            
             <tag> TensorFlow </tag>
+            
+            <tag> mnist </tag>
             
         </tags>
       

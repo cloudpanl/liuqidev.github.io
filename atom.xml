@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.blankspace.cn/"/>
-  <updated>2018-10-05T15:21:46.509Z</updated>
+  <updated>2018-10-06T13:34:48.002Z</updated>
   <id>https://www.blankspace.cn/</id>
   
   <author>
@@ -15,6 +15,38 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Kaggle机器学习入门教程笔记</title>
+    <link href="https://www.blankspace.cn/2018/10/06/kaggle-learnm-ml-lv1/"/>
+    <id>https://www.blankspace.cn/2018/10/06/kaggle-learnm-ml-lv1/</id>
+    <published>2018-10-06T12:34:51.000Z</published>
+    <updated>2018-10-06T13:34:48.002Z</updated>
+    
+    <content type="html"><![CDATA[<p>原教程，看<a href="https://www.kaggle.com/learn/machine-learning" target="_blank" rel="noopener">这里</a>。</p><p>课次：19。预计花费时长：4小时（实际我花了不止这么多时间）。</p><h2 id="Level-1"><a href="#Level-1" class="headerlink" title="Level 1"></a>Level 1</h2><h2 id="Level-2"><a href="#Level-2" class="headerlink" title="Level 2"></a>Level 2</h2><a id="more"></a>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;原教程，看&lt;a href=&quot;https://www.kaggle.com/learn/machine-learning&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;这里&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;课次：19。预计花费时长：4小时（实际我花了不止这么多时间）。&lt;/p&gt;
+&lt;h2 id=&quot;Level-1&quot;&gt;&lt;a href=&quot;#Level-1&quot; class=&quot;headerlink&quot; title=&quot;Level 1&quot;&gt;&lt;/a&gt;Level 1&lt;/h2&gt;&lt;h2 id=&quot;Level-2&quot;&gt;&lt;a href=&quot;#Level-2&quot; class=&quot;headerlink&quot; title=&quot;Level 2&quot;&gt;&lt;/a&gt;Level 2&lt;/h2&gt;
+    
+    </summary>
+    
+      <category term="Data Science" scheme="https://www.blankspace.cn/categories/Data-Science/"/>
+    
+      <category term="Competition" scheme="https://www.blankspace.cn/categories/Data-Science/Competition/"/>
+    
+      <category term="Kaggle" scheme="https://www.blankspace.cn/categories/Data-Science/Competition/Kaggle/"/>
+    
+    
+      <category term="Kaggle" scheme="https://www.blankspace.cn/tags/Kaggle/"/>
+    
+      <category term="Skit-learn" scheme="https://www.blankspace.cn/tags/Skit-learn/"/>
+    
+      <category term="Python" scheme="https://www.blankspace.cn/tags/Python/"/>
+    
+  </entry>
   
   <entry>
     <title>（待完善...）向量/矩阵微分</title>
@@ -865,40 +897,6 @@ E_R\approx \frac{\Delta x}{x} \quad\text{或} \quad E_R\approx \frac{\Delta x}{\
 &lt;p&gt;TB$\to$PB$\to$EB$\to$ZB$\to$$\to$…&lt;/p&gt;
 &lt;ul&gt;
 
-      
-    
-    </summary>
-    
-      <category term="Data Science" scheme="https://www.blankspace.cn/categories/Data-Science/"/>
-    
-      <category term="Big Data" scheme="https://www.blankspace.cn/categories/Data-Science/Big-Data/"/>
-    
-      <category term="Big Data System" scheme="https://www.blankspace.cn/categories/Data-Science/Big-Data/Big-Data-System/"/>
-    
-    
-      <category term="Big Data Applications" scheme="https://www.blankspace.cn/tags/Big-Data-Applications/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>大数据的典型应用</title>
-    <link href="https://www.blankspace.cn/2018/09/16/bigdata-system-ch1-s2/"/>
-    <id>https://www.blankspace.cn/2018/09/16/bigdata-system-ch1-s2/</id>
-    <published>2018-09-16T11:57:03.000Z</published>
-    <updated>2018-09-29T13:37:04.630Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><ul><li>存储 </li><li>分析</li><li>利用</li></ul><h2 id="原则"><a href="#原则" class="headerlink" title="原则"></a>原则</h2><ul><li>所有的东西都是不可靠的，包括用户的需求</li><li>Greedy：make full use of all the resources</li><li>adaptable</li><li>…</li></ul><h2 id="驱动"><a href="#驱动" class="headerlink" title="驱动"></a>驱动</h2><ul><li>问题驱动</li><li>价值驱动</li><li>应用驱动</li></ul><h2 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h2><ul><li>谷歌预测流感</li><li>IBM/Google人机对抗</li><li>微软预测奥斯卡奖</li><li>“增兵减灶”</li><li>林彪查找司令部</li><li>…</li></ul><h2 id="What-do-we-do-with-the-data"><a href="#What-do-we-do-with-the-data" class="headerlink" title="What do we do with the data"></a>What do we do with the data</h2><ul><li>Aggregation and Statistics<ul><li>Data warehouse</li></ul></li><li>Indexing, Searching and Querying<ul><li>Keyword based search</li><li>Pattern matching</li></ul></li><li>Knowledge discovery<ul><li>Data Mining, Statistical Modeling</li></ul></li><li>Intelligence<ul><li>Data-driven AI</li></ul></li></ul><h3 id="不讲和讲的东西"><a href="#不讲和讲的东西" class="headerlink" title="不讲和讲的东西"></a>不讲和讲的东西</h3><p>不讲：</p><ul><li>数学理论和基础</li><li>算法设计和数据结构</li></ul><p>要讲的</p><ul><li>数据采集，组织（处理丢失）</li><li>数据转换</li><li>数据存储</li><li>数据处理：并行计算</li><li>…</li></ul><p>收获：</p><ul><li>知道<ul><li>大数据系统如何工作</li><li>局限性</li><li>性能评估</li><li>潜在的性能提升</li></ul></li><li>工程：<ul><li>实现</li><li>应用</li></ul></li></ul><p>实验</p><ul><li>阿里云</li><li>AWS</li><li>实验室集群</li></ul><p>作业</p><ul><li><p>x4编程作业</p></li><li><p>期末大作业和报告</p></li><li>Paper Survey<ul><li>和助教讨论</li><li>调查和论文阅读</li></ul></li></ul>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;问题&quot;&gt;&lt;a href=&quot;#问题&quot; class=&quot;headerlink&quot; title=&quot;问题&quot;&gt;&lt;/a&gt;问题&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;存储 &lt;/li&gt;
-&lt;li&gt;分析&lt;/li&gt;
-&lt;li&gt;利用&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&quot;原则&quot;&gt;&lt;a href=&quot;#原则&quot;
       
     
     </summary>
