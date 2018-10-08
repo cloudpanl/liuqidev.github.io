@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.blankspace.cn/"/>
-  <updated>2018-10-06T13:34:48.002Z</updated>
+  <updated>2018-10-08T15:25:33.008Z</updated>
   <id>https://www.blankspace.cn/</id>
   
   <author>
@@ -17,11 +17,155 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Kaggle机器学习入门教程笔记</title>
+    <title>（待完善...）Shell命令和cluster建立和使用</title>
+    <link href="https://www.blankspace.cn/2018/10/08/bigdata-system-hw01/"/>
+    <id>https://www.blankspace.cn/2018/10/08/bigdata-system-hw01/</id>
+    <published>2018-10-08T15:16:59.000Z</published>
+    <updated>2018-10-08T15:25:33.008Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Outline"><a href="#Outline" class="headerlink" title="Outline"></a>Outline</h2><ul><li>使用一个Linux server</li><li>使用一个a linux cluster</li><li>mapreduce and spark</li></ul><h2 id="协议和工具"><a href="#协议和工具" class="headerlink" title="协议和工具"></a>协议和工具</h2><p>ssh</p><ul><li>putty</li><li>xshell</li></ul><h2 id="获得数据"><a href="#获得数据" class="headerlink" title="获得数据"></a>获得数据</h2><ul><li>scp, winscp</li><li>sshfs</li><li>ftp</li><li>wget, curl</li></ul><p>ssh</p><h2 id="处理结构化的数据"><a href="#处理结构化的数据" class="headerlink" title="处理结构化的数据"></a>处理结构化的数据</h2><ul><li>awk<br>  awk ‘{print $3 “\t” $4} filename</li></ul><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> awk <span class="string">'&#123;print $2 "\t" $3&#125;'</span> a.txt</span></span><br><span class="line">1       1</span><br><span class="line">2       2</span><br><span class="line">3       3</span><br><span class="line">4       4</span><br><span class="line">2       3</span><br></pre></td></tr></table></figure><h2 id="查看数据"><a href="#查看数据" class="headerlink" title="查看数据"></a>查看数据</h2><p><code>ls -lh</code><br>wc : word count<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">2018211154@ubuntu:~$ wc -l wc_dataset.txt </span><br><span class="line">536700000 wc_dataset.txt</span><br></pre></td></tr></table></figure></p><h3 id="查看部分"><a href="#查看部分" class="headerlink" title="查看部分"></a>查看部分</h3><ul><li>more less</li><li>head tail<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">2018211154@ubuntu:~$ tail -n 20 wc_dataset.txt </span><br><span class="line">words</span><br><span class="line">of</span><br><span class="line">the</span><br><span class="line">old</span><br><span class="line">Negro</span><br><span class="line">spiritual</span><br><span class="line">Free</span><br><span class="line">at</span><br><span class="line">last</span><br><span class="line">free</span><br><span class="line">at</span><br><span class="line">last</span><br><span class="line">Thank</span><br><span class="line">God</span><br><span class="line">Almighty</span><br><span class="line">we</span><br><span class="line">are</span><br><span class="line">free</span><br><span class="line">at</span><br><span class="line">last</span><br></pre></td></tr></table></figure></li></ul><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tail -n 10000 wc_dataset.txt | head -n 100</span><br></pre></td></tr></table></figure><ul><li>cat 连接</li></ul><h2 id="对于表格数据的操作"><a href="#对于表格数据的操作" class="headerlink" title="对于表格数据的操作"></a>对于表格数据的操作</h2><ul><li><ul><li>cat: 打印到标准输出</li></ul></li><li>cat a  b &gt; c :列方向合并a,b到c</li><li>paste: 行方向的合并<br> grep -c：查找,     <code>grep -c pattern file</code>, c是count。返回行数。<pre><code> `-v` `-o`</code></pre><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">2018211154@ubuntu:~$ grep -c "at" wc_dataset.txt </span><br><span class="line">23371000</span><br></pre></td></tr></table></figure></li></ul><h3 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h3><ul><li>^开头</li><li>$结尾</li><li><ul><li>所有</li></ul></li><li>[]</li><li>{}</li><li>?</li></ul><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">2018211154@ubuntu:~$ grep -c "^$" wc_dataset.txt </span><br><span class="line">0</span><br></pre></td></tr></table></figure><p><code>/a/{++cnt} END {print &quot;Count = &quot;, cnt}</code> filename<br>/a 查找</p><p>`awk ‘!($0 in arr) {arr[$0]; print}’ filename</p><h3 id="sort"><a href="#sort" class="headerlink" title="sort"></a>sort</h3><ul><li>排序sor</li><li>unique</li></ul><h2 id="Running-commands-on-a-single-machine"><a href="#Running-commands-on-a-single-machine" class="headerlink" title="Running commands on a single machine"></a>Running commands on a single machine</h2><h3 id="amp"><a href="#amp" class="headerlink" title="&amp;"></a>&amp;</h3><p>运行多个进程</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">a.sh &amp;</span><br><span class="line">b.sh &amp;</span><br><span class="line">c.sh &amp;</span><br><span class="line">wait</span><br></pre></td></tr></table></figure><p>编写<code>.sh</code></p><h3 id="ps-top"><a href="#ps-top" class="headerlink" title="ps, top"></a>ps, top</h3><p>查看进程</p><p>crontab： crontab -e</p><h2 id="Using-a-linux-cluster"><a href="#Using-a-linux-cluster" class="headerlink" title="Using a linux cluster"></a>Using a linux cluster</h2><h3 id="ssh"><a href="#ssh" class="headerlink" title="ssh"></a>ssh</h3><ul><li><p>ssh machine command</p></li><li><p>dsh, pdsh</p></li></ul><p>将私钥注册，就不需要输入密码。</p><a id="more"></a><h2 id="Using-a-linux-cluster-1"><a href="#Using-a-linux-cluster-1" class="headerlink" title="Using a linux cluster"></a>Using a linux cluster</h2><ul><li>pusll-based control<br>  create an agent on each server, driven by crontab<pre><code>       eg. wget and run</code></pre></li><li>creat a central control </li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Outline&quot;&gt;&lt;a href=&quot;#Outline&quot; class=&quot;headerlink&quot; title=&quot;Outline&quot;&gt;&lt;/a&gt;Outline&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;使用一个Linux server&lt;/li&gt;
+&lt;li&gt;使用一个a linux cluster&lt;/li&gt;
+&lt;li&gt;mapreduce and spark&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;协议和工具&quot;&gt;&lt;a href=&quot;#协议和工具&quot; class=&quot;headerlink&quot; title=&quot;协议和工具&quot;&gt;&lt;/a&gt;协议和工具&lt;/h2&gt;&lt;p&gt;ssh&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;putty&lt;/li&gt;
+&lt;li&gt;xshell&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;获得数据&quot;&gt;&lt;a href=&quot;#获得数据&quot; class=&quot;headerlink&quot; title=&quot;获得数据&quot;&gt;&lt;/a&gt;获得数据&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;scp, winscp&lt;/li&gt;
+&lt;li&gt;sshfs&lt;/li&gt;
+&lt;li&gt;ftp&lt;/li&gt;
+&lt;li&gt;wget, curl&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;ssh&lt;/p&gt;
+&lt;h2 id=&quot;处理结构化的数据&quot;&gt;&lt;a href=&quot;#处理结构化的数据&quot; class=&quot;headerlink&quot; title=&quot;处理结构化的数据&quot;&gt;&lt;/a&gt;处理结构化的数据&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;awk&lt;br&gt;  awk ‘{print $3 “\t” $4} filename&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&quot;highlight shell&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;bash&quot;&gt; awk &lt;span class=&quot;string&quot;&gt;&#39;&amp;#123;print $2 &quot;\t&quot; $3&amp;#125;&#39;&lt;/span&gt; a.txt&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;1       1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2       2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3       3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4       4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2       3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h2 id=&quot;查看数据&quot;&gt;&lt;a href=&quot;#查看数据&quot; class=&quot;headerlink&quot; title=&quot;查看数据&quot;&gt;&lt;/a&gt;查看数据&lt;/h2&gt;&lt;p&gt;&lt;code&gt;ls -lh&lt;/code&gt;&lt;br&gt;wc : word count&lt;br&gt;&lt;figure class=&quot;highlight shell&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;2018211154@ubuntu:~$ wc -l wc_dataset.txt &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;536700000 wc_dataset.txt&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;h3 id=&quot;查看部分&quot;&gt;&lt;a href=&quot;#查看部分&quot; class=&quot;headerlink&quot; title=&quot;查看部分&quot;&gt;&lt;/a&gt;查看部分&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;more less&lt;/li&gt;
+&lt;li&gt;head tail&lt;figure class=&quot;highlight shell&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;2018211154@ubuntu:~$ tail -n 20 wc_dataset.txt &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;words&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;of&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;the&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;old&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Negro&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;spiritual&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Free&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;at&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;last&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;free&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;at&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;last&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Thank&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;God&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Almighty&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;we&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;are&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;free&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;at&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;last&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&quot;highlight shell&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;tail -n 10000 wc_dataset.txt | head -n 100&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;ul&gt;
+&lt;li&gt;cat 连接&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;对于表格数据的操作&quot;&gt;&lt;a href=&quot;#对于表格数据的操作&quot; class=&quot;headerlink&quot; title=&quot;对于表格数据的操作&quot;&gt;&lt;/a&gt;对于表格数据的操作&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;ul&gt;
+&lt;li&gt;cat: 打印到标准输出&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;cat a  b &amp;gt; c :列方向合并a,b到c&lt;/li&gt;
+&lt;li&gt;paste: 行方向的合并&lt;br&gt; grep -c：查找,     &lt;code&gt;grep -c pattern file&lt;/code&gt;, c是count。返回行数。&lt;pre&gt;&lt;code&gt; `-v`
+ `-o`
+&lt;/code&gt;&lt;/pre&gt;&lt;figure class=&quot;highlight shell&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;2018211154@ubuntu:~$ grep -c &quot;at&quot; wc_dataset.txt &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23371000&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;正则表达式&quot;&gt;&lt;a href=&quot;#正则表达式&quot; class=&quot;headerlink&quot; title=&quot;正则表达式&quot;&gt;&lt;/a&gt;正则表达式&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;^开头&lt;/li&gt;
+&lt;li&gt;$结尾&lt;/li&gt;
+&lt;li&gt;&lt;ul&gt;
+&lt;li&gt;所有&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;[]&lt;/li&gt;
+&lt;li&gt;{}&lt;/li&gt;
+&lt;li&gt;?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&quot;highlight shell&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;2018211154@ubuntu:~$ grep -c &quot;^$&quot; wc_dataset.txt &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;0&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;&lt;code&gt;/a/{++cnt} END {print &amp;quot;Count = &amp;quot;, cnt}&lt;/code&gt; filename&lt;br&gt;/a 查找&lt;/p&gt;
+&lt;p&gt;`awk ‘!($0 in arr) {arr[$0]; print}’ filename&lt;/p&gt;
+&lt;h3 id=&quot;sort&quot;&gt;&lt;a href=&quot;#sort&quot; class=&quot;headerlink&quot; title=&quot;sort&quot;&gt;&lt;/a&gt;sort&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;排序sor&lt;/li&gt;
+&lt;li&gt;unique&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;Running-commands-on-a-single-machine&quot;&gt;&lt;a href=&quot;#Running-commands-on-a-single-machine&quot; class=&quot;headerlink&quot; title=&quot;Running commands on a single machine&quot;&gt;&lt;/a&gt;Running commands on a single machine&lt;/h2&gt;&lt;h3 id=&quot;amp&quot;&gt;&lt;a href=&quot;#amp&quot; class=&quot;headerlink&quot; title=&quot;&amp;amp;&quot;&gt;&lt;/a&gt;&amp;amp;&lt;/h3&gt;&lt;p&gt;运行多个进程&lt;/p&gt;
+&lt;figure class=&quot;highlight shell&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;a.sh &amp;amp;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;b.sh &amp;amp;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;c.sh &amp;amp;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;wait&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;编写&lt;code&gt;.sh&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id=&quot;ps-top&quot;&gt;&lt;a href=&quot;#ps-top&quot; class=&quot;headerlink&quot; title=&quot;ps, top&quot;&gt;&lt;/a&gt;ps, top&lt;/h3&gt;&lt;p&gt;查看进程&lt;/p&gt;
+&lt;p&gt;crontab： crontab -e&lt;/p&gt;
+&lt;h2 id=&quot;Using-a-linux-cluster&quot;&gt;&lt;a href=&quot;#Using-a-linux-cluster&quot; class=&quot;headerlink&quot; title=&quot;Using a linux cluster&quot;&gt;&lt;/a&gt;Using a linux cluster&lt;/h2&gt;&lt;h3 id=&quot;ssh&quot;&gt;&lt;a href=&quot;#ssh&quot; class=&quot;headerlink&quot; title=&quot;ssh&quot;&gt;&lt;/a&gt;ssh&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;ssh machine command&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;dsh, pdsh&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;将私钥注册，就不需要输入密码。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Data Science" scheme="https://www.blankspace.cn/categories/Data-Science/"/>
+    
+      <category term="Big Data" scheme="https://www.blankspace.cn/categories/Data-Science/Big-Data/"/>
+    
+      <category term="Big Data System" scheme="https://www.blankspace.cn/categories/Data-Science/Big-Data/Big-Data-System/"/>
+    
+    
+      <category term="Shell" scheme="https://www.blankspace.cn/tags/Shell/"/>
+    
+      <category term="ssh" scheme="https://www.blankspace.cn/tags/ssh/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>（待完善...）Shell命令快速参考</title>
+    <link href="https://www.blankspace.cn/2018/10/08/linux-shell-rush-01/"/>
+    <id>https://www.blankspace.cn/2018/10/08/linux-shell-rush-01/</id>
+    <published>2018-10-08T01:24:03.000Z</published>
+    <updated>2018-10-08T15:15:37.023Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="ls-cd-pwd"><a href="#ls-cd-pwd" class="headerlink" title="ls, cd, pwd"></a>ls, cd, pwd</h2><h3 id="ls"><a href="#ls" class="headerlink" title="ls"></a>ls</h3><ol><li><p>命令格式<br><code>ls</code> : list</p><blockquote><p>ls <option> <dir></dir></option></p></blockquote></li><li><p>常用参数<br>使用<code>man ls</code>查看是坠吼的，笔记里就懒得写那么多了。常用的有：</p></li></ol><ul><li><code>-a</code>: <code>--all</code>, 显示全部的文件，包括以<code>.</code>开头的隐藏文件。</li><li><code>-l</code>: 长列表的形式呈现文件</li><li><code>-t</code>：以文档修改时间排序</li><li><code>-h</code>：列出人能读懂的文件大小</li><li><code>-d</code>：将目录也像问价那样列出来</li></ul><ol><li>使用范例<br><strong>1)</strong> 参数可以每个加<code>-</code>列出，也可以组合，只用一个<code>-</code><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">xxx@ubuntu:~$ ls -a -l -t -h</span><br><span class="line">xxx@ubuntu:~$ ls -alth</span><br></pre></td></tr></table></figure></li></ol><p><strong>2)</strong> 列出当前目录哪些文件名(比如以<code>d</code>开头)的文件<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls -l d*</span><br></pre></td></tr></table></figure></p><h3 id="cd"><a href="#cd" class="headerlink" title="cd"></a>cd</h3><a id="more"></a>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;ls-cd-pwd&quot;&gt;&lt;a href=&quot;#ls-cd-pwd&quot; class=&quot;headerlink&quot; title=&quot;ls, cd, pwd&quot;&gt;&lt;/a&gt;ls, cd, pwd&lt;/h2&gt;&lt;h3 id=&quot;ls&quot;&gt;&lt;a href=&quot;#ls&quot; class=&quot;headerlink&quot; title=&quot;ls&quot;&gt;&lt;/a&gt;ls&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;命令格式&lt;br&gt;&lt;code&gt;ls&lt;/code&gt; : list&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;ls &lt;option&gt; &lt;dir&gt;&lt;/dir&gt;&lt;/option&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;常用参数&lt;br&gt;使用&lt;code&gt;man ls&lt;/code&gt;查看是坠吼的，笔记里就懒得写那么多了。常用的有：&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;-a&lt;/code&gt;: &lt;code&gt;--all&lt;/code&gt;, 显示全部的文件，包括以&lt;code&gt;.&lt;/code&gt;开头的隐藏文件。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;-l&lt;/code&gt;: 长列表的形式呈现文件&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;-t&lt;/code&gt;：以文档修改时间排序&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;-h&lt;/code&gt;：列出人能读懂的文件大小&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;-d&lt;/code&gt;：将目录也像问价那样列出来&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol&gt;
+&lt;li&gt;使用范例&lt;br&gt;&lt;strong&gt;1)&lt;/strong&gt; 参数可以每个加&lt;code&gt;-&lt;/code&gt;列出，也可以组合，只用一个&lt;code&gt;-&lt;/code&gt;&lt;figure class=&quot;highlight shell&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;xxx@ubuntu:~$ ls -a -l -t -h&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;xxx@ubuntu:~$ ls -alth&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;2)&lt;/strong&gt; 列出当前目录哪些文件名(比如以&lt;code&gt;d&lt;/code&gt;开头)的文件&lt;br&gt;&lt;figure class=&quot;highlight shell&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;ls -l d*&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;h3 id=&quot;cd&quot;&gt;&lt;a href=&quot;#cd&quot; class=&quot;headerlink&quot; title=&quot;cd&quot;&gt;&lt;/a&gt;cd&lt;/h3&gt;
+    
+    </summary>
+    
+      <category term="Linux" scheme="https://www.blankspace.cn/categories/Linux/"/>
+    
+      <category term="Shell" scheme="https://www.blankspace.cn/categories/Linux/Shell/"/>
+    
+    
+      <category term="Shell" scheme="https://www.blankspace.cn/tags/Shell/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>（待完善...）Kaggle机器学习入门教程笔记</title>
     <link href="https://www.blankspace.cn/2018/10/06/kaggle-learnm-ml-lv1/"/>
     <id>https://www.blankspace.cn/2018/10/06/kaggle-learnm-ml-lv1/</id>
     <published>2018-10-06T12:34:51.000Z</published>
-    <updated>2018-10-06T13:34:48.002Z</updated>
+    <updated>2018-10-08T01:24:59.966Z</updated>
     
     <content type="html"><![CDATA[<p>原教程，看<a href="https://www.kaggle.com/learn/machine-learning" target="_blank" rel="noopener">这里</a>。</p><p>课次：19。预计花费时长：4小时（实际我花了不止这么多时间）。</p><h2 id="Level-1"><a href="#Level-1" class="headerlink" title="Level 1"></a>Level 1</h2><h2 id="Level-2"><a href="#Level-2" class="headerlink" title="Level 2"></a>Level 2</h2><a id="more"></a>]]></content>
     
@@ -653,9 +797,9 @@ E_R\approx \frac{\Delta x}{x} \quad\text{或} \quad E_R\approx \frac{\Delta x}{\
       <category term="Linux Basic" scheme="https://www.blankspace.cn/categories/Linux/Linux-Basic/"/>
     
     
-      <category term="Linux" scheme="https://www.blankspace.cn/tags/Linux/"/>
-    
       <category term="Shell" scheme="https://www.blankspace.cn/tags/Shell/"/>
+    
+      <category term="Linux" scheme="https://www.blankspace.cn/tags/Linux/"/>
     
       <category term="Priority" scheme="https://www.blankspace.cn/tags/Priority/"/>
     
@@ -753,9 +897,9 @@ E_R\approx \frac{\Delta x}{x} \quad\text{或} \quad E_R\approx \frac{\Delta x}{\
       <category term="Linux Basic" scheme="https://www.blankspace.cn/categories/Linux/Linux-Basic/"/>
     
     
-      <category term="Linux" scheme="https://www.blankspace.cn/tags/Linux/"/>
-    
       <category term="Shell" scheme="https://www.blankspace.cn/tags/Shell/"/>
+    
+      <category term="Linux" scheme="https://www.blankspace.cn/tags/Linux/"/>
     
   </entry>
   
@@ -815,100 +959,6 @@ E_R\approx \frac{\Delta x}{x} \quad\text{或} \quad E_R\approx \frac{\Delta x}{\
     
     
       <category term="Big Data Ecosystem" scheme="https://www.blankspace.cn/tags/Big-Data-Ecosystem/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>大数据技术体系</title>
-    <link href="https://www.blankspace.cn/2018/09/16/bigdata-system-ch1-s4/"/>
-    <id>https://www.blankspace.cn/2018/09/16/bigdata-system-ch1-s4/</id>
-    <published>2018-09-16T12:25:11.000Z</published>
-    <updated>2018-09-20T08:17:27.918Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="大数据技术体系现状"><a href="#大数据技术体系现状" class="headerlink" title="大数据技术体系现状"></a>大数据技术体系现状</h2><p><img src="/2018/09/16/bigdata-system-ch1-s4/大数据技术分类.png" alt="大数据技术分类：1.采集和集成；2.存储和管理；3.分析和挖掘；4.可视化；5.计算范式；6.隐私和安全"></p><h2 id="数据质量"><a href="#数据质量" class="headerlink" title="数据质量"></a>数据质量</h2><ul><li>传统数据质量<ul><li>仅通过ETL（抽取、转换、加载）执行</li><li>没有完全覆盖数据及质量的基本性质</li></ul></li></ul><h3 id="挑战"><a href="#挑战" class="headerlink" title="挑战"></a>挑战</h3><ul><li>分布式环境中，保障全局数据的一致性，进取型，完整性</li><li>流处理环境中，如何保证时效性<ul><li>例如：时序一致性</li></ul></li></ul><h3 id="在大数据中保证绝对的数据质量并不现实"><a href="#在大数据中保证绝对的数据质量并不现实" class="headerlink" title="在大数据中保证绝对的数据质量并不现实"></a>在大数据中保证绝对的数据质量并不现实</h3><ul><li>高纬，异质，模糊，海量，多变</li></ul><h2 id="数据存储和管理"><a href="#数据存储和管理" class="headerlink" title="数据存储和管理"></a>数据存储和管理</h2><h3 id="某些转变"><a href="#某些转变" class="headerlink" title="某些转变"></a>某些转变</h3><ul><li>Hash大于扫描</li><li>单副本转向多副本</li><li>但阶段转为多阶段</li><li>压缩不再解压</li></ul><h2 id="传统数据分析和大数据"><a href="#传统数据分析和大数据" class="headerlink" title="传统数据分析和大数据"></a>传统数据分析和大数据</h2><p><img src="/2018/09/16/bigdata-system-ch1-s4/大数据分析的特点.jpg" alt="大数据分析的特点:和传统的数据分析相比，大数据分析焦点在对未来的预测，数据多是大规模、多样化、无关联的数据，更侧重于关联分析"></p><h3 id="大数据分析的特点"><a href="#大数据分析的特点" class="headerlink" title="大数据分析的特点"></a>大数据分析的特点</h3><ul><li>监控动态流数据，跟踪变化趋势而非仅仅考虑静态数据</li><li>数据科学家要和领域科学家一起进行分析</li><li>将大数据分析集成到核心业务和运营环节</li></ul><h2 id="可视化挑战"><a href="#可视化挑战" class="headerlink" title="可视化挑战"></a>可视化挑战</h2><p><img src="/2018/09/16/bigdata-system-ch1-s4/可视化挑战.jpg" alt="可视化挑战：将蕴含在原始数据中的关联和因果关系可视化展示出来，并根据人的交互反馈，触发新一轮的知识发现"></p><ul><li>强调人的作用</li><li>强调分析中的迭代</li></ul><a id="more"></a><h2 id="计算范型"><a href="#计算范型" class="headerlink" title="计算范型"></a>计算范型</h2><p><img src="/2018/09/16/bigdata-system-ch1-s4/计算范型.png" alt="大数据计算范型：关注人在知识发现中的作用，大规模分布式并行计算平台，共享平台，众包模式等"></p><h2 id="安全与隐私"><a href="#安全与隐私" class="headerlink" title="安全与隐私"></a>安全与隐私</h2><p>要尽量保证数据安全和隐私的前提下发展，不能因噎废食</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;大数据技术体系现状&quot;&gt;&lt;a href=&quot;#大数据技术体系现状&quot; class=&quot;headerlink&quot; title=&quot;大数据技术体系现状&quot;&gt;&lt;/a&gt;大数据技术体系现状&lt;/h2&gt;&lt;p&gt;&lt;img src=&quot;/2018/09/16/bigdata-system-ch1-s4/大数据技术分类.png&quot; alt=&quot;大数据技术分类：1.采集和集成；2.存储和管理；3.分析和挖掘；4.可视化；5.计算范式；6.隐私和安全&quot;&gt;&lt;/p&gt;
-&lt;h2 id=&quot;数据质量&quot;&gt;&lt;a href=&quot;#数据质量&quot; class=&quot;headerlink&quot; title=&quot;数据质量&quot;&gt;&lt;/a&gt;数据质量&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;传统数据质量&lt;ul&gt;
-&lt;li&gt;仅通过ETL（抽取、转换、加载）执行&lt;/li&gt;
-&lt;li&gt;没有完全覆盖数据及质量的基本性质&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&quot;挑战&quot;&gt;&lt;a href=&quot;#挑战&quot; class=&quot;headerlink&quot; title=&quot;挑战&quot;&gt;&lt;/a&gt;挑战&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;分布式环境中，保障全局数据的一致性，进取型，完整性&lt;/li&gt;
-&lt;li&gt;流处理环境中，如何保证时效性&lt;ul&gt;
-&lt;li&gt;例如：时序一致性&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&quot;在大数据中保证绝对的数据质量并不现实&quot;&gt;&lt;a href=&quot;#在大数据中保证绝对的数据质量并不现实&quot; class=&quot;headerlink&quot; title=&quot;在大数据中保证绝对的数据质量并不现实&quot;&gt;&lt;/a&gt;在大数据中保证绝对的数据质量并不现实&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;高纬，异质，模糊，海量，多变&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&quot;数据存储和管理&quot;&gt;&lt;a href=&quot;#数据存储和管理&quot; class=&quot;headerlink&quot; title=&quot;数据存储和管理&quot;&gt;&lt;/a&gt;数据存储和管理&lt;/h2&gt;&lt;h3 id=&quot;某些转变&quot;&gt;&lt;a href=&quot;#某些转变&quot; class=&quot;headerlink&quot; title=&quot;某些转变&quot;&gt;&lt;/a&gt;某些转变&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;Hash大于扫描&lt;/li&gt;
-&lt;li&gt;单副本转向多副本&lt;/li&gt;
-&lt;li&gt;但阶段转为多阶段&lt;/li&gt;
-&lt;li&gt;压缩不再解压&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&quot;传统数据分析和大数据&quot;&gt;&lt;a href=&quot;#传统数据分析和大数据&quot; class=&quot;headerlink&quot; title=&quot;传统数据分析和大数据&quot;&gt;&lt;/a&gt;传统数据分析和大数据&lt;/h2&gt;&lt;p&gt;&lt;img src=&quot;/2018/09/16/bigdata-system-ch1-s4/大数据分析的特点.jpg&quot; alt=&quot;大数据分析的特点:和传统的数据分析相比，大数据分析焦点在对未来的预测，数据多是大规模、多样化、无关联的数据，更侧重于关联分析&quot;&gt;&lt;/p&gt;
-&lt;h3 id=&quot;大数据分析的特点&quot;&gt;&lt;a href=&quot;#大数据分析的特点&quot; class=&quot;headerlink&quot; title=&quot;大数据分析的特点&quot;&gt;&lt;/a&gt;大数据分析的特点&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;监控动态流数据，跟踪变化趋势而非仅仅考虑静态数据&lt;/li&gt;
-&lt;li&gt;数据科学家要和领域科学家一起进行分析&lt;/li&gt;
-&lt;li&gt;将大数据分析集成到核心业务和运营环节&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&quot;可视化挑战&quot;&gt;&lt;a href=&quot;#可视化挑战&quot; class=&quot;headerlink&quot; title=&quot;可视化挑战&quot;&gt;&lt;/a&gt;可视化挑战&lt;/h2&gt;&lt;p&gt;&lt;img src=&quot;/2018/09/16/bigdata-system-ch1-s4/可视化挑战.jpg&quot; alt=&quot;可视化挑战：将蕴含在原始数据中的关联和因果关系可视化展示出来，并根据人的交互反馈，触发新一轮的知识发现&quot;&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;强调人的作用&lt;/li&gt;
-&lt;li&gt;强调分析中的迭代&lt;/li&gt;
-&lt;/ul&gt;
-    
-    </summary>
-    
-      <category term="Data Science" scheme="https://www.blankspace.cn/categories/Data-Science/"/>
-    
-      <category term="Big Data" scheme="https://www.blankspace.cn/categories/Data-Science/Big-Data/"/>
-    
-      <category term="Big Data System" scheme="https://www.blankspace.cn/categories/Data-Science/Big-Data/Big-Data-System/"/>
-    
-    
-      <category term="Big Data Technologies" scheme="https://www.blankspace.cn/tags/Big-Data-Technologies/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>大数据的特点</title>
-    <link href="https://www.blankspace.cn/2018/09/16/bigdata-system-ch1-s3/"/>
-    <id>https://www.blankspace.cn/2018/09/16/bigdata-system-ch1-s3/</id>
-    <published>2018-09-16T12:02:41.000Z</published>
-    <updated>2018-09-20T08:17:24.282Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h2><ul><li>数据的规模</li></ul><p>TB$\to$PB$\to$EB$\to$ZB$\to$$\to$…</p><ul><li>数据类型</li></ul><p><img src="/2018/09/16/bigdata-system-ch1-s3/数据的规模.jpg" alt="数据的类型：结构化+半结构化+非结构化"></p><ul><li>生命周期</li></ul><p><img src="/2018/09/16/bigdata-system-ch1-s3/数据生命周期.jpg" alt="数据处理生命周期(获取记录，抽取清洗，集成聚合，分析建模，解释展示)以及面临的共同问题(异构，规模，时效，隐私，协同)"></p><ul><li>加工深度</li></ul><p><img src="/2018/09/16/bigdata-system-ch1-s3/加工深度.jpg" alt="数据加工深度：从数据，信息，知识，到智慧"></p><ul><li>处理方式</li></ul><p>批量（Batch）$\to$在线（Online）$\to$实时（In time）</p><ul><li>用户</li></ul><p>内部用户+外部用户号</p><ul><li>数据质量</li></ul><p><img src="/2018/09/16/bigdata-system-ch1-s3/数据质量.jpg" alt="数据质量：精确性；完整性；一致性；时效性"></p><ul><li>数据价值<ul><li>价值稀疏：大部分的数据都是“辣鸡”或者无人问津。例如微博和红楼梦。</li><li>长尾效应</li></ul></li></ul>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;特点&quot;&gt;&lt;a href=&quot;#特点&quot; class=&quot;headerlink&quot; title=&quot;特点&quot;&gt;&lt;/a&gt;特点&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;数据的规模&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;TB$\to$PB$\to$EB$\to$ZB$\to$$\to$…&lt;/p&gt;
-&lt;ul&gt;
-
-      
-    
-    </summary>
-    
-      <category term="Data Science" scheme="https://www.blankspace.cn/categories/Data-Science/"/>
-    
-      <category term="Big Data" scheme="https://www.blankspace.cn/categories/Data-Science/Big-Data/"/>
-    
-      <category term="Big Data System" scheme="https://www.blankspace.cn/categories/Data-Science/Big-Data/Big-Data-System/"/>
-    
-    
-      <category term="Big Data Applications" scheme="https://www.blankspace.cn/tags/Big-Data-Applications/"/>
     
   </entry>
   

@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>（待完善...）Shell命令和cluster建立和使用 | WizardLQ’s | 魔法师の小茶馆</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Outline 使用一个Linux server 使用一个a linux cluster mapreduce and spark  协议和工具ssh  putty xshell  获得数据 scp, winscp sshfs ftp wget, curl  ssh 处理结构化的数据 awk  awk ‘{print $3 “\t” $4} filename  123456$ awk &apos;&amp;#123;">
+<meta name="keywords" content="Shell,ssh">
+<meta property="og:type" content="article">
+<meta property="og:title" content="（待完善...）Shell命令和cluster建立和使用">
+<meta property="og:url" content="https://www.blankspace.cn/2018/10/08/bigdata-system-hw01/index.html">
+<meta property="og:site_name" content="WizardLQ’s | 魔法师の小茶馆">
+<meta property="og:description" content="Outline 使用一个Linux server 使用一个a linux cluster mapreduce and spark  协议和工具ssh  putty xshell  获得数据 scp, winscp sshfs ftp wget, curl  ssh 处理结构化的数据 awk  awk ‘{print $3 “\t” $4} filename  123456$ awk &apos;&amp;#123;">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2018-10-08T15:25:33.008Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="（待完善...）Shell命令和cluster建立和使用">
+<meta name="twitter:description" content="Outline 使用一个Linux server 使用一个a linux cluster mapreduce and spark  协议和工具ssh  putty xshell  获得数据 scp, winscp sshfs ftp wget, curl  ssh 处理结构化的数据 awk  awk ‘{print $3 “\t” $4} filename  123456$ awk &apos;&amp;#123;">
+<link rel="publisher" href="112373242775367340000">
+  
+    <link rel="alternate" href="/atom.xml" title="WizardLQ’s | 魔法师の小茶馆" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/images/icon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+<!--
+<link href="https://cdn.bootcss.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet"><link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
+-->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+<!--
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.slim.min.js"></script>
+-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.slim.min.js"></script>
+
+<!--
+<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+-->
+<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script type="text/javascript" src="//ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.3.min.js"></script>
+
+<link rel="stylesheet" href="/css/styles.css">
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+<!--
+<script src="https://cdn.bootcss.com/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+</head>
+
+<body>
+
+	
+
+	
+	<div class="container">
+	<div class="article-wrapper">
+
+
+<article id="post-bigdata-system-hw01" class="article article-type-post" itemscope itemprop="blogPost">
+	
+
+
+<header class="article-header">
+
+  
+    <h1 class="article-title" itemprop="name">
+      （待完善...）Shell命令和cluster建立和使用
+    </h1>
+  
+
+
+	
+
+ 
+	
+		魔法师LQ
+	
+	</hr>
+	<div class="article-datetime">
+	  <time datetime="2018-10-08T15:16:59.000Z" itemprop="datePublished">2018-10-08</time>
+	</div>
+	<div class="header-divider"></div>	
+
+	   
+
+</header>
+
+<div class="article-inner">
+<div class="article-entry" itemprop="articleBody">
+  
+  
+	<!-- Table of Contents -->
+
+	<aside id="article-toc" role="navigation" class="fixed">
+		<div id="article-toc-inner">
+			<strong class="sidebar-title">
+			Contents</strong>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Outline"><span class="toc-text">Outline</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#协议和工具"><span class="toc-text">协议和工具</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#获得数据"><span class="toc-text">获得数据</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#处理结构化的数据"><span class="toc-text">处理结构化的数据</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#查看数据"><span class="toc-text">查看数据</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#查看部分"><span class="toc-text">查看部分</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#对于表格数据的操作"><span class="toc-text">对于表格数据的操作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#正则表达式"><span class="toc-text">正则表达式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#sort"><span class="toc-text">sort</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Running-commands-on-a-single-machine"><span class="toc-text">Running commands on a single machine</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#amp"><span class="toc-text">&amp;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ps-top"><span class="toc-text">ps, top</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Using-a-linux-cluster"><span class="toc-text">Using a linux cluster</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ssh"><span class="toc-text">ssh</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Using-a-linux-cluster-1"><span class="toc-text">Using a linux cluster</span></a></li></ol>
+		</div>
+	</aside>
+
+	
+	
+	<h2 id="Outline"><a href="#Outline" class="headerlink" title="Outline"></a>Outline</h2><ul>
+<li>使用一个Linux server</li>
+<li>使用一个a linux cluster</li>
+<li>mapreduce and spark</li>
+</ul>
+<h2 id="协议和工具"><a href="#协议和工具" class="headerlink" title="协议和工具"></a>协议和工具</h2><p>ssh</p>
+<ul>
+<li>putty</li>
+<li>xshell</li>
+</ul>
+<h2 id="获得数据"><a href="#获得数据" class="headerlink" title="获得数据"></a>获得数据</h2><ul>
+<li>scp, winscp</li>
+<li>sshfs</li>
+<li>ftp</li>
+<li>wget, curl</li>
+</ul>
+<p>ssh</p>
+<h2 id="处理结构化的数据"><a href="#处理结构化的数据" class="headerlink" title="处理结构化的数据"></a>处理结构化的数据</h2><ul>
+<li>awk<br>  awk ‘{print $3 “\t” $4} filename</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> awk <span class="string">'&#123;print $2 "\t" $3&#125;'</span> a.txt</span></span><br><span class="line">1       1</span><br><span class="line">2       2</span><br><span class="line">3       3</span><br><span class="line">4       4</span><br><span class="line">2       3</span><br></pre></td></tr></table></figure>
+<h2 id="查看数据"><a href="#查看数据" class="headerlink" title="查看数据"></a>查看数据</h2><p><code>ls -lh</code><br>wc : word count<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">2018211154@ubuntu:~$ wc -l wc_dataset.txt </span><br><span class="line">536700000 wc_dataset.txt</span><br></pre></td></tr></table></figure></p>
+<h3 id="查看部分"><a href="#查看部分" class="headerlink" title="查看部分"></a>查看部分</h3><ul>
+<li>more less</li>
+<li>head tail<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">2018211154@ubuntu:~$ tail -n 20 wc_dataset.txt </span><br><span class="line">words</span><br><span class="line">of</span><br><span class="line">the</span><br><span class="line">old</span><br><span class="line">Negro</span><br><span class="line">spiritual</span><br><span class="line">Free</span><br><span class="line">at</span><br><span class="line">last</span><br><span class="line">free</span><br><span class="line">at</span><br><span class="line">last</span><br><span class="line">Thank</span><br><span class="line">God</span><br><span class="line">Almighty</span><br><span class="line">we</span><br><span class="line">are</span><br><span class="line">free</span><br><span class="line">at</span><br><span class="line">last</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tail -n 10000 wc_dataset.txt | head -n 100</span><br></pre></td></tr></table></figure>
+<ul>
+<li>cat 连接</li>
+</ul>
+<h2 id="对于表格数据的操作"><a href="#对于表格数据的操作" class="headerlink" title="对于表格数据的操作"></a>对于表格数据的操作</h2><ul>
+<li><ul>
+<li>cat: 打印到标准输出</li>
+</ul>
+</li>
+<li>cat a  b &gt; c :列方向合并a,b到c</li>
+<li>paste: 行方向的合并<br> grep -c：查找,     <code>grep -c pattern file</code>, c是count。返回行数。<pre><code> `-v`
+ `-o`
+</code></pre><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">2018211154@ubuntu:~$ grep -c "at" wc_dataset.txt </span><br><span class="line">23371000</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h3><ul>
+<li>^开头</li>
+<li>$结尾</li>
+<li><ul>
+<li>所有</li>
+</ul>
+</li>
+<li>[]</li>
+<li>{}</li>
+<li>?</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">2018211154@ubuntu:~$ grep -c "^$" wc_dataset.txt </span><br><span class="line">0</span><br></pre></td></tr></table></figure>
+<p><code>/a/{++cnt} END {print &quot;Count = &quot;, cnt}</code> filename<br>/a 查找</p>
+<p>`awk ‘!($0 in arr) {arr[$0]; print}’ filename</p>
+<h3 id="sort"><a href="#sort" class="headerlink" title="sort"></a>sort</h3><ul>
+<li>排序sor</li>
+<li>unique</li>
+</ul>
+<h2 id="Running-commands-on-a-single-machine"><a href="#Running-commands-on-a-single-machine" class="headerlink" title="Running commands on a single machine"></a>Running commands on a single machine</h2><h3 id="amp"><a href="#amp" class="headerlink" title="&amp;"></a>&amp;</h3><p>运行多个进程</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">a.sh &amp;</span><br><span class="line">b.sh &amp;</span><br><span class="line">c.sh &amp;</span><br><span class="line">wait</span><br></pre></td></tr></table></figure>
+<p>编写<code>.sh</code></p>
+<h3 id="ps-top"><a href="#ps-top" class="headerlink" title="ps, top"></a>ps, top</h3><p>查看进程</p>
+<p>crontab： crontab -e</p>
+<h2 id="Using-a-linux-cluster"><a href="#Using-a-linux-cluster" class="headerlink" title="Using a linux cluster"></a>Using a linux cluster</h2><h3 id="ssh"><a href="#ssh" class="headerlink" title="ssh"></a>ssh</h3><ul>
+<li><p>ssh machine command</p>
+</li>
+<li><p>dsh, pdsh</p>
+</li>
+</ul>
+<p>将私钥注册，就不需要输入密码。</p>
+<a id="more"></a>
+<h2 id="Using-a-linux-cluster-1"><a href="#Using-a-linux-cluster-1" class="headerlink" title="Using a linux cluster"></a>Using a linux cluster</h2><ul>
+<li>pusll-based control<br>  create an agent on each server, driven by crontab<pre><code>       eg. wget and run
+</code></pre></li>
+<li>creat a central control </li>
+</ul>
+
+	
+  
+</div>
+
+
+  
+
+
+
+
+</div>
+
+</article>
+
+
+
+
+	</div><!--end of article wrapper-->
+	</div>
+
+
+
+
+
+
+	
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?70a761ba668ab8571ac79968adcf6078";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+
+
+
+
+
+
+<!--
+<script src="https://cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+<script src="/js/script.js"></script>
+
+<!--Back to top-->
+<body id="top">
+<p id="back-to-top"><a href="#top"><span></span></a></p>
+</body>
+
+
+<script>
+$(document).ready(function() {
+    //首先将#back-to-top隐藏
+    $("#back-to-top").hide();
+ 
+    //当滚动条的位置处于距顶部3600像素以下时，跳转链接出现，否则消失
+    $(function() {
+        $(window).scroll(function() {
+            if ($(window).scrollTop() > 3600) {
+                $("#back-to-top").fadeIn(1500);
+            }
+            else {
+                $("#back-to-top").fadeOut(1500);
+            }
+        });
+        //当点击跳转链接后，回到页面顶部位置
+        $("#back-to-top").click(function() {
+            $('body,html').animate({
+                scrollTop: 0
+            },
+            500);
+			
+            return false;
+        });
+    });
+});
+</script>
+
+
+  <script src="/js/languages.js"></script>
+  <script src="/js/calendar.js"></script>
+  <script type="text/javascript">
+  $(function() {
+    $('#calendar').aCalendar('en', $.extend({"months":["January","February","March","April","May","June","July","August","September","October","November","December"],"dayOfWeekShort":["S","M","T","W","T","F","S"],"dayOfWeek":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"postsMonthTip":"Posts published in LMM yyyy","titleFormat":"yyyy LMM","titleLinkFormat":"/archives/yyyy/MM/","headArrows":{"previous":"<span class=\"cal-prev\"></span>","next":"<span class=\"cal-next\"></span>"},"footArrows":{"previous":" ","next":" "},"weekOffset":0,"single":false,"root":"/calendar/","url":"/calendar.json"}, {single:true, root:'calendar/'}));
+  });
+  </script>
+
+
+
+
+</body>
+</html>
