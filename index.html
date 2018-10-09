@@ -222,7 +222,7 @@ MathJax.Hub.Queue(function() {
       <div class="post-meta">
             <span class="glyphicon glyphicon-pencil"></span>
             <span class="post-meta-item-text">&nbsp;Total&nbsp;</span>
-            <span class="post-count">348&nbsp;words</span>
+            <span class="post-count">553&nbsp;words</span>
       </div>
 
 
@@ -243,12 +243,12 @@ MathJax.Hub.Queue(function() {
 <div class="article-inner">
 <div class="article-entry" itemprop="articleBody">
   
-	<h2 id="Outline"><a href="#Outline" class="headerlink" title="Outline"></a>Outline</h2><ul>
+	<h1 id="上课内容"><a href="#上课内容" class="headerlink" title="上课内容"></a>上课内容</h1><h2 id="Outline"><a href="#Outline" class="headerlink" title="Outline"></a>Outline</h2><ul>
 <li>使用一个Linux server</li>
 <li>使用一个a linux cluster</li>
 <li>mapreduce and spark</li>
 </ul>
-<h2 id="协议和工具"><a href="#协议和工具" class="headerlink" title="协议和工具"></a>协议和工具</h2><p>ssh</p>
+<h2 id="协议和工具"><a href="#协议和工具" class="headerlink" title="协议和工具"></a>协议和工具</h2><p>ssh工具</p>
 <ul>
 <li>putty</li>
 <li>xshell</li>
@@ -259,15 +259,18 @@ MathJax.Hub.Queue(function() {
 <li>ftp</li>
 <li>wget, curl</li>
 </ul>
-<p>ssh</p>
 <h2 id="处理结构化的数据"><a href="#处理结构化的数据" class="headerlink" title="处理结构化的数据"></a>处理结构化的数据</h2><ul>
 <li>awk<br>  awk ‘{print $3 “\t” $4} filename</li>
 </ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> awk <span class="string">'&#123;print $2 "\t" $3&#125;'</span> a.txt</span></span><br><span class="line">1       1</span><br><span class="line">2       2</span><br><span class="line">3       3</span><br><span class="line">4       4</span><br><span class="line">2       3</span><br></pre></td></tr></table></figure>
-<h2 id="查看数据"><a href="#查看数据" class="headerlink" title="查看数据"></a>查看数据</h2><p><code>ls -lh</code><br>wc : word count<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">2018211154@ubuntu:~$ wc -l wc_dataset.txt </span><br><span class="line">536700000 wc_dataset.txt</span><br></pre></td></tr></table></figure></p>
-<h3 id="查看部分"><a href="#查看部分" class="headerlink" title="查看部分"></a>查看部分</h3><ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> awk '&#123;print $2 "\t" $3&#125;' a.txt</span><br><span class="line">1       1</span><br><span class="line">2       2</span><br><span class="line">3       3</span><br><span class="line">4       4</span><br><span class="line">2       3</span><br></pre></td></tr></table></figure>
+<h2 id="查看数据"><a href="#查看数据" class="headerlink" title="查看数据"></a>查看数据</h2><p><code>ls -lh</code></p>
+<ul>
+<li>wc : word count</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">2018211154@ubuntu:~$ wc -l wc_dataset.txt </span><br><span class="line">536700000 wc_dataset.txt</span><br></pre></td></tr></table></figure>
+<h3 id="查看部分数据"><a href="#查看部分数据" class="headerlink" title="查看部分数据"></a>查看部分数据</h3><ul>
 <li>more less</li>
-<li>head tail<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">2018211154@ubuntu:~$ tail -n 20 wc_dataset.txt </span><br><span class="line">words</span><br><span class="line">of</span><br><span class="line">the</span><br><span class="line">old</span><br><span class="line">Negro</span><br><span class="line">spiritual</span><br><span class="line">Free</span><br><span class="line">at</span><br><span class="line">last</span><br><span class="line">free</span><br><span class="line">at</span><br><span class="line">last</span><br><span class="line">Thank</span><br><span class="line">God</span><br><span class="line">Almighty</span><br><span class="line">we</span><br><span class="line">are</span><br><span class="line">free</span><br><span class="line">at</span><br><span class="line">last</span><br></pre></td></tr></table></figure>
+<li>head tail<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">xxx@ubuntu:~$ tail -n 20 wc_dataset.txt </span><br><span class="line">words</span><br><span class="line">of</span><br><span class="line">the</span><br><span class="line">old</span><br><span class="line">Negro</span><br><span class="line">spiritual</span><br><span class="line">Free</span><br><span class="line">at</span><br><span class="line">last</span><br><span class="line">free</span><br><span class="line">at</span><br><span class="line">last</span><br><span class="line">Thank</span><br><span class="line">God</span><br><span class="line">Almighty</span><br><span class="line">we</span><br><span class="line">are</span><br><span class="line">free</span><br><span class="line">at</span><br><span class="line">last</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tail -n 10000 wc_dataset.txt | head -n 100</span><br></pre></td></tr></table></figure>
@@ -275,11 +278,10 @@ MathJax.Hub.Queue(function() {
 <li>cat 连接</li>
 </ul>
 <h2 id="对于表格数据的操作"><a href="#对于表格数据的操作" class="headerlink" title="对于表格数据的操作"></a>对于表格数据的操作</h2><ul>
-<li><ul>
-<li>cat: 打印到标准输出</li>
+<li>cat: 打印到标准输出<ul>
+<li>cat a  b &gt; c :列方向合并a,b到c</li>
 </ul>
 </li>
-<li>cat a  b &gt; c :列方向合并a,b到c</li>
 <li>paste: 行方向的合并<br> grep -c：查找,     <code>grep -c pattern file</code>, c是count。返回行数。<pre><code> `-v`
  `-o`
 </code></pre><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">2018211154@ubuntu:~$ grep -c "at" wc_dataset.txt </span><br><span class="line">23371000</span><br></pre></td></tr></table></figure>
@@ -288,11 +290,8 @@ MathJax.Hub.Queue(function() {
 <h3 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h3><ul>
 <li>^开头</li>
 <li>$结尾</li>
-<li><ul>
-<li>所有</li>
-</ul>
-</li>
-<li>[]</li>
+<li><code>*</code>所有</li>
+<li><code>[]</code></li>
 <li>{}</li>
 <li>?</li>
 </ul>
