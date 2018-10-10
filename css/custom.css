@@ -20,15 +20,25 @@ body {
 
 h1, .h1{
 	font-weight: bold;
+	margin-bottom: 20px;
 }
-h2, .h2,
-h3, .h3,
+h2, .h2{
+	font-weight: bold;
+	margin-top: 1em;
+	padding-bottom: 10px;
+	border-bottom: 1px solid #eee;
+}
+
+h3, .h3{
+	margin-top: 0em;
+	margin-bottom: 0.5em;
+
+}
 h4, .h4,
 h5, .h5,
 h6, .h6 {
   margin-top: 0.5em;
   margin-bottom: 15px;
-  font-family: Helvetica, "Helvetica Neue", Arial, sans-serif;
   font-weight: normal;
   color: #333;
 }
@@ -57,11 +67,14 @@ code {
 	border-radius:0px;
 	background-color:#1C1E1F;
 }
+
 .table-container .table-responsive{
 	background-color:rgba(0, 0, 0, 0.0);
 	border-bottom: 2px solid #000000;
 	border-radius: 0px;
-	margin-bottom: 8px;
+	margin-bottom: 30px;
+	margin-top: 0px;
+	box-shadow: inset 0px 0px 7px 0px #858585bf;
 }
 
 .table-container .table-responsive .table>thead>tr>th{
@@ -70,7 +83,13 @@ code {
 }
 
 .table-container .table-responsive .table>thead>tr>td{
-	border-top: 1px dotted #ddd;
+	border-top: 1px dotted #0000004a;
+}
+
+.table-container .table-responsive .table>tbody>tr>td, .table>tbody>tr>th, 
+.table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, 
+.table>thead>tr>th{
+	border-top: 0px dotted #0000004a;
 }
 
 .fa { margin-right: 0.25em; }
@@ -159,6 +178,11 @@ nav.navbar .navbar-inverse .navbar-fixed-top{
 	
   color: #ffffffcc;
   font-weight: 500;
+}
+
+
+blockquote{
+	border-left: 5px solid #087ece;
 }
 
 .navbar-inverse .navbar-collapse,
