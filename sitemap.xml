@@ -2,6 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://www.blankspace.cn/academic/index.html</loc>
+    
+    <lastmod>2018-10-13T15:42:35.425Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.blankspace.cn/2018/10/12/pattern-recognition-ch4/</loc>
+    
+    <lastmod>2018-10-13T11:10:14.247Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.blankspace.cn/2018/10/08/bigdata-system-hw01/</loc>
+    
+    <lastmod>2018-10-12T10:25:08.949Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://www.blankspace.cn/moments/index.html</loc>
     
     <lastmod>2018-10-11T15:59:53.172Z</lastmod>
@@ -19,13 +40,6 @@
     <loc>https://www.blankspace.cn/2018/10/10/misc-pyerrors/</loc>
     
     <lastmod>2018-10-10T11:38:45.363Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.blankspace.cn/2018/10/08/bigdata-system-hw01/</loc>
-    
-    <lastmod>2018-10-10T11:36:32.415Z</lastmod>
     
   </url>
   

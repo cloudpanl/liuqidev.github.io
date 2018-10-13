@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.blankspace.cn/"/>
-  <updated>2018-10-10T11:38:45.363Z</updated>
+  <updated>2018-10-13T11:10:14.247Z</updated>
   <id>https://www.blankspace.cn/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>线性分类器</title>
+    <link href="https://www.blankspace.cn/2018/10/12/pattern-recognition-ch4/"/>
+    <id>https://www.blankspace.cn/2018/10/12/pattern-recognition-ch4/</id>
+    <published>2018-10-12T10:25:09.000Z</published>
+    <updated>2018-10-13T11:10:14.247Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="线性判别函数的基本概念"><a href="#线性判别函数的基本概念" class="headerlink" title="线性判别函数的基本概念"></a>线性判别函数的基本概念</h2><script type="math/tex; mode=display"></script><script type="math/tex; mode=display">g(x)=w^Tx+\omega_0</script><h2 id="Fisher-判别分析"><a href="#Fisher-判别分析" class="headerlink" title="Fisher 判别分析"></a>Fisher 判别分析</h2><p>​    </p><a id="more"></a>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;线性判别函数的基本概念&quot;&gt;&lt;a href=&quot;#线性判别函数的基本概念&quot; class=&quot;headerlink&quot; title=&quot;线性判别函数的基本概念&quot;&gt;&lt;/a&gt;线性判别函数的基本概念&lt;/h2&gt;&lt;script type=&quot;math/tex; mode=display&quot;&gt;
+&lt;/script&gt;&lt;script type=&quot;math/tex; mode=display&quot;&gt;
+g(x)=w^Tx+\omega_0&lt;/script&gt;&lt;h2 id=&quot;Fisher-判别分析&quot;&gt;&lt;a href=&quot;#Fisher-判别分析&quot; class=&quot;headerlink&quot; title=&quot;Fisher 判别分析&quot;&gt;&lt;/a&gt;Fisher 判别分析&lt;/h2&gt;&lt;p&gt;​    &lt;/p&gt;
+    
+    </summary>
+    
+      <category term="AI" scheme="https://www.blankspace.cn/categories/AI/"/>
+    
+      <category term="Pattern Recognition" scheme="https://www.blankspace.cn/categories/AI/Pattern-Recognition/"/>
+    
+    
+      <category term="Pattern Recognition" scheme="https://www.blankspace.cn/tags/Pattern-Recognition/"/>
+    
+  </entry>
   
   <entry>
     <title>（汇总）关于Python的若干问题</title>
@@ -85,9 +111,9 @@
     <link href="https://www.blankspace.cn/2018/10/08/bigdata-system-hw01/"/>
     <id>https://www.blankspace.cn/2018/10/08/bigdata-system-hw01/</id>
     <published>2018-10-08T15:16:59.000Z</published>
-    <updated>2018-10-10T11:36:32.415Z</updated>
+    <updated>2018-10-12T10:25:08.949Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="Outline"><a href="#Outline" class="headerlink" title="Outline"></a>Outline</h2><ul><li>使用一个Linux server</li><li>使用一个a linux cluster</li><li>mapreduce and spark</li></ul><h3 id="协议和工具"><a href="#协议和工具" class="headerlink" title="协议和工具"></a>协议和工具</h3><p>ssh工具</p><ul><li>putty</li><li>xshell</li></ul><h3 id="获得数据"><a href="#获得数据" class="headerlink" title="获得数据"></a>获得数据</h3><ul><li>scp, winscp</li><li>sshfs</li><li>ftp</li><li>wget, curl</li></ul><h3 id="处理结构化的数据"><a href="#处理结构化的数据" class="headerlink" title="处理结构化的数据"></a>处理结构化的数据</h3><ul><li>awk<br>  awk ‘{print $3 “\t” $4} filename</li></ul><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> awk '&#123;print $2 "\t" $3&#125;' a.txt</span><br><span class="line">1       1</span><br><span class="line">2       2</span><br><span class="line">3       3</span><br><span class="line">4       4</span><br><span class="line">2       3</span><br></pre></td></tr></table></figure><h3 id="查看数据"><a href="#查看数据" class="headerlink" title="查看数据"></a>查看数据</h3><p><code>ls -lh</code></p><ul><li>wc : word count</li></ul><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">2018211154@ubuntu:~$ wc -l wc_dataset.txt </span><br><span class="line">536700000 wc_dataset.txt</span><br></pre></td></tr></table></figure><h4 id="查看部分数据"><a href="#查看部分数据" class="headerlink" title="查看部分数据"></a>查看部分数据</h4><ul><li>more less</li><li>head tail</li></ul><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">xxx@ubuntu:~$ tail -n 20 wc_dataset.txt </span><br><span class="line">words</span><br><span class="line">of</span><br><span class="line">the</span><br><span class="line">old</span><br><span class="line">Negro</span><br><span class="line">spiritual</span><br><span class="line">Free</span><br><span class="line">at</span><br><span class="line">last</span><br><span class="line">free</span><br><span class="line">at</span><br><span class="line">last</span><br><span class="line">Thank</span><br><span class="line">God</span><br><span class="line">Almighty</span><br><span class="line">we</span><br><span class="line">are</span><br><span class="line">free</span><br><span class="line">at</span><br><span class="line">last</span><br></pre></td></tr></table></figure><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tail -n 10000 wc_dataset.txt | head -n 100</span><br></pre></td></tr></table></figure><ul><li>cat 连接</li></ul><h3 id="对于表格数据的操作"><a href="#对于表格数据的操作" class="headerlink" title="对于表格数据的操作"></a>对于表格数据的操作</h3><ul><li>cat: 打印到标准输出<ul><li>cat a  b &gt; c :列方向合并a,b到c</li></ul></li><li>paste: 行方向的合并<br> grep -c：查找,<code>grep -c pattern file</code>, c是count。</li><li>正则表达式</li><li>^开头</li><li>$结尾</li><li><code>*</code>所有</li><li><code>[]</code></li><li>{}</li><li>?</li></ul><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">2018211154@ubuntu:~$ grep -c "^$" wc_dataset.txt </span><br><span class="line">0</span><br></pre></td></tr></table></figure><p><code>/a/{++cnt} END {print &quot;Count = &quot;, cnt}</code> filename<br>/a 查找</p><p>`awk ‘!($0 in arr) {arr[$0]; print}’ filename</p><h3 id="sort"><a href="#sort" class="headerlink" title="sort"></a>sort</h3><ul><li>排序sor</li><li>unique</li></ul><h2 id="Running-commands-on-a-single-machine"><a href="#Running-commands-on-a-single-machine" class="headerlink" title="Running commands on a single machine"></a>Running commands on a single machine</h2><h3 id="amp"><a href="#amp" class="headerlink" title="&amp;"></a>&amp;</h3><p>运行多个进程</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">a.sh &amp;</span><br><span class="line">b.sh &amp;</span><br><span class="line">c.sh &amp;</span><br><span class="line">wait</span><br></pre></td></tr></table></figure><p>编写<code>.sh</code></p><h3 id="ps-top"><a href="#ps-top" class="headerlink" title="ps, top"></a>ps, top</h3><p>查看进程</p><p>crontab： crontab -e</p><h2 id="Using-a-linux-cluster"><a href="#Using-a-linux-cluster" class="headerlink" title="Using a linux cluster"></a>Using a linux cluster</h2><h3 id="ssh"><a href="#ssh" class="headerlink" title="ssh"></a>ssh</h3><ul><li><p>ssh machine command</p></li><li><p>dsh, pdsh</p></li></ul><p>将私钥注册，就不需要输入密码。</p><h2 id="Using-a-linux-cluster-1"><a href="#Using-a-linux-cluster-1" class="headerlink" title="Using a linux cluster"></a>Using a linux cluster</h2><ul><li><p>pusll-based control<br>  create an agent on each server, driven by crontab</p><p>  eg. wget and run</p></li><li><p>creat a central control </p></li></ul><h2 id="实验内容"><a href="#实验内容" class="headerlink" title="实验内容"></a>实验内容</h2><h3 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h3><h3 id="实验目的"><a href="#实验目的" class="headerlink" title="实验目的"></a>实验目的</h3><h3 id="实验材料"><a href="#实验材料" class="headerlink" title="实验材料"></a>实验材料</h3><p><strong>实验平台</strong>：Windows 10 专业版 64-bit (10.0, Build 16299)。8192MB RAM。<br><strong>处理器</strong>：Intel(R) Core(TM) i7-7700HQ CPU @ 2.80GHz (8 CPUs), ~2.8GHz。<strong>数据集</strong>：本实验选取的是Kaggle上的<code>facebook-recruiting-iii-keyword-extraction</code>公开数据集，文件大小为3GB，数据集详情见后文。</p><p><img src="/2018/10/08/bigdata-system-hw01/data01.png" alt="使用SCP上传数据"></p><h3 id="数据获取"><a href="#数据获取" class="headerlink" title="数据获取"></a>数据获取</h3><p><strong>Kaggle</strong>是当今世界上最大的数据科学竞赛和学习社</p><ol><li>获取Kaggle账号</li><li>下载数据集</li></ol><p>每个数据集在下载之前都要阅读和同意其声明，确定之后就可以开始通过Kaggle命令来下载数据集。</p><p>对于首次下载来说，首先确保自己的电脑</p><h3 id="单机Linux实验"><a href="#单机Linux实验" class="headerlink" title="单机Linux实验"></a>单机Linux实验</h3><p><img src="/2018/10/08/bigdata-system-hw01/scp01.png" alt="使用SCP上传数据"></p><p><img src="/2018/10/08/bigdata-system-hw01/ls01.png" alt="cd, ls指令"></p><h3 id="多机协同实验"><a href="#多机协同实验" class="headerlink" title="多机协同实验"></a>多机协同实验</h3>]]></content>
+    <content type="html"><![CDATA[<h2 id="Outline"><a href="#Outline" class="headerlink" title="Outline"></a>Outline</h2><ul><li>使用一个Linux server</li><li>使用一个a linux cluster</li><li>mapreduce and spark</li></ul><h3 id="协议和工具"><a href="#协议和工具" class="headerlink" title="协议和工具"></a>协议和工具</h3><p>ssh工具</p><ul><li>putty</li><li>xshell</li></ul><h3 id="获得数据"><a href="#获得数据" class="headerlink" title="获得数据"></a>获得数据</h3><ul><li>scp, winscp</li><li>sshfs</li><li>ftp</li><li>wget, curl</li></ul><h3 id="处理结构化的数据"><a href="#处理结构化的数据" class="headerlink" title="处理结构化的数据"></a>处理结构化的数据</h3><ul><li>awk<br>  awk ‘{print $3 “\t” $4} filename</li></ul><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> awk '&#123;print $2 "\t" $3&#125;' a.txt</span><br><span class="line">1       1</span><br><span class="line">2       2</span><br><span class="line">3       3</span><br><span class="line">4       4</span><br><span class="line">2       3</span><br></pre></td></tr></table></figure><h3 id="查看数据"><a href="#查看数据" class="headerlink" title="查看数据"></a>查看数据</h3><p><code>ls -lh</code></p><ul><li>wc : word count</li></ul><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">2018211154@ubuntu:~$ wc -l wc_dataset.txt </span><br><span class="line">536700000 wc_dataset.txt</span><br></pre></td></tr></table></figure><h4 id="查看部分数据"><a href="#查看部分数据" class="headerlink" title="查看部分数据"></a>查看部分数据</h4><ul><li>more less，以分页形式查看文件</li><li>head tail</li></ul><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">xxx@ubuntu:~$ tail -n 20 wc_dataset.txt </span><br><span class="line">words</span><br><span class="line">of</span><br><span class="line">the</span><br><span class="line">old</span><br><span class="line">Negro</span><br><span class="line">spiritual</span><br><span class="line">Free</span><br><span class="line">at</span><br><span class="line">last</span><br><span class="line">free</span><br><span class="line">at</span><br><span class="line">last</span><br><span class="line">Thank</span><br><span class="line">God</span><br><span class="line">Almighty</span><br><span class="line">we</span><br><span class="line">are</span><br><span class="line">free</span><br><span class="line">at</span><br><span class="line">last</span><br></pre></td></tr></table></figure><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tail -n 10000 wc_dataset.txt | head -n 100</span><br></pre></td></tr></table></figure><ul><li>cat 连接</li></ul><h3 id="对于表格数据的操作"><a href="#对于表格数据的操作" class="headerlink" title="对于表格数据的操作"></a>对于表格数据的操作</h3><ul><li>cat: 打印到标准输出<ul><li>cat a  b &gt; c :列方向合并a,b到c</li></ul></li><li>paste: 行方向的合并<br> grep -c：查找,<code>grep -c pattern file</code>, c是count。</li><li>正则表达式</li><li>^开头</li><li>$结尾</li><li><code>*</code>所有</li><li><code>[]</code></li><li>{}</li><li>?</li></ul><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">2018211154@ubuntu:~$ grep -c "^$" wc_dataset.txt </span><br><span class="line">0</span><br></pre></td></tr></table></figure><p><code>/a/{++cnt} END {print &quot;Count = &quot;, cnt}</code> filename<br>/a 查找</p><p>`awk ‘!($0 in arr) {arr[$0]; print}’ filename</p><h3 id="sort"><a href="#sort" class="headerlink" title="sort"></a>sort</h3><ul><li>排序sor</li><li>unique</li></ul><h2 id="Running-commands-on-a-single-machine"><a href="#Running-commands-on-a-single-machine" class="headerlink" title="Running commands on a single machine"></a>Running commands on a single machine</h2><h3 id="amp"><a href="#amp" class="headerlink" title="&amp;"></a>&amp;</h3><p>运行多个进程</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">a.sh &amp;</span><br><span class="line">b.sh &amp;</span><br><span class="line">c.sh &amp;</span><br><span class="line">wait</span><br></pre></td></tr></table></figure><p>编写<code>.sh</code></p><h3 id="ps-top"><a href="#ps-top" class="headerlink" title="ps, top"></a>ps, top</h3><p>查看进程</p><p>crontab： crontab -e</p><h2 id="Using-a-linux-cluster"><a href="#Using-a-linux-cluster" class="headerlink" title="Using a linux cluster"></a>Using a linux cluster</h2><h3 id="ssh"><a href="#ssh" class="headerlink" title="ssh"></a>ssh</h3><ul><li><p>ssh machine command</p></li><li><p>dsh, pdsh</p></li></ul><p>将私钥注册，就不需要输入密码。</p><h2 id="Using-a-linux-cluster-1"><a href="#Using-a-linux-cluster-1" class="headerlink" title="Using a linux cluster"></a>Using a linux cluster</h2><ul><li><p>pusll-based control<br>  create an agent on each server, driven by crontab</p><p>  eg. wget and run</p></li><li><p>creat a central control </p></li></ul><h2 id="实验内容"><a href="#实验内容" class="headerlink" title="实验内容"></a>实验内容</h2><h3 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h3><h3 id="实验目的"><a href="#实验目的" class="headerlink" title="实验目的"></a>实验目的</h3><h3 id="实验材料"><a href="#实验材料" class="headerlink" title="实验材料"></a>实验材料</h3><p><strong>实验平台</strong>：Windows 10 专业版 64-bit (10.0, Build 16299)。8192MB RAM。<br><strong>处理器</strong>：Intel(R) Core(TM) i7-7700HQ CPU @ 2.80GHz (8 CPUs), ~2.8GHz。<strong>数据集</strong>：本实验选取的是Kaggle上的<code>facebook-recruiting-iii-keyword-extraction</code>公开数据集，文件大小为3GB，数据集详情见后文。</p><p><img src="/2018/10/08/bigdata-system-hw01/data01.png" alt="使用SCP上传数据"></p><h3 id="数据获取"><a href="#数据获取" class="headerlink" title="数据获取"></a>数据获取</h3><p><strong>Kaggle</strong>是当今世界上最大的数据科学竞赛和学习社</p><ol><li>获取Kaggle账号</li><li>下载数据集</li></ol><p>每个数据集在下载之前都要阅读和同意其声明，确定之后就可以开始通过Kaggle命令来下载数据集。</p><p>对于首次下载来说，首先确保自己的电脑</p><h3 id="单机Linux实验"><a href="#单机Linux实验" class="headerlink" title="单机Linux实验"></a>单机Linux实验</h3><p><img src="/2018/10/08/bigdata-system-hw01/scp01.png" alt="使用SCP上传数据"></p><p><img src="/2018/10/08/bigdata-system-hw01/ls01.png" alt="cd, ls指令"></p><h3 id="多机协同实验"><a href="#多机协同实验" class="headerlink" title="多机协同实验"></a>多机协同实验</h3>]]></content>
     
     <summary type="html">
     
@@ -800,104 +826,6 @@ E_R\approx \frac{\Delta x}{x} \quad\text{或} \quad E_R\approx \frac{\Delta x}{\
       <category term="Linux" scheme="https://www.blankspace.cn/tags/Linux/"/>
     
       <category term="Priority" scheme="https://www.blankspace.cn/tags/Priority/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Linux基础概念和操作</title>
-    <link href="https://www.blankspace.cn/2018/09/17/linux-shiyan2/"/>
-    <id>https://www.blankspace.cn/2018/09/17/linux-shiyan2/</id>
-    <published>2018-09-17T02:54:24.000Z</published>
-    <updated>2018-09-19T03:17:21.092Z</updated>
-    
-    <content type="html"><![CDATA[<p>Unix/Linux本身没有图形界面，我们看到的是运行在其上的一套软件，类似于Windows95前运行在DOS之上的图形界面。</p><h2 id="Linux桌面环境"><a href="#Linux桌面环境" class="headerlink" title="Linux桌面环境"></a>Linux桌面环境</h2><p><img src="/2018/09/17/linux-shiyan2/Unix_Linux内核的x window图形架构.jpg" alt="Unix_Linux内核的x window图形架构:xorg实现了X协议规范提供图像系统服务。而目前的Windows图形环境是直接建立在Windows系统内核上的和Unix/Linux不同"></p><h2 id="Linux终端"><a href="#Linux终端" class="headerlink" title="Linux终端"></a>Linux终端</h2><p>终端（Terminal）本质对应着Linux上的<code>/dev/tty</code>设备，Linux多用户登录就是通过其完成的。</p><p>Linux提供了6个纯命令行界面的“terminal”（准确说是6个<code>virtual console</code>）来让用户登录。可以使用<code>Ctrl+Alt+F1~F6</code>进行切换。按下<code>Ctrl+Alt+F7</code>返回图形界面。</p><h3 id="Shell"><a href="#Shell" class="headerlink" title="Shell"></a>Shell</h3><p>在图形界面中通常使用的不是上面所说的6个终端而是各种终端模拟器，就是Shell（壳）。壳里面包裹的就是核（Kernel），核就是Unix/Linux内核。Shell是指“提供给使用者使用界面”的命令解析器，类似于DOS下的命令行和后来的cmd.exe，其隐藏了操作系统底层的细节。</p><p>Unix/Linux中比较流行的Shell有bash、zsh、ksh等。Ubuntu终端默认的是bash，默认桌面环境是GNOME或者Unity（基于GNOME）。</p><h2 id="命令行操作"><a href="#命令行操作" class="headerlink" title="命令行操作"></a>命令行操作</h2><h3 id="过程"><a href="#过程" class="headerlink" title="过程"></a>过程</h3><ul><li>输入</li><li>输出</li></ul><p><img src="/2018/09/17/linux-shiyan2/pwd-touch.gif" alt=""></p><p>例子中涉及：</p><ul><li><code>pwd</code>：当前路径</li><li><code>touch</code>：新建文件</li></ul><h3 id="重要快捷键"><a href="#重要快捷键" class="headerlink" title="重要快捷键"></a>重要快捷键</h3><div class="bs-callout bs-callout-info"><p><i class="fa fa-info-circle"></i> </p><p><code>Tap</code>：自动补齐</p><p><code>Ctrl+c</code>：强制终止当前程序</p><p><code>Ctrl+d</code>：键盘输入结束或者退出终端</p><p><code>Ctrl+s</code>：暂停当前程序，暂停后按下任意键恢复运行</p><p><code>Ctrl+z</code>：后台运行当前程序，恢复到前台使用<code>fg</code></p><p><code>Ctrl+a</code>：光标移动到行头</p><p><code>Ctrl+k</code>：删除光标位置到行末的内容</p><p><code>Alt+Backspace</code>：删除前面一个单词</p><p><code>Shift+PgUp</code>：将终端向上滚动</p><p><code>Shift+PgDn</code>：将终端向下滚动</p></div><p><img src="/2018/09/17/linux-shiyan2/shell-shortcuts-1.gif" alt="Shell常用快捷键"></p><h3 id="输入历史"><a href="#输入历史" class="headerlink" title="输入历史"></a>输入历史</h3><ul><li><code>↑</code>：恢复之前输入</li></ul><h3 id="使用通配符"><a href="#使用通配符" class="headerlink" title="使用通配符"></a>使用通配符</h3><div class="table-container"><table><thead><tr><th>字符</th><th>含义</th></tr></thead><tbody><tr><td><code>*</code></td><td>匹配0个或者多个任意字符</td></tr><tr><td><code>?</code></td><td>匹配任意一个字符</td></tr><tr><td><code>[list]</code></td><td>匹配list中的任意单一字符</td></tr><tr><td><code>[^list]</code></td><td>匹配除了list中任意单一字符外的字符</td></tr><tr><td><code>[c1-c2]</code></td><td>匹配从c1到c2中的任意单一字符，例如：<code>[0-9]</code>、<code>[a-z]</code></td></tr><tr><td><code>{str1, str2...}</code></td><td>匹配字符串数组中的一个或者更多字符串<br><em>注：实验失败，暂时无法通配。</em></td></tr><tr><td><code>{c1..c2}</code></td><td>匹配从c1到c2中全部字符，例如：{1..10}</td></tr></tbody></table></div><p><img src="/2018/09/17/linux-shiyan2/shell-通配符-2.gif" alt="使用通配符来匹配字符串"></p><a id="more"></a><h3 id="获取帮助"><a href="#获取帮助" class="headerlink" title="获取帮助"></a>获取帮助</h3><ul><li><p><code>man &lt;command_name&gt;</code>：获取帮助，其中<code>man</code>代表<code>manual pages</code></p><ul><li>man手册分区，使用如<code>man 1 ls</code>：<ul><li>1一般命令</li><li>2系统调用</li><li>3库函数，涵盖了C标准函数库</li><li>4特殊文件（通常是/dev中的设备）和驱动程序</li><li>5文件格式和约定</li><li>6游戏和屏保</li><li>7杂项</li></ul></li><li>查找：<code>/&lt;要查找的内容&gt;</code><ul><li><code>n</code>：下一个</li><li><code>shift+n</code>：上一个</li><li><code>Space(空格键)</code>：翻页</li><li><code>Enter</code>：向下滚动一行</li></ul></li></ul></li><li><p><code>&lt;command_name&gt; --help</code>：查找具体参数和作用</p></li></ul><p><img src="/2018/09/17/linux-shiyan2/shell-帮助.gif" alt="获取帮助：man命令还有--help方式"></p><h2 id="有趣的Linux命令"><a href="#有趣的Linux命令" class="headerlink" title="有趣的Linux命令"></a>有趣的Linux命令</h2><video width="600px" max-width="600px" controls>  <source src="/2018/09/17/linux-shiyan2/homework.mp4" type="video/mp4">Your browser does not support the video tag.</video>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Unix/Linux本身没有图形界面，我们看到的是运行在其上的一套软件，类似于Windows95前运行在DOS之上的图形界面。&lt;/p&gt;
-&lt;h2 id=&quot;Linux桌面环境&quot;&gt;&lt;a href=&quot;#Linux桌面环境&quot; class=&quot;headerlink&quot; title=&quot;Linux桌面环境&quot;&gt;&lt;/a&gt;Linux桌面环境&lt;/h2&gt;&lt;p&gt;&lt;img src=&quot;/2018/09/17/linux-shiyan2/Unix_Linux内核的x window图形架构.jpg&quot; alt=&quot;Unix_Linux内核的x window图形架构:xorg实现了X协议规范提供图像系统服务。而目前的Windows图形环境是直接建立在Windows系统内核上的和Unix/Linux不同&quot;&gt;&lt;/p&gt;
-&lt;h2 id=&quot;Linux终端&quot;&gt;&lt;a href=&quot;#Linux终端&quot; class=&quot;headerlink&quot; title=&quot;Linux终端&quot;&gt;&lt;/a&gt;Linux终端&lt;/h2&gt;&lt;p&gt;终端（Terminal）本质对应着Linux上的&lt;code&gt;/dev/tty&lt;/code&gt;设备，Linux多用户登录就是通过其完成的。&lt;/p&gt;
-&lt;p&gt;Linux提供了6个纯命令行界面的“terminal”（准确说是6个&lt;code&gt;virtual console&lt;/code&gt;）来让用户登录。可以使用&lt;code&gt;Ctrl+Alt+F1~F6&lt;/code&gt;进行切换。按下&lt;code&gt;Ctrl+Alt+F7&lt;/code&gt;返回图形界面。&lt;/p&gt;
-&lt;h3 id=&quot;Shell&quot;&gt;&lt;a href=&quot;#Shell&quot; class=&quot;headerlink&quot; title=&quot;Shell&quot;&gt;&lt;/a&gt;Shell&lt;/h3&gt;&lt;p&gt;在图形界面中通常使用的不是上面所说的6个终端而是各种终端模拟器，就是Shell（壳）。壳里面包裹的就是核（Kernel），核就是Unix/Linux内核。Shell是指“提供给使用者使用界面”的命令解析器，类似于DOS下的命令行和后来的cmd.exe，其隐藏了操作系统底层的细节。&lt;/p&gt;
-&lt;p&gt;Unix/Linux中比较流行的Shell有bash、zsh、ksh等。Ubuntu终端默认的是bash，默认桌面环境是GNOME或者Unity（基于GNOME）。&lt;/p&gt;
-&lt;h2 id=&quot;命令行操作&quot;&gt;&lt;a href=&quot;#命令行操作&quot; class=&quot;headerlink&quot; title=&quot;命令行操作&quot;&gt;&lt;/a&gt;命令行操作&lt;/h2&gt;&lt;h3 id=&quot;过程&quot;&gt;&lt;a href=&quot;#过程&quot; class=&quot;headerlink&quot; title=&quot;过程&quot;&gt;&lt;/a&gt;过程&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;输入&lt;/li&gt;
-&lt;li&gt;输出&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;img src=&quot;/2018/09/17/linux-shiyan2/pwd-touch.gif&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;p&gt;例子中涉及：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;pwd&lt;/code&gt;：当前路径&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;touch&lt;/code&gt;：新建文件&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&quot;重要快捷键&quot;&gt;&lt;a href=&quot;#重要快捷键&quot; class=&quot;headerlink&quot; title=&quot;重要快捷键&quot;&gt;&lt;/a&gt;重要快捷键&lt;/h3&gt;&lt;div class=&quot;bs-callout bs-callout-info&quot;&gt;&lt;p&gt;&lt;i class=&quot;fa fa-info-circle&quot;&gt;&lt;/i&gt; &lt;/p&gt;
-&lt;p&gt;&lt;code&gt;Tap&lt;/code&gt;：自动补齐&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;Ctrl+c&lt;/code&gt;：强制终止当前程序&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;Ctrl+d&lt;/code&gt;：键盘输入结束或者退出终端&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;Ctrl+s&lt;/code&gt;：暂停当前程序，暂停后按下任意键恢复运行&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;Ctrl+z&lt;/code&gt;：后台运行当前程序，恢复到前台使用&lt;code&gt;fg&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;Ctrl+a&lt;/code&gt;：光标移动到行头&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;Ctrl+k&lt;/code&gt;：删除光标位置到行末的内容&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;Alt+Backspace&lt;/code&gt;：删除前面一个单词&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;Shift+PgUp&lt;/code&gt;：将终端向上滚动&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;Shift+PgDn&lt;/code&gt;：将终端向下滚动&lt;/p&gt;
-&lt;/div&gt;
-&lt;p&gt;&lt;img src=&quot;/2018/09/17/linux-shiyan2/shell-shortcuts-1.gif&quot; alt=&quot;Shell常用快捷键&quot;&gt;&lt;/p&gt;
-&lt;h3 id=&quot;输入历史&quot;&gt;&lt;a href=&quot;#输入历史&quot; class=&quot;headerlink&quot; title=&quot;输入历史&quot;&gt;&lt;/a&gt;输入历史&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;↑&lt;/code&gt;：恢复之前输入&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&quot;使用通配符&quot;&gt;&lt;a href=&quot;#使用通配符&quot; class=&quot;headerlink&quot; title=&quot;使用通配符&quot;&gt;&lt;/a&gt;使用通配符&lt;/h3&gt;&lt;div class=&quot;table-container&quot;&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;字符&lt;/th&gt;
-&lt;th&gt;含义&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;*&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;匹配0个或者多个任意字符&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;?&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;匹配任意一个字符&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;[list]&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;匹配list中的任意单一字符&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;[^list]&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;匹配除了list中任意单一字符外的字符&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;[c1-c2]&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;匹配从c1到c2中的任意单一字符，例如：&lt;code&gt;[0-9]&lt;/code&gt;、&lt;code&gt;[a-z]&lt;/code&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;{str1, str2...}&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;匹配字符串数组中的一个或者更多字符串&lt;br&gt;&lt;em&gt;注：实验失败，暂时无法通配。&lt;/em&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;{c1..c2}&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;匹配从c1到c2中全部字符，例如：{1..10}&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;/div&gt;
-&lt;p&gt;&lt;img src=&quot;/2018/09/17/linux-shiyan2/shell-通配符-2.gif&quot; alt=&quot;使用通配符来匹配字符串&quot;&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Linux" scheme="https://www.blankspace.cn/categories/Linux/"/>
-    
-      <category term="Linux Basic" scheme="https://www.blankspace.cn/categories/Linux/Linux-Basic/"/>
-    
-    
-      <category term="Shell" scheme="https://www.blankspace.cn/tags/Shell/"/>
-    
-      <category term="Linux" scheme="https://www.blankspace.cn/tags/Linux/"/>
     
   </entry>
   
