@@ -13,7 +13,7 @@
 <meta property="og:site_name" content="WizardLQ’s | 魔法师の小茶馆">
 <meta property="og:description" content="ls, cd, pwdls 命令格式ls : list  ls     常用参数使用man ls查看是坠吼的，笔记里就懒得写那么多了。常用的有：    -a: --all, 显示全部的文件，包括以.开头的隐藏文件。 -l: 长列表的形式呈现文件 -t：以文档修改时间排序 -h：列出人能读懂的文件大小 -d：将目录也像问价那样列出来   使用范例1) 参数可以每个加-列出，也可以组合，只用一个-12">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-10-08T15:15:37.023Z">
+<meta property="og:updated_time" content="2018-10-14T03:32:01.485Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="（待完善...）Shell命令快速参考">
 <meta name="twitter:description" content="ls, cd, pwdls 命令格式ls : list  ls     常用参数使用man ls查看是坠吼的，笔记里就懒得写那么多了。常用的有：    -a: --all, 显示全部的文件，包括以.开头的隐藏文件。 -l: 长列表的形式呈现文件 -t：以文档修改时间排序 -h：列出人能读懂的文件大小 -d：将目录也像问价那样列出来   使用范例1) 参数可以每个加-列出，也可以组合，只用一个-12">
@@ -122,7 +122,7 @@ MathJax.Hub.Queue(function() {
 		<div id="article-toc-inner">
 			<strong class="sidebar-title">
 			Contents</strong>
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#ls-cd-pwd"><span class="toc-text">ls, cd, pwd</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ls"><span class="toc-text">ls</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#cd"><span class="toc-text">cd</span></a></li></ol></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#ls-cd-pwd"><span class="toc-text">ls, cd, pwd</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ls"><span class="toc-text">ls</span></a></li></ol></li></ol>
 		</div>
 	</aside>
 
@@ -149,7 +149,13 @@ MathJax.Hub.Queue(function() {
 </li>
 </ol>
 <p><strong>2)</strong> 列出当前目录哪些文件名(比如以<code>d</code>开头)的文件<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls -l d*</span><br></pre></td></tr></table></figure></p>
-<h3 id="cd"><a href="#cd" class="headerlink" title="cd"></a>cd</h3><a id="more"></a>
+<p>字符串替换</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">(py36) 2018211154@ubuntu:~/Datasets/yelp-dataset$ tmp="c:/windows/system32/dirviers"</span><br><span class="line">(py36) 2018211154@ubuntu:~/Datasets/yelp-dataset$ echo $&#123;tmp/windows/linux&#125;</span><br><span class="line">c:/linux/system32/dirviers</span><br></pre></td></tr></table></figure>
+<p>${变量/查找/替换值} 一个“/”表示替换第一个，”//”表示替换所有,当查找中出现了：”/”请加转义符”\/”表示。 </p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">(py36) 2018211154@ubuntu:~/Datasets/yelp-dataset$ echo $&#123;tmp//\//*&#125;</span><br><span class="line">c:*windows*system32*dirviers</span><br></pre></td></tr></table></figure>
+<p>将所有斜杠<code>/</code>转换成<code>\</code></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">(py36) 2018211154@ubuntu:~/Datasets/yelp-dataset$ tmp=($&#123;tmp//\//\\&#125;)</span><br><span class="line">(py36) 2018211154@ubuntu:~/Datasets/yelp-dataset$ echo $tmp</span><br><span class="line">c:\windows\system32\dirviers</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
 	
   
 </div>

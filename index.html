@@ -1472,7 +1472,7 @@ g(x)=w^Tx+\omega_0</script><h2 id="Fisher-判别分析"><a href="#Fisher-判别�
       <div class="post-meta">
             <span class="glyphicon glyphicon-pencil"></span>
             <span class="post-meta-item-text">&nbsp;Total&nbsp;</span>
-            <span class="post-count">170&nbsp;words</span>
+            <span class="post-count">283&nbsp;words</span>
       </div>
 
 
@@ -1514,7 +1514,12 @@ g(x)=w^Tx+\omega_0</script><h2 id="Fisher-判别分析"><a href="#Fisher-判别�
 </li>
 </ol>
 <p><strong>2)</strong> 列出当前目录哪些文件名(比如以<code>d</code>开头)的文件<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls -l d*</span><br></pre></td></tr></table></figure></p>
-<h3 id="cd"><a href="#cd" class="headerlink" title="cd"></a>cd</h3>
+<p>字符串替换</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">(py36) 2018211154@ubuntu:~/Datasets/yelp-dataset$ tmp="c:/windows/system32/dirviers"</span><br><span class="line">(py36) 2018211154@ubuntu:~/Datasets/yelp-dataset$ echo $&#123;tmp/windows/linux&#125;</span><br><span class="line">c:/linux/system32/dirviers</span><br></pre></td></tr></table></figure>
+<p>${变量/查找/替换值} 一个“/”表示替换第一个，”//”表示替换所有,当查找中出现了：”/”请加转义符”\/”表示。 </p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">(py36) 2018211154@ubuntu:~/Datasets/yelp-dataset$ echo $&#123;tmp//\//*&#125;</span><br><span class="line">c:*windows*system32*dirviers</span><br></pre></td></tr></table></figure>
+<p>将所有斜杠<code>/</code>转换成<code>\</code></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">(py36) 2018211154@ubuntu:~/Datasets/yelp-dataset$ tmp=($&#123;tmp//\//\\&#125;)</span><br><span class="line">(py36) 2018211154@ubuntu:~/Datasets/yelp-dataset$ echo $tmp</span><br><span class="line">c:\windows\system32\dirviers</span><br></pre></td></tr></table></figure>
 	
 	  <p class="article-more-link">
 		<a class="btn btn-primary" href="/2018/10/08/linux-shell-rush-01/#more">Read more...</a>
