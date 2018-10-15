@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>分布式存储 | WizardLQ’s | 魔法师の小茶馆</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="回顾 基于Linux，“table-like”数据操作  命令行操作，正则表达式，awk, sort  单机能力不够，推广到多台服务器  缺陷：需要有管理者。但是我们希望是异步的。  使用常驻进程，agent，每隔一段时间执行若干命令 将以前的controller push变成现在的分布式的pull命令   性能分析  性能瓶颈：IO，计算 分布式IO和计算    大纲 文件系统  布式文件系统">
+<meta name="keywords" content="Linux,Distributed Storage">
+<meta property="og:type" content="article">
+<meta property="og:title" content="分布式存储">
+<meta property="og:url" content="https://www.blankspace.cn/2018/10/15/distributed-storage/index.html">
+<meta property="og:site_name" content="WizardLQ’s | 魔法师の小茶馆">
+<meta property="og:description" content="回顾 基于Linux，“table-like”数据操作  命令行操作，正则表达式，awk, sort  单机能力不够，推广到多台服务器  缺陷：需要有管理者。但是我们希望是异步的。  使用常驻进程，agent，每隔一段时间执行若干命令 将以前的controller push变成现在的分布式的pull命令   性能分析  性能瓶颈：IO，计算 分布式IO和计算    大纲 文件系统  布式文件系统">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://www.blankspace.cn/2018/10/15/distributed-storage/Linux-Directory-Structure.jpeg">
+<meta property="og:updated_time" content="2018-10-15T13:39:19.857Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="分布式存储">
+<meta name="twitter:description" content="回顾 基于Linux，“table-like”数据操作  命令行操作，正则表达式，awk, sort  单机能力不够，推广到多台服务器  缺陷：需要有管理者。但是我们希望是异步的。  使用常驻进程，agent，每隔一段时间执行若干命令 将以前的controller push变成现在的分布式的pull命令   性能分析  性能瓶颈：IO，计算 分布式IO和计算    大纲 文件系统  布式文件系统">
+<meta name="twitter:image" content="https://www.blankspace.cn/2018/10/15/distributed-storage/Linux-Directory-Structure.jpeg">
+<link rel="publisher" href="112373242775367340000">
+  
+    <link rel="alternate" href="/atom.xml" title="WizardLQ’s | 魔法师の小茶馆" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/images/icon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+<!--
+<link href="https://cdn.bootcss.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet"><link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
+-->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+<!--
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.slim.min.js"></script>
+-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.slim.min.js"></script>
+
+<!--
+<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+-->
+<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script type="text/javascript" src="//ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.3.min.js"></script>
+
+<link rel="stylesheet" href="/css/styles.css">
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+<!--
+<script src="https://cdn.bootcss.com/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+</head>
+
+<body>
+
+	
+
+	
+	<div class="container">
+	<div class="article-wrapper">
+
+
+<article id="post-distributed-storage" class="article article-type-post" itemscope itemprop="blogPost">
+	
+
+
+<header class="article-header">
+
+  
+    <h1 class="article-title" itemprop="name">
+      分布式存储
+    </h1>
+  
+
+
+	
+
+ 
+	
+		魔法师LQ
+	
+	</hr>
+	<div class="article-datetime">
+	  <time datetime="2018-10-15T11:19:38.000Z" itemprop="datePublished">2018-10-15</time>
+	</div>
+	<div class="header-divider"></div>	
+
+	   
+
+</header>
+
+<div class="article-inner">
+<div class="article-entry" itemprop="articleBody">
+  
+  
+	<!-- Table of Contents -->
+
+	<aside id="article-toc" role="navigation" class="fixed">
+		<div id="article-toc-inner">
+			<strong class="sidebar-title">
+			Contents</strong>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#回顾"><span class="toc-text">回顾</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#大纲"><span class="toc-text">大纲</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Building-Blocks"><span class="toc-text">Building Blocks</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#功能"><span class="toc-text">功能</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#文件系统"><span class="toc-text">文件系统</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#准测"><span class="toc-text">准测</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#文件系统解决方案"><span class="toc-text">文件系统解决方案</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Naming-命名"><span class="toc-text">Naming 命名</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Structure-结构"><span class="toc-text">Structure 结构</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#文件系统的实现"><span class="toc-text">文件系统的实现</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Structure-to-data"><span class="toc-text">Structure to data</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Data-layout"><span class="toc-text">Data layout</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#数据存储"><span class="toc-text">数据存储</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#使用"><span class="toc-text">使用</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Linux-文件系统"><span class="toc-text">Linux 文件系统</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Directory-Tree"><span class="toc-text">Directory Tree</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Distributed-File-System"><span class="toc-text">Distributed File System</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#DFS-Goals"><span class="toc-text">DFS Goals</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DFS-structure"><span class="toc-text">DFS structure</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#结构"><span class="toc-text">结构</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#File-VS-Chunk"><span class="toc-text">File VS. Chunk</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#“Rack”-awareness"><span class="toc-text">“Rack” awareness</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Read"><span class="toc-text">Read</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#删除"><span class="toc-text">删除</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#优点和局限"><span class="toc-text">优点和局限</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#阅读任务"><span class="toc-text">阅读任务</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#DHT（分布式哈希表）"><span class="toc-text">DHT（分布式哈希表）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#GFH"><span class="toc-text">GFH</span></a></li></ol></li></ol></li></ol>
+		</div>
+	</aside>
+
+	
+	
+	<h2 id="回顾"><a href="#回顾" class="headerlink" title="回顾"></a>回顾</h2><ul>
+<li><p>基于Linux，“table-like”数据操作</p>
+</li>
+<li><p>命令行操作，正则表达式，awk, sort</p>
+</li>
+<li><p>单机能力不够，推广到多台服务器</p>
+</li>
+<li><p>缺陷：需要有管理者。但是我们希望是异步的。</p>
+<ul>
+<li>使用常驻进程，agent，每隔一段时间执行若干命令</li>
+<li>将以前的controller push变成现在的分布式的pull命令</li>
+</ul>
+</li>
+<li><p>性能分析</p>
+<ul>
+<li>性能瓶颈：IO，计算</li>
+<li>分布式IO和计算</li>
+</ul>
+</li>
+</ul>
+<h2 id="大纲"><a href="#大纲" class="headerlink" title="大纲"></a>大纲</h2><ul>
+<li><p>文件系统</p>
+</li>
+<li><p>布式文件系统</p>
+</li>
+<li><p>GFS 和 HDFS</p>
+</li>
+<li><p>其他方案</p>
+</li>
+</ul>
+<h2 id="Building-Blocks"><a href="#Building-Blocks" class="headerlink" title="Building Blocks"></a>Building Blocks</h2><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Size</th>
+<th>Speed</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>resisters</td>
+<td>thousands of bytes</td>
+<td>1 CPU circle</td>
+</tr>
+<tr>
+<td>Cache</td>
+<td>MB level</td>
+<td>快</td>
+</tr>
+<tr>
+<td>Main memory</td>
+<td>GB level</td>
+<td>一般</td>
+</tr>
+<tr>
+<td>Disk storage</td>
+<td>TB level`</td>
+<td>慢</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h4 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h4><ul>
+<li>write</li>
+<li>read</li>
+<li>append</li>
+<li>delete</li>
+<li>modify</li>
+</ul>
+<h2 id="文件系统"><a href="#文件系统" class="headerlink" title="文件系统"></a>文件系统</h2><h3 id="准测"><a href="#准测" class="headerlink" title="准测"></a>准测</h3><ul>
+<li>能存大量的信息，理论上没有上限</li>
+<li>information must survive the processed using it</li>
+<li>concurrent access to multiple processes</li>
+</ul>
+<h3 id="文件系统解决方案"><a href="#文件系统解决方案" class="headerlink" title="文件系统解决方案"></a>文件系统解决方案</h3><ul>
+<li>storage information on disks in units called files</li>
+<li>files are <strong>persistent（持久化）</strong></li>
+<li>files are managed by the OS</li>
+</ul>
+<h4 id="Naming-命名"><a href="#Naming-命名" class="headerlink" title="Naming 命名"></a>Naming 命名</h4><ul>
+<li><p>创建文件并命名</p>
+</li>
+<li><p>不同OS有不同的规则</p>
+</li>
+</ul>
+<h4 id="Structure-结构"><a href="#Structure-结构" class="headerlink" title="Structure 结构"></a>Structure 结构</h4><ul>
+<li><p>序列结构（遍历），但是Byte Sequence: unstructured</p>
+</li>
+<li><p>复杂的结构：例如树形结构</p>
+<ul>
+<li>变长记录</li>
+<li>OS specific meaning of each file</li>
+</ul>
+</li>
+</ul>
+<h3 id="文件系统的实现"><a href="#文件系统的实现" class="headerlink" title="文件系统的实现"></a>文件系统的实现</h3><p><strong>如何实现文件系统呢？</strong></p>
+<ul>
+<li>包含以下方面<ul>
+<li>volumes/partitions（磁盘规划）</li>
+<li>directories（link filenames to file “structure”)</li>
+<li>list of blocks</li>
+<li>高级需求，例如权限管理等</li>
+</ul>
+</li>
+</ul>
+<h4 id="Structure-to-data"><a href="#Structure-to-data" class="headerlink" title="Structure to data"></a>Structure to data</h4><ul>
+<li>创建文件<ul>
+<li>find space in the filesystem, add directory entry</li>
+</ul>
+</li>
+<li>writing in a file<ul>
+<li>write pointer</li>
+</ul>
+</li>
+<li>reading a file<ul>
+<li>read pointer</li>
+</ul>
+</li>
+</ul>
+<h4 id="Data-layout"><a href="#Data-layout" class="headerlink" title="Data layout"></a>Data layout</h4><ul>
+<li><p>file system is stored on disks</p>
+<ul>
+<li><p>disk is divided into 1 or more partitions</p>
+</li>
+<li><p>sector 0 of disk called Mater Boot Record(MBR)</p>
+</li>
+<li><p>end of MBR has partition table（start &amp; end address of partitions）</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="数据存储"><a href="#数据存储" class="headerlink" title="数据存储"></a>数据存储</h4><ul>
+<li>连续存储：优点，简单，读写性能比较好；缺点，改动效率不高，碎片太多，用户需要知道文件大小。</li>
+<li>Linked List Allocation<ul>
+<li>Each file is stored as linked list of blocks<ul>
+<li>first word of each block points to next block</li>
+<li>rest of disk block is file data</li>
+</ul>
+</li>
+<li>优点<ul>
+<li>只需要维护第一个block信息</li>
+</ul>
+</li>
+<li>缺点<ul>
+<li>随机访问开销大</li>
+<li>overheads of pointers</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h5 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h5><ul>
+<li>根据情况使用，永久存储适合连续存储结构</li>
+<li>经常变更：列表结构</li>
+<li>索引结构：一个指针能够指向多个blocks</li>
+</ul>
+<h3 id="Linux-文件系统"><a href="#Linux-文件系统" class="headerlink" title="Linux 文件系统"></a>Linux 文件系统</h3><h4 id="Directory-Tree"><a href="#Directory-Tree" class="headerlink" title="Directory Tree"></a>Directory Tree</h4><ul>
+<li>/<ul>
+<li>bin<ul>
+<li>pwd, cd, ls</li>
+</ul>
+</li>
+<li>sbin: root<ul>
+<li>ifup</li>
+<li>ifconfig</li>
+<li>ifdown</li>
+</ul>
+</li>
+<li>home<ul>
+<li>home directory</li>
+</ul>
+</li>
+<li>var<ul>
+<li>log files</li>
+<li>spools</li>
+</ul>
+</li>
+<li>tmp<ul>
+<li>temp files</li>
+</ul>
+</li>
+<li>root<ul>
+<li>root’s home</li>
+</ul>
+</li>
+<li>usr<ul>
+<li>user program files</li>
+</ul>
+</li>
+<li>opt<ul>
+<li>optional</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="/2018/10/15/distributed-storage/Linux-Directory-Structure.jpeg" alt="linux文件系统"> </p>
+<h2 id="Distributed-File-System"><a href="#Distributed-File-System" class="headerlink" title="Distributed File System"></a>Distributed File System</h2><h3 id="DFS-Goals"><a href="#DFS-Goals" class="headerlink" title="DFS Goals"></a>DFS Goals</h3><ul>
+<li><strong>location transparency</strong></li>
+<li>concurrency(并发性) transparency</li>
+<li><strong>failure transparency</strong></li>
+<li>heterogeneity(异构性)</li>
+<li>scalability(可扩展性)</li>
+</ul>
+<h3 id="DFS-structure"><a href="#DFS-structure" class="headerlink" title="DFS structure"></a>DFS structure</h3><h4 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h4><ul>
+<li>meta server/name node：维护结构，命名<ul>
+<li>data node：负责存储</li>
+<li>data node</li>
+<li>….</li>
+</ul>
+</li>
+</ul>
+<h4 id="File-VS-Chunk"><a href="#File-VS-Chunk" class="headerlink" title="File VS. Chunk"></a>File VS. Chunk</h4><ul>
+<li>对外提供文件名访问</li>
+<li>文件对应chunk的id</li>
+<li>定义replication（冗余）</li>
+<li>整个DFS就是构建映射</li>
+</ul>
+<p>可能的过程</p>
+<ol>
+<li>client请求</li>
+<li>通过协议，client收到block/chunk信息</li>
+<li>client请求要访问的block/chunk</li>
+<li>返回哪些name node的那些地方存在有相应的block/chunk</li>
+<li>client请求name node上的block/chunk</li>
+<li>通过网络（socket）返回文件（流）</li>
+</ol>
+<h4 id="“Rack”-awareness"><a href="#“Rack”-awareness" class="headerlink" title="“Rack” awareness"></a>“Rack” awareness</h4><ul>
+<li>core switch<ul>
+<li>core switch<ul>
+<li>rack switch</li>
+<li>datanode (最容易访问的位置)</li>
+<li>datanode</li>
+<li>…</li>
+</ul>
+</li>
+<li>core switch</li>
+<li>…</li>
+</ul>
+</li>
+</ul>
+<h4 id="Read"><a href="#Read" class="headerlink" title="Read"></a>Read</h4><ul>
+<li>随机读</li>
+<li>并行读</li>
+<li>throughput awareness</li>
+<li>smart client</li>
+</ul>
+<h4 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h4><ul>
+<li>删除映射</li>
+<li>定期垃圾回收</li>
+</ul>
+<h4 id="优点和局限"><a href="#优点和局限" class="headerlink" title="优点和局限"></a>优点和局限</h4><ul>
+<li>fault tolerance, namenode在线热备份</li>
+<li>custom designed(例如，定义chunk，减少访问次数)</li>
+</ul>
+<p>缺点：只在特定的条件下有用。安全机制。</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>FS</th>
+<th>DFS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>organized with a structure</td>
+<td>same as FS</td>
+</tr>
+<tr>
+<td>index+data</td>
+<td>namenode+datanode</td>
+</tr>
+<tr>
+<td>smart FS</td>
+<td>simple DFS+smart client</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>相当于把FS中的“聪明的”工作搬到client上了。</p>
+<h3 id="阅读任务"><a href="#阅读任务" class="headerlink" title="阅读任务"></a>阅读任务</h3><h4 id="DHT（分布式哈希表）"><a href="#DHT（分布式哈希表）" class="headerlink" title="DHT（分布式哈希表）"></a>DHT（分布式哈希表）</h4><h4 id="GFH"><a href="#GFH" class="headerlink" title="GFH"></a>GFH</h4><p>阅读材料。（pipeline， reduplication）</p>
+
+	
+  
+</div>
+
+
+  
+
+
+
+
+</div>
+
+</article>
+
+
+
+
+	</div><!--end of article wrapper-->
+	</div>
+
+
+
+
+
+
+	
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?70a761ba668ab8571ac79968adcf6078";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+
+
+
+
+
+
+<!--
+<script src="https://cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+<script src="/js/script.js"></script>
+
+<!--Back to top-->
+<body id="top">
+<p id="back-to-top"><a href="#top"><span></span></a></p>
+</body>
+
+
+<script>
+$(document).ready(function() {
+    //首先将#back-to-top隐藏
+    $("#back-to-top").hide();
+ 
+    //当滚动条的位置处于距顶部3600像素以下时，跳转链接出现，否则消失
+    $(function() {
+        $(window).scroll(function() {
+            if ($(window).scrollTop() > 3600) {
+                $("#back-to-top").fadeIn(1500);
+            }
+            else {
+                $("#back-to-top").fadeOut(1500);
+            }
+        });
+        //当点击跳转链接后，回到页面顶部位置
+        $("#back-to-top").click(function() {
+            $('body,html').animate({
+                scrollTop: 0
+            },
+            500);
+			
+            return false;
+        });
+    });
+});
+</script>
+
+
+  <script src="/js/languages.js"></script>
+  <script src="/js/calendar.js"></script>
+  <script type="text/javascript">
+  $(function() {
+    $('#calendar').aCalendar('en', $.extend({"months":["January","February","March","April","May","June","July","August","September","October","November","December"],"dayOfWeekShort":["S","M","T","W","T","F","S"],"dayOfWeek":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"postsMonthTip":"Posts published in LMM yyyy","titleFormat":"yyyy LMM","titleLinkFormat":"/archives/yyyy/MM/","headArrows":{"previous":"<span class=\"cal-prev\"></span>","next":"<span class=\"cal-next\"></span>"},"footArrows":{"previous":" ","next":" "},"weekOffset":0,"single":false,"root":"/calendar/","url":"/calendar.json"}, {single:true, root:'calendar/'}));
+  });
+  </script>
+
+
+
+
+</body>
+</html>

@@ -3,6 +3,33 @@
   
     
     <entry>
+      <title>分布式存储</title>
+      <link href="/2018/10/15/distributed-storage/"/>
+      <url>/2018/10/15/distributed-storage/</url>
+      <content type="html"><![CDATA[<h2 id="回顾"><a href="#回顾" class="headerlink" title="回顾"></a>回顾</h2><ul><li><p>基于Linux，“table-like”数据操作</p></li><li><p>命令行操作，正则表达式，awk, sort</p></li><li><p>单机能力不够，推广到多台服务器</p></li><li><p>缺陷：需要有管理者。但是我们希望是异步的。</p><ul><li>使用常驻进程，agent，每隔一段时间执行若干命令</li><li>将以前的controller push变成现在的分布式的pull命令</li></ul></li><li><p>性能分析</p><ul><li>性能瓶颈：IO，计算</li><li>分布式IO和计算</li></ul></li></ul><h2 id="大纲"><a href="#大纲" class="headerlink" title="大纲"></a>大纲</h2><ul><li><p>文件系统</p></li><li><p>布式文件系统</p></li><li><p>GFS 和 HDFS</p></li><li><p>其他方案</p></li></ul><h2 id="Building-Blocks"><a href="#Building-Blocks" class="headerlink" title="Building Blocks"></a>Building Blocks</h2><div class="table-container"><table><thead><tr><th>Type</th><th>Size</th><th>Speed</th></tr></thead><tbody><tr><td>resisters</td><td>thousands of bytes</td><td>1 CPU circle</td></tr><tr><td>Cache</td><td>MB level</td><td>快</td></tr><tr><td>Main memory</td><td>GB level</td><td>一般</td></tr><tr><td>Disk storage</td><td>TB level`</td><td>慢</td></tr></tbody></table></div><h4 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h4><ul><li>write</li><li>read</li><li>append</li><li>delete</li><li>modify</li></ul><h2 id="文件系统"><a href="#文件系统" class="headerlink" title="文件系统"></a>文件系统</h2><h3 id="准测"><a href="#准测" class="headerlink" title="准测"></a>准测</h3><ul><li>能存大量的信息，理论上没有上限</li><li>information must survive the processed using it</li><li>concurrent access to multiple processes</li></ul><h3 id="文件系统解决方案"><a href="#文件系统解决方案" class="headerlink" title="文件系统解决方案"></a>文件系统解决方案</h3><ul><li>storage information on disks in units called files</li><li>files are <strong>persistent（持久化）</strong></li><li>files are managed by the OS</li></ul><h4 id="Naming-命名"><a href="#Naming-命名" class="headerlink" title="Naming 命名"></a>Naming 命名</h4><ul><li><p>创建文件并命名</p></li><li><p>不同OS有不同的规则</p></li></ul><h4 id="Structure-结构"><a href="#Structure-结构" class="headerlink" title="Structure 结构"></a>Structure 结构</h4><ul><li><p>序列结构（遍历），但是Byte Sequence: unstructured</p></li><li><p>复杂的结构：例如树形结构</p><ul><li>变长记录</li><li>OS specific meaning of each file</li></ul></li></ul><h3 id="文件系统的实现"><a href="#文件系统的实现" class="headerlink" title="文件系统的实现"></a>文件系统的实现</h3><p><strong>如何实现文件系统呢？</strong></p><ul><li>包含以下方面<ul><li>volumes/partitions（磁盘规划）</li><li>directories（link filenames to file “structure”)</li><li>list of blocks</li><li>高级需求，例如权限管理等</li></ul></li></ul><h4 id="Structure-to-data"><a href="#Structure-to-data" class="headerlink" title="Structure to data"></a>Structure to data</h4><ul><li>创建文件<ul><li>find space in the filesystem, add directory entry</li></ul></li><li>writing in a file<ul><li>write pointer</li></ul></li><li>reading a file<ul><li>read pointer</li></ul></li></ul><h4 id="Data-layout"><a href="#Data-layout" class="headerlink" title="Data layout"></a>Data layout</h4><ul><li><p>file system is stored on disks</p><ul><li><p>disk is divided into 1 or more partitions</p></li><li><p>sector 0 of disk called Mater Boot Record(MBR)</p></li><li><p>end of MBR has partition table（start &amp; end address of partitions）</p></li></ul></li></ul><h4 id="数据存储"><a href="#数据存储" class="headerlink" title="数据存储"></a>数据存储</h4><ul><li>连续存储：优点，简单，读写性能比较好；缺点，改动效率不高，碎片太多，用户需要知道文件大小。</li><li>Linked List Allocation<ul><li>Each file is stored as linked list of blocks<ul><li>first word of each block points to next block</li><li>rest of disk block is file data</li></ul></li><li>优点<ul><li>只需要维护第一个block信息</li></ul></li><li>缺点<ul><li>随机访问开销大</li><li>overheads of pointers</li></ul></li></ul></li></ul><h5 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h5><ul><li>根据情况使用，永久存储适合连续存储结构</li><li>经常变更：列表结构</li><li>索引结构：一个指针能够指向多个blocks</li></ul><h3 id="Linux-文件系统"><a href="#Linux-文件系统" class="headerlink" title="Linux 文件系统"></a>Linux 文件系统</h3><h4 id="Directory-Tree"><a href="#Directory-Tree" class="headerlink" title="Directory Tree"></a>Directory Tree</h4><ul><li>/<ul><li>bin<ul><li>pwd, cd, ls</li></ul></li><li>sbin: root<ul><li>ifup</li><li>ifconfig</li><li>ifdown</li></ul></li><li>home<ul><li>home directory</li></ul></li><li>var<ul><li>log files</li><li>spools</li></ul></li><li>tmp<ul><li>temp files</li></ul></li><li>root<ul><li>root’s home</li></ul></li><li>usr<ul><li>user program files</li></ul></li><li>opt<ul><li>optional</li></ul></li></ul></li></ul><p><img src="/2018/10/15/distributed-storage/Linux-Directory-Structure.jpeg" alt="linux文件系统"> </p><h2 id="Distributed-File-System"><a href="#Distributed-File-System" class="headerlink" title="Distributed File System"></a>Distributed File System</h2><h3 id="DFS-Goals"><a href="#DFS-Goals" class="headerlink" title="DFS Goals"></a>DFS Goals</h3><ul><li><strong>location transparency</strong></li><li>concurrency(并发性) transparency</li><li><strong>failure transparency</strong></li><li>heterogeneity(异构性)</li><li>scalability(可扩展性)</li></ul><h3 id="DFS-structure"><a href="#DFS-structure" class="headerlink" title="DFS structure"></a>DFS structure</h3><h4 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h4><ul><li>meta server/name node：维护结构，命名<ul><li>data node：负责存储</li><li>data node</li><li>….</li></ul></li></ul><h4 id="File-VS-Chunk"><a href="#File-VS-Chunk" class="headerlink" title="File VS. Chunk"></a>File VS. Chunk</h4><ul><li>对外提供文件名访问</li><li>文件对应chunk的id</li><li>定义replication（冗余）</li><li>整个DFS就是构建映射</li></ul><p>可能的过程</p><ol><li>client请求</li><li>通过协议，client收到block/chunk信息</li><li>client请求要访问的block/chunk</li><li>返回哪些name node的那些地方存在有相应的block/chunk</li><li>client请求name node上的block/chunk</li><li>通过网络（socket）返回文件（流）</li></ol><h4 id="“Rack”-awareness"><a href="#“Rack”-awareness" class="headerlink" title="“Rack” awareness"></a>“Rack” awareness</h4><ul><li>core switch<ul><li>core switch<ul><li>rack switch</li><li>datanode (最容易访问的位置)</li><li>datanode</li><li>…</li></ul></li><li>core switch</li><li>…</li></ul></li></ul><h4 id="Read"><a href="#Read" class="headerlink" title="Read"></a>Read</h4><ul><li>随机读</li><li>并行读</li><li>throughput awareness</li><li>smart client</li></ul><h4 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h4><ul><li>删除映射</li><li>定期垃圾回收</li></ul><h4 id="优点和局限"><a href="#优点和局限" class="headerlink" title="优点和局限"></a>优点和局限</h4><ul><li>fault tolerance, namenode在线热备份</li><li>custom designed(例如，定义chunk，减少访问次数)</li></ul><p>缺点：只在特定的条件下有用。安全机制。</p><div class="table-container"><table><thead><tr><th>FS</th><th>DFS</th></tr></thead><tbody><tr><td>organized with a structure</td><td>same as FS</td></tr><tr><td>index+data</td><td>namenode+datanode</td></tr><tr><td>smart FS</td><td>simple DFS+smart client</td></tr></tbody></table></div><p>相当于把FS中的“聪明的”工作搬到client上了。</p><h3 id="阅读任务"><a href="#阅读任务" class="headerlink" title="阅读任务"></a>阅读任务</h3><h4 id="DHT（分布式哈希表）"><a href="#DHT（分布式哈希表）" class="headerlink" title="DHT（分布式哈希表）"></a>DHT（分布式哈希表）</h4><h4 id="GFH"><a href="#GFH" class="headerlink" title="GFH"></a>GFH</h4><p>阅读材料。（pipeline， reduplication）</p>]]></content>
+      
+      <categories>
+          
+          <category> Data Science </category>
+          
+          <category> Big Data </category>
+          
+          <category> Big Data System </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Linux </tag>
+            
+            <tag> Distributed Storage </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
       <title>线性分类器</title>
       <link href="/2018/10/12/pattern-recognition-ch4/"/>
       <url>/2018/10/12/pattern-recognition-ch4/</url>
@@ -29,7 +56,7 @@
       <title>（汇总）关于Python的若干问题</title>
       <link href="/2018/10/10/misc-pyerrors/"/>
       <url>/2018/10/10/misc-pyerrors/</url>
-      <content type="html"><![CDATA[<p>保存<code>ipython</code>交互式会话内容</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">%save test.py 1-135</span><br></pre></td></tr></table></figure><a id="more"></a>]]></content>
+      <content type="html"><![CDATA[<p>保存<code>ipython</code>交互式会话内容</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">%save test.py 1-xxx</span><br></pre></td></tr></table></figure><p>Ubuntu安装Anaconda后使其生效</p><p>将下面写入<code>.bashrc</code>文件</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">export PATH="~/Anaconda/bin:$PATH"</span><br><span class="line">. /home/&lt;path_to_anaconda&gt;/Anaconda/etc/profile.d/conda.sh</span><br><span class="line">conda activate</span><br></pre></td></tr></table></figure><p>然后使用：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source .bashrc</span><br></pre></td></tr></table></figure><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 基于 python3.6 创建一个名为test_py3 的环境</span></span><br><span class="line">conda create --name py36 python=3.6 </span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 基于 python2.7 创建一个名为test_py2 的环境</span></span><br><span class="line">conda create --name py27 python=2.7</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 激活 <span class="built_in">test</span> 环境</span></span><br><span class="line">activate py36  # windows</span><br><span class="line">source activate py36 # linux/mac</span><br></pre></td></tr></table></figure><p><img src="/2018/10/10/misc-pyerrors/conda-not-found.png" alt="conda not found"></p><p><img src="/2018/10/10/misc-pyerrors/conda-not-found-solve.png" alt="conda-not-found-solve"></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> `<span class="built_in">export</span> PATH=~/Anaconda/bin:<span class="variable">$PATH</span>` &gt;&gt; ~/.bashrc</span><br><span class="line"><span class="built_in">source</span> ~/.bashrc</span><br></pre></td></tr></table></figure><hr><p><img src="/2018/10/10/misc-pyerrors/创建虚拟环境.png" alt=""></p><p><img src="/2018/10/10/misc-pyerrors/激活虚拟环境.png" alt="激活虚拟环境"></p><hr><p>生成<code>requirements.txt</code></p>]]></content>
       
       <categories>
           
@@ -1013,9 +1040,9 @@
       
         <tags>
             
-            <tag> TensorFlow </tag>
-            
             <tag> Tensor </tag>
+            
+            <tag> TensorFlow </tag>
             
         </tags>
       
@@ -1038,9 +1065,9 @@
       
         <tags>
             
-            <tag> TensorFlow </tag>
-            
             <tag> Tensor </tag>
+            
+            <tag> TensorFlow </tag>
             
         </tags>
       
@@ -1109,9 +1136,9 @@
       
         <tags>
             
-            <tag> mnist </tag>
-            
             <tag> TensorFlow </tag>
+            
+            <tag> mnist </tag>
             
         </tags>
       
@@ -1134,9 +1161,9 @@
       
         <tags>
             
-            <tag> mnist </tag>
-            
             <tag> TensorFlow </tag>
+            
+            <tag> mnist </tag>
             
         </tags>
       

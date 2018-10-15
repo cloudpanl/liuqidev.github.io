@@ -2,16 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://www.blankspace.cn/moments/index.html</loc>
+    <loc>https://www.blankspace.cn/2018/10/15/distributed-storage/</loc>
     
-    <lastmod>2018-10-14T23:36:46.260Z</lastmod>
+    <lastmod>2018-10-15T13:39:19.857Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://www.blankspace.cn/2018/10/10/misc-pyerrors/</loc>
     
-    <lastmod>2018-10-14T23:09:57.412Z</lastmod>
+    <lastmod>2018-10-15T11:19:43.623Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.blankspace.cn/moments/index.html</loc>
+    
+    <lastmod>2018-10-14T23:36:46.260Z</lastmod>
     
   </url>
   
@@ -25,7 +32,7 @@
   <url>
     <loc>https://www.blankspace.cn/academic/index.html</loc>
     
-    <lastmod>2018-10-13T15:42:35.425Z</lastmod>
+    <lastmod>2018-10-14T02:10:11.483Z</lastmod>
     
   </url>
   
