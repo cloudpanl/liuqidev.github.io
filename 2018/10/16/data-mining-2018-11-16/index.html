@@ -3,26 +3,20 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Gallery | WizardLQ’s | 魔法师の小茶馆</title>
+  <title>data mining 2018-11-16 | WizardLQ’s | 魔法师の小茶馆</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="A photo gallery example…">
-<meta name="keywords" content="Hexo,Photos">
+  <meta name="description" content="回顾调查设计(统计学上的小例子)  互斥 True/False  云计算 多：浪费；少，数据洪峰 pay as you go 软件，平台，基础infrastructure设施即服务  并行计算串行$\to$并行  aim：快 CPU$\to$GPU 适合图像$\to$通用计算   要有敏感性。 可以适度了解GPU编程。 release vs debug模式 xx实验室，xx公司人均有多少GPU卡">
+<meta name="keywords" content="Data Mining">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Gallery">
-<meta property="og:url" content="https://www.blankspace.cn/2018/08/08/gallery/index.html">
+<meta property="og:title" content="data mining 2018-11-16">
+<meta property="og:url" content="https://www.blankspace.cn/2018/10/16/data-mining-2018-11-16/index.html">
 <meta property="og:site_name" content="WizardLQ’s | 魔法师の小茶馆">
-<meta property="og:description" content="A photo gallery example…">
+<meta property="og:description" content="回顾调查设计(统计学上的小例子)  互斥 True/False  云计算 多：浪费；少，数据洪峰 pay as you go 软件，平台，基础infrastructure设施即服务  并行计算串行$\to$并行  aim：快 CPU$\to$GPU 适合图像$\to$通用计算   要有敏感性。 可以适度了解GPU编程。 release vs debug模式 xx实验室，xx公司人均有多少GPU卡">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="https://www.blankspace.cn/2018/08/08/gallery/images/test-pic-1.jpg">
-<meta property="og:image" content="https://www.blankspace.cn/2018/08/08/gallery/images/test-pic-4.jpg">
-<meta property="og:image" content="https://www.blankspace.cn/2018/08/08/gallery/images/test-pic-5.png">
-<meta property="og:image" content="https://www.blankspace.cn/2018/08/08/gallery/images/test-pic-6.jpg">
-<meta property="og:image" content="https://www.blankspace.cn/2018/08/08/gallery/images/test-pic-7.gif">
-<meta property="og:updated_time" content="2018-08-10T02:53:12.635Z">
+<meta property="og:updated_time" content="2018-10-16T08:37:25.646Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Gallery">
-<meta name="twitter:description" content="A photo gallery example…">
-<meta name="twitter:image" content="https://www.blankspace.cn/2018/08/08/gallery/images/test-pic-1.jpg">
+<meta name="twitter:title" content="data mining 2018-11-16">
+<meta name="twitter:description" content="回顾调查设计(统计学上的小例子)  互斥 True/False  云计算 多：浪费；少，数据洪峰 pay as you go 软件，平台，基础infrastructure设施即服务  并行计算串行$\to$并行  aim：快 CPU$\to$GPU 适合图像$\to$通用计算   要有敏感性。 可以适度了解GPU编程。 release vs debug模式 xx实验室，xx公司人均有多少GPU卡">
 <link rel="publisher" href="112373242775367340000">
   
     <link rel="alternate" href="/atom.xml" title="WizardLQ’s | 魔法师の小茶馆" type="application/atom+xml">
@@ -89,7 +83,7 @@ MathJax.Hub.Queue(function() {
 	<div class="article-wrapper">
 
 
-<article id="post-gallery" class="article article-type-post" itemscope itemprop="blogPost">
+<article id="post-data-mining-2018-11-16" class="article article-type-post" itemscope itemprop="blogPost">
 	
 
 
@@ -97,7 +91,7 @@ MathJax.Hub.Queue(function() {
 
   
     <h1 class="article-title" itemprop="name">
-      Gallery
+      data mining 2018-11-16
     </h1>
   
 
@@ -106,9 +100,11 @@ MathJax.Hub.Queue(function() {
 
  
 	
+		魔法师LQ
+	
 	</hr>
 	<div class="article-datetime">
-	  <time datetime="2018-08-07T16:01:02.000Z" itemprop="datePublished">2018-08-08</time>
+	  <time datetime="2018-10-16T06:05:13.000Z" itemprop="datePublished">2018-10-16</time>
 	</div>
 	<div class="header-divider"></div>	
 
@@ -122,9 +118,63 @@ MathJax.Hub.Queue(function() {
   
 	<!-- Table of Contents -->
 
+	<aside id="article-toc" role="navigation" class="fixed">
+		<div id="article-toc-inner">
+			<strong class="sidebar-title">
+			Contents</strong>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#回顾"><span class="toc-text">回顾</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#云计算"><span class="toc-text">云计算</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#并行计算"><span class="toc-text">并行计算</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#大数据"><span class="toc-text">大数据</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#没有免费的午餐原则"><span class="toc-text">没有免费的午餐原则</span></a></li></ol></li></ol>
+		</div>
+	</aside>
+
 	
 	
-	<p>A photo gallery example…</p>
+	<h2 id="回顾"><a href="#回顾" class="headerlink" title="回顾"></a>回顾</h2><p>调查设计(统计学上的小例子)</p>
+<ul>
+<li>互斥</li>
+<li>True/False</li>
+</ul>
+<h2 id="云计算"><a href="#云计算" class="headerlink" title="云计算"></a>云计算</h2><ul>
+<li>多：浪费；少，数据洪峰</li>
+<li>pay as you go</li>
+<li>软件，平台，基础infrastructure设施即服务</li>
+</ul>
+<h2 id="并行计算"><a href="#并行计算" class="headerlink" title="并行计算"></a>并行计算</h2><p>串行$\to$并行</p>
+<ul>
+<li>aim：快</li>
+<li>CPU$\to$GPU</li>
+<li>适合图像$\to$通用计算</li>
+</ul>
+<blockquote>
+<p>要有敏感性。</p>
+<p>可以适度了解GPU编程。</p>
+<p>release vs debug模式</p>
+<p>xx实验室，xx公司人均有多少GPU卡</p>
+</blockquote>
+<ul>
+<li>“智能”芯片</li>
+<li>嵌入式计算设备：摄像头，MIC，等</li>
+<li>并行也有代价</li>
+<li>并非所有任务都要用并行</li>
+</ul>
+<h2 id="大数据"><a href="#大数据" class="headerlink" title="大数据"></a>大数据</h2><ul>
+<li>MapReduce<ul>
+<li>map: 隐射(放)</li>
+<li>reduce: 规约（收）</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>数据+算法+计算=数据挖掘</p>
+</blockquote>
+<h3 id="没有免费的午餐原则"><a href="#没有免费的午餐原则" class="headerlink" title="没有免费的午餐原则"></a>没有免费的午餐原则</h3><ul>
+<li>没有哪个算法始终是比别的好</li>
+<li>考虑的因素：可解释性，计算复杂度，可用性</li>
+<li>从简单到复杂</li>
+<li>能做什么不能做什么<ul>
+<li>例如，预测股票，彩票</li>
+</ul>
+</li>
+</ul>
 
 	
   
@@ -132,40 +182,6 @@ MathJax.Hub.Queue(function() {
 
 
   
-<div class="row article-gallery">
-  
-    <div class="col-xs-6 col-md-4">
-      <a class="thumbnail image-link" href="/images/test-pic-1.jpg" rel="gallery_cjnbubg28003z0wfiwhsswkmp">
-        <img src="/images/test-pic-1.jpg" itemprop="image">
-      </a>
-    </div>
-  
-    <div class="col-xs-6 col-md-4">
-      <a class="thumbnail image-link" href="/images/test-pic-4.jpg" rel="gallery_cjnbubg28003z0wfiwhsswkmp">
-        <img src="/images/test-pic-4.jpg" itemprop="image">
-      </a>
-    </div>
-  
-    <div class="col-xs-6 col-md-4">
-      <a class="thumbnail image-link" href="/images/test-pic-5.png" rel="gallery_cjnbubg28003z0wfiwhsswkmp">
-        <img src="/images/test-pic-5.png" itemprop="image">
-      </a>
-    </div>
-  
-    <div class="col-xs-6 col-md-4">
-      <a class="thumbnail image-link" href="/images/test-pic-6.jpg" rel="gallery_cjnbubg28003z0wfiwhsswkmp">
-        <img src="/images/test-pic-6.jpg" itemprop="image">
-      </a>
-    </div>
-  
-    <div class="col-xs-6 col-md-4">
-      <a class="thumbnail image-link" href="/images/test-pic-7.gif" rel="gallery_cjnbubg28003z0wfiwhsswkmp">
-        <img src="/images/test-pic-7.gif" itemprop="image">
-      </a>
-    </div>
-  
-</div>
-
 
 
 

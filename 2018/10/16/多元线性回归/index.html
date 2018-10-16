@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>多元线性回归 | WizardLQ’s | 魔法师の小茶馆</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="回顾一元线性回归 多元线性回归多元线性回归的假设n&amp;gt;p， 样本个数要大于自变量的个数 多元线性回归参数的最小二乘估计 x^Tx\hat\beta=x^Ty分情况讨论：  x逆矩阵是否存在：直接带入$\hat\beta=(X^TX)^{-1}X^Ty$，$\hat y=X(X^TX)X^Ty；\hat y=Hy$，H矩阵具有等幂性。 逆矩阵不存在：偏最小二乘估计  奇异矩阵   $\beta$">
+<meta name="keywords" content="Blog">
+<meta property="og:type" content="article">
+<meta property="og:title" content="多元线性回归">
+<meta property="og:url" content="https://www.blankspace.cn/2018/10/16/多元线性回归/index.html">
+<meta property="og:site_name" content="WizardLQ’s | 魔法师の小茶馆">
+<meta property="og:description" content="回顾一元线性回归 多元线性回归多元线性回归的假设n&amp;gt;p， 样本个数要大于自变量的个数 多元线性回归参数的最小二乘估计 x^Tx\hat\beta=x^Ty分情况讨论：  x逆矩阵是否存在：直接带入$\hat\beta=(X^TX)^{-1}X^Ty$，$\hat y=X(X^TX)X^Ty；\hat y=Hy$，H矩阵具有等幂性。 逆矩阵不存在：偏最小二乘估计  奇异矩阵   $\beta$">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2018-10-16T11:21:34.486Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="多元线性回归">
+<meta name="twitter:description" content="回顾一元线性回归 多元线性回归多元线性回归的假设n&amp;gt;p， 样本个数要大于自变量的个数 多元线性回归参数的最小二乘估计 x^Tx\hat\beta=x^Ty分情况讨论：  x逆矩阵是否存在：直接带入$\hat\beta=(X^TX)^{-1}X^Ty$，$\hat y=X(X^TX)X^Ty；\hat y=Hy$，H矩阵具有等幂性。 逆矩阵不存在：偏最小二乘估计  奇异矩阵   $\beta$">
+<link rel="publisher" href="112373242775367340000">
+  
+    <link rel="alternate" href="/atom.xml" title="WizardLQ’s | 魔法师の小茶馆" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/images/icon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+<!--
+<link href="https://cdn.bootcss.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet"><link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
+-->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+<!--
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.slim.min.js"></script>
+-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.slim.min.js"></script>
+
+<!--
+<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+-->
+<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script type="text/javascript" src="//ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.3.min.js"></script>
+
+<link rel="stylesheet" href="/css/styles.css">
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+<!--
+<script src="https://cdn.bootcss.com/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+</head>
+
+<body>
+
+	
+
+	
+	<div class="container">
+	<div class="article-wrapper">
+
+
+<article id="post-多元线性回归" class="article article-type-post" itemscope itemprop="blogPost">
+	
+
+
+<header class="article-header">
+
+  
+    <h1 class="article-title" itemprop="name">
+      多元线性回归
+    </h1>
+  
+
+
+	
+
+ 
+	
+		魔法师LQ
+	
+	</hr>
+	<div class="article-datetime">
+	  <time datetime="2018-10-16T08:38:28.000Z" itemprop="datePublished">2018-10-16</time>
+	</div>
+	<div class="header-divider"></div>	
+
+	   
+
+</header>
+
+<div class="article-inner">
+<div class="article-entry" itemprop="articleBody">
+  
+  
+	<!-- Table of Contents -->
+
+	<aside id="article-toc" role="navigation" class="fixed">
+		<div id="article-toc-inner">
+			<strong class="sidebar-title">
+			Contents</strong>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#回顾"><span class="toc-text">回顾</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#一元线性回归"><span class="toc-text">一元线性回归</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#"><span class="toc-text"> </span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#多元线性回归"><span class="toc-text">多元线性回归</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#多元线性回归的假设"><span class="toc-text">多元线性回归的假设</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#多元线性回归参数的最小二乘估计"><span class="toc-text">多元线性回归参数的最小二乘估计</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#x逆矩阵是否存在：直接带入-hat-beta-X-TX-1-X-Ty-，-hat-y-X-X-TX-X-Ty；-hat-y-Hy-，H矩阵具有等幂性。"><span class="toc-text">x逆矩阵是否存在：直接带入$\hat\beta=(X^TX)^{-1}X^Ty$，$\hat y=X(X^TX)X^Ty；\hat y=Hy$，H矩阵具有等幂性。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#标准化偏回归系数"><span class="toc-text">标准化偏回归系数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#假设检验"><span class="toc-text">假设检验</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#多元回归模型的检验"><span class="toc-text">多元回归模型的检验</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#多重共线性"><span class="toc-text">多重共线性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#多重共线现象"><span class="toc-text">多重共线现象</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#消除"><span class="toc-text">消除</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#变量选择逐步回归"><span class="toc-text">变量选择逐步回归</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#选择方法"><span class="toc-text">选择方法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#全局择优法"><span class="toc-text">全局择优法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#逐步回归"><span class="toc-text">逐步回归</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#岭回归"><span class="toc-text">岭回归</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#岭迹分析"><span class="toc-text">岭迹分析</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#参数k的选择"><span class="toc-text">参数k的选择</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#方差扩大因子"><span class="toc-text">方差扩大因子</span></a></li></ol></li></ol></li></ol></li></ol>
+		</div>
+	</aside>
+
+	
+	
+	<h2 id="回顾"><a href="#回顾" class="headerlink" title="回顾"></a>回顾</h2><h3 id="一元线性回归"><a href="#一元线性回归" class="headerlink" title="一元线性回归"></a>一元线性回归</h3><h3 id=""><a href="#" class="headerlink" title=" "></a> </h3><h3 id="多元线性回归"><a href="#多元线性回归" class="headerlink" title="多元线性回归"></a>多元线性回归</h3><h3 id="多元线性回归的假设"><a href="#多元线性回归的假设" class="headerlink" title="多元线性回归的假设"></a>多元线性回归的假设</h3><p>n&gt;p， 样本个数要大于自变量的个数</p>
+<h3 id="多元线性回归参数的最小二乘估计"><a href="#多元线性回归参数的最小二乘估计" class="headerlink" title="多元线性回归参数的最小二乘估计"></a>多元线性回归参数的最小二乘估计</h3><script type="math/tex; mode=display">
+x^Tx\hat\beta=x^Ty</script><p>分情况讨论：</p>
+<ul>
+<li><h3 id="x逆矩阵是否存在：直接带入-hat-beta-X-TX-1-X-Ty-，-hat-y-X-X-TX-X-Ty；-hat-y-Hy-，H矩阵具有等幂性。"><a href="#x逆矩阵是否存在：直接带入-hat-beta-X-TX-1-X-Ty-，-hat-y-X-X-TX-X-Ty；-hat-y-Hy-，H矩阵具有等幂性。" class="headerlink" title="x逆矩阵是否存在：直接带入$\hat\beta=(X^TX)^{-1}X^Ty$，$\hat y=X(X^TX)X^Ty；\hat y=Hy$，H矩阵具有等幂性。"></a>x逆矩阵是否存在：直接带入$\hat\beta=(X^TX)^{-1}X^Ty$，$\hat y=X(X^TX)X^Ty；\hat y=Hy$，H矩阵具有等幂性。</h3></li>
+<li><p>逆矩阵不存在：偏最小二乘估计</p>
+</li>
+<li><p>奇异矩阵</p>
+</li>
+</ul>
+<p>$\beta$服从正态分布</p>
+<h3 id="标准化偏回归系数"><a href="#标准化偏回归系数" class="headerlink" title="标准化偏回归系数"></a>标准化偏回归系数</h3><p>不能直接由偏回归系数大小对于因变量线性影响的大小，需要计算标准化偏回归系数，即标准化偏回归系数。</p>
+<p>推导过程</p>
+<blockquote>
+<p> 在解释的时候还是保留非标准化的的回归系数</p>
+</blockquote>
+<h3 id="假设检验"><a href="#假设检验" class="headerlink" title="假设检验"></a>假设检验</h3><h4 id="多元回归模型的检验"><a href="#多元回归模型的检验" class="headerlink" title="多元回归模型的检验"></a>多元回归模型的检验</h4><ul>
+<li>t检验</li>
+<li>F检验，p值</li>
+<li>矛盾，整体通过，单个不通过</li>
+</ul>
+<h4 id="多重共线性"><a href="#多重共线性" class="headerlink" title="多重共线性"></a>多重共线性</h4><p>自变量之间存在多重共线性</p>
+<ul>
+<li>产生原因</li>
+<li>问题：<ul>
+<li>参数估计不稳定</li>
+<li>回归结果不稳定</li>
+</ul>
+</li>
+<li>识别：<ul>
+<li>计算各对自变量之间的相关系数</li>
+<li>特征值判别</li>
+</ul>
+</li>
+</ul>
+<h4 id="多重共线现象"><a href="#多重共线现象" class="headerlink" title="多重共线现象"></a>多重共线现象</h4><p>相关性的假设检验</p>
+<ol>
+<li>特征根分析</li>
+<li>条件数condition index</li>
+</ol>
+<h5 id="消除"><a href="#消除" class="headerlink" title="消除"></a>消除</h5><ol>
+<li>变量筛选</li>
+<li>增大样本容量</li>
+<li>回归系数的有偏估计：岭回归，主成分分析，偏最小二乘</li>
+</ol>
+<blockquote>
+<p>虽然均值不是无偏的，但是方差比较小，分布比较集中，则可能比无偏估计效果更好</p>
+</blockquote>
+<a id="more"></a>
+<h2 id="变量选择逐步回归"><a href="#变量选择逐步回归" class="headerlink" title="变量选择逐步回归"></a>变量选择逐步回归</h2><h3 id="选择方法"><a href="#选择方法" class="headerlink" title="选择方法"></a>选择方法</h3><h4 id="全局择优法"><a href="#全局择优法" class="headerlink" title="全局择优法"></a>全局择优法</h4><ul>
+<li>在残差平方和RSS上添加惩罚项</li>
+<li>$C_p$准则</li>
+<li>AIC准则&amp;BIC准则：评判指标，取值越小越好</li>
+</ul>
+<p>缺点</p>
+<ul>
+<li>组合爆炸</li>
+</ul>
+<h4 id="逐步回归"><a href="#逐步回归" class="headerlink" title="逐步回归"></a>逐步回归</h4><p>向前引入，向后剔除，逐步回归法</p>
+<p>引入和剔除都是单向的。比较早剔除的变量在之后加入可能更好。</p>
+<p>逐步回归，搜索空间加大。</p>
+<h2 id="岭回归"><a href="#岭回归" class="headerlink" title="岭回归"></a>岭回归</h2><p>接近奇异，加入K指，使得接近奇异的程度减小。K=0时候，就是最小二乘法。</p>
+<p>通过分析岭迹曲线选择K值。</p>
+<p><strong>性质</strong>：</p>
+<ol>
+<li>性质1：有偏估计</li>
+<li>…</li>
+<li>…</li>
+<li>…</li>
+</ol>
+<h4 id="岭迹分析"><a href="#岭迹分析" class="headerlink" title="岭迹分析"></a>岭迹分析</h4><p>用来解释自变量间的相关关系。</p>
+<h4 id="参数k的选择"><a href="#参数k的选择" class="headerlink" title="参数k的选择"></a>参数k的选择</h4><h5 id="方差扩大因子"><a href="#方差扩大因子" class="headerlink" title="方差扩大因子"></a>方差扩大因子</h5><p>残差平方和来确定k</p>
+<blockquote>
+<p>k值得选择有一些人为的因素在其中。</p>
+</blockquote>
+
+	
+  
+</div>
+
+
+  
+
+
+
+
+</div>
+
+</article>
+
+
+
+
+	</div><!--end of article wrapper-->
+	</div>
+
+
+
+
+
+
+	
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?70a761ba668ab8571ac79968adcf6078";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+
+
+
+
+
+
+<!--
+<script src="https://cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+<script src="/js/script.js"></script>
+
+<!--Back to top-->
+<body id="top">
+<p id="back-to-top"><a href="#top"><span></span></a></p>
+</body>
+
+
+<script>
+$(document).ready(function() {
+    //首先将#back-to-top隐藏
+    $("#back-to-top").hide();
+ 
+    //当滚动条的位置处于距顶部3600像素以下时，跳转链接出现，否则消失
+    $(function() {
+        $(window).scroll(function() {
+            if ($(window).scrollTop() > 3600) {
+                $("#back-to-top").fadeIn(1500);
+            }
+            else {
+                $("#back-to-top").fadeOut(1500);
+            }
+        });
+        //当点击跳转链接后，回到页面顶部位置
+        $("#back-to-top").click(function() {
+            $('body,html').animate({
+                scrollTop: 0
+            },
+            500);
+			
+            return false;
+        });
+    });
+});
+</script>
+
+
+  <script src="/js/languages.js"></script>
+  <script src="/js/calendar.js"></script>
+  <script type="text/javascript">
+  $(function() {
+    $('#calendar').aCalendar('en', $.extend({"months":["January","February","March","April","May","June","July","August","September","October","November","December"],"dayOfWeekShort":["S","M","T","W","T","F","S"],"dayOfWeek":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"postsMonthTip":"Posts published in LMM yyyy","titleFormat":"yyyy LMM","titleLinkFormat":"/archives/yyyy/MM/","headArrows":{"previous":"<span class=\"cal-prev\"></span>","next":"<span class=\"cal-next\"></span>"},"footArrows":{"previous":" ","next":" "},"weekOffset":0,"single":false,"root":"/calendar/","url":"/calendar.json"}, {single:true, root:'calendar/'}));
+  });
+  </script>
+
+
+
+
+</body>
+</html>
