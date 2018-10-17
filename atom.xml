@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.blankspace.cn/"/>
-  <updated>2018-10-16T11:21:34.486Z</updated>
+  <updated>2018-10-17T09:01:00.293Z</updated>
   <id>https://www.blankspace.cn/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>R介绍</title>
+    <link href="https://www.blankspace.cn/2018/10/17/R%E4%BB%8B%E7%BB%8D/"/>
+    <id>https://www.blankspace.cn/2018/10/17/R介绍/</id>
+    <published>2018-10-17T06:07:01.000Z</published>
+    <updated>2018-10-17T09:01:00.293Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="FAQ"><a href="#FAQ" class="headerlink" title="FAQ"></a>FAQ</h2><blockquote><p>Warning in system(“sh ./configure.win”) : ‘sh’ not found ERROR: configuration failed for package ‘stringi’</p></blockquote><p>Windows下安装<code>swirl</code>（一个统计学习，R学习等教程学习的R包，<a href="https://swirlstats.com/" target="_blank" rel="noopener">访问</a>），发现一个依赖的包<code>stringi</code>一直装不上去，后来查明是stringi的包版本过低，和最新版的R以及Rsutdio不匹配所致，所以去<a href="https://cran.r-project.org/web/packages/stringi/index.html，选择下载合适的新版本的stringi包（我下载的是windows，r-release" target="_blank" rel="noopener">https://cran.r-project.org/web/packages/stringi/index.html，选择下载合适的新版本的stringi包（我下载的是windows，r-release</a>:  stringi_1.1.7，<a href="https://cran.r-project.org/bin/windows/contrib/3.5/stringi_1.1.7.zip" target="_blank" rel="noopener">适合R3.5使用Windows版</a>），并解压到<code>R\R-3.5.1\library</code>下。</p><a id="more"></a>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;FAQ&quot;&gt;&lt;a href=&quot;#FAQ&quot; class=&quot;headerlink&quot; title=&quot;FAQ&quot;&gt;&lt;/a&gt;FAQ&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;Warning in system(“sh ./configure.win”) : ‘sh’ not found ERROR: configuration failed for package ‘stringi’&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Windows下安装&lt;code&gt;swirl&lt;/code&gt;（一个统计学习，R学习等教程学习的R包，&lt;a href=&quot;https://swirlstats.com/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;访问&lt;/a&gt;），发现一个依赖的包&lt;code&gt;stringi&lt;/code&gt;一直装不上去，后来查明是stringi的包版本过低，和最新版的R以及Rsutdio不匹配所致，所以去&lt;a href=&quot;https://cran.r-project.org/web/packages/stringi/index.html，选择下载合适的新版本的stringi包（我下载的是windows，r-release&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://cran.r-project.org/web/packages/stringi/index.html，选择下载合适的新版本的stringi包（我下载的是windows，r-release&lt;/a&gt;:  stringi_1.1.7，&lt;a href=&quot;https://cran.r-project.org/bin/windows/contrib/3.5/stringi_1.1.7.zip&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;适合R3.5使用Windows版&lt;/a&gt;），并解压到&lt;code&gt;R\R-3.5.1\library&lt;/code&gt;下。&lt;/p&gt;
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>多元线性回归</title>
@@ -751,35 +772,6 @@ E(X)=\operatorname*{argmin}_{x_i \in X} \Vert x_i - C \Vert_2&lt;/script&gt;&lt;
     
     
       <category term="H2O" scheme="https://www.blankspace.cn/tags/H2O/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>聚类、回归等数据挖掘问题简介</title>
-    <link href="https://www.blankspace.cn/2018/09/19/data-mining-ch01-s02/"/>
-    <id>https://www.blankspace.cn/2018/09/19/data-mining-ch01-s02/</id>
-    <published>2018-09-19T14:12:43.000Z</published>
-    <updated>2018-09-20T08:16:42.661Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="聚类（Clustering）"><a href="#聚类（Clustering）" class="headerlink" title="聚类（Clustering）"></a>聚类（Clustering）</h2><h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><p>将观察到无标记项集合划分成若干子集（subsets成为clusters簇）,同一个簇中的项具有相似性。</p><blockquote><p> Clustering is the assignment of a set of observations into subsets (called clusters) so that observations in the same cluster are similar in some sense.</p></blockquote><h3 id="距离度量（Distance-Metrics）"><a href="#距离度量（Distance-Metrics）" class="headerlink" title="距离度量（Distance Metrics）"></a>距离度量（Distance Metrics）</h3><ul><li>欧氏距离（Euclidean Distance）</li><li>曼哈顿距离（Manhattan Distance）</li><li>马氏距离（Mahalanobis Distance）</li><li>…</li></ul><h3 id="层次聚类"><a href="#层次聚类" class="headerlink" title="层次聚类"></a>层次聚类</h3><p>分层分组</p><h3 id="关联分析"><a href="#关联分析" class="headerlink" title="关联分析"></a>关联分析</h3><h2 id="回归"><a href="#回归" class="headerlink" title="回归"></a>回归</h2><p>线性回归，线性是参数和变量之间是线性的。</p><h3 id="过拟合"><a href="#过拟合" class="headerlink" title="过拟合"></a>过拟合</h3><h2 id="可视化"><a href="#可视化" class="headerlink" title="可视化"></a>可视化</h2><p>可解释性</p><h2 id="数据预处理"><a href="#数据预处理" class="headerlink" title="数据预处理"></a>数据预处理</h2><p>忌讳“GIGO”，Garbage In Garbage Out。</p><p>“脏”数据：</p><ul><li>属性缺失（Missing Attribute Values）</li><li>不一致（Inconsistent Data）</li><li>不可行（Infeasible Values）</li><li>异常值（离群点，Outliers）</li><li>…</li></ul><p>所以要进行数据清洗：</p><ul><li>完备</li><li>准确</li><li>可解释</li><li>…</li></ul><p>处理：</p><ul><li>标准化</li><li>类型转化</li><li>…</li></ul><h2 id="隐私保护数据分析"><a href="#隐私保护数据分析" class="headerlink" title="隐私保护数据分析"></a>隐私保护数据分析</h2><p>举例：敏感问题问卷分析</p><h2 id="云"><a href="#云" class="headerlink" title="云"></a>云</h2><ul><li>Pay As You Go.（弹性计算）</li><li>计算就是资源。</li><li>SaaS（Software as a Service）</li></ul><h2 id="并行计算"><a href="#并行计算" class="headerlink" title="并行计算"></a>并行计算</h2><ul><li>GPU</li><li>运算集群</li><li>…</li></ul><h2 id="数据挖掘-大数据-算法-算力"><a href="#数据挖掘-大数据-算法-算力" class="headerlink" title="数据挖掘==大数据+算法+算力"></a>数据挖掘==大数据+算法+算力</h2><h3 id="“三驾马车”"><a href="#“三驾马车”" class="headerlink" title="“三驾马车”"></a>“三驾马车”</h3><div class="bs-callout bs-callout-info"><p>季向阳教授：三驾马车——数据，算法，算力。</p></div><h3 id="没有免费午餐"><a href="#没有免费午餐" class="headerlink" title="没有免费午餐"></a>没有免费午餐</h3><ul><li>针对具体问题采用合适的算法</li><li>阿卡姆剃刀</li></ul><h2 id="数据挖掘的“陷阱”"><a href="#数据挖掘的“陷阱”" class="headerlink" title="数据挖掘的“陷阱”"></a>数据挖掘的“陷阱”</h2><ul><li>幸存者偏差</li><li>数据本身的随机性</li><li>相关并不代表因果</li><li>宏观和微观</li><li>…</li></ul>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;聚类（Clustering）&quot;&gt;&lt;a href=&quot;#聚类（Clustering）&quot; class=&quot;headerlink&quot; title=&quot;聚类（Clustering）&quot;&gt;&lt;/a&gt;聚类（Clustering）&lt;/h2&gt;&lt;h3 id=&quot;概念&quot;&gt;&lt;a href=&quot;#概念&quot;
-      
-    
-    </summary>
-    
-      <category term="Data Science" scheme="https://www.blankspace.cn/categories/Data-Science/"/>
-    
-      <category term="Data Mining" scheme="https://www.blankspace.cn/categories/Data-Science/Data-Mining/"/>
-    
-    
-      <category term="Unsupervised Learning" scheme="https://www.blankspace.cn/tags/Unsupervised-Learning/"/>
-    
-      <category term="Clustering" scheme="https://www.blankspace.cn/tags/Clustering/"/>
     
   </entry>
   

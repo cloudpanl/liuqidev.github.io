@@ -3,6 +3,15 @@
   
     
     <entry>
+      <title>R介绍</title>
+      <link href="/2018/10/17/R%E4%BB%8B%E7%BB%8D/"/>
+      <url>/2018/10/17/R%E4%BB%8B%E7%BB%8D/</url>
+      <content type="html"><![CDATA[<h2 id="FAQ"><a href="#FAQ" class="headerlink" title="FAQ"></a>FAQ</h2><blockquote><p>Warning in system(“sh ./configure.win”) : ‘sh’ not found ERROR: configuration failed for package ‘stringi’</p></blockquote><p>Windows下安装<code>swirl</code>（一个统计学习，R学习等教程学习的R包，<a href="https://swirlstats.com/" target="_blank" rel="noopener">访问</a>），发现一个依赖的包<code>stringi</code>一直装不上去，后来查明是stringi的包版本过低，和最新版的R以及Rsutdio不匹配所致，所以去<a href="https://cran.r-project.org/web/packages/stringi/index.html，选择下载合适的新版本的stringi包（我下载的是windows，r-release" target="_blank" rel="noopener">https://cran.r-project.org/web/packages/stringi/index.html，选择下载合适的新版本的stringi包（我下载的是windows，r-release</a>:  stringi_1.1.7，<a href="https://cran.r-project.org/bin/windows/contrib/3.5/stringi_1.1.7.zip" target="_blank" rel="noopener">适合R3.5使用Windows版</a>），并解压到<code>R\R-3.5.1\library</code>下。</p><a id="more"></a>]]></content>
+      
+      
+    </entry>
+    
+    <entry>
       <title>多元线性回归</title>
       <link href="/2018/10/16/%E5%A4%9A%E5%85%83%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/"/>
       <url>/2018/10/16/%E5%A4%9A%E5%85%83%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/</url>
@@ -1072,9 +1081,9 @@
       
         <tags>
             
-            <tag> Tensor </tag>
-            
             <tag> TensorFlow </tag>
+            
+            <tag> Tensor </tag>
             
         </tags>
       
@@ -1097,9 +1106,9 @@
       
         <tags>
             
-            <tag> Tensor </tag>
-            
             <tag> TensorFlow </tag>
+            
+            <tag> Tensor </tag>
             
         </tags>
       
@@ -1168,9 +1177,9 @@
       
         <tags>
             
-            <tag> TensorFlow </tag>
-            
             <tag> mnist </tag>
+            
+            <tag> TensorFlow </tag>
             
         </tags>
       
@@ -1193,9 +1202,9 @@
       
         <tags>
             
-            <tag> TensorFlow </tag>
-            
             <tag> mnist </tag>
+            
+            <tag> TensorFlow </tag>
             
         </tags>
       
