@@ -5,18 +5,18 @@
   
   <title>方差分析 | WizardLQ’s | 魔法师の小茶馆</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="[TOC] 方差分析引论相关术语 定义1：检验多个总体均值是否相等的统计方法，成为方差分析（analysis of variance, ANOVA）。也叫F检验（F test）。 对象：分类型自变量对数值型自变量的影响。 作用：自变量之间有没有关系，关系的强度如何。显著性。 举例1：Head Movement Example: neural talking,  expressive movemen">
+  <meta name="description" content="方差分析引论相关术语 定义1：检验多个总体均值是否相等的统计方法，成为方差分析（analysis of variance, ANOVA）。也叫F检验（F test）。 对象：分类型自变量对数值型自变量的影响。 作用：自变量之间有没有关系，关系的强度如何。显著性。 举例1：Head Movement Example: neural talking,  expressive movement, ran">
 <meta name="keywords" content="Statistics,ANOVA">
 <meta property="og:type" content="article">
 <meta property="og:title" content="方差分析">
 <meta property="og:url" content="https://www.blankspace.cn/2018/10/19/方差分析/index.html">
 <meta property="og:site_name" content="WizardLQ’s | 魔法师の小茶馆">
-<meta property="og:description" content="[TOC] 方差分析引论相关术语 定义1：检验多个总体均值是否相等的统计方法，成为方差分析（analysis of variance, ANOVA）。也叫F检验（F test）。 对象：分类型自变量对数值型自变量的影响。 作用：自变量之间有没有关系，关系的强度如何。显著性。 举例1：Head Movement Example: neural talking,  expressive movemen">
+<meta property="og:description" content="方差分析引论相关术语 定义1：检验多个总体均值是否相等的统计方法，成为方差分析（analysis of variance, ANOVA）。也叫F检验（F test）。 对象：分类型自变量对数值型自变量的影响。 作用：自变量之间有没有关系，关系的强度如何。显著性。 举例1：Head Movement Example: neural talking,  expressive movement, ran">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-10-20T05:09:03.386Z">
+<meta property="og:updated_time" content="2018-10-21T11:55:35.218Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="方差分析">
-<meta name="twitter:description" content="[TOC] 方差分析引论相关术语 定义1：检验多个总体均值是否相等的统计方法，成为方差分析（analysis of variance, ANOVA）。也叫F检验（F test）。 对象：分类型自变量对数值型自变量的影响。 作用：自变量之间有没有关系，关系的强度如何。显著性。 举例1：Head Movement Example: neural talking,  expressive movemen">
+<meta name="twitter:description" content="方差分析引论相关术语 定义1：检验多个总体均值是否相等的统计方法，成为方差分析（analysis of variance, ANOVA）。也叫F检验（F test）。 对象：分类型自变量对数值型自变量的影响。 作用：自变量之间有没有关系，关系的强度如何。显著性。 举例1：Head Movement Example: neural talking,  expressive movement, ran">
 <link rel="publisher" href="112373242775367340000">
   
     <link rel="alternate" href="/atom.xml" title="WizardLQ’s | 魔法师の小茶馆" type="application/atom+xml">
@@ -120,16 +120,15 @@ MathJax.Hub.Queue(function() {
 
 	<aside id="article-toc" role="navigation" class="fixed">
 		<div id="article-toc-inner">
-			<strong class="sidebar-title">
-			Contents</strong>
+			<h2 class="sidebar-title">
+			目录</h2>
 			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#方差分析引论"><span class="toc-text">方差分析引论</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#相关术语"><span class="toc-text">相关术语</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#基本思想和原理"><span class="toc-text">基本思想和原理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#误差分解"><span class="toc-text">误差分解</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#方差分析，虽然感兴趣的是均值，但是在判断均值之间是否有差异要借助方差。通过数据误差来源的分析来判断不同总体之间的均值是否相等。"><span class="toc-text">方差分析，虽然感兴趣的是均值，但是在判断均值之间是否有差异要借助方差。通过数据误差来源的分析来判断不同总体之间的均值是否相等。</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#误差分析"><span class="toc-text">误差分析</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#单因素方差分析"><span class="toc-text">单因素方差分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#双因素方差分析"><span class="toc-text">双因素方差分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#无交互双因素方差分析"><span class="toc-text">无交互双因素方差分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#有交互双因素方差分析"><span class="toc-text">有交互双因素方差分析</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Z-t-F-统计量"><span class="toc-text">Z-, t-, F-统计量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#后处理（Post-Hoc-Test）"><span class="toc-text">后处理（Post-Hoc Test）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#大纲"><span class="toc-text">大纲</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Bonferroni"><span class="toc-text">Bonferroni</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Tukey"><span class="toc-text">Tukey</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Scheffe"><span class="toc-text">Scheffe</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Holm-and-Hochberg"><span class="toc-text">Holm and Hochberg</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#"><span class="toc-text"> </span></a></li></ol></li></ol></li></ol>
 		</div>
 	</aside>
 
 	
 	
-	<p>[TOC]</p>
-<h2 id="方差分析引论"><a href="#方差分析引论" class="headerlink" title="方差分析引论"></a>方差分析引论</h2><h3 id="相关术语"><a href="#相关术语" class="headerlink" title="相关术语"></a>相关术语</h3><ul>
+	<h2 id="方差分析引论"><a href="#方差分析引论" class="headerlink" title="方差分析引论"></a>方差分析引论</h2><h3 id="相关术语"><a href="#相关术语" class="headerlink" title="相关术语"></a>相关术语</h3><ul>
 <li>定义1：检验多个总体均值是否相等的统计方法，成为方差分析（analysis of variance, ANOVA）。也叫F检验（F test）。<ul>
 <li>对象：分类型自变量对数值型自变量的影响。</li>
 <li>作用：自变量之间有没有关系，关系的强度如何。显著性。</li>
